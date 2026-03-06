@@ -1,0 +1,489 @@
+/* assets/css/footer.css */
+/* ORIENT YEMEN - Footer */
+
+.oy-footer {
+  background: var(--oy-color-navy);
+  color: var(--oy-color-white);
+  padding-top: 0;
+
+  
+  padding-bottom: 0;
+
+  padding-inline: var(--oy-page-pad-x);
+
+  
+  overflow-x: hidden;
+}
+
+.oy-footer__inner {
+  max-width: var(--oy-container-max);
+  margin: 0 auto;
+
+  
+  display: grid;
+  grid-template-rows: 1fr auto 1fr auto auto; /* space | top | space | divider | bottom */
+  row-gap: 18px;
+
+  width: 100%;
+
+  
+  min-height: clamp(260px, 30vh, 420px);
+}
+
+.oy-footer__top {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(0, 190px)
+    minmax(0, 190px)
+    minmax(0, 392px);
+  gap: 48px;
+  align-items: start;
+
+  
+  grid-row: 2;
+  margin: 0;
+}
+
+.oy-footer__top > * {
+  min-width: 0;
+}
+
+.oy-footer__left {
+  display: contents;
+}
+
+.oy-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.oy-footer__heading {
+  color: var(--oy-color-white);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.oy-footer__heading--center {
+  text-align: center;
+}
+
+.oy-footer__centered {
+  align-items: center;
+}
+
+.oy-footer__heading + .oy-footer__list,
+.oy-footer__heading + .oy-footer__socials {
+  margin-top: 12px;
+}
+
+.oy-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #F1F1F3;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+.oy-footer__list--center {
+  text-align: center;
+  align-items: center;
+}
+
+.oy-footer__link {
+  color: #F1F1F3;
+  text-decoration: none;
+  transition: opacity .15s ease;
+}
+
+.oy-footer__link:hover {
+  opacity: 0.9;
+}
+
+.oy-footer__socials {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ==========================================
+   Social buttons: Card + hover like cards
+   ========================================== */
+.oy-footer__social-btn {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #F7F7F8;
+  border-radius: 12px;
+  box-shadow: -15px 10px 11px rgba(124, 127, 131, 0.14);
+  outline: 1px #F1F1F3 solid;
+  outline-offset: -1px;
+
+  color: var(--oy-color-primary);
+  text-decoration: none;
+
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+}
+
+.oy-footer__social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: -18px 14px 16px rgba(124, 127, 131, 0.18);
+  background: var(--oy-color-primary);
+  color: var(--oy-color-white);
+}
+
+.oy-footer__social-btn i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.oy-footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.oy-footer__brand {
+  display: flex;
+  align-items: center;
+}
+
+.oy-footer__logo {
+  height: 62px;
+  width: auto;
+  display: block;
+}
+
+.oy-footer__contact {
+  width: 100%;
+  max-width: 392px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ==========================================
+   Contact items: Card + hover like cards
+   ========================================== */
+.oy-footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-radius: 6px;
+}
+
+.oy-footer__contact-icon {
+  color: var(--oy-color-primary);
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+  transition: color .18s ease;
+}
+
+.oy-footer__contact-item:hover .oy-footer__contact-icon {
+  color: var(--oy-color-white);
+}
+
+.oy-footer__contact-label,
+.oy-footer__contact-sep,
+.oy-footer__contact-value {
+  color: var(--oy-color-white);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.oy-footer__contact-item:hover .oy-footer__contact-label,
+.oy-footer__contact-item:hover .oy-footer__contact-sep,
+.oy-footer__contact-item:hover .oy-footer__contact-value {
+  color: var(--oy-color-white);
+}
+
+.oy-footer__contact-value {
+  text-decoration: none;
+  opacity: 0.98;
+  word-break: break-word;
+  text-align: start;
+}
+
+.oy-footer__contact-value:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.oy-footer__divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(241, 241, 243, 0.35);
+  opacity: 1;
+
+  
+  grid-row: 4;
+  margin: 0;
+}
+
+.oy-footer__bottom {
+  color: var(--oy-color-white);
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+
+  background: var(--oy-color-primary);
+
+  margin-top: -18px;
+  padding-top: calc(10px + 18px);
+  padding-bottom: 16px;
+
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  padding-inline: var(--oy-page-pad-x);
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: start;
+
+  
+  grid-row: 5;
+}
+
+.oy-footer__bottom-link {
+  color: var(--oy-color-white);
+  text-decoration: none;
+}
+
+.oy-footer__bottom-link:hover {
+  color: var(--oy-color-white);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .oy-footer__bottom {
+    margin-top: -14px;
+    padding-top: calc(10px + 14px);
+    padding-bottom: 14px;
+
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .oy-footer__top {
+    grid-template-columns: 1.2fr 1fr 1fr 1.3fr;
+    gap: 28px;
+  }
+
+  .oy-footer__contact {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .oy-footer__top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    grid-template-areas:
+      "contact contact"
+      "quick locations"
+      "social social";
+  }
+
+  #contact { grid-area: contact; }
+  .oy-footer__quick { grid-area: quick; }
+  .oy-footer__locations { grid-area: locations; }
+  .oy-footer__right { grid-area: social; }
+
+  .oy-footer__right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .oy-footer__brand {
+    justify-content: center;
+  }
+
+  .oy-footer__contact {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    align-items: center;
+  }
+
+  .oy-footer__contact-item {
+    justify-content: center;
+  }
+
+  .oy-footer__contact-value {
+    text-align: center;
+  }
+
+  .oy-footer__socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .oy-footer {
+    padding-top: 0;     
+    padding-bottom: 0;
+  }
+
+  .oy-footer__inner {
+    row-gap: 14px;      
+    min-height: auto;   
+  }
+
+  .oy-footer__bottom {
+    margin-top: -14px;
+    padding-top: calc(10px + 14px);
+    padding-bottom: 14px;
+  }
+
+  .oy-footer__top {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    justify-items: center;
+    text-align: center;
+    grid-template-areas:
+      "contact"
+      "quick"
+      "locations"
+      "social";
+  }
+
+  #contact { grid-area: contact; }
+  .oy-footer__quick { grid-area: quick; }
+  .oy-footer__locations { grid-area: locations; }
+  .oy-footer__right { grid-area: social; }
+
+  .oy-footer__right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .oy-footer__contact {
+    max-width: 92vw;
+    align-items: center;
+  }
+
+  .oy-footer__contact-item {
+    justify-content: center;
+  }
+
+  .oy-footer__contact-value {
+    text-align: center;
+  }
+
+  .oy-footer__socials {
+    justify-content: center;
+  }
+
+  .oy-footer__top #contact,
+  .oy-footer__top .oy-footer__quick,
+  .oy-footer__top .oy-footer__locations,
+  .oy-footer__top .oy-footer__right {
+    width: 60%;
+    border-top: 1px solid rgba(241, 241, 243, 0.18);
+    padding-top: 18px;
+  }
+
+  .oy-footer__top #contact {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .oy-footer__contact-item,
+  .oy-footer__social-btn {
+    transition: none !important;
+  }
+
+  .oy-footer__contact-item:hover,
+  .oy-footer__social-btn:hover {
+    transform: none !important;
+  }
+}
+/* =========================================================
+   FIX: Make footer top align exactly like header (RTL/LTR)
+   - same start/end as header
+   - 4 equal columns
+   - outer columns pinned to edges (not centered)
+   ========================================================= */
+
+/* مهم: لا تخلي padding على .oy-footer نفسه */
+.oy-footer {
+  padding-inline: 0 !important;
+}
+
+/* نفس حدود الهيدر تماماً */
+.oy-footer__inner {
+  padding-inline: var(--oy-page-pad-x) !important;
+
+  /* يقتل أي max-width/margin قديم */
+  max-width: none !important;
+  margin: 0 !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 4 أعمدة متساوية + gap مرن */
+.oy-footer__top {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2.4vw, 48px) !important;
+  width: 100% !important;
+}
+
+/* العمود الأول (#contact) يثبت على الـ Start (يمين في RTL) */
+.oy-footer__top > #contact {
+  justify-self: start !important;
+  text-align: start !important;
+}
+
+/* العمود الأخير (السوشال) يثبت على الـ End (يسار في RTL) */
+.oy-footer__top > .oy-footer__right {
+  justify-self: end !important;
+  text-align: end !important;
+  align-items: flex-end !important; /* لأن .oy-footer__right flex */
+}
+
+/* الغِ التمركز في عنوان/أيقونات السوشال داخل العمود الأخير */
+.oy-footer__top > .oy-footer__right .oy-footer__heading {
+  text-align: end !important;
+}
+
+.oy-footer__top > .oy-footer__right .oy-footer__socials {
+  justify-content: flex-end !important; /* في RTL يعني يروح لليسار */
+}
+
+/* الوسط يظل متوسط (اختياري لكن يساعد على الثبات) */
+.oy-footer__top > .oy-footer__quick,
+.oy-footer__top > .oy-footer__locations {
+  justify-self: center !important;
+}
+

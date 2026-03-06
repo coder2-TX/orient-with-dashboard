@@ -1,0 +1,40 @@
+/* assets/css/pages/partners/section3-overrides.css */
+/* Overrides for partners page ONLY (keep section5.css as-is) */
+
+/* 1) Change the split background top color to PRIMARY (orange) */
+#why-partners.oy-method {
+  background: linear-gradient(
+    to bottom,
+    var(--oy-color-primary) 0%,
+    var(--oy-color-primary) var(--oy-method-split),
+    var(--oy-color-white) var(--oy-method-split),
+    var(--oy-color-white) 100%
+  );
+}
+
+/* 2) Change the title icon pattern to BLUE version */
+#why-partners .oy-method__title--white-icon .oy-section__title-icon {
+  background-image: url("../../../images/patterns/from-logo-blue.svg");
+}
+
+/* 3) Cards hover background: NAVY instead of PRIMARY */
+#why-partners .oy-method-card:hover {
+  background: var(--oy-color-navy);
+}
+
+/* 4) Cards icon color: NAVY instead of PRIMARY (default state) */
+#why-partners .oy-method-card__icon {
+  color: var(--oy-color-navy);
+}
+
+/* 5) Card titles: PRIMARY instead of NAVY (default state) */
+#why-partners .oy-method-card__title {
+  color: var(--oy-color-primary);
+}
+
+/* Keep hover colors white (same behavior as original) */
+#why-partners .oy-method-card:hover .oy-method-card__icon,
+#why-partners .oy-method-card:hover .oy-method-card__title,
+#why-partners .oy-method-card:hover .oy-method-card__desc {
+  color: var(--oy-color-white);
+}

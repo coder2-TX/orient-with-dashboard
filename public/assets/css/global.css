@@ -1,0 +1,30 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--oy-color-white, #ffffff);
+  color: var(--oy-color-navy, #111827);
+  font-family: var(--oy-font-base, system-ui, -apple-system, Segoe UI, Roboto, Arial);
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  max-width: 100%;
+}
+
+a, p, li, span, div {
+  overflow-wrap: anywhere;
+}

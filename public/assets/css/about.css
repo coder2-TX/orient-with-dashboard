@@ -1,0 +1,118 @@
+.oy-section {
+  padding-block: var(--oy-section-pad-y);
+  padding-inline: var(--oy-page-pad-x);
+}
+
+.oy-section__inner {
+  max-width: var(--oy-container-max);
+  margin: 0 auto;
+  width: 100%;
+  text-align: start;
+}
+
+.oy-section__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  color: var(--oy-color-navy);
+  font-size: var(--oy-section-title-font-size);
+  line-height: var(--oy-section-title-line-height);
+  font-weight: var(--oy-section-title-weight);
+}
+
+.oy-section__title-icon {
+  display: inline-block;
+  width: var(--oy-section-title-icon-size);
+  height: var(--oy-section-title-icon-size);
+  flex: 0 0 auto;
+  background: url("../images/patterns/from-logo-orange.svg") center / contain no-repeat;
+}
+
+.oy-section__text {
+  margin: 18px 0 0;
+  max-width: var(--oy-section-text-max-width);
+  color: var(--oy-color-navy);
+  font-size: var(--oy-section-text-font-size);
+  line-height: var(--oy-section-text-line-height);
+}
+
+.oy-about {
+  position: relative;
+  overflow: hidden;
+}
+
+.oy-about .oy-section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.oy-about__pattern {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--oy-about-pattern-width);
+  opacity: var(--oy-about-pattern-opacity);
+  pointer-events: none;
+  user-select: none;
+  background-image: url("../images/patterns/logo_full.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  z-index: 1;
+}
+
+html[dir="rtl"] .oy-about__pattern {
+  left: 0;
+  transform-origin: center left;
+  transform: translateX(calc(-1 * var(--oy-about-pattern-shift-x))) scale(var(--oy-about-pattern-scale));
+}
+
+html[dir="ltr"] .oy-about__pattern {
+  right: 0;
+  transform-origin: center right;
+  transform: translateX(var(--oy-about-pattern-shift-x)) scale(var(--oy-about-pattern-scale));
+}
+
+/*  Hide pattern on tablets + phones */
+@media (max-width: 1024px) {
+  .oy-about__pattern {
+    display: none;
+  }
+}
+
+/* ===========================================================
+   Scroll Reveal (same style as other pages)
+=========================================================== */
+.oy-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.oy-reveal.oy-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Stagger delays */
+.oy-delay-1 { transition-delay: 0.06s; }
+.oy-delay-2 { transition-delay: 0.12s; }
+.oy-delay-3 { transition-delay: 0.18s; }
+.oy-delay-4 { transition-delay: 0.24s; }
+.oy-delay-5 { transition-delay: 0.30s; }
+.oy-delay-6 { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oy-reveal,
+  .oy-reveal.oy-reveal--visible {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+  }
+}
+

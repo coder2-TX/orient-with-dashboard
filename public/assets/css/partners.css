@@ -1,0 +1,159 @@
+/* assets/css/partners.css */
+
+.oy-partners {
+  background: var(--oy-color-white);
+}
+
+.oy-partners .oy-section__inner {
+  text-align: center;
+}
+
+.oy-partners__title {
+  color: var(--oy-color-primary);
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.oy-partners__subtitle {
+  color: var(--oy-color-navy);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oy-partners__card {
+  margin: 44px auto 0;
+  max-width: 1120px;
+  width: 100%;
+  background: var(--oy-color-white);
+  border-radius: 12px;
+  box-shadow: -15px 10px 11px rgba(23, 49, 89, 0.14);
+  outline: 1px #F1F1F3 solid;
+  outline-offset: -1px;
+  padding: 34px 26px;
+  overflow: hidden;
+}
+
+.oy-partners__marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+/*  FIX: لا تخلي RTL يغيّر اتجاه flex-start داخل الماركي (يخرب الحسابات/التكرار) */
+html[dir="rtl"] .oy-partners__marquee {
+  direction: ltr;
+}
+
+.oy-partners__logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 62px;
+  width: max-content;
+
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+
+  animation: oy-partners-marquee var(--oy-partners-duration, 40s) linear infinite;
+}
+
+.oy-partners__logos img {
+  height: 54px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+}
+
+@keyframes oy-partners-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-1 * var(--oy-partners-shift, 0px)), 0, 0); }
+}
+
+/*  English (LTR): reverse (زي ما كان عندك) */
+html[dir="ltr"] .oy-partners__logos {
+  animation-direction: reverse;
+}
+
+/*  Arabic (RTL): عكس الإنجليزي (normal) */
+html[dir="rtl"] .oy-partners__logos {
+  animation-direction: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oy-partners__logos {
+    animation: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .oy-partners__card {
+    max-width: 980px;
+    padding: 30px 22px;
+  }
+
+  .oy-partners__logos {
+    gap: 42px;
+  }
+
+  .oy-partners__logos img {
+    height: 52px;
+    max-width: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oy-partners__card {
+    margin-top: 34px;
+    padding: 26px 16px;
+  }
+
+  .oy-partners__logos {
+    gap: 24px;
+  }
+
+  .oy-partners__logos img {
+    height: 46px;
+    max-width: 160px;
+  }
+}
+
+/* ===========================================================
+   Scroll Reveal (same style as other pages)
+=========================================================== */
+.oy-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.oy-reveal.oy-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Stagger delays */
+.oy-delay-1 { transition-delay: 0.06s; }
+.oy-delay-2 { transition-delay: 0.12s; }
+.oy-delay-3 { transition-delay: 0.18s; }
+.oy-delay-4 { transition-delay: 0.24s; }
+.oy-delay-5 { transition-delay: 0.30s; }
+.oy-delay-6 { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oy-reveal,
+  .oy-reveal.oy-reveal--visible {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+  }
+}
+/* =========================================================== */

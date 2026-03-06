@@ -1,0 +1,229 @@
+/* assets/css/pages/about/section5.css */
+
+.oy-method {
+  --oy-method-split: 33.333%;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--oy-color-primary) 0%,
+    var(--oy-color-primary) var(--oy-method-split),
+    var(--oy-color-white) var(--oy-method-split),
+    var(--oy-color-white) 100%
+  );
+}
+
+.oy-method:not(.oy-section) {
+  padding-block: var(--oy-section-pad-y);
+  padding-inline: var(--oy-page-pad-x);
+}
+
+.oy-method__grid {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.oy-method__heading {
+  padding: 28px 22px;
+  text-align: start;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.oy-method__title {
+  font-size: clamp(28px, 3.2vw, var(--oy-section-title-font-size));
+  line-height: clamp(42px, 4.4vw, var(--oy-section-title-line-height));
+}
+
+.oy-method__title > span:last-child {
+  white-space: nowrap;
+}
+
+.oy-method__title--white-icon {
+  color: var(--oy-color-white);
+}
+
+.oy-method__subtitle {
+  margin-top: 12px;
+  color: var(--oy-color-navy);
+}
+
+/* ===========================================================
+   Scroll Reveal (same behavior as your first code)
+   - Important: done with classes to NOT break :hover transforms
+=========================================================== */
+.oy-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.oy-reveal.oy-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Small stagger delays (optional, very light like your idea) */
+.oy-delay-1 { transition-delay: 0.06s; }
+.oy-delay-2 { transition-delay: 0.12s; }
+.oy-delay-3 { transition-delay: 0.18s; }
+.oy-delay-4 { transition-delay: 0.24s; }
+.oy-delay-5 { transition-delay: 0.30s; }
+.oy-delay-6 { transition-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oy-reveal,
+  .oy-reveal.oy-reveal--visible {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+  }
+}
+/* =========================================================== */
+
+.oy-method-card {
+  background: var(--oy-color-white);
+  border-radius: 12px;
+  box-shadow: -15px 10px 11px rgba(23, 49, 89, 0.14);
+  outline: 1px #F1F1F3 solid;
+  outline-offset: -1px;
+  padding: 28px 22px;
+  min-height: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+}
+
+.oy-method-card:hover {
+  transform: translateY(-2px);
+  box-shadow: -18px 14px 16px rgba(23, 49, 89, 0.18);
+  background: var(--oy-color-navy);
+}
+
+.oy-method-card__icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  display: grid;
+  place-items: center;
+  color: var(--oy-color-navy);
+  font-size: 28px;
+  line-height: 1;
+  transition: color .18s ease;
+}
+
+.oy-method-card:hover .oy-method-card__icon {
+  color: var(--oy-color-white);
+}
+
+/* ===========================================================
+    NEW: If icon is an <img> (svg/png/etc), make it turn white on hover
+=========================================================== */
+.oy-method-card__icon img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  transition: filter .18s ease, transform .18s ease;
+  /* Optional: keep it same as current (dark) when not hovered */
+  filter: none;
+}
+
+.oy-method-card:hover .oy-method-card__icon img {
+  filter: brightness(0) invert(1);
+}
+/* =========================================================== */
+
+.oy-method-card__title {
+  margin: 0;
+  color: var(--oy-color-primary);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.6;
+  transition: color .18s ease;
+}
+
+.oy-method-card__desc {
+  margin: 6px 0 0;
+  color: var(--oy-color-navy);
+  opacity: 0.80;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.9;
+  transition: color .18s ease, opacity .18s ease;
+}
+
+.oy-method-card:hover .oy-method-card__title,
+.oy-method-card:hover .oy-method-card__desc {
+  color: var(--oy-color-white);
+  opacity: 0.92;
+}
+
+.oy-method__title--white-icon .oy-section__title-icon {
+  background-image: url("../../../images/patterns/from-logo-blue.svg");
+}
+
+@media (max-width: 1200px) {
+  .oy-method {
+    --oy-method-split: 46%;
+  }
+
+  .oy-method__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .oy-method__heading {
+    grid-column: 1 / -1;
+    padding: 24px 18px;
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .oy-method__subtitle {
+    color: var(--oy-color-white);
+    opacity: 0.92;
+  }
+
+  .oy-method-card {
+    padding: 24px 18px;
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oy-method {
+    --oy-method-split: 62%;
+  }
+
+  .oy-method__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .oy-method__heading {
+    padding: 22px 16px;
+  }
+
+  .oy-method__subtitle {
+    color: var(--oy-color-white);
+    opacity: 0.92;
+  }
+
+  .oy-method-card {
+    padding: 22px 16px;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,658 @@
+/* assets/css/pages/products/sweets/section2.css */
+/* ORIENT YEMEN - Sweets Products (Exact panel + 4 cards) */
+
+.oy-products-sweets {
+  background: var(--oy-color-white);
+}
+
+/* Reuse the same subtitle styling from products section */
+.oy-products-sweets .oy-products-tabs__subtitle {
+  color: var(--oy-color-primary);
+  max-width: 100%;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* ===========================================================
+   Tabs wrapper (scroll hint arrow + fade) - scoped to sweets
+=========================================================== */
+
+.oy-products-sweets .oy-products-tabs__tabsWrap {
+  position: relative;
+  max-width: 100%;
+  flex: 1 1 420px;
+}
+
+/* fade layer at inline-end (right in LTR, left in RTL) */
+.oy-products-sweets .oy-products-tabs__tabsWrap::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 64px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+
+  background: linear-gradient(to left, var(--oy-color-white), rgba(255, 255, 255, 0));
+}
+
+/* RTL: fade to right (because inline-end is left) */
+:dir(rtl) .oy-products-sweets .oy-products-tabs__tabsWrap::after {
+  background: linear-gradient(to right, var(--oy-color-white), rgba(255, 255, 255, 0));
+}
+
+/* scroll hint button */
+.oy-products-sweets .oy-products-tabs__scrollHint {
+  position: absolute;
+  inset-inline-end: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: var(--oy-color-white);
+  color: var(--oy-color-primary);
+
+  box-shadow: 0 10px 20px rgba(23, 49, 89, 0.10);
+
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+
+  transition: opacity .15s ease, filter .15s ease;
+}
+
+.oy-products-sweets .oy-products-tabs__scrollHint:hover {
+  filter: brightness(0.98);
+}
+
+.oy-products-sweets .oy-products-tabs__scrollHint i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* LTR: flip icon to point right */
+:dir(ltr) .oy-products-sweets .oy-products-tabs__scrollHint i {
+  transform: rotate(180deg);
+}
+
+/* Show hint only when JS toggles class */
+.oy-products-sweets .oy-products-tabs__tabsWrap--showHint::after,
+.oy-products-sweets .oy-products-tabs__tabsWrap--showHint .oy-products-tabs__scrollHint {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Tabs nav (ensure horizontal scroll + hide scrollbar) */
+.oy-products-sweets .oy-products-tabs__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  padding-top: 2px;
+  padding-bottom: 6px;
+
+  /* leave space for hint arrow at inline-end */
+  padding-inline-end: 58px;
+
+  scrollbar-width: none;
+}
+.oy-products-sweets .oy-products-tabs__nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tabs items (keep same look as products) */
+.oy-products-sweets .oy-products-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--oy-color-white);
+  color: var(--oy-color-navy);
+  border: 1px solid #E8E7E7;
+
+  border-radius: var(--oy-radius-sm);
+  padding: 10px 16px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: border-color .15s ease, color .15s ease, background-color .15s ease, filter .15s ease;
+}
+
+.oy-products-sweets .oy-products-tabs__tab:hover {
+  border-color: var(--oy-color-navy);
+  filter: brightness(0.99);
+}
+
+.oy-products-sweets .oy-products-tabs__tab--active {
+  color: var(--oy-color-primary);
+  border-color: var(--oy-color-navy);
+}
+
+/* small tweaks */
+@media (max-width: 768px) {
+  .oy-products-sweets .oy-products-tabs__tab {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  .oy-products-sweets .oy-products-tabs__nav {
+    padding-inline-end: 54px;
+  }
+
+  .oy-products-sweets .oy-products-tabs__scrollHint {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+}
+
+/* ==============================
+   Big Panel (keeps SAME logic)
+============================== */
+
+.oy-sweets-panel {
+  width: 1246px;
+  height: 560px; /*  updated to fit 400px image without pressure */
+  background: #F5F5F5;
+
+  display: flex;
+  align-items: stretch;
+
+  border-radius: 0;
+  box-shadow: none;
+
+  margin-top: 34px;
+  margin-inline: auto;
+
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+
+  position: relative;
+  isolation: isolate;
+}
+.oy-sweets-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.oy-sweets-panelWrap{
+  width: 1246px;
+  max-width: 100%;
+  margin-inline: auto;
+
+  margin-top: 20px;
+
+  position: relative;
+  overflow: visible;
+
+  --sweets-pattern-size: 140px;
+  --sweets-pattern-overlap: 60px;
+}
+
+.oy-sweets-panelWrap .oy-sweets-panel{
+  margin-top: 0;
+  margin-inline: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.oy-sweets-panelPattern{
+  position: absolute;
+  inset-inline-end: -80px;
+
+  top: calc(100% - var(--sweets-pattern-overlap));
+
+  width: var(--sweets-pattern-size);
+  height: auto;
+
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/*  second panel spacing (between panels) */
+.oy-sweets-panel--second {
+  margin-top: 120px;
+}
+
+/* When expanded: lock interactions & lock scroll inside panel */
+.oy-sweets-panel.is-expanded {
+  overflow: hidden;
+}
+.oy-sweets-panel.is-expanded .oy-sweets-item {
+  pointer-events: none;
+}
+
+/* Each inner card */
+.oy-sweets-item {
+  width: 312px;
+  height: 560px; /*  match panel height */
+
+  padding: 119px 36px 0 36px;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #000000;
+
+  transition: background-color .18s ease, padding-top .18s ease;
+}
+
+.oy-sweets-item + .oy-sweets-item {
+  margin-inline-start: -0.666px;
+}
+
+/* ==============================
+   Hover behavior (SAME logic)
+============================== */
+
+.oy-sweets-media {
+  height: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  Product image size in cards */
+.oy-sweets-media img {
+  width: 200px;
+  height: 400px;
+  object-fit: contain;
+  display: block;
+}
+
+.oy-sweets-content { margin-top: 0; }
+
+/* hover OR autoHover (same effect) */
+.oy-sweets-item:hover,
+.oy-sweets-item.is-autoHover {
+  background: var(--num-color);
+  padding-top: 12px;
+  color: #ffffff;
+}
+
+/*  show full 400px image */
+.oy-sweets-item:hover .oy-sweets-media,
+.oy-sweets-item.is-autoHover .oy-sweets-media { height: 400px; }
+
+.oy-sweets-item:hover .oy-sweets-content,
+.oy-sweets-item.is-autoHover .oy-sweets-content { margin-top: 2px; }
+
+/* Freeze state on click BEFORE measuring (no transitions, no jump) */
+.oy-sweets-item.is-opening {
+  transition: none !important;
+  background: var(--num-color);
+  padding-top: 12px;
+  color: #ffffff;
+}
+.oy-sweets-item.is-opening .oy-sweets-media {
+  height: 400px;
+}
+.oy-sweets-item.is-opening .oy-sweets-content {
+  margin-top: 2px;
+}
+
+/* Number */
+.oy-sweets-num {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--num-color, #000);
+}
+
+/* Title */
+.oy-sweets-title {
+  margin: 42px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000000;
+}
+
+/* Subtitle */
+.oy-sweets-desc {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #000000;
+}
+
+/* Button */
+.oy-sweets-btn {
+  margin-top: 29px;
+
+  width: 125px;
+  height: 35.18px;
+
+  border-radius: 10px;
+  border: 2px solid #9A9A9A;
+
+  background: transparent;
+  color: #000000;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  user-select: none;
+
+  font-weight: 500;
+  font-size: 14px;
+
+  transition: filter .15s ease, transform .15s ease, border-color .18s ease, color .18s ease;
+}
+
+/* Hover readability (hover OR autoHover) */
+.oy-sweets-item:hover .oy-sweets-num,
+.oy-sweets-item:hover .oy-sweets-title,
+.oy-sweets-item:hover .oy-sweets-desc,
+.oy-sweets-item.is-autoHover .oy-sweets-num,
+.oy-sweets-item.is-autoHover .oy-sweets-title,
+.oy-sweets-item.is-autoHover .oy-sweets-desc {
+  color: #ffffff;
+}
+
+.oy-sweets-item:hover .oy-sweets-title,
+.oy-sweets-item.is-autoHover .oy-sweets-title { margin-top: 12px; }
+
+.oy-sweets-item:hover .oy-sweets-desc,
+.oy-sweets-item.is-autoHover .oy-sweets-desc { margin-top: 6px; }
+
+.oy-sweets-item:hover .oy-sweets-btn,
+.oy-sweets-item.is-autoHover .oy-sweets-btn {
+  margin-top: 14px;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.70);
+}
+
+/*  same readability when locked */
+.oy-sweets-item.is-opening .oy-sweets-num,
+.oy-sweets-item.is-opening .oy-sweets-title,
+.oy-sweets-item.is-opening .oy-sweets-desc {
+  color: #ffffff;
+}
+.oy-sweets-item.is-opening .oy-sweets-title { margin-top: 12px; }
+.oy-sweets-item.is-opening .oy-sweets-desc { margin-top: 6px; }
+.oy-sweets-item.is-opening .oy-sweets-btn {
+  margin-top: 14px;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.70);
+}
+
+.oy-sweets-btn:hover {
+  filter: brightness(0.97);
+  transform: translateY(-1px);
+}
+
+/* ===========================================================
+    In-Panel GSAP Expand (NOT fullscreen)
+=========================================================== */
+
+.oy-sweets-panel__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: var(--num-color, #000);
+
+  clip-path: inset(0 0 100% 0);
+  -webkit-clip-path: inset(0 0 100% 0);
+
+  pointer-events: none;
+}
+
+.oy-sweets-expand {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-inline: clamp(24px, 4vw, 80px);
+
+  pointer-events: none;
+  opacity: 0;
+}
+
+.oy-sweets-expand__close {
+  position: absolute;
+  z-index: 20;
+
+  top: auto;
+  bottom: 22px;
+
+  inset-inline-start: 22px;
+
+  box-shadow: -15px 10px 11px rgba(23, 49, 89, 0.14);
+
+  pointer-events: auto;
+
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.oy-sweets-expand__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(0px, 1vw, 10px);
+
+  direction: ltr;
+  flex-direction: row;
+}
+
+.oy-sweets-expand__text {
+  order: 1;
+  position: relative;
+  z-index: 5;
+
+  padding-inline-start: 34px;
+}
+
+.oy-sweets-expand--wideText .oy-sweets-expand__text{
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.oy-sweets-expand__bigWrap {
+  width: fit-content;
+  display: block;
+
+  transform: translateY(16px);
+
+  pointer-events: none;
+}
+
+.oy-sweets-expand--wideText .oy-sweets-expand__bigWrap{
+  margin-inline-start: -10px;
+}
+
+/*  Bigger product image area in expand */
+.oy-sweets-expand__imgWrap{
+  order: 2;
+  position: relative;
+  z-index: 1;
+
+  width: 200px;
+  height: 450px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+  overflow: visible;
+}
+
+.oy-sweets-expand--wideText .oy-sweets-expand__imgWrap{
+  position: relative;
+  left: -160px;
+}
+
+.oy-sweets-expand__big {
+  font-size: 180px;
+  font-weight: 900;
+  line-height: 0.88;
+  color: #ffffff;
+
+  letter-spacing: -1px;
+
+  position: relative;
+  top: -8px;
+  z-index: 3;
+
+  opacity: 0;
+}
+
+.oy-sweets-expand__big,
+.oy-sweets-expand__big > div {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/*  Bigger product image in expand */
+.oy-sweets-expand__img {
+  width: 200px;
+  height: 450px;
+  object-fit: contain;
+  display: block;
+
+  transform: rotate(30deg);
+  transform-origin: center;
+
+  position: relative;
+  z-index: 1;
+
+  opacity: 0;
+}
+
+/*  Smaller details image */
+.oy-sweets-expand__imgDetails{
+  position: absolute;
+  z-index: 2;
+
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+
+  bottom: 0px;
+
+  width: 200px !important;
+  height: 200px !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain;
+  display: block;
+
+  pointer-events: none;
+  opacity: 0;
+  inset-inline-start: 80px;
+}
+
+.oy-sweets-expand__meta {
+  max-width: 420px;
+  transform: none;
+}
+
+.oy-sweets-expand__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.oy-sweets-expand__desc {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 768px) {
+  .oy-sweets-expand__text { padding-inline-start: 0; }
+
+  .oy-sweets-expand__close {
+    bottom: 14px;
+    inset-inline-start: 14px;
+  }
+
+  .oy-sweets-expand__inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .oy-sweets-expand__bigWrap{
+    transform: translateY(0);
+  }
+
+  .oy-sweets-expand__big {
+    font-size: 74px;
+    top: 0;
+    text-align: center;
+  }
+
+  .oy-sweets-expand__imgWrap{
+    width: 120px;
+    height: 360px;
+    left: 0;
+  }
+
+  .oy-sweets-expand__img {
+    width: 120px;
+    height: 360px;
+  }
+
+  .oy-sweets-expand__imgDetails{
+    bottom: -160px;
+
+    width: 140px !important;
+    height: 140px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    inset-inline-start: -55px;
+  }
+
+  .oy-sweets-expand__meta {
+    text-align: center;
+    transform: none;
+  }
+}

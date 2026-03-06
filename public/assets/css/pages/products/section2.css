@@ -1,0 +1,357 @@
+/* assets/css/pages/products/section2.css */
+/* ORIENT YEMEN - Products Section 2 (Tabs + Intro + Grid + Pagination) */
+
+.oy-products-tabs {
+  background: var(--oy-color-white);
+}
+
+/* Title + Tabs on same row */
+.oy-products-tabs__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.oy-products-tabs__title {
+  margin: 0;
+  color: var(--oy-color-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===========================================================
+   Tabs wrapper (scroll hint arrow + fade)
+=========================================================== */
+
+.oy-products-tabs__tabsWrap {
+  position: relative;
+  max-width: 100%;
+  flex: 1 1 420px;
+}
+
+/* fade layer at inline-end (right in LTR, left in RTL) */
+.oy-products-tabs__tabsWrap::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 64px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+
+  /* LTR default: fade to left */
+  background: linear-gradient(to left, var(--oy-color-white), rgba(255, 255, 255, 0));
+}
+
+/* RTL: fade to right (because inline-end is left) */
+:dir(rtl) .oy-products-tabs__tabsWrap::after {
+  background: linear-gradient(to right, var(--oy-color-white), rgba(255, 255, 255, 0));
+}
+
+/* scroll hint button */
+.oy-products-tabs__scrollHint {
+  position: absolute;
+  inset-inline-end: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: var(--oy-color-white);
+  color: var(--oy-color-primary);
+
+  box-shadow: 0 10px 20px rgba(23, 49, 89, 0.10);
+
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+
+  transition: opacity .15s ease, filter .15s ease;
+}
+
+.oy-products-tabs__scrollHint:hover {
+  filter: brightness(0.98);
+}
+
+.oy-products-tabs__scrollHint i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* LTR: flip icon to point right */
+:dir(ltr) .oy-products-tabs__scrollHint i {
+  transform: rotate(180deg);
+}
+
+/* Show hint only when JS toggles class */
+.oy-products-tabs__tabsWrap--showHint::after,
+.oy-products-tabs__tabsWrap--showHint .oy-products-tabs__scrollHint {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Tabs */
+.oy-products-tabs__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  padding-top: 2px;
+  padding-bottom: 6px;
+
+  /*  leave space for hint arrow at inline-end */
+  padding-inline-end: 58px;
+
+  scrollbar-width: none;
+}
+.oy-products-tabs__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.oy-products-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--oy-color-white);
+  color: var(--oy-color-navy);
+  border: 1px solid #E8E7E7;
+
+  border-radius: var(--oy-radius-sm);
+  padding: 10px 16px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: border-color .15s ease, color .15s ease, background-color .15s ease, filter .15s ease;
+}
+
+.oy-products-tabs__tab:hover {
+  border-color: var(--oy-color-navy);
+  filter: brightness(0.99);
+}
+
+.oy-products-tabs__tab--active {
+  color: var(--oy-color-primary);
+  border-color: var(--oy-color-navy);
+}
+
+/* Subtitle: NEVER clip */
+.oy-products-tabs__subtitle {
+  color: var(--oy-color-primary);
+  max-width: 100%;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* ===========================================================
+   Products Grid
+=========================================================== */
+
+.oy-products-grid {
+  margin-top: 34px;
+  display: grid;
+  gap: 26px;
+
+  /* large: 3 columns */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* medium: 2 columns */
+@media (max-width: 1024px) {
+  .oy-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* small: 1 column */
+@media (max-width: 768px) {
+  .oy-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product Card */
+.oy-product-card {
+  background: var(--oy-color-white);
+  border-radius: 14px;
+
+  /*  shadow as requested */
+  box-shadow: -15px 10px 11px rgba(23, 49, 89, 0.14);
+
+  /*  less padding + gap to reduce overall height */
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /*  reduce card minimum height */
+  min-height: 400px;
+}
+
+/* inner image area */
+.oy-product-card__media {
+  width: 100%;
+  margin: 6px auto 0;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  /*  bigger image height */
+  height: 260px;
+
+  background: var(--oy-color-white);
+}
+
+.oy-product-card__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.oy-product-card__title {
+  margin: 10px 0 0;
+
+  color: var(--oy-color-navy);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.oy-product-card__desc {
+  margin: 0;
+  color: rgba(23, 49, 89, 0.82);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* ===========================================================
+   Pagination (centered, same design)
+=========================================================== */
+
+.oy-products-pagination-wrap {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.oy-products-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: min(544px, 100%);
+  padding: 6px 8px;
+
+  /*  IMPORTANT: make the pagination flow LTR so 1 2 3 4 5 ... stays correct */
+  direction: ltr;
+
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+.oy-products-pagination::-webkit-scrollbar {
+  display: none;
+}
+
+.oy-products-pagination__item {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+  font-size: 18px;
+
+  text-decoration: none;
+  user-select: none;
+
+  background: var(--oy-color-white);
+  color: #F6A626;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+
+  transition: filter .15s ease, border-color .15s ease;
+}
+
+.oy-products-pagination__item:hover {
+  filter: brightness(0.98);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.oy-products-pagination__item--active {
+  background: #F6A626;
+  color: var(--oy-color-white);
+  border-color: transparent;
+}
+
+.oy-products-pagination__item--dots {
+  cursor: default;
+}
+
+.oy-products-pagination__item--next {
+  color: var(--oy-color-primary);
+}
+
+.oy-products-pagination__item--next i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* small tweaks */
+@media (max-width: 768px) {
+  .oy-products-tabs__tab {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  .oy-products-tabs__nav {
+    padding-inline-end: 54px;
+  }
+
+  .oy-products-tabs__scrollHint {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+
+  .oy-product-card {
+    min-height: 410px;
+  }
+
+  .oy-product-card__media {
+    width: 99%;
+    height: 212px;
+  }
+
+  .oy-product-card__title {
+    margin-top: 10px;
+  }
+}
