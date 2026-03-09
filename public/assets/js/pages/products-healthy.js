@@ -1,17 +1,8 @@
 // assets/js/pages/products-healthy.js
-// ORIENT YEMEN - Healthy products page loader (header + hero + healthy section + footer)
+// ORIENT YEMEN - Healthy products page loader (same behavior pattern as sweets)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
-
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/healthy/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
-
+	
   function patchHeaderForProductsPage() {
     const header = document.querySelector(".oy-header");
     if (!header) return;
@@ -67,7 +58,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {
@@ -91,40 +81,37 @@
     div.scrollLeft = 1;
     const after = div.scrollLeft;
 
-    if (after === 0) {
-      _rtlScrollType = "negative"; // Firefox
-    } else {
-      _rtlScrollType = (initial === 0) ? "positive-ascending" : "positive-descending"; // Safari : Chrome/Edge
-    }
+    if (after === 0) _rtlScrollType = "negative";
+    else _rtlScrollType = (initial === 0) ? "positive-ascending" : "positive-descending";
 
     document.body.removeChild(div);
     return _rtlScrollType;
   }
 
-  function getScrollPos(nav) {
-    const max = nav.scrollWidth - nav.clientWidth;
+  function getScrollPos(el) {
+    const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return { pos: 0, max: 0 };
 
-    const dir = getComputedStyle(nav).direction;
-    if (dir !== "rtl") return { pos: nav.scrollLeft, max };
+    const dir = getComputedStyle(el).direction;
+    if (dir !== "rtl") return { pos: el.scrollLeft, max };
 
     const type = detectRtlScrollType();
-    const sl = nav.scrollLeft;
+    const sl = el.scrollLeft;
 
     if (type === "negative") return { pos: max + sl, max };
     if (type === "positive-ascending") return { pos: max - sl, max };
     return { pos: sl, max };
   }
 
-  function scrollToPos(nav, pos) {
-    const max = nav.scrollWidth - nav.clientWidth;
+  function scrollToPos(el, pos, behavior = "smooth") {
+    const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return;
 
-    const dir = getComputedStyle(nav).direction;
+    const dir = getComputedStyle(el).direction;
     const clamped = Math.max(0, Math.min(pos, max));
 
     if (dir !== "rtl") {
-      nav.scrollTo({ left: clamped, behavior: "smooth" });
+      el.scrollTo({ left: clamped, behavior });
       return;
     }
 
@@ -134,7 +121,7 @@
     if (type === "negative") left = clamped - max;
     else if (type === "positive-ascending") left = max - clamped;
 
-    nav.scrollTo({ left, behavior: "smooth" });
+    el.scrollTo({ left, behavior });
   }
 
   function initTabsScrollHint(nav) {
@@ -169,7 +156,7 @@
       if (dir === "rtl") target = Math.max(0, pos - delta);
       else target = Math.min(max, pos + delta);
 
-      scrollToPos(nav, target);
+      scrollToPos(nav, target, "smooth");
     });
 
     nav.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
@@ -184,14 +171,48 @@
     initTabsScrollHint(nav);
   }
 
-  // Auto hover spotlight (every 1.5s)
+  function ensureCardVisible(panel, card, behavior = "auto") {
+    if (!panel || !card) return;
+
+    const panelRect = panel.getBoundingClientRect();
+    const cardRect  = card.getBoundingClientRect();
+
+    const pad = 2;
+
+    const fullyVisible =
+      cardRect.left  >= panelRect.left + pad &&
+      cardRect.right <= panelRect.right - pad;
+
+    if (fullyVisible) return;
+
+    const { pos, max } = getScrollPos(panel);
+    if (max <= 0) return;
+
+    let target = pos;
+
+    if (cardRect.left < panelRect.left + pad) {
+      target = pos - ((panelRect.left + pad) - cardRect.left);
+    } else if (cardRect.right > panelRect.right - pad) {
+      target = pos + (cardRect.right - (panelRect.right - pad));
+    }
+
+    scrollToPos(panel, target, behavior);
+  }
+
   function initAutoHover() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
 
     const reduceMotion =
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+
+    if (reduceMotion) {
+      panels.forEach(panel => {
+        const first = panel.querySelector(".oy-sweets-item");
+        if (first) setTimeout(() => ensureCardVisible(panel, first, "auto"), 60);
+      });
+      return;
+    }
 
     const INTERVAL = 1500;
     const panelState = new WeakMap();
@@ -202,6 +223,17 @@
       st.cards.forEach(c => c.classList.remove("is-autoHover"));
     }
 
+    function setSingleActive(panel) {
+      const st = panelState.get(panel);
+      if (!st) return;
+
+      const only = st.cards[0];
+      if (!only) return;
+
+      st.cards.forEach(c => c.classList.remove("is-autoHover"));
+      only.classList.add("is-autoHover");
+    }
+
     function tick(panel) {
       const st = panelState.get(panel);
       if (!st) return;
@@ -209,6 +241,11 @@
       if (st.tempPaused) return;
       if (st.userHold) return;
       if (panel.classList.contains("is-expanded")) return;
+
+      if (st.cards.length === 1) {
+        setSingleActive(panel);
+        return;
+      }
 
       clearAuto(panel);
 
@@ -222,7 +259,11 @@
 
     panels.forEach((panel) => {
       const cards = Array.from(panel.querySelectorAll(".oy-sweets-item"));
-      if (cards.length < 2) return;
+
+      if (!cards.length) return;
+
+      setTimeout(() => ensureCardVisible(panel, cards[0], "auto"), 80);
+      setTimeout(() => ensureCardVisible(panel, cards[0], "auto"), 260);
 
       const st = {
         cards,
@@ -234,6 +275,38 @@
       };
 
       panelState.set(panel, st);
+
+      if (cards.length === 1) {
+        window.setTimeout(() => setSingleActive(panel), 700);
+
+        panel.__oySweetsAutoHover = {
+          pauseTemp() {
+            st.tempPaused = true;
+            st.userHold = false;
+            clearAuto(panel);
+          },
+          resumeTemp() {
+            st.tempPaused = false;
+            st.userHold = false;
+            if (st.resumeT) clearTimeout(st.resumeT);
+            st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+          },
+        };
+
+        cards[0].addEventListener("mouseleave", () => {
+          if (st.resumeT) clearTimeout(st.resumeT);
+          st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+        });
+        cards[0].addEventListener("focusout", () => {
+          if (st.resumeT) clearTimeout(st.resumeT);
+          st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+        });
+
+        cards[0].addEventListener("mouseenter", () => { st.userHold = true; });
+        cards[0].addEventListener("focusin", () => { st.userHold = true; });
+
+        return;
+      }
 
       st.timer = window.setInterval(() => tick(panel), INTERVAL);
       window.setTimeout(() => tick(panel), 700);
@@ -287,7 +360,6 @@
     });
   }
 
-  // In-panel expand animation (fills ONLY .oy-sweets-panel) - supports MULTIPLE PANELS
   function initExpandGsap() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
@@ -296,7 +368,14 @@
     const reduceMotion =
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const clamp0 = (n) => (n < 0 ? 0 : n);
+    function buildInset(containerRect, itemRect) {
+      const top = Math.max(0, itemRect.top - containerRect.top);
+      const left = Math.max(0, itemRect.left - containerRect.left);
+      const right = Math.max(0, containerRect.right - itemRect.right);
+      const bottom = Math.max(0, containerRect.bottom - itemRect.bottom);
+
+      return `inset(${Math.round(top)}px ${Math.round(right)}px ${Math.round(bottom)}px ${Math.round(left)}px)`;
+    }
 
     function escapeHtml(str) {
       return String(str)
@@ -305,14 +384,6 @@
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
-    }
-
-    function buildInset(panelRect, cardRect) {
-      const top = clamp0(cardRect.top - panelRect.top);
-      const left = clamp0(cardRect.left - panelRect.left);
-      const right = clamp0(panelRect.width - (left + cardRect.width));
-      const bottom = clamp0(panelRect.height - (top + cardRect.height));
-      return `inset(${top}px ${right}px ${bottom}px ${left}px)`;
     }
 
     function open(panel, card, btn) {
@@ -342,6 +413,17 @@
       const panelRect = panel.getBoundingClientRect();
       const cardRect  = card.getBoundingClientRect();
 
+      const rowTopRel = Math.max(0, cardRect.top - panelRect.top);
+
+      const rowRect = {
+        top: cardRect.top,
+        bottom: cardRect.bottom,
+        left: panelRect.left,
+        right: panelRect.right,
+        width: panelRect.width,
+        height: cardRect.height
+      };
+
       const origTitle = card.querySelector(".oy-sweets-title");
       const origDesc  = card.querySelector(".oy-sweets-desc");
       const origImgEl = card.querySelector(".oy-sweets-media img");
@@ -356,20 +438,25 @@
       overlay.className = "oy-sweets-panel__overlay";
       overlay.style.background = color;
 
-      const startInset = buildInset(panelRect, cardRect);
+      const startInset = buildInset(rowRect, cardRect);
       overlay.style.clipPath = startInset;
       overlay.style.webkitClipPath = startInset;
+
+      overlay.style.top = Math.round(rowTopRel) + "px";
+      overlay.style.bottom = "auto";
+      overlay.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(overlay);
 
       const expand = document.createElement("div");
       expand.className = "oy-sweets-expand";
-
-      if (((card.getAttribute("data-big") || "").trim()) === "Extreme.Z") {
-        expand.classList.add("oy-sweets-expand--wideText");
-      }
-
       expand.style.opacity = "1";
       expand.style.visibility = "hidden";
+
+      expand.style.top = Math.round(rowTopRel) + "px";
+      expand.style.bottom = "auto";
+      expand.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(expand);
 
       const closeBtn = document.createElement("a");
@@ -598,7 +685,9 @@
     }
 
     panels.forEach((panel) => {
-      const buttons = Array.from(panel.querySelectorAll(".oy-sweets-btn"));
+      const buttons = Array.from(
+        panel.querySelectorAll(".oy-sweets-item .oy-sweets-btn")
+      );
       if (!buttons.length) return;
 
       buttons.forEach((btn) => {
@@ -615,18 +704,20 @@
     });
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
-
+  function bootPage() {
     if (window.initHeader) window.initHeader();
+
     patchHeaderForProductsPage();
     initScrollReveal();
-
     initTabsScrollHintForPage();
     initAutoHover();
     initExpandGsap();
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+  } else {
+    bootPage();
+  }
+
 })();

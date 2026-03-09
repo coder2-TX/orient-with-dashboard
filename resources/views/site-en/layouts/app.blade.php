@@ -23,6 +23,7 @@
 
   <!-- Shared scripts -->
   <script src="{{ asset('assets/js/header.js') }}" defer></script>
+  <script src="{{ asset('assets/js/facts.js') }}" defer></script>
   <script src="{{ asset('assets/js/app.js') }}" defer></script>
 
   @stack('scripts_head')

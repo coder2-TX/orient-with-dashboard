@@ -1,0 +1,34 @@
+/* assets/css/pages/contact/section3.css */
+
+.oy-contact-map {
+  background: var(--oy-color-white);
+  padding-bottom: var(--oy-section-pad-y);
+  padding-inline: var(--oy-page-pad-x);
+}
+
+.oy-contact-map__inner {
+  max-width: var(--oy-container-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.oy-contact-map__iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  border-radius: 16px;
+  display: block;
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 1024px) {
+  .oy-contact-map__iframe {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oy-contact-map__iframe {
+    height: 320px;
+  }
+}

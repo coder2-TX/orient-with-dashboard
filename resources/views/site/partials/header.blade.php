@@ -35,12 +35,12 @@
     <!-- Start: logo + nav -->
     <div class="oy-header__start">
       <a class="oy-header__logo" href="{{ route('site.home') }}" aria-label="Orient Yemen">
-        <img
-          src="/assets/images/header/logo.svg"
-          data-logo-default="/assets/images/header/logo.svg"
-          data-logo-scrolled="/assets/images/header/logo_white.svg"
-          alt="Orient Yemen Logo"
-        >
+		<img
+		  src="{{ asset('assets/images/header/logo.svg') }}"
+		  data-logo-default="{{ asset('assets/images/header/logo.svg') }}"
+		  data-logo-scrolled="{{ asset('assets/images/header/logo_white.svg') }}"
+		  alt="Orient Yemen Logo"
+		>
       </a>
 
       <nav class="oy-header__nav" aria-label="Main Navigation">
@@ -72,7 +72,7 @@
     <aside class="oy-header__drawerPanel" role="dialog" aria-modal="true" aria-label="القائمة">
       <div class="oy-header__drawerTop">
         <a class="oy-header__drawerLogo" href="{{ route('site.home') }}" aria-label="Orient Yemen">
-          <img src="/assets/images/header/logo.svg" alt="Orient Yemen Logo">
+          <img src="{{ asset('assets/images/header/logo.svg') }}" alt="Orient Yemen Logo">
         </a>
         <button class="oy-header__drawerClose" type="button" aria-label="Close menu" data-oy-close>×</button>
       </div>

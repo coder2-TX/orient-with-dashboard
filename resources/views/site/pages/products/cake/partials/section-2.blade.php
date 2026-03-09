@@ -14,23 +14,21 @@
     <!-- Tabs wrap (adds scroll hint arrow) -->
     <div class="oy-products-tabs__tabsWrap">
       <nav class="oy-products-tabs__nav" aria-label="Product filters">
-        <a href="pages/products/index.html" data-tab="all" class="oy-products-tabs__tab">جميع المنتجات</a>
+			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
 
-        <a href="pages/products/coffee/index.html" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
+			<a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
 
-        <a href="pages/products/biscuit/index.html" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
+			<a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
 
-        <!--  sour now points to old sweets page -->
-        <a href="pages/products/sweets/index.html" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
+			<a href="{{ url('products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
 
-        <!--  sweets now goes to marshmallow -->
-        <a href="pages/products/marshmallow/index.html" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
+			<a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
 
-        <a href="pages/products/healthy/index.html" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
-        <a href="pages/products/juices/index.html" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
+			<a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
+			<a href="{{ url('products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
 
-        <a href="pages/products/cake/index.html" data-tab="cake"
-          class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الكيك</a>
+			<a href="{{ url('products/cake') }}" data-tab="cake"
+			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الكيك</a>
       </nav>
 
         <!-- Scroll hint arrow (shown only when overflow exists) -->
@@ -52,10 +50,10 @@
 
       <div class="oy-sweets-panel" aria-label="Cakes Cards Panel">
 
-        <!-- 1) Sponge Cake filled with Vanillin -->
+        <!-- 1) SORETO VANILLIN -->
         <article class="oy-sweets-item"
           style="--num-color:#42913D;"
-          data-big="Cakes|Vanillin"
+          data-big="Soreto"
           data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20Vanillin1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.png" alt="" loading="lazy">
@@ -64,15 +62,15 @@
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">01</div>
             <h3 class="oy-sweets-title"><span dir="ltr">Sponge Cake filled with Vanillin</span></h3>
-            <p class="oy-sweets-desc">كيك إسفنجي محشو بالفانيليا بنكهة ناعمة ومتوازنة</p>
+            <p class="oy-sweets-desc">كيك إسفنجي بحشوة فانيليا ناعمة</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 2) Sponge Cake filled with chocolate -->
+        <!-- 2) SORETO CHOCOLATE -->
         <article class="oy-sweets-item"
           style="--num-color:#CC4903;"
-          data-big="Cakes|Soreto"
+          data-big="Soreto"
           data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20chocolate1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.png" alt="" loading="lazy">
@@ -81,7 +79,7 @@
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">02</div>
             <h3 class="oy-sweets-title"><span dir="ltr">Sponge Cake filled with chocolate</span></h3>
-            <p class="oy-sweets-desc">كيك إسفنجي محشو بالشوكولاتة بمذاق غني ولمسة فاخرة</p>
+            <p class="oy-sweets-desc">كيك إسفنجي بحشوة شوكولاتة غنية</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>

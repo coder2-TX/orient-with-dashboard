@@ -14,22 +14,20 @@
       <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
-          <a href="pages/products/index.html" data-tab="all" class="oy-products-tabs__tab">جميع المنتجات</a>
+			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
 
-          <a href="pages/products/coffee/index.html" data-tab="coffee"
-            class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">القهوة</a>
+			<a href="{{ url('products/coffee') }}" data-tab="coffee"
+			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">القهوة</a>
 
-          <a href="pages/products/biscuit/index.html" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
+			<a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
 
-          <!--  sour now points to old sweets page -->
-          <a href="pages/products/sweets/index.html" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
+			<a href="{{ url('products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
 
-          <!--  sweets now goes to marshmallow -->
-          <a href="pages/products/marshmallow/index.html" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
+			<a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
 
-          <a href="pages/products/healthy/index.html" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
-          <a href="pages/products/juices/index.html" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
-          <a href="pages/products/cake/index.html" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
+			<a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
+			<a href="{{ url('products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
+			<a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
         </nav>
 
         <!-- Scroll hint arrow (shown only when overflow exists) -->
@@ -55,7 +53,7 @@
         <!-- 1) HAZELNUT -->
         <article class="oy-sweets-item"
           style="--num-color:#184E32;"
-          data-big="Caffino|Hazelnut"
+          data-big="Hazel|nut"
           data-details-img="assets/images/products/coffee/coffee_details/HAZELNUT1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/coffee/HAZELNUT.png" alt="" loading="lazy">
@@ -63,16 +61,16 @@
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">01</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Hazelnut</span></h3>
-            <p class="oy-sweets-desc">قهوة بنكهة البندق ولمسة دافئة</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Delizio Caffino Cappuccino Hazelnut</span></h3>
+            <p class="oy-sweets-desc">كابتشينو غني بنكهة البندق ولمسة ناعمة</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 2) Coffee MOCHA -->
+        <!-- 2) MOCCA -->
         <article class="oy-sweets-item"
           style="--num-color:#8E3330;"
-          data-big="Caffino|Moka"
+          data-big="Mocca"
           data-details-img="assets/images/products/coffee/coffee_details/Coffee%20MOCHA1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/coffee/Coffee%20MOCHA.png" alt="" loading="lazy">
@@ -80,16 +78,16 @@
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">02</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Coffee Mocha</span></h3>
-            <p class="oy-sweets-desc">موكا غنية بنكهة متوازنة</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Delizio Caffino Kopi Latte Mocca</span></h3>
+            <p class="oy-sweets-desc">لاتيه موكا بطابع غني ومذاق متوازن</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 3) Coffee gold -->
+        <!-- 3) GOLD -->
         <article class="oy-sweets-item"
           style="--num-color:#DDBE97;"
-          data-big="Caffino|Gold"
+          data-big="Gold"
           data-details-img="assets/images/products/coffee/coffee_details/Coffee%20gold1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/coffee/Coffee%20gold.png" alt="" loading="lazy">
@@ -97,16 +95,16 @@
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">03</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Coffee Gold</span></h3>
-            <p class="oy-sweets-desc">مذاق ناعم بحضور ذهبي أنيق</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Delizio Caffino Dark Cappuccino Gold</span></h3>
+            <p class="oy-sweets-desc">كابتشينو داكن بمذاق ذهبي متوازن</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 4) Coffee bold -->
+        <!-- 4) BOLD -->
         <article class="oy-sweets-item"
           style="--num-color:#25201D;"
-          data-big="Caffino|Bold"
+          data-big="Bold"
           data-details-img="assets/images/products/coffee/coffee_details/Coffee%20bold1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/coffee/Coffee%20bold.png" alt="" loading="lazy">
@@ -114,8 +112,8 @@
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">04</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Coffee Bold</span></h3>
-            <p class="oy-sweets-desc">قهوة قوية بطابع مكثّف</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Delizio Caffino Premium Coffee Latte Bold</span></h3>
+            <p class="oy-sweets-desc">لاتيه قوي بنكهة مركزة وطابع واضح</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
@@ -137,19 +135,19 @@
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Coffee Cards Panel 2">
 
-      <!-- 1) CLASSIC COFFEE -->
+      <!-- 5) CLASSIC -->
       <article class="oy-sweets-item"
         style="--num-color:#634037;"
-        data-big="Caffino|Classic"
+        data-big="Classic"
         data-details-img="assets/images/products/coffee/coffee_details/CLASSIC%20COFFEE1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/coffee/CLASSIC%20COFFEE.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Classic Coffee</span></h3>
-          <p class="oy-sweets-desc">قهوة  كلاسيكية بطعم كلاسيكية بطعم أصيل</p>
+          <div class="oy-sweets-num">05</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Delizio Caffino Cappuccino</span></h3>
+          <p class="oy-sweets-desc">كابتشينو كلاسيكي بمذاق أصيل ومتوازن</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>

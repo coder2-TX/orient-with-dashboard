@@ -14,22 +14,19 @@
       <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
-          <a href="pages/products/index.html" data-tab="all" class="oy-products-tabs__tab">جميع المنتجات</a>
+			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
 
-          <a href="pages/products/coffee/index.html" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
+			<a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
 
-          <a href="pages/products/biscuit/index.html" data-tab="biscuits"
-            class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">البسكويت والويفر</a>
+			<a href="{{ url('products/biscuit') }}" data-tab="biscuits"
+			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">البسكويت والويفر</a>
 
-          <!--  sour now points to old sweets page -->
-          <a href="pages/products/sweets/index.html" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
+			<a href="{{ url('products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
+			<a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
 
-          <!--  sweets now goes to marshmallow -->
-          <a href="pages/products/marshmallow/index.html" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
-
-          <a href="pages/products/healthy/index.html" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
-          <a href="pages/products/juices/index.html" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
-          <a href="pages/products/cake/index.html" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
+			<a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
+			<a href="{{ url('products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
+			<a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
         </nav>
 
         <!-- Scroll hint arrow (shown only when overflow exists) -->
@@ -37,7 +34,6 @@
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
       </div>
-
     </div>
 
     <!-- Subtitle -->
@@ -55,7 +51,7 @@
         <!-- 1) PARLE -->
         <article class="oy-sweets-item"
           style="--num-color:#FBDB69;"
-          data-big="BIS|CUIT"
+          data-big="PARLE"
           data-details-img="assets/images/products/Biscuits/Biscuits_details/PARLE1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Biscuits/PARLE.png" alt="" loading="lazy">
@@ -72,7 +68,7 @@
         <!-- 2) NICE -->
         <article class="oy-sweets-item"
           style="--num-color:#0D4AB2;"
-          data-big="BIS|CUIT"
+          data-big="NICE"
           data-details-img="assets/images/products/Biscuits/Biscuits_details/NICE1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Biscuits/NICE.png" alt="" loading="lazy">
@@ -89,7 +85,7 @@
         <!-- 3) MINIS MURANO -->
         <article class="oy-sweets-item"
           style="--num-color:#7D125B;"
-          data-big="BIS|CUIT"
+          data-big="MURA|NO"
           data-details-img="assets/images/products/Biscuits/Biscuits_details/MINIS%20MURANO1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Biscuits/MINIS%20MURANO.png" alt="" loading="lazy">
@@ -106,7 +102,7 @@
         <!-- 4) LITE CRACKERS -->
         <article class="oy-sweets-item"
           style="--num-color:#478929;"
-          data-big="BIS|CUIT"
+          data-big="LITE"
           data-details-img="assets/images/products/Biscuits/Biscuits_details/LITE%20CRACKERS1.png">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Biscuits/LITE%20CRACKERS.png" alt="" loading="lazy">
@@ -137,68 +133,68 @@
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Biscuit Cards Panel 2">
 
-      <!-- 1) HIDE & SEEK -->
+      <!-- 5) HIDE & SEEK -->
       <article class="oy-sweets-item"
         style="--num-color:#620C83;"
-        data-big="BIS|CUIT"
+        data-big="HIDE|&amp; SEEK"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/HIDE%20%26SEEK1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/HIDE%20%26SEEK.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
+          <div class="oy-sweets-num">05</div>
           <h3 class="oy-sweets-title"><span dir="ltr">HIDE &amp; SEEK</span></h3>
           <p class="oy-sweets-desc">بسكويت بطابع شوكولاتة ممتع</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 2) FAB & HIED & SEEK CHOCOLATE -->
+      <!-- 6) FAB CHOCOLATE -->
       <article class="oy-sweets-item"
         style="--num-color:#784895;"
-        data-big="BIS|CUIT"
+        data-big="CHOCO|LATE"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
+          <div class="oy-sweets-num">06</div>
           <h3 class="oy-sweets-title"><span dir="ltr">FAB CHOCOLATE</span></h3>
           <p class="oy-sweets-desc">مزيج شوكولاتة غني بلمسة فاخرة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 3) FAB & HIED SEEK VANIELA -->
+      <!-- 7) FAB VANILLA -->
       <article class="oy-sweets-item"
         style="--num-color:#55B3D0;"
-        data-big="BIS|CUIT"
+        data-big="VANI|LLA"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20VANIELA1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
+          <div class="oy-sweets-num">07</div>
           <h3 class="oy-sweets-title"><span dir="ltr">FAB VANILLA</span></h3>
           <p class="oy-sweets-desc">فانيلا ناعمة بنكهة متوازنة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 4) FAB & HIED SEEK STRAWBEERY -->
+      <!-- 8) FAB STRAWBEERY -->
       <article class="oy-sweets-item"
         style="--num-color:#E199AA;"
-        data-big="BIS|CUIT"
+        data-big="STRAW|BEERY"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20STRAWBEERY1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
+          <div class="oy-sweets-num">08</div>
           <h3 class="oy-sweets-title"><span dir="ltr">FAB STRAWBEERY</span></h3>
           <p class="oy-sweets-desc">فراولة لطيفة بنكهة منعشة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
@@ -212,69 +208,69 @@
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Biscuit Cards Panel 3">
 
-      <!-- 1) DIGESTIVE -->
+      <!-- 9) DIGESTIVE -->
       <article class="oy-sweets-item"
         style="--num-color:#FFE766;"
-        data-big="BIS|CUIT"
+        data-big="DIGES|TIVE"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/DIGESTIVE1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/DIGESTIVE.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
+          <div class="oy-sweets-num">09</div>
           <h3 class="oy-sweets-title"><span dir="ltr">DIGESTIVE</span></h3>
           <p class="oy-sweets-desc">دايجستيف بقوام متماسك وطعم متوازن</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 2) CHOCOLATE DIGESTIVE -->
+      <!-- 10) CHOCOLATE DIGESTIVE -->
       <article class="oy-sweets-item"
         style="--num-color:#625298;"
-        data-big="BIS|CUIT"
+        data-big="DIGES|TIVE"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/CHOCOLATE%20DIGESTIVE1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
+          <div class="oy-sweets-num">10</div>
           <h3 class="oy-sweets-title"><span dir="ltr">CHOCOLATE DIGESTIVE</span></h3>
           <p class="oy-sweets-desc">دايجستيف بالشوكولاتة بطعم أغنى</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 3) BOURBON -->
+      <!-- 11) BOURBON -->
       <article class="oy-sweets-item"
         style="--num-color:#4C2577;"
-        data-big="BIS|CUIT"
+        data-big="BOUR|BON"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/BOURBON1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/BOURBON.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
+          <div class="oy-sweets-num">11</div>
           <h3 class="oy-sweets-title"><span dir="ltr">BOURBON</span></h3>
           <p class="oy-sweets-desc">بوربون بحشوة شوكولاتة كلاسيكية</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 4) 1 -->
+      <!-- 12) Happy Happy -->
       <article class="oy-sweets-item"
         style="--num-color:#9D734E;"
-        data-big="BIS|CUIT"
+        data-big="HAPPY|HAPPY"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/1.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">1</span></h3>
+          <div class="oy-sweets-num">12</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Happy Happy</span></h3>
           <p class="oy-sweets-desc">خيار بسكويت مميز بقوام مقرمش</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
@@ -287,69 +283,69 @@
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--fourth oy-reveal oy-delay-3" aria-label="Biscuit Cards Panel 4">
 
-      <!-- 1) 2 -->
+      <!-- 13) Murano Delight -->
       <article class="oy-sweets-item"
         style="--num-color:#53341E;"
-        data-big="BIS|CUIT"
+        data-big="MURA|NO"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/2.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/2.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">2</span></h3>
+          <div class="oy-sweets-num">13</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Murano Delight</span></h3>
           <p class="oy-sweets-desc">مذاق متوازن ولمسة خفيفة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 2) 3 -->
+      <!-- 14) Cho Cho Waffle -->
       <article class="oy-sweets-item"
         style="--num-color:#80B701;"
-        data-big="BIS|CUIT"
+        data-big="CHO|CHO"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/3.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/3.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">3</span></h3>
+          <div class="oy-sweets-num">14</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Cho Cho Waffle</span></h3>
           <p class="oy-sweets-desc">قرمشة واضحة بطابع عصري</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 3) 4 -->
+      <!-- 15) Cho Cho Vanilla -->
       <article class="oy-sweets-item"
         style="--num-color:#105987;"
-        data-big="BIS|CUIT"
+        data-big="CHO|CHO"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/4.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/4.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">4</span></h3>
+          <div class="oy-sweets-num">15</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Cho Cho Vanilla</span></h3>
           <p class="oy-sweets-desc">نكهة أغنى وقوام متماسك</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 4) 5 -->
+      <!-- 16) Cho Cho Strawberry -->
       <article class="oy-sweets-item"
         style="--num-color:#BB1F31;"
-        data-big="BIS|CUIT"
+        data-big="CHO|CHO"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/5.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/5.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">5</span></h3>
+          <div class="oy-sweets-num">16</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Cho Cho Strawberry</span></h3>
           <p class="oy-sweets-desc">طابع قوي ولمسة مميزة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
@@ -362,44 +358,44 @@
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--fifth oy-reveal oy-delay-3" aria-label="Biscuit Cards Panel 5">
 
-      <!-- 1) 6 -->
+      <!-- 17) Cho Cho Wafer -->
       <article class="oy-sweets-item"
         style="--num-color:#BF8540;"
-        data-big="BIS|CUIT"
+        data-big="WAFER"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/6.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/6.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">6</span></h3>
+          <div class="oy-sweets-num">17</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Cho Cho Wafer</span></h3>
           <p class="oy-sweets-desc">قوام مقرمش ومذاق لطيف</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!-- 2) 7 -->
+      <!-- 18) Murano Cookie -->
       <article class="oy-sweets-item"
         style="--num-color:#A34232;"
-        data-big="BIS|CUIT"
+        data-big="MURA|NO"
         data-details-img="assets/images/products/Biscuits/Biscuits_details/7.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/Biscuits/7.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">7</span></h3>
+          <div class="oy-sweets-num">18</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Murano Cookie</span></h3>
           <p class="oy-sweets-desc">خيار غني بطابع مميز</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <!--  Ghost Card 1 -->
+      <!-- ✅ Ghost Card 1 -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
-      <!--  Ghost Card 2 -->
+      <!-- ✅ Ghost Card 2 -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
     </div>

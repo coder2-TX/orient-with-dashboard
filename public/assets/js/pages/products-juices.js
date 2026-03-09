@@ -2,15 +2,6 @@
 // ORIENT YEMEN - Juices products page loader (header + hero + juices section + footer)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
-
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/juices/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
 
   function patchHeaderForProductsPage() {
     const header = document.querySelector(".oy-header");
@@ -719,18 +710,19 @@
     });
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
+function bootPage() {
+  if (window.initHeader) window.initHeader();
 
-    if (window.initHeader) window.initHeader();
-    patchHeaderForProductsPage();
-    initScrollReveal();
+  patchHeaderForProductsPage();
+  initScrollReveal();
+  initTabsScrollHintForPage();
+  initAutoHover();
+  initExpandGsap();
+}
 
-    initTabsScrollHintForPage();
-    initAutoHover();
-    initExpandGsap();
-  });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+} else {
+  bootPage();
+}
 })();

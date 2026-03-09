@@ -1,5 +1,5 @@
 /* assets/css/pages/products/juices/section2.css */
-/* ORIENT YEMEN - Juices Products (Exact panel + cards + in-panel expand) */
+/* ORIENT YEMEN - Juices Products (Responsive logic matched to Sour Sweets page) */
 
 .oy-products-juices {
   background: var(--oy-color-white);
@@ -95,7 +95,6 @@
   -webkit-overflow-scrolling: touch;
   padding-top: 2px;
   padding-bottom: 6px;
-  /* leave space for hint arrow at inline-end */
   padding-inline-end: 58px;
   scrollbar-width: none;
 }
@@ -103,7 +102,7 @@
   display: none;
 }
 
-/* Tabs items (keep same look as products) */
+/* Tabs items */
 .oy-products-juices .oy-products-tabs__tab {
   display: inline-flex;
   align-items: center;
@@ -148,12 +147,12 @@
 }
 
 /* ==============================
-   Big Panel (SAME logic)
+   Big Panel
 ============================== */
 
 .oy-sweets-panel {
   width: 1246px;
-  height: 560px; /*  ثابت مثل الأصل */
+  height: 560px;
   background: #F5F5F5;
   display: flex;
   align-items: stretch;
@@ -229,32 +228,28 @@
   --oy-card-btn-bottom: 12px;
 
   width: 312px;
-  height: 560px; /*  ثابت مثل الأصل */
+  height: 560px;
   padding: var(--oy-card-top-pad) var(--oy-card-side-pad) 0 var(--oy-card-side-pad);
   background: transparent;
   display: flex;
   flex-direction: column;
   color: #000000;
   transition: background-color .18s ease, padding-top .18s ease;
-  position: relative; /* مهم للزر وقت hover فقط */
+  position: relative;
 }
 
-/*  NEW: Ghost cards are REAL cards (keeps identical motion) */
+/* Ghost cards */
 .oy-sweets-item--ghost{
   background: var(--oy-color-white);
   pointer-events: none;
   user-select: none;
 }
-
-/* Keep them visually empty while preserving size */
 .oy-sweets-item--ghost::before{
   content:"";
   position:absolute;
   inset:0;
   background: var(--oy-color-white);
 }
-
-/* Safety: prevent any accidental hover/auto classes from affecting ghost */
 .oy-sweets-item--ghost:hover,
 .oy-sweets-item--ghost.is-autoHover,
 .oy-sweets-item--ghost.is-opening {
@@ -263,13 +258,13 @@
   color: #000 !important;
 }
 
-/*  Keep same seam spacing between any slot */
+/* Keep same seam spacing between any slot */
 .oy-sweets-panel > .oy-sweets-item + .oy-sweets-item {
   margin-inline-start: -0.666px;
 }
 
 /* ==============================
-   Hover behavior (SAME logic)
+   Hover behavior
 ============================== */
 
 .oy-sweets-media {
@@ -280,7 +275,6 @@
   justify-content: center;
 }
 
-/*  Product image size in cards (BIGGER) */
 .oy-sweets-media img {
   width: var(--oy-card-media-w);
   height: var(--oy-card-media-h);
@@ -290,27 +284,23 @@
 
 .oy-sweets-content { margin-top: 0; }
 
-/* hover OR autoHover (same effect) */
 .oy-sweets-item:hover,
 .oy-sweets-item.is-autoHover {
   background: var(--num-color);
-  padding-top: 0px; /*  أقل بادنج وقت الفتح */
+  padding-top: 0px;
   color: #ffffff;
 }
 
-/*  show bigger image */
 .oy-sweets-item:hover .oy-sweets-media,
 .oy-sweets-item.is-autoHover .oy-sweets-media {
   height: var(--oy-card-media-h);
-  /*  تقليل فراغ الصورة من الأعلى أكثر (بدون تغيير حجم الكارد) */
   margin-top: var(--oy-card-media-shift);
 }
 
-/*  رفع النصوص أكثر لفوق عشان حتى لو الوصف سطرين يظل مضبوط */
 .oy-sweets-item:hover .oy-sweets-content,
 .oy-sweets-item.is-autoHover .oy-sweets-content {
   margin-top: var(--oy-card-content-shift);
-  padding-bottom: var(--oy-card-content-pad-bottom);  /* مساحة للزر لأنه absolute وقت hover */
+  padding-bottom: var(--oy-card-content-pad-bottom);
 }
 
 /* Freeze state on click BEFORE measuring */
@@ -344,7 +334,6 @@
   font-weight: 700;
   line-height: 1.25;
   color: #000000;
-  /*  Reserve 2 lines in normal state */
   min-height: 2.5em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -352,14 +341,13 @@
   overflow: hidden;
 }
 
-/* Subtitle */
+/* Desc */
 .oy-sweets-desc {
   margin: 6px 0 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.35;
   color: #000000;
-  /*  Reserve 2 lines in normal state */
   min-height: 2.7em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -367,7 +355,7 @@
   overflow: hidden;
 }
 
-/* Button (normal flow stays as before) */
+/* Button */
 .oy-sweets-btn {
   margin-top: 29px;
   width: 125px;
@@ -396,14 +384,14 @@
   color: #ffffff;
 }
 
-/*  Tighten spacing when expanded/hover */
+/* Tighten spacing */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title { margin-top: 2px; }
 
 .oy-sweets-item:hover .oy-sweets-desc,
 .oy-sweets-item.is-autoHover .oy-sweets-desc { margin-top: 2px; }
 
-/*  remove reserved min-height only on hover/opening (compact) */
+/* remove reserved min-height only on hover/opening */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title,
 .oy-sweets-item.is-opening .oy-sweets-title { min-height: 0; }
@@ -412,7 +400,7 @@
 .oy-sweets-item.is-autoHover .oy-sweets-desc,
 .oy-sweets-item.is-opening .oy-sweets-desc { min-height: 0; }
 
-/*  Fix button only during hover/auto/opening */
+/* Fix button only during hover/auto/opening */
 .oy-sweets-item:hover .oy-sweets-btn,
 .oy-sweets-item.is-autoHover .oy-sweets-btn,
 .oy-sweets-item.is-opening .oy-sweets-btn {
@@ -430,7 +418,7 @@
 }
 
 /* ===========================================================
-    In-Panel GSAP Expand (NOT fullscreen)
+   In-Panel GSAP Expand (NOT fullscreen)
 =========================================================== */
 
 .oy-sweets-panel__overlay {
@@ -443,7 +431,7 @@
   pointer-events: none;
 }
 
-/*  الحاوية الرئيسية: تأمين الهوامش لمنع خروج العناصر */
+/* Main wrapper */
 .oy-sweets-expand {
   position: absolute;
   inset: 0;
@@ -451,7 +439,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-inline: clamp(24px, 4vw, 80px); /* بادنج أمان ثابت */
+  padding-inline: clamp(24px, 4vw, 80px);
   box-sizing: border-box;
   pointer-events: none;
   opacity: 0;
@@ -482,7 +470,7 @@
 .oy-sweets-expand__text {
   order: 1;
   position: relative;
-  z-index: 5; /* يحافظ على النصوص فوق الصور */
+  z-index: 5;
   padding-inline-start: 34px;
 }
 
@@ -502,7 +490,6 @@
   margin-inline-start: -10px;
 }
 
-/* Bigger product image in expand (product only) */
 .oy-sweets-expand__imgWrap{
   order: 2;
   position: relative;
@@ -525,7 +512,7 @@
 .oy-sweets-expand__big {
   font-size: 180px;
   font-weight: 900;
-  line-height: 1.05; 
+  line-height: 1.05;
   color: #ffffff;
   letter-spacing: -1px;
   position: relative;
@@ -541,7 +528,6 @@
   overflow-wrap: normal;
 }
 
-/* Bigger product image in expand */
 .oy-sweets-expand__img {
   width: 240px;
   height: 520px;
@@ -554,7 +540,7 @@
   opacity: 0;
 }
 
-/* Details image (NO CHANGE) */
+/* Details image */
 .oy-sweets-expand__imgDetails{
   position: absolute;
   z-index: 2;
@@ -595,18 +581,12 @@
 }
 
 /* ===========================================================
-   TABLET: 4 cards across, outer padding = 0 for cards area only
-   keep laptop untouched
+   TABLET: 4 cards across
 =========================================================== */
 @media (max-width: 1246px) {
-  .oy-products-juices .oy-section__inner {
-    padding-inline: 0;
-  }
-
+  .oy-products-juices .oy-section__inner { padding-inline: 0; }
   .oy-products-juices .oy-products-tabs__head,
-  .oy-products-juices .oy-products-tabs__subtitle {
-    padding-inline: clamp(18px, 2.6vw, 26px);
-  }
+  .oy-products-juices .oy-products-tabs__subtitle { padding-inline: clamp(18px, 2.6vw, 26px); }
 
   .oy-sweets-panelWrap{
     width: 100vw;
@@ -619,8 +599,14 @@
   .oy-sweets-panel {
     width: 100vw;
     max-width: 100vw;
-    margin-inline: 0;
+    margin-inline: calc(50% - 50vw);
     overflow: hidden;
+  }
+
+  .oy-sweets-panelWrap .oy-sweets-panel{
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
   }
 
   .oy-sweets-panel > .oy-sweets-item + .oy-sweets-item {
@@ -649,31 +635,40 @@
   .oy-sweets-desc { margin-top: 6px; font-size: 14px; line-height: 1.35; min-height: 2.8em; }
   .oy-sweets-btn { margin-top: 20px; width: 108px; height: 34px; font-size: 13px; }
 
-  /*  تعديلات الايباد والتابلت: بادنج ثابت ومحمي من الأطراف، تقريب للداخل */
-  .oy-sweets-expand { padding-inline: 50px; box-sizing: border-box; } 
-  .oy-sweets-expand__inner { justify-content: center; gap: 0px; } 
-  .oy-sweets-expand__big { font-size: 150px; line-height: 1.15; } 
-  
+  .oy-sweets-expand { padding-inline: 50px; box-sizing: border-box; }
+  .oy-sweets-expand__inner { justify-content: center; gap: 0px; }
+  .oy-sweets-expand__big { font-size: 150px; line-height: 1.15; }
+
   .oy-sweets-expand__imgWrap,
-  .oy-sweets-expand__img { width: 230px; height: 490px; flex: 0 0 230px; } 
-  
-  /* سحب الصورة نحو المركز للتقاطع مع النص دون المساس بالهامش الخارجي */
-  .oy-sweets-expand__imgWrap { margin-inline-start: -40px; z-index: 1; } 
-  
+  .oy-sweets-expand__img {
+    width: 230px;
+    height: 490px;
+    flex: 0 0 230px;
+  }
+
+  .oy-sweets-expand__imgWrap {
+    margin-inline-start: -40px;
+    z-index: 1;
+  }
+
+  .oy-sweets-expand__imgDetails{
+    width: 180px !important;
+    height: 180px !important;
+    inset-inline-start: -30px;
+    bottom: 20px;
+  }
+
   .oy-sweets-expand__meta { max-width: 360px; margin-top: 15px; }
   .oy-sweets-expand__title { font-size: 18px; }
   .oy-sweets-expand__desc { font-size: 15px; }
 }
 
 /* ===========================================================
-   MOBILE / SMALL TABLET: below 840px => 2 cards per row
-   outer padding still = 0
+   MOBILE / SMALL TABLET: 2 cards per row
 =========================================================== */
 @media (max-width: 839px) {
   .oy-products-juices .oy-products-tabs__head,
-  .oy-products-juices .oy-products-tabs__subtitle {
-    padding-inline: 14px;
-  }
+  .oy-products-juices .oy-products-tabs__subtitle { padding-inline: 14px; }
 
   .oy-sweets-panelWrap{
     margin-top: 16px;
@@ -686,24 +681,18 @@
     flex-wrap: wrap;
     align-items: stretch;
     overflow: visible;
-    /*  إظهار الفراغ الأبيض بين الصفوف */
-    background: transparent; 
-    gap: 24px 0; 
+    background: transparent;
+    gap: 24px 0;
   }
 
-  .oy-sweets-panel.is-expanded {
-    overflow: hidden;
-  }
+  .oy-sweets-panel.is-expanded { overflow: hidden; }
 
-  /*  إخفاء الكروت الوهمية تماماً في الهاتف لحذف المساحة الفارغة أدنى المنتجات */
   .oy-sweets-item--ghost {
     display: none !important;
   }
 
   .oy-sweets-item {
-    /*  نقل لون الخلفية إلى الكارد لكي يظل الفراغ المضاف أبيضاً */
-    background: #F5F5F5; 
-
+    background: #F5F5F5;
     width: 50%;
     min-width: 0;
     max-width: none;
@@ -725,32 +714,41 @@
   .oy-sweets-desc { margin-top: 6px; font-size: 13px; line-height: 1.4; min-height: 2.8em; }
   .oy-sweets-btn { margin-top: 18px; width: 100px; height: 32px; font-size: 12px; border-radius: 9px; }
 
-  /*  منطقة أمان ثابتة مستحيل أي عنصر يتجاوزها */
-  .oy-sweets-expand { padding: 40px 16px !important; box-sizing: border-box; overflow: hidden; } 
-  
-  .oy-sweets-expand__inner { flex-direction: row; gap: 0; align-items: center; justify-content: space-between; width: 100%; }
-  
-  /*  منع النص من التمدد ودفع الصورة للخارج */
-  .oy-sweets-expand__text { padding-inline-start: 0; flex: 1 1 auto; min-width: 0; z-index: 5; }
+  .oy-sweets-expand { padding: 40px 24px; box-sizing: border-box; }
+  .oy-sweets-expand__inner { flex-direction: row; gap: 0px; align-items: center; justify-content: center; }
+  .oy-sweets-expand__text { padding-inline-start: 0; flex: 1 1 50%; max-width: 55%; z-index: 5; }
   .oy-sweets-expand__close { bottom: 16px; inset-inline-start: 16px; }
-  
-  .oy-sweets-expand__bigWrap{ transform: translateY(-10px); max-width: 100%; }
-  /*  تصغير الحجم قليلاً ليكون أنيقاً ومتناسقاً */
-  .oy-sweets-expand__big { font-size: 90px; line-height: 1.1; top: 0; text-align: left; letter-spacing: -1px; }
 
-  /*  سحب الصورة نحو المركز للداخل وليس للخارج */
-  .oy-sweets-expand__imgWrap{ 
-    width: 180px; height: 440px; flex: 0 0 180px; z-index: 1; 
-    margin-inline-start: -30px; /* تداخل داخلي آمن */
+  .oy-sweets-expand__bigWrap{ transform: translateY(-10px); }
+  .oy-sweets-expand__big { font-size: 115px; line-height: 1.1; top: 0; text-align: left; letter-spacing: -1px; }
+
+  .oy-sweets-expand__imgWrap{
+    width: 200px;
+    height: 480px;
+    flex: 0 0 200px;
+    z-index: 1;
+    margin-inline-start: -50px;
   }
-  .oy-sweets-expand__img { width: 180px; height: 440px; }
+  .oy-sweets-expand__img { width: 200px; height: 480px; }
+
+  .oy-sweets-expand__imgDetails{
+    bottom: 40px;
+    width: 150px !important;
+    height: 150px !important;
+    max-width: none !important;
+    max-height: none !important;
+    inset-inline-start: -40px;
+    margin: 0;
+  }
 
   .oy-sweets-expand__meta { text-align: left; transform: none; max-width: 100%; margin-top: 15px; }
   .oy-sweets-expand__title { font-size: 16px; }
   .oy-sweets-expand__desc { font-size: 14px; }
 }
 
-/* very small phones */
+/* ===========================================================
+   VERY SMALL PHONES
+=========================================================== */
 @media (max-width: 540px) {
   .oy-sweets-item {
     --oy-card-side-pad: 12px;
@@ -766,21 +764,28 @@
   .oy-sweets-desc { font-size: 12px; }
   .oy-sweets-btn { width: 92px; height: 30px; font-size: 11px; }
 
-  /*  منطقة أمان ثابتة لا تقبل الاختراق */
-  .oy-sweets-expand { padding: 24px 12px !important; box-sizing: border-box; } 
-  
+  .oy-sweets-expand { padding: 24px 16px; box-sizing: border-box; }
   .oy-sweets-expand__inner { justify-content: space-between; }
-  .oy-sweets-expand__text { flex: 1 1 auto; min-width: 0; }
-  
+  .oy-sweets-expand__text { flex: 1 1 50%; max-width: 60%; }
+
   .oy-sweets-expand__bigWrap{ transform: translateY(0px); }
-  .oy-sweets-expand__big { font-size: 68px; line-height: 1.1; }
-  
-  .oy-sweets-expand__imgWrap{ 
-    width: 140px; height: 360px; flex: 0 0 140px; 
-    margin-inline-start: -20px; /* تداخل نحو المركز */
+  .oy-sweets-expand__big { font-size: 85px; line-height: 1.1; }
+
+  .oy-sweets-expand__imgWrap{
+    width: 150px;
+    height: 380px;
+    flex: 0 0 150px;
+    margin-inline-start: -40px;
   }
-  .oy-sweets-expand__img { width: 140px; height: 360px; }
-  
-  .oy-sweets-expand__title { font-size: 14px; }
-  .oy-sweets-expand__desc { font-size: 12px; margin-top: 4px; }
+  .oy-sweets-expand__img { width: 150px; height: 380px; }
+
+  .oy-sweets-expand__imgDetails {
+    width: 100px !important;
+    height: 100px !important;
+    bottom: 20px;
+    inset-inline-start: -25px;
+  }
+
+  .oy-sweets-expand__title { font-size: 15px; }
+  .oy-sweets-expand__desc { font-size: 13px; margin-top: 4px; }
 }

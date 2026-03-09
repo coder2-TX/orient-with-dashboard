@@ -14,24 +14,22 @@
     <!-- Tabs wrap (adds scroll hint arrow) -->
     <div class="oy-products-tabs__tabsWrap">
       <nav class="oy-products-tabs__nav" aria-label="Product filters">
-        <a href="pages/products/index.html" data-tab="all" class="oy-products-tabs__tab">جميع المنتجات</a>
+			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
 
-        <a href="pages/products/coffee/index.html" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
+			<a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
 
-        <a href="pages/products/biscuit/index.html" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
+			<a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
 
-        <!--  sour now points to old sweets page -->
-        <a href="pages/products/sweets/index.html" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
+			<a href="{{ url('products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
 
-        <!--  sweets now goes to marshmallow -->
-        <a href="pages/products/marshmallow/index.html" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
+			<a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
 
-        <a href="pages/products/healthy/index.html" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
+			<a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
 
-        <a href="pages/products/juices/index.html" data-tab="juices"
-          class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">العصائر</a>
+			<a href="{{ url('products/juices') }}" data-tab="juices"
+			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">العصائر</a>
 
-        <a href="pages/products/cake/index.html" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
+			<a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
       </nav>
 
         <!-- Scroll hint arrow (shown only when overflow exists) -->
@@ -54,66 +52,66 @@
 
       <div class="oy-sweets-panel" aria-label="Juices Cards Panel">
 
-        <!-- 1) JUICE 01 -->
+        <!-- 1) MANGO -->
         <article class="oy-sweets-item"
           style="--num-color:#F8C225;"
-          data-big="JUICES">
+          data-big="Mango">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Juices/1.png" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">01</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Juice 01</span></h3>
-            <p class="oy-sweets-desc">عصير فاكهي منعش بطابع خفيف</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Juicy Bites Mango Drink</span></h3>
+            <p class="oy-sweets-desc">عصير مانجو منعش بمذاق فاكهي ناعم</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 2) JUICE 02 -->
+        <!-- 2) ORANGE -->
         <article class="oy-sweets-item"
           style="--num-color:#F79B20;"
-          data-big="JUICES">
+          data-big="Orange">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Juices/2.png" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">02</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Juice 02</span></h3>
-            <p class="oy-sweets-desc">مذاق حيوي بلون دافئ وحضور أنيق</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Juicy Bites Orange Drink</span></h3>
+            <p class="oy-sweets-desc">عصير برتقال بطعم مشرق وانتعاش خفيف</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 3) JUICE 03 -->
+        <!-- 3) PEACH -->
         <article class="oy-sweets-item"
           style="--num-color:#F4AC2D;"
-          data-big="JUICES">
+          data-big="Peach">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Juices/3.png" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">03</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Juice 03</span></h3>
-            <p class="oy-sweets-desc">توازن فاكهي بنكهة ناعمة ومنعشة</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Juicy Bites Peach Drink</span></h3>
+            <p class="oy-sweets-desc">عصير خوخ بمذاق ناعم ولمسة منعشة</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>
 
-        <!-- 4) JUICE 04 -->
+        <!-- 4) PINEAPPLE -->
         <article class="oy-sweets-item"
           style="--num-color:#F6DA41;"
-          data-big="JUICES">
+          data-big="Pine|apple">
           <div class="oy-sweets-media" aria-hidden="true">
             <img src="assets/images/products/Juices/4.png" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">04</div>
-            <h3 class="oy-sweets-title"><span dir="ltr">Juice 04</span></h3>
-            <p class="oy-sweets-desc">انتعاش لامع بطابع فاكهي واضح</p>
+            <h3 class="oy-sweets-title"><span dir="ltr">Juicy Bites Pineapple Drink</span></h3>
+            <p class="oy-sweets-desc">عصير أناناس بطابع استوائي ومذاق منعش</p>
             <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
           </div>
         </article>

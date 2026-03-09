@@ -1,16 +1,7 @@
 // assets/js/pages/products-marshmallow.js
-// ORIENT YEMEN - Marshmallow products page loader (header + hero + section + footer)
+// ORIENT YEMEN - Marshmallow products page loader (same behavior pattern as sweets)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
-
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/marshmallow/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
 
   function patchHeaderForProductsPage() {
     const header = document.querySelector(".oy-header");
@@ -67,7 +58,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {
@@ -98,7 +88,6 @@
     return _rtlScrollType;
   }
 
-  //  Works for ANY horizontal scroller (tabs nav OR panel)
   function getScrollPos(el) {
     const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return { pos: 0, max: 0 };
@@ -182,7 +171,6 @@
     initTabsScrollHint(nav);
   }
 
-  //  ensure visible WITHOUT vertical scroll
   function ensureCardVisible(panel, card, behavior = "auto") {
     if (!panel || !card) return;
 
@@ -211,7 +199,6 @@
     scrollToPos(panel, target, behavior);
   }
 
-  //  Auto hover spotlight (same logic)
   function initAutoHover() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
@@ -236,6 +223,17 @@
       st.cards.forEach(c => c.classList.remove("is-autoHover"));
     }
 
+    function setSingleActive(panel) {
+      const st = panelState.get(panel);
+      if (!st) return;
+
+      const only = st.cards[0];
+      if (!only) return;
+
+      st.cards.forEach(c => c.classList.remove("is-autoHover"));
+      only.classList.add("is-autoHover");
+    }
+
     function tick(panel) {
       const st = panelState.get(panel);
       if (!st) return;
@@ -243,6 +241,11 @@
       if (st.tempPaused) return;
       if (st.userHold) return;
       if (panel.classList.contains("is-expanded")) return;
+
+      if (st.cards.length === 1) {
+        setSingleActive(panel);
+        return;
+      }
 
       clearAuto(panel);
 
@@ -274,6 +277,38 @@
       };
 
       panelState.set(panel, st);
+
+      if (cards.length === 1) {
+        window.setTimeout(() => setSingleActive(panel), 700);
+
+        panel.__oySweetsAutoHover = {
+          pauseTemp() {
+            st.tempPaused = true;
+            st.userHold = false;
+            clearAuto(panel);
+          },
+          resumeTemp() {
+            st.tempPaused = false;
+            st.userHold = false;
+            if (st.resumeT) clearTimeout(st.resumeT);
+            st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+          },
+        };
+
+        cards[0].addEventListener("mouseleave", () => {
+          if (st.resumeT) clearTimeout(st.resumeT);
+          st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+        });
+        cards[0].addEventListener("focusout", () => {
+          if (st.resumeT) clearTimeout(st.resumeT);
+          st.resumeT = setTimeout(() => setSingleActive(panel), 320);
+        });
+
+        cards[0].addEventListener("mouseenter", () => { st.userHold = true; });
+        cards[0].addEventListener("focusin", () => { st.userHold = true; });
+
+        return;
+      }
 
       st.timer = window.setInterval(() => tick(panel), INTERVAL);
       window.setTimeout(() => tick(panel), 700);
@@ -327,7 +362,6 @@
     });
   }
 
-  // In-panel expand animation (unchanged)
   function initExpandGsap() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
@@ -336,7 +370,14 @@
     const reduceMotion =
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const clamp0 = (n) => (n < 0 ? 0 : n);
+    function buildInset(containerRect, itemRect) {
+      const top = Math.max(0, itemRect.top - containerRect.top);
+      const left = Math.max(0, itemRect.left - containerRect.left);
+      const right = Math.max(0, containerRect.right - itemRect.right);
+      const bottom = Math.max(0, containerRect.bottom - itemRect.bottom);
+
+      return `inset(${Math.round(top)}px ${Math.round(right)}px ${Math.round(bottom)}px ${Math.round(left)}px)`;
+    }
 
     function escapeHtml(str) {
       return String(str)
@@ -345,14 +386,6 @@
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
-    }
-
-    function buildInset(panelRect, cardRect) {
-      const top = clamp0(cardRect.top - panelRect.top);
-      const left = clamp0(cardRect.left - panelRect.left);
-      const right = clamp0(panelRect.width - (left + cardRect.width));
-      const bottom = clamp0(panelRect.height - (top + cardRect.height));
-      return `inset(${top}px ${right}px ${bottom}px ${left}px)`;
     }
 
     function open(panel, card, btn) {
@@ -375,12 +408,23 @@
 
       const detailsSrc = (card.getAttribute("data-details-img") || "").trim();
 
-      const bigRaw = (card.getAttribute("data-big") || "marshmallow|LINE").trim();
+      const bigRaw = (card.getAttribute("data-big") || "Marsh|mallow").trim();
       const bigLines = bigRaw.split("|").map(s => s.trim()).filter(Boolean);
       const bigHtml = bigLines.map(line => `<div>${escapeHtml(line)}</div>`).join("");
 
       const panelRect = panel.getBoundingClientRect();
       const cardRect  = card.getBoundingClientRect();
+
+      const rowTopRel = Math.max(0, cardRect.top - panelRect.top);
+
+      const rowRect = {
+        top: cardRect.top,
+        bottom: cardRect.bottom,
+        left: panelRect.left,
+        right: panelRect.right,
+        width: panelRect.width,
+        height: cardRect.height
+      };
 
       const origTitle = card.querySelector(".oy-sweets-title");
       const origDesc  = card.querySelector(".oy-sweets-desc");
@@ -396,15 +440,25 @@
       overlay.className = "oy-sweets-panel__overlay";
       overlay.style.background = color;
 
-      const startInset = buildInset(panelRect, cardRect);
+      const startInset = buildInset(rowRect, cardRect);
       overlay.style.clipPath = startInset;
       overlay.style.webkitClipPath = startInset;
+
+      overlay.style.top = Math.round(rowTopRel) + "px";
+      overlay.style.bottom = "auto";
+      overlay.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(overlay);
 
       const expand = document.createElement("div");
       expand.className = "oy-sweets-expand";
       expand.style.opacity = "1";
       expand.style.visibility = "hidden";
+
+      expand.style.top = Math.round(rowTopRel) + "px";
+      expand.style.bottom = "auto";
+      expand.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(expand);
 
       const closeBtn = document.createElement("a");
@@ -652,18 +706,19 @@
     });
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
+function bootPage() {
+  if (window.initHeader) window.initHeader();
 
-    if (window.initHeader) window.initHeader();
-    patchHeaderForProductsPage();
-    initScrollReveal();
+  patchHeaderForProductsPage();
+  initScrollReveal();
+  initTabsScrollHintForPage();
+  initAutoHover();
+  initExpandGsap();
+}
 
-    initTabsScrollHintForPage();
-    initAutoHover();
-    initExpandGsap();
-  });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+} else {
+  bootPage();
+}
 })();

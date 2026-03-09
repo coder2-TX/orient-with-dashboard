@@ -1,69 +1,54 @@
 // assets/js/app.js
-// ORIENT YEMEN - Partials loader
+// ORIENT YEMEN - Shared page boot (Laravel Blade version)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
+  function ensureScrollReveal() {
+    if (window.initScrollReveal) return;
 
-  //  Pick partials directory per page (default: partials)
-  // Example in index_en.html: window.OY_PARTIALS_DIR = 'partials_en'
-  const base = String(window.OY_PARTIALS_DIR || "partials").replace(/\/+$/, "");
+    window.initScrollReveal = function initScrollReveal() {
+      const items = Array.from(document.querySelectorAll(".oy-reveal"));
+      if (items.length === 0) return;
 
-  const slots = [
-    { slot: "header-slot",   url: `${base}/header.html` },
-    { slot: "hero-slot",     url: `${base}/hero.html` },
-    { slot: "about-slot",    url: `${base}/about.html` },
-    { slot: "services-slot", url: `${base}/services.html` },
-    { slot: "facts-slot",    url: `${base}/facts.html` },
-    { slot: "why-slot",      url: `${base}/why.html` },
-    { slot: "partners-slot", url: `${base}/partners.html` },
-    { slot: "footer-slot",   url: `${base}/footer.html` },
-  ];
+      const reduced =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const slotId = slots[i].slot;
-      const el = document.getElementById(slotId);
-      if (el) el.innerHTML = html;
-    });
+      if (reduced) {
+        items.forEach((el) => el.classList.add("oy-reveal--visible"));
+        return;
+      }
 
-    // Init hooks (if exists)
-    if (!window.initScrollReveal) {
-      window.initScrollReveal = function initScrollReveal() {
-        const items = Array.from(document.querySelectorAll(".oy-reveal"));
-        if (items.length === 0) return;
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("oy-reveal--visible"));
+        return;
+      }
 
-        const reduced =
-          window.matchMedia &&
-          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("oy-reveal--visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -12% 0px" });
 
-        if (reduced) {
-          items.forEach(el => el.classList.add("oy-reveal--visible"));
-          return;
-        }
+      items.forEach((el) => io.observe(el));
+    };
+  }
 
-        if (!("IntersectionObserver" in window)) {
-          items.forEach(el => el.classList.add("oy-reveal--visible"));
-          return;
-        }
-
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("oy-reveal--visible");
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: "0px 0px -12% 0px" });
-
-        items.forEach(el => io.observe(el));
-      };
-    }
+  function bootPage() {
+    ensureScrollReveal();
 
     if (window.initHeader) window.initHeader();
     if (window.initHeroSlider) window.initHeroSlider();
     if (window.initFactsCounters) window.initFactsCounters();
     if (window.initPartnersSlider) window.initPartnersSlider();
     if (window.initScrollReveal) window.initScrollReveal();
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+  } else {
+    bootPage();
+  }
 })();

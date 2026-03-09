@@ -5,8 +5,7 @@
 @push('styles')
   <link rel="stylesheet" href="{{ asset('assets/css/partners.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/section3.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/section3-overrides.css') }}">
 @endpush
 
 @push('scripts_head')

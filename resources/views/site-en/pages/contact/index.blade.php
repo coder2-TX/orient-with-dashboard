@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/hero.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/pages/contact/hero.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/pages/contact/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/pages/contact/section3.css') }}">
 @endpush
 
 @push('scripts_head')
@@ -15,4 +16,5 @@
 @section('content')
   @include('site-en.pages.contact.partials.hero')
   @include('site-en.pages.contact.partials.section-2')
+  @include('site-en.pages.contact.partials.section-3')
 @endsection

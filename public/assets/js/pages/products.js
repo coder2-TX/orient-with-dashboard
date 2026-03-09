@@ -2,39 +2,24 @@
 // ORIENT YEMEN - Products page loader (header + hero + section2 + footer)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
 
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
+	function patchHeaderForProductsPage() {
+	  const header = document.querySelector(".oy-header");
+	  if (!header) return;
 
-  function patchHeaderForProductsPage() {
-    const header = document.querySelector(".oy-header");
-    if (!header) return;
+	  const links = header.querySelectorAll(
+		".oy-header__nav .oy-header__link, .oy-header__drawerNav .oy-header__link"
+	  );
 
-    // Logo -> home
-    const logo = header.querySelector(".oy-header__logo");
-    if (logo) logo.setAttribute("href", "index.html");
+	  links.forEach(a => a.classList.remove("oy-header__link--active"));
 
-    const links = header.querySelectorAll(
-      ".oy-header__nav .oy-header__link, .oy-header__drawerNav .oy-header__link"
-    );
-
-    // clear active
-    links.forEach(a => a.classList.remove("oy-header__link--active"));
-
-    // mark products active
-    links.forEach(a => {
-      const href = a.getAttribute("href") || "";
-      if (href.includes("pages/products/index.html")) {
-        a.classList.add("oy-header__link--active");
-      }
-    });
-  }
+	  links.forEach(a => {
+		const href = a.getAttribute("href") || "";
+		if (href.includes("/products") || href.includes("products")) {
+		  a.classList.add("oy-header__link--active");
+		}
+	  });
+	}
 
   // Scroll reveal (same logic as About/Partners)
   function initScrollReveal() {
@@ -215,22 +200,17 @@
     initTabsScrollHint(nav);
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
+	function bootPage() {
+	  if (window.initHeader) window.initHeader();
 
-    // init shared header behavior
-    if (window.initHeader) window.initHeader();
+	  patchHeaderForProductsPage();
+	  initProductsTabs();
+	  initScrollReveal();
+	}
 
-    // products page specific header active
-    patchHeaderForProductsPage();
-
-    // init tabs (after injection)
-    initProductsTabs();
-
-    // reveal after injection
-    initScrollReveal();
-  });
+	if (document.readyState === "loading") {
+	  document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+	} else {
+	  bootPage();
+	}
 })();

@@ -1,16 +1,7 @@
 // assets/js/pages/products-biscuit.js
-// ORIENT YEMEN - Biscuit products page loader (header + hero + biscuit section + footer)
+// ORIENT YEMEN - Biscuit products page loader (same behavior pattern as sweets)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
-
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/biscuit/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
 
   function patchHeaderForProductsPage() {
     const header = document.querySelector(".oy-header");
@@ -67,7 +58,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {
@@ -98,7 +88,6 @@
     return _rtlScrollType;
   }
 
-  //  Works for ANY horizontal scroller (tabs nav OR sweets panel)
   function getScrollPos(el) {
     const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return { pos: 0, max: 0 };
@@ -114,7 +103,6 @@
     return { pos: sl, max };
   }
 
-  //  Added "behavior" parameter (auto/smooth)
   function scrollToPos(el, pos, behavior = "smooth") {
     const max = el.scrollWidth - el.clientWidth;
     if (max <= 0) return;
@@ -183,7 +171,6 @@
     initTabsScrollHint(nav);
   }
 
-  //  FIX: ensure visible WITHOUT vertical page scroll (NO scrollIntoView)
   function ensureCardVisible(panel, card, behavior = "auto") {
     if (!panel || !card) return;
 
@@ -212,8 +199,6 @@
     scrollToPos(panel, target, behavior);
   }
 
-  //  Auto hover spotlight (every 1.5s) - ignore ghost
-  // NOTE: we keep behavior like healthy page (no vertical scrolling, no forced pan each tick)
   function initAutoHover() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
@@ -222,7 +207,6 @@
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
-      // just ensure first REAL card is horizontally visible (no vertical scroll)
       panels.forEach(panel => {
         const first = panel.querySelector(".oy-sweets-item:not(.oy-sweets-item--ghost)");
         if (first) setTimeout(() => ensureCardVisible(panel, first, "auto"), 60);
@@ -248,7 +232,6 @@
 
       st.cards.forEach(c => c.classList.remove("is-autoHover"));
       only.classList.add("is-autoHover");
-      //  no forced scrolling here
     }
 
     function tick(panel) {
@@ -259,7 +242,6 @@
       if (st.userHold) return;
       if (panel.classList.contains("is-expanded")) return;
 
-      //  1 card: always active, no cycling
       if (st.cards.length === 1) {
         setSingleActive(panel);
         return;
@@ -273,7 +255,6 @@
       if (!next || next.classList.contains("is-opening")) return;
 
       next.classList.add("is-autoHover");
-      //  no forced scrolling each tick
     }
 
     panels.forEach((panel) => {
@@ -283,7 +264,6 @@
 
       if (!cards.length) return;
 
-      //  ensure first real card is horizontally visible on load (no vertical scroll)
       setTimeout(() => ensureCardVisible(panel, cards[0], "auto"), 80);
       setTimeout(() => ensureCardVisible(panel, cards[0], "auto"), 260);
 
@@ -382,7 +362,6 @@
     });
   }
 
-  // In-panel expand animation - unchanged logic
   function initExpandGsap() {
     const panels = Array.from(document.querySelectorAll(".oy-sweets-panel"));
     if (!panels.length) return;
@@ -391,7 +370,14 @@
     const reduceMotion =
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const clamp0 = (n) => (n < 0 ? 0 : n);
+    function buildInset(containerRect, itemRect) {
+      const top = Math.max(0, itemRect.top - containerRect.top);
+      const left = Math.max(0, itemRect.left - containerRect.left);
+      const right = Math.max(0, containerRect.right - itemRect.right);
+      const bottom = Math.max(0, containerRect.bottom - itemRect.bottom);
+
+      return `inset(${Math.round(top)}px ${Math.round(right)}px ${Math.round(bottom)}px ${Math.round(left)}px)`;
+    }
 
     function escapeHtml(str) {
       return String(str)
@@ -400,14 +386,6 @@
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
-    }
-
-    function buildInset(panelRect, cardRect) {
-      const top = clamp0(cardRect.top - panelRect.top);
-      const left = clamp0(cardRect.left - panelRect.left);
-      const right = clamp0(panelRect.width - (left + cardRect.width));
-      const bottom = clamp0(panelRect.height - (top + cardRect.height));
-      return `inset(${top}px ${right}px ${bottom}px ${left}px)`;
     }
 
     function open(panel, card, btn) {
@@ -430,19 +408,23 @@
 
       const detailsSrc = (card.getAttribute("data-details-img") || "").trim();
 
-      const bigRaw = (card.getAttribute("data-big") || "BISCUITS|LINE").trim();
-      const bigParts = bigRaw.split("|").map(s => s.trim()).filter(Boolean);
-
-      //  نفس سلوك coffee: لا تعرض سطر ثاني إذا كان رقم فقط (01/02/3...)
-      const bigLines = bigParts.filter((line, idx) => {
-        if (idx === 0) return true;
-        return !/^\d+$/.test(line);
-      });
-
+      const bigRaw = (card.getAttribute("data-big") || "BIS|CUIT").trim();
+      const bigLines = bigRaw.split("|").map(s => s.trim()).filter(Boolean);
       const bigHtml = bigLines.map(line => `<div>${escapeHtml(line)}</div>`).join("");
 
       const panelRect = panel.getBoundingClientRect();
       const cardRect  = card.getBoundingClientRect();
+
+      const rowTopRel = Math.max(0, cardRect.top - panelRect.top);
+
+      const rowRect = {
+        top: cardRect.top,
+        bottom: cardRect.bottom,
+        left: panelRect.left,
+        right: panelRect.right,
+        width: panelRect.width,
+        height: cardRect.height
+      };
 
       const origTitle = card.querySelector(".oy-sweets-title");
       const origDesc  = card.querySelector(".oy-sweets-desc");
@@ -458,15 +440,25 @@
       overlay.className = "oy-sweets-panel__overlay";
       overlay.style.background = color;
 
-      const startInset = buildInset(panelRect, cardRect);
+      const startInset = buildInset(rowRect, cardRect);
       overlay.style.clipPath = startInset;
       overlay.style.webkitClipPath = startInset;
+
+      overlay.style.top = Math.round(rowTopRel) + "px";
+      overlay.style.bottom = "auto";
+      overlay.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(overlay);
 
       const expand = document.createElement("div");
       expand.className = "oy-sweets-expand";
       expand.style.opacity = "1";
       expand.style.visibility = "hidden";
+
+      expand.style.top = Math.round(rowTopRel) + "px";
+      expand.style.bottom = "auto";
+      expand.style.height = Math.round(cardRect.height) + "px";
+
       panel.appendChild(expand);
 
       const closeBtn = document.createElement("a");
@@ -714,18 +706,19 @@
     });
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
+function bootPage() {
+  if (window.initHeader) window.initHeader();
 
-    if (window.initHeader) window.initHeader();
-    patchHeaderForProductsPage();
-    initScrollReveal();
+  patchHeaderForProductsPage();
+  initScrollReveal();
+  initTabsScrollHintForPage();
+  initAutoHover();
+  initExpandGsap();
+}
 
-    initTabsScrollHintForPage();
-    initAutoHover();
-    initExpandGsap();
-  });
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+} else {
+  bootPage();
+}
 })();

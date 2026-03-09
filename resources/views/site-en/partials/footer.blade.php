@@ -7,16 +7,16 @@
 
     $email = $footer?->email ?? 'info@orientyemen.com';
 
-    //  Clean email (remove whitespace/newlines)
+    // Clean email (remove whitespace/newlines)
     $emailClean = preg_replace('/\s+/', '', trim((string) $email));
     if ($emailClean === '') {
       $emailClean = 'info@orientyemen.com';
     }
 
-    $phone = $footer?->phone ?? '+967 734888880';
+    $phone = $footer?->phone ?? '+967 778080700';
 
-    $locationText = $footer?->location_text_en ?? 'Somewhere in the World';
-    $locationUrl  = $footer?->location_url;
+    $locationText = $footer?->location_text_en ?? 'Company Location';
+    $locationUrl  = $footer?->location_url ?? 'https://maps.app.goo.gl/TW3M3gi3dqN273LG6';
 
     $locations = $footer?->locations;
     if (!is_array($locations)) {
@@ -37,7 +37,7 @@
       <div class="oy-footer__left">
         <div class="oy-footer__col" id="contact">
           <div class="oy-footer__brand">
-            <img class="oy-footer__logo" src="/assets/images/header/logo_white.svg" alt="Orient Yemen">
+            <img class="oy-footer__logo" src="{{ asset('assets/images/header/logo_white.svg') }}" alt="Orient Yemen">
           </div>
 
           <div class="oy-footer__contact">
@@ -56,7 +56,7 @@
               @php
                 $tel = preg_replace('/\s+/', '', $phone);
               @endphp
-              <a class="oy-footer__contact-value" href="tel:{{ $tel }}">{{ $phone }}</a>
+              <a class="oy-footer__contact-value" href="https://wa.me/967778080700" target="_blank" rel="noopener noreferrer" dir="ltr" style="direction:ltr; unicode-bidi:isolate; display:inline-block;">+967 734888880</a>
             </div>
 
             <div class="oy-footer__contact-item">
@@ -102,18 +102,19 @@
           <div class="oy-footer__heading oy-footer__heading--center">Follow us on social media</div>
 
           <div class="oy-footer__socials">
-            <a class="oy-footer__social-btn" href="{{ $xUrl ?: '#' }}" aria-label="X (Twitter)"
-               @if($xUrl) target="_blank" rel="noopener noreferrer" @endif>
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
 
-            <a class="oy-footer__social-btn" href="{{ $facebookUrl ?: '#' }}" aria-label="Facebook"
-               @if($facebookUrl) target="_blank" rel="noopener noreferrer" @endif>
+            <a class="oy-footer__social-btn" href="https://www.facebook.com/share/1CNj9hfQ9o/" aria-label="Facebook"
+              target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
 
-            <a class="oy-footer__social-btn" href="{{ $whatsappUrl ?: '#' }}" aria-label="WhatsApp"
-               @if($whatsappUrl) target="_blank" rel="noopener noreferrer" @endif>
+            <a class="oy-footer__social-btn" href="https://www.instagram.com/orientyemen?igsh=NHZqaTFsNDJmY2Jz" aria-label="Instagram"
+              target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a class="oy-footer__social-btn" href="https://wa.me/967778080700" aria-label="WhatsApp"
+              target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>

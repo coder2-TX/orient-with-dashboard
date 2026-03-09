@@ -1,16 +1,7 @@
 // assets/js/pages/products-cake.js
-// ORIENT YEMEN - Cakes products page loader (header + hero + cake section + footer)
+// ORIENT YEMEN - Cakes products page loader (same behavior pattern as sweets)
 
 (function () {
-  const safeFetch = (url) =>
-    fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
-
-  const slots = [
-    { slot: "header-slot",   url: "partials/header.html" },
-    { slot: "hero-slot",     url: "pages/products/partials/hero.html" },
-    { slot: "section2-slot", url: "pages/products/cake/partials/section-2.html" },
-    { slot: "footer-slot",   url: "partials/footer.html" },
-  ];
 
   function patchHeaderForProductsPage() {
     const header = document.querySelector(".oy-header");
@@ -67,7 +58,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {
@@ -385,7 +375,7 @@
       const left = Math.max(0, itemRect.left - containerRect.left);
       const right = Math.max(0, containerRect.right - itemRect.right);
       const bottom = Math.max(0, containerRect.bottom - itemRect.bottom);
-      
+
       return `inset(${Math.round(top)}px ${Math.round(right)}px ${Math.round(bottom)}px ${Math.round(left)}px)`;
     }
 
@@ -426,7 +416,6 @@
       const cardRect  = card.getBoundingClientRect();
 
       const rowTopRel = Math.max(0, cardRect.top - panelRect.top);
-      const rowBottomRel = Math.max(0, panelRect.bottom - cardRect.bottom);
 
       const rowRect = {
         top: cardRect.top,
@@ -454,18 +443,18 @@
       const startInset = buildInset(rowRect, cardRect);
       overlay.style.clipPath = startInset;
       overlay.style.webkitClipPath = startInset;
-      
+
       overlay.style.top = Math.round(rowTopRel) + "px";
       overlay.style.bottom = "auto";
       overlay.style.height = Math.round(cardRect.height) + "px";
-      
+
       panel.appendChild(overlay);
 
       const expand = document.createElement("div");
       expand.className = "oy-sweets-expand";
       expand.style.opacity = "1";
       expand.style.visibility = "hidden";
-      
+
       expand.style.top = Math.round(rowTopRel) + "px";
       expand.style.bottom = "auto";
       expand.style.height = Math.round(cardRect.height) + "px";
@@ -717,18 +706,19 @@
     });
   }
 
-  Promise.all(slots.map(s => safeFetch(s.url))).then((htmlParts) => {
-    htmlParts.forEach((html, i) => {
-      const el = document.getElementById(slots[i].slot);
-      if (el) el.innerHTML = html || "";
-    });
+	function bootPage() {
+	  if (window.initHeader) window.initHeader();
 
-    if (window.initHeader) window.initHeader();
-    patchHeaderForProductsPage();
-    initScrollReveal();
+	  patchHeaderForProductsPage();
+	  initScrollReveal();
+	  initTabsScrollHintForPage();
+	  initAutoHover();
+	  initExpandGsap();
+	}
 
-    initTabsScrollHintForPage();
-    initAutoHover();
-    initExpandGsap();
-  });
+	if (document.readyState === "loading") {
+	  document.addEventListener("DOMContentLoaded", bootPage, { once: true });
+	} else {
+	  bootPage();
+	}
 })();

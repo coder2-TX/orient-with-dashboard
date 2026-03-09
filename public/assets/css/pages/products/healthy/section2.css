@@ -1,5 +1,5 @@
 /* assets/css/pages/products/healthy/section2.css */
-/* ORIENT YEMEN - Healthy Products (Exact panel + cards + in-panel expand) */
+/* ORIENT YEMEN - Healthy Products (Responsive logic matched to Sour Sweets page) */
 
 .oy-products-healthy {
   background: var(--oy-color-white);
@@ -34,7 +34,6 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity .15s ease;
-
   background: linear-gradient(to left, var(--oy-color-white), rgba(255, 255, 255, 0));
 }
 
@@ -49,25 +48,19 @@
   inset-inline-end: 6px;
   top: 50%;
   transform: translateY(-50%);
-
   width: 42px;
   height: 42px;
   border-radius: 14px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid rgba(0, 0, 0, 0.10);
   background: var(--oy-color-white);
   color: var(--oy-color-primary);
-
   box-shadow: 0 10px 20px rgba(23, 49, 89, 0.10);
-
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
-
   transition: opacity .15s ease, filter .15s ease;
 }
 
@@ -97,43 +90,33 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-
   padding-top: 2px;
   padding-bottom: 6px;
-
-  /* leave space for hint arrow at inline-end */
   padding-inline-end: 58px;
-
   scrollbar-width: none;
 }
 .oy-products-healthy .oy-products-tabs__nav::-webkit-scrollbar {
   display: none;
 }
 
-/* Tabs items (keep same look as products) */
+/* Tabs items */
 .oy-products-healthy .oy-products-tabs__tab {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   background: var(--oy-color-white);
   color: var(--oy-color-navy);
   border: 1px solid #E8E7E7;
-
   border-radius: var(--oy-radius-sm);
   padding: 10px 16px;
-
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
-
   text-decoration: none;
   white-space: nowrap;
-
   transition: border-color .15s ease, color .15s ease, background-color .15s ease, filter .15s ease;
 }
 
@@ -153,11 +136,9 @@
     font-size: 14px;
     padding: 9px 14px;
   }
-
   .oy-products-healthy .oy-products-tabs__nav {
     padding-inline-end: 54px;
   }
-
   .oy-products-healthy .oy-products-tabs__scrollHint {
     width: 40px;
     height: 40px;
@@ -166,29 +147,23 @@
 }
 
 /* ==============================
-   Big Panel (SAME logic)
+   Big Panel
 ============================== */
 
 .oy-sweets-panel {
   width: 1246px;
-  height: 560px; /*  ثابت مثل الأصل */
+  height: 560px;
   background: #F5F5F5;
-
   display: flex;
   align-items: stretch;
-
   border-radius: 0;
   box-shadow: none;
-
   margin-top: 34px;
   margin-inline: auto;
-
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-
   scrollbar-width: none;
-
   position: relative;
   isolation: isolate;
 }
@@ -200,12 +175,9 @@
   width: 1246px;
   max-width: 100%;
   margin-inline: auto;
-
   margin-top: 20px;
-
   position: relative;
   overflow: visible;
-
   --sweets-pattern-size: 140px;
   --sweets-pattern-overlap: 60px;
 }
@@ -220,21 +192,16 @@
 .oy-sweets-panelPattern{
   position: absolute;
   inset-inline-end: -80px;
-
   top: calc(100% - var(--sweets-pattern-overlap));
-
   width: var(--sweets-pattern-size);
   height: auto;
-
   z-index: 0;
   pointer-events: none;
   user-select: none;
 }
 
 /* spacing between panels */
-.oy-sweets-panel--second {
-  margin-top: 120px;
-}
+.oy-sweets-panel--second,
 .oy-sweets-panel--third {
   margin-top: 120px;
 }
@@ -249,37 +216,38 @@
 
 /* Each inner card */
 .oy-sweets-item {
+  --oy-card-side-pad: 36px;
+  --oy-card-top-pad: 119px;
+  --oy-card-media-w: 230px;
+  --oy-card-media-h: 470px;
+  --oy-card-media-shift: -14px;
+  --oy-card-content-shift: -78px;
+  --oy-card-content-pad-bottom: 47px;
+  --oy-card-btn-bottom: 12px;
+
   width: 312px;
-  height: 560px; /*  ثابت مثل الأصل */
-  padding: 119px 36px 0 36px;
-
+  height: 560px;
+  padding: var(--oy-card-top-pad) var(--oy-card-side-pad) 0 var(--oy-card-side-pad);
   background: transparent;
-
   display: flex;
   flex-direction: column;
-
   color: #000000;
-
   transition: background-color .18s ease, padding-top .18s ease;
-
-  position: relative; /* مهم للزر وقت hover فقط */
+  position: relative;
 }
 
-/*  NEW: Ghost slot (fills missing cards to keep 4 columns) */
+/* Healthy uses white filler slots */
 .oy-sweets-gap {
   width: 312px;
   height: 560px;
   flex: 0 0 auto;
-
   background: var(--oy-color-white);
-  opacity: 1; /*  العمود الفارغ يظهر أبيض */
-
+  opacity: 1;
   pointer-events: none;
   user-select: none;
 }
 
-
-/*  Keep same seam spacing between any slot (item/gap) */
+/* Keep same seam spacing between any slot */
 .oy-sweets-panel > .oy-sweets-item + .oy-sweets-item,
 .oy-sweets-panel > .oy-sweets-item + .oy-sweets-gap,
 .oy-sweets-panel > .oy-sweets-gap + .oy-sweets-item,
@@ -288,50 +256,43 @@
 }
 
 /* ==============================
-   Hover behavior (SAME logic)
+   Hover behavior
 ============================== */
 
 .oy-sweets-media {
   height: 0;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/*  Product image size in cards (BIGGER) */
 .oy-sweets-media img {
-  width: 230px;
-  height: 470px;
+  width: var(--oy-card-media-w);
+  height: var(--oy-card-media-h);
   object-fit: contain;
   display: block;
 }
 
 .oy-sweets-content { margin-top: 0; }
 
-/* hover OR autoHover (same effect) */
 .oy-sweets-item:hover,
 .oy-sweets-item.is-autoHover {
   background: var(--num-color);
-  padding-top: 0px; /*  أقل بادنج وقت الفتح */
+  padding-top: 0px;
   color: #ffffff;
 }
 
-/*  show bigger image */
 .oy-sweets-item:hover .oy-sweets-media,
 .oy-sweets-item.is-autoHover .oy-sweets-media {
-  height: 470px;
-
-  /*  تقليل فراغ الصورة من الأعلى أكثر (بدون تغيير حجم الكارد) */
-  margin-top: -14px;
+  height: var(--oy-card-media-h);
+  margin-top: var(--oy-card-media-shift);
 }
 
-/*  رفع النصوص أكثر لفوق عشان حتى لو الوصف سطرين يظل مضبوط */
 .oy-sweets-item:hover .oy-sweets-content,
 .oy-sweets-item.is-autoHover .oy-sweets-content {
-  margin-top: -78px;
-  padding-bottom: 47px;  /* مساحة للزر لأنه absolute وقت hover */
+  margin-top: var(--oy-card-content-shift);
+  padding-bottom: var(--oy-card-content-pad-bottom);
 }
 
 /* Freeze state on click BEFORE measuring */
@@ -342,12 +303,12 @@
   color: #ffffff;
 }
 .oy-sweets-item.is-opening .oy-sweets-media {
-  height: 470px;
-  margin-top: -14px;
+  height: var(--oy-card-media-h);
+  margin-top: var(--oy-card-media-shift);
 }
 .oy-sweets-item.is-opening .oy-sweets-content {
-  margin-top: -78px;
-  padding-bottom: 47px;
+  margin-top: var(--oy-card-content-shift);
+  padding-bottom: var(--oy-card-content-pad-bottom);
 }
 
 /* Number */
@@ -365,8 +326,6 @@
   font-weight: 700;
   line-height: 1.25;
   color: #000000;
-
-  /*  Reserve 2 lines in normal state */
   min-height: 2.5em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -374,15 +333,13 @@
   overflow: hidden;
 }
 
-/* Subtitle */
+/* Desc */
 .oy-sweets-desc {
   margin: 6px 0 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.35;
   color: #000000;
-
-  /*  Reserve 2 lines in normal state */
   min-height: 2.7em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -390,29 +347,22 @@
   overflow: hidden;
 }
 
-/* Button (normal flow stays as before) */
+/* Button */
 .oy-sweets-btn {
   margin-top: 29px;
-
   width: 125px;
   height: 35.18px;
-
   border-radius: 10px;
   border: 2px solid #9A9A9A;
-
   background: transparent;
   color: #000000;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   text-decoration: none;
   user-select: none;
-
   font-weight: 500;
   font-size: 14px;
-
   transition: filter .15s ease, transform .15s ease, border-color .18s ease, color .18s ease;
 }
 
@@ -426,14 +376,14 @@
   color: #ffffff;
 }
 
-/*  Tighten spacing when expanded/hover */
+/* Tighten spacing */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title { margin-top: 2px; }
 
 .oy-sweets-item:hover .oy-sweets-desc,
 .oy-sweets-item.is-autoHover .oy-sweets-desc { margin-top: 2px; }
 
-/*  remove reserved min-height only on hover/opening (compact) */
+/* remove reserved min-height only on hover/opening */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title,
 .oy-sweets-item.is-opening .oy-sweets-title { min-height: 0; }
@@ -442,13 +392,13 @@
 .oy-sweets-item.is-autoHover .oy-sweets-desc,
 .oy-sweets-item.is-opening .oy-sweets-desc { min-height: 0; }
 
-/*  Fix button only during hover/auto/opening */
+/* Fix button only during hover/auto/opening */
 .oy-sweets-item:hover .oy-sweets-btn,
 .oy-sweets-item.is-autoHover .oy-sweets-btn,
 .oy-sweets-item.is-opening .oy-sweets-btn {
   position: absolute;
-  bottom: 12px;
-  inset-inline-start: 36px;
+  bottom: var(--oy-card-btn-bottom);
+  inset-inline-start: var(--oy-card-side-pad);
   margin-top: 0;
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.70);
@@ -460,7 +410,7 @@
 }
 
 /* ===========================================================
-    In-Panel GSAP Expand (NOT fullscreen)
+   In-Panel GSAP Expand (NOT fullscreen)
 =========================================================== */
 
 .oy-sweets-panel__overlay {
@@ -468,24 +418,21 @@
   inset: 0;
   z-index: 10;
   background: var(--num-color, #000);
-
   clip-path: inset(0 0 100% 0);
   -webkit-clip-path: inset(0 0 100% 0);
-
   pointer-events: none;
 }
 
+/* Main wrapper */
 .oy-sweets-expand {
   position: absolute;
   inset: 0;
   z-index: 11;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding-inline: clamp(24px, 4vw, 80px);
-
+  box-sizing: border-box;
   pointer-events: none;
   opacity: 0;
 }
@@ -493,16 +440,11 @@
 .oy-sweets-expand__close {
   position: absolute;
   z-index: 20;
-
   top: auto;
   bottom: 22px;
-
   inset-inline-start: 22px;
-
   box-shadow: -15px 10px 11px rgba(23, 49, 89, 0.14);
-
   pointer-events: auto;
-
   opacity: 0;
   transform: translateY(8px);
 }
@@ -512,9 +454,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: clamp(0px, 1vw, 10px);
-
   direction: ltr;
   flex-direction: row;
 }
@@ -523,7 +463,6 @@
   order: 1;
   position: relative;
   z-index: 5;
-
   padding-inline-start: 34px;
 }
 
@@ -535,9 +474,7 @@
 .oy-sweets-expand__bigWrap {
   width: fit-content;
   display: block;
-
   transform: translateY(16px);
-
   pointer-events: none;
 }
 
@@ -545,21 +482,16 @@
   margin-inline-start: -10px;
 }
 
-/* Bigger product image in expand (product only) */
 .oy-sweets-expand__imgWrap{
   order: 2;
   position: relative;
   z-index: 1;
-
   width: 240px;
   height: 520px;
-
   flex: 0 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   pointer-events: none;
   overflow: visible;
 }
@@ -572,15 +504,12 @@
 .oy-sweets-expand__big {
   font-size: 180px;
   font-weight: 900;
-  line-height: 0.88;
+  line-height: 1.05;
   color: #ffffff;
-
   letter-spacing: -1px;
-
   position: relative;
   top: -8px;
   z-index: 3;
-
   opacity: 0;
 }
 
@@ -591,42 +520,32 @@
   overflow-wrap: normal;
 }
 
-/* Bigger product image in expand */
 .oy-sweets-expand__img {
   width: 240px;
   height: 520px;
   object-fit: contain;
   display: block;
-
   transform: rotate(30deg);
   transform-origin: center;
-
   position: relative;
   z-index: 1;
-
   opacity: 0;
 }
 
-/* Details image (NO CHANGE) */
+/* Details image */
 .oy-sweets-expand__imgDetails{
   position: absolute;
   z-index: 2;
-
   left: 0;
   right: 0;
   margin-inline: auto;
-
   bottom: 0px;
-
   width: 200px !important;
   height: 200px !important;
-
   max-width: none !important;
   max-height: none !important;
-
   object-fit: contain;
   display: block;
-
   pointer-events: none;
   opacity: 0;
   inset-inline-start: 80px;
@@ -653,55 +572,218 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
-@media (max-width: 768px) {
-  .oy-sweets-expand__text { padding-inline-start: 0; }
+/* ===========================================================
+   TABLET: 4 cards across
+=========================================================== */
+@media (max-width: 1246px) {
+  .oy-products-healthy .oy-section__inner { padding-inline: 0; }
+  .oy-products-healthy .oy-products-tabs__head,
+  .oy-products-healthy .oy-products-tabs__subtitle { padding-inline: clamp(18px, 2.6vw, 26px); }
 
-  .oy-sweets-expand__close {
-    bottom: 14px;
-    inset-inline-start: 14px;
+  .oy-sweets-panelWrap{
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    --sweets-pattern-size: 92px;
+    --sweets-pattern-overlap: 42px;
   }
 
-  .oy-sweets-expand__inner {
-    flex-direction: column;
-    gap: 12px;
+  .oy-sweets-panel {
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
   }
 
-  .oy-sweets-expand__bigWrap{
-    transform: translateY(0);
+  .oy-sweets-panelWrap .oy-sweets-panel{
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
   }
 
-  .oy-sweets-expand__big {
-    font-size: 74px;
-    top: 0;
-    text-align: center;
+  .oy-sweets-panel > .oy-sweets-item + .oy-sweets-item,
+  .oy-sweets-panel > .oy-sweets-item + .oy-sweets-gap,
+  .oy-sweets-panel > .oy-sweets-gap + .oy-sweets-item,
+  .oy-sweets-panel > .oy-sweets-gap + .oy-sweets-gap {
+    margin-inline-start: 0;
   }
+
+  .oy-sweets-item,
+  .oy-sweets-gap {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    margin-inline-start: 0;
+  }
+
+  .oy-sweets-item {
+    --oy-card-side-pad: 16px;
+    --oy-card-top-pad: 96px;
+    --oy-card-media-w: 150px;
+    --oy-card-media-h: 300px;
+    --oy-card-media-shift: -8px;
+    --oy-card-content-shift: -34px;
+    --oy-card-content-pad-bottom: 56px;
+    --oy-card-btn-bottom: 14px;
+  }
+
+  .oy-sweets-num { font-size: 20px; }
+  .oy-sweets-title { margin-top: 26px; font-size: 16px; line-height: 1.3; min-height: 2.6em; }
+  .oy-sweets-desc { margin-top: 6px; font-size: 14px; line-height: 1.35; min-height: 2.8em; }
+  .oy-sweets-btn { margin-top: 20px; width: 108px; height: 34px; font-size: 13px; }
+
+  .oy-sweets-expand { padding-inline: 50px; box-sizing: border-box; }
+  .oy-sweets-expand__inner { justify-content: center; gap: 0px; }
+  .oy-sweets-expand__big { font-size: 150px; line-height: 1.15; }
+
+  .oy-sweets-expand__imgWrap,
+  .oy-sweets-expand__img {
+    width: 230px;
+    height: 490px;
+    flex: 0 0 230px;
+  }
+
+  .oy-sweets-expand__imgWrap {
+    margin-inline-start: -40px;
+    z-index: 1;
+  }
+
+  .oy-sweets-expand__imgDetails{
+    width: 180px !important;
+    height: 180px !important;
+    inset-inline-start: -30px;
+    bottom: 20px;
+  }
+
+  .oy-sweets-expand__meta { max-width: 360px; margin-top: 15px; }
+  .oy-sweets-expand__title { font-size: 18px; }
+  .oy-sweets-expand__desc { font-size: 15px; }
+}
+
+/* ===========================================================
+   MOBILE / SMALL TABLET: 2 cards per row
+=========================================================== */
+@media (max-width: 839px) {
+  .oy-products-healthy .oy-products-tabs__head,
+  .oy-products-healthy .oy-products-tabs__subtitle { padding-inline: 14px; }
+
+  .oy-sweets-panelWrap{
+    margin-top: 16px;
+    --sweets-pattern-size: 72px;
+    --sweets-pattern-overlap: 28px;
+  }
+
+  .oy-sweets-panel{
+    height: auto;
+    flex-wrap: wrap;
+    align-items: stretch;
+    overflow: visible;
+    background: transparent;
+    gap: 24px 0;
+  }
+
+  .oy-sweets-panel.is-expanded { overflow: hidden; }
+
+  .oy-sweets-gap {
+    display: none !important;
+  }
+
+  .oy-sweets-item {
+    background: #F5F5F5;
+    width: 50%;
+    min-width: 0;
+    max-width: none;
+    flex: 0 0 50%;
+    height: 560px;
+
+    --oy-card-side-pad: 14px;
+    --oy-card-top-pad: 92px;
+    --oy-card-media-w: 132px;
+    --oy-card-media-h: 260px;
+    --oy-card-media-shift: -6px;
+    --oy-card-content-shift: -22px;
+    --oy-card-content-pad-bottom: 54px;
+    --oy-card-btn-bottom: 12px;
+  }
+
+  .oy-sweets-num { font-size: 18px; }
+  .oy-sweets-title { margin-top: 22px; font-size: 15px; line-height: 1.3; min-height: 2.6em; }
+  .oy-sweets-desc { margin-top: 6px; font-size: 13px; line-height: 1.4; min-height: 2.8em; }
+  .oy-sweets-btn { margin-top: 18px; width: 100px; height: 32px; font-size: 12px; border-radius: 9px; }
+
+  .oy-sweets-expand { padding: 40px 24px; box-sizing: border-box; }
+  .oy-sweets-expand__inner { flex-direction: row; gap: 0px; align-items: center; justify-content: center; }
+  .oy-sweets-expand__text { padding-inline-start: 0; flex: 1 1 50%; max-width: 55%; z-index: 5; }
+  .oy-sweets-expand__close { bottom: 16px; inset-inline-start: 16px; }
+
+  .oy-sweets-expand__bigWrap{ transform: translateY(-10px); }
+  .oy-sweets-expand__big { font-size: 115px; line-height: 1.1; top: 0; text-align: left; letter-spacing: -1px; }
 
   .oy-sweets-expand__imgWrap{
-    width: 140px;
-    height: 420px;
-    left: 0;
+    width: 200px;
+    height: 480px;
+    flex: 0 0 200px;
+    z-index: 1;
+    margin-inline-start: -50px;
   }
+  .oy-sweets-expand__img { width: 200px; height: 480px; }
 
-  .oy-sweets-expand__img {
-    width: 140px;
-    height: 420px;
-  }
-
-  /* Details (NO CHANGE) */
   .oy-sweets-expand__imgDetails{
-    bottom: -160px;
-
-    width: 140px !important;
-    height: 140px !important;
-
+    bottom: 40px;
+    width: 150px !important;
+    height: 150px !important;
     max-width: none !important;
     max-height: none !important;
-
-    inset-inline-start: -55px;
+    inset-inline-start: -40px;
+    margin: 0;
   }
 
-  .oy-sweets-expand__meta {
-    text-align: center;
-    transform: none;
+  .oy-sweets-expand__meta { text-align: left; transform: none; max-width: 100%; margin-top: 15px; }
+  .oy-sweets-expand__title { font-size: 16px; }
+  .oy-sweets-expand__desc { font-size: 14px; }
+}
+
+/* ===========================================================
+   VERY SMALL PHONES
+=========================================================== */
+@media (max-width: 540px) {
+  .oy-sweets-item {
+    --oy-card-side-pad: 12px;
+    --oy-card-top-pad: 88px;
+    --oy-card-media-w: 118px;
+    --oy-card-media-h: 235px;
+    --oy-card-media-shift: -4px;
+    --oy-card-content-shift: -18px;
+    --oy-card-content-pad-bottom: 52px;
   }
+
+  .oy-sweets-title { font-size: 14px; }
+  .oy-sweets-desc { font-size: 12px; }
+  .oy-sweets-btn { width: 92px; height: 30px; font-size: 11px; }
+
+  .oy-sweets-expand { padding: 24px 16px; box-sizing: border-box; }
+  .oy-sweets-expand__inner { justify-content: space-between; }
+  .oy-sweets-expand__text { flex: 1 1 50%; max-width: 60%; }
+
+  .oy-sweets-expand__bigWrap{ transform: translateY(0px); }
+  .oy-sweets-expand__big { font-size: 85px; line-height: 1.1; }
+
+  .oy-sweets-expand__imgWrap{
+    width: 150px;
+    height: 380px;
+    flex: 0 0 150px;
+    margin-inline-start: -40px;
+  }
+  .oy-sweets-expand__img { width: 150px; height: 380px; }
+
+  .oy-sweets-expand__imgDetails {
+    width: 100px !important;
+    height: 100px !important;
+    bottom: 20px;
+    inset-inline-start: -25px;
+  }
+
+  .oy-sweets-expand__title { font-size: 15px; }
+  .oy-sweets-expand__desc { font-size: 13px; margin-top: 4px; }
 }
