@@ -19,10 +19,8 @@
           <a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
           <a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
 
-          <!--  sour now points to old sweets page -->
           <a href="{{ url('products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">الحلوى الحامضة</a>
 
-          <!--  sweets tab now opens marshmallow page (active here) -->
           <a href="{{ url('products/marshmallow') }}" data-tab="sweets"
             class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الحلويات</a>
 
@@ -115,7 +113,6 @@
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="assets/images/patterns/sweets.svg"
@@ -197,7 +194,7 @@
     </div>
 
     <!-- =========================
-         PANEL 3 (1 card + 3 GHOST)
+         PANEL 3 (4 cards)
     ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Marshmallow Cards Panel 3">
 
@@ -218,11 +215,181 @@
         </div>
       </article>
 
-      <!--  Ghost Card 1 -->
-      <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
-      <!--  Ghost Card 2 -->
-      <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
-      <!--  Ghost Card 3 -->
+      <!-- 10) Maltreasures -->
+      <article class="oy-sweets-item"
+        style="--num-color:#B6100C;"
+        data-big="Maltre|asures"
+        data-details-img="assets/images/products/sweets3/sweets_details/GC 7-1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/GC 7.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">10</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Maltreasures</span></h3>
+          <p class="oy-sweets-desc">كرات مقرمشة مغطاة بالشوكولاتة</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 11) Love & Passion -->
+      <article class="oy-sweets-item"
+        style="--num-color:#E16C7F;"
+        data-big="Love &|Passion"
+        data-details-img="assets/images/products/sweets3/sweets_details/Hartbeat Lychee.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/Hartbeat Lychee1.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">11</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Love &amp; Passion</span></h3>
+          <p class="oy-sweets-desc">حلوى جامبو بطابع لطيف ومميز</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 12) Rio Pop -->
+      <article class="oy-sweets-item"
+        style="--num-color:#D81D21;"
+        data-big="Rio|Pop"
+        data-details-img="assets/images/products/sweets3/sweets_details/lollipop1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/lollipop.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">12</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Rio Pop</span></h3>
+          <p class="oy-sweets-desc">مصاصة بطعم فاكهي ممتع</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- =========================
+         PANEL 4 (4 cards)
+    ========================== -->
+    <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Candy Cards Panel 4">
+
+      <!-- 13) Heart Beat - Blackcurrant -->
+      <article class="oy-sweets-item"
+        style="--num-color:#985295;"
+        data-big="Heart|Beat"
+        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat black currant1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/hartbeat black currant.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">13</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Heart Beat</span></h3>
+          <p class="oy-sweets-desc">حلوى قلب بنكهة منعشه الأسود</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 14) Mazelo -->
+      <article class="oy-sweets-item"
+        style="--num-color:#EAE643;"
+        data-big="Maz|elo"
+        data-details-img="assets/images/products/sweets3/sweets_details/mazelo1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/mazelo.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">14</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Mazelo</span></h3>
+          <p class="oy-sweets-desc">حلوى مشكلة بنكهات متنوعة</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 15) Heart Beat - Mango -->
+      <article class="oy-sweets-item"
+        style="--num-color:#C3CF29;"
+        data-big="Heart|Beat"
+        data-details-img="assets/images/products/sweets3/sweets_details/HARTBEAT JUMBO MANGO1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/HARTBEAT JUMBO MANGO.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">15</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Heart Beat</span></h3>
+          <p class="oy-sweets-desc">حلوى قلب بنكهة منعشة</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 16) Beely Pop -->
+      <article class="oy-sweets-item"
+        style="--num-color:#CE3C7F;"
+        data-big="Beely|Pop"
+        data-details-img="assets/images/products/sweets3/sweets_details/lollipop With two different flavor1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/lollipop With two different flavor.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">16</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Beely Pop</span></h3>
+          <p class="oy-sweets-desc">مصاصة بطعم مرح ومتنوع</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- =========================
+         PANEL 5 (3 cards + 1 ghost)
+    ========================== -->
+    <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Candy Cards Panel 5">
+
+      <!-- 17) Melody -->
+      <article class="oy-sweets-item"
+        style="--num-color:#624C2F;"
+        data-big="Mel|ody"
+        data-details-img="assets/images/products/sweets3/sweets_details/melody1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/melody.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">17</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Melody</span></h3>
+          <p class="oy-sweets-desc">حلوى شوكولاتهبطابع كلاسيكي</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 18) Heart Beat - Strawberry -->
+      <article class="oy-sweets-item"
+        style="--num-color:#CA433E;"
+        data-big="Heart|Beat"
+        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat jumbo Tutti Fruiti1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">18</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">Heart Beat</span></h3>
+          <p class="oy-sweets-desc">حلوى قلب بنكهة الفراولة</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- 19) H&H -->
+      <article class="oy-sweets-item"
+        style="--num-color:#4D2D1E;"
+        data-big="H&|H"
+        data-details-img="assets/images/products/sweets3/sweets_details/Peanuts coated by luxury chocolate1.png">
+        <div class="oy-sweets-media" aria-hidden="true">
+          <img src="assets/images/products/sweets3/Peanuts coated by luxury chocolate.png" alt="" loading="lazy">
+        </div>
+        <div class="oy-sweets-content">
+          <div class="oy-sweets-num">19</div>
+          <h3 class="oy-sweets-title"><span dir="ltr">H&amp;H</span></h3>
+          <p class="oy-sweets-desc">فول سوداني مغطى بالشوكولاتة</p>
+          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
+        </div>
+      </article>
+
+      <!-- Ghost Card -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
     </div>

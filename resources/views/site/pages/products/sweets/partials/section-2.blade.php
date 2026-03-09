@@ -14,19 +14,19 @@
       <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
-			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
+          <a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
 
-			<a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
-			<a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
+          <a href="{{ url('products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">القهوة</a>
+          <a href="{{ url('products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">البسكويت والويفر</a>
 
-			<a href="{{ url('products/sweets') }}" data-tab="sour"
-			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الحلوى الحامضة</a>
+          <a href="{{ url('products/sweets') }}" data-tab="sour"
+            class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الحلوى الحامضة</a>
 
-			<a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
+          <a href="{{ url('products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">الحلويات</a>
 
-			<a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
-			<a href="{{ url('products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
-			<a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
+          <a href="{{ url('products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">المنتجات الصحية</a>
+          <a href="{{ url('products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">العصائر</a>
+          <a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
         </nav>
 
         <!-- Scroll hint arrow (shown only when overflow exists) -->
@@ -171,179 +171,44 @@
     </div>
 
     <!-- =========================
-         PANEL 3
+         PANEL 3 (Hartbeat Mix + Poppins)
     ========================== -->
-    <div class="oy-sweets-panel oy-reveal oy-delay-3" aria-label="Sweets Cards Panel 3">
+    <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Sour Sweets Cards Panel 3">
 
-      <article class="oy-sweets-item" style="--num-color:#B6100C;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/GC 7-1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/GC 7.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">GC 7</span></h3>
-          <p class="oy-sweets-desc">منتج حلوى بنكهة مميزة</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#E16C7F;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/Hartbeat Lychee.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/Hartbeat Lychee1.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Hartbeat Lychee</span></h3>
-          <p class="oy-sweets-desc">حلوى بنكهة الليتشي</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#D81D21;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/lollipop1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/lollipop.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Lollipop</span></h3>
-          <p class="oy-sweets-desc">مصاصة بنكهات متنوعة</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#985295;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/hartbeat black currant1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/hartbeat black currant.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Hartbeat Black Currant</span></h3>
-          <p class="oy-sweets-desc">حلوى بنكهة الكشمش الأسود</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- =========================
-         PANEL 4
-    ========================== -->
-    <div class="oy-sweets-panel oy-reveal oy-delay-3" aria-label="Sweets Cards Panel 4">
-
-      <article class="oy-sweets-item" style="--num-color:#C43332;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/1-1.png">
+      <article class="oy-sweets-item"
+        style="--num-color:#C43332;"
+        data-big="Rol.a|.Cola"
+        data-details-img="assets/images/products/sweets3/sweets_details/1-1.png">
         <div class="oy-sweets-media" aria-hidden="true">
           <img src="assets/images/products/sweets3/1.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Hartbeat Mix</span></h3>
-          <p class="oy-sweets-desc">تشكيلة حلوى بنكهات متنوعة</p>
+          <h3 class="oy-sweets-title"><span dir="ltr">Rolled Candy</span></h3>
+          <p class="oy-sweets-desc">حلوى كولا حامضة منعشة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <article class="oy-sweets-item" style="--num-color:#EAE643;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/mazelo1.png">
+      <article class="oy-sweets-item"
+        style="--num-color:#D84B25;"
+        data-big="Popp|ins"
+        data-details-img="assets/images/products/sweets3/sweets_details/Poppins1.png">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/mazelo.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/Poppins.png" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">02</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Mazelo</span></h3>
-          <p class="oy-sweets-desc">حلوى بطعم مميز</p>
+          <h3 class="oy-sweets-title"><span dir="ltr">Rolled Candy</span></h3>
+          <p class="oy-sweets-desc">حلوى بنكهات فاكهية متنوعة</p>
           <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
         </div>
       </article>
 
-      <article class="oy-sweets-item" style="--num-color:#C3CF29;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/HARTBEAT JUMBO MANGO1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/HARTBEAT JUMBO MANGO.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">HARTBEAT JUMBO MANGO</span></h3>
-          <p class="oy-sweets-desc">حلوى جامبو بنكهة المانجو</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#CE3C7F;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/lollipop With two different flavor1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/lollipop With two different flavor.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Lollipop With Two Different Flavor</span></h3>
-          <p class="oy-sweets-desc">مصاصة بنكهتين مختلفتين</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- =========================
-         PANEL 5
-    ========================== -->
-    <div class="oy-sweets-panel oy-reveal oy-delay-3" aria-label="Sweets Cards Panel 5">
-
-      <article class="oy-sweets-item" style="--num-color:#624C2F;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/melody1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/melody.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">01</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Melody</span></h3>
-          <p class="oy-sweets-desc">حلوى بطابع كلاسيكي مميز</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#CA433E;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/hartbeat jumbo Tutti Fruiti1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">02</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Hartbeat Jumbo Tutti Fruiti</span></h3>
-          <p class="oy-sweets-desc">حلوى جامبو بنكهة توتي فروتي</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#C81C1F;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/lollipop With two different flavors (Strawberry- cherries-Cola-watermelon-Orange –Cantaloupe)1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/lollipop With two different flavors (Strawberry- cherries-Cola-watermelon-Orange –Cantaloupe).png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">03</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Lollipop With Two Different Flavors</span></h3>
-          <p class="oy-sweets-desc">مصاصة بنكهات متعددة ومختلفة</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
-
-      <article class="oy-sweets-item" style="--num-color:#4D2D1E;" data-big="Sweets|3" data-details-img="assets/images/products/sweets3/sweets_details/Peanuts coated by luxury chocolate1.png">
-        <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/Peanuts coated by luxury chocolate.png" alt="" loading="lazy">
-        </div>
-
-        <div class="oy-sweets-content">
-          <div class="oy-sweets-num">04</div>
-          <h3 class="oy-sweets-title"><span dir="ltr">Peanuts Coated by Luxury Chocolate</span></h3>
-          <p class="oy-sweets-desc">فول سوداني مغطى بشوكولاتة فاخرة</p>
-          <a href="#" class="oy-sweets-btn">معرفة المزيد</a>
-        </div>
-      </article>
+      <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
+      <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
     </div>
 
