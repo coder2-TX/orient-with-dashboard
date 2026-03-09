@@ -1,251 +1,236 @@
-<!-- pages/products/partials/section-2.html -->
-<!-- ORIENT YEMEN - Products Section 2 (Tabs + Intro + Grid + Pagination) -->
-
-<section class="oy-section oy-products-tabs" id="products-tabs" aria-label="Products Categories">
+<section class="oy-section oy-products-tabs" id="products-tabs" aria-label="Product Categories" dir="ltr">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
-        أطعمتنا اللذيذة
+        Our Delicious Products
       </h2>
 
-      <nav class="oy-products-tabs__nav" aria-label="Product filters">
-        <a href="#all" data-tab="all" class="oy-products-tabs__tab">جميع المنتجات</a>
-        <a href="#coffee" data-tab="coffee" class="oy-products-tabs__tab">منتجات القهوة</a>
-        <a href="#biscuits" data-tab="biscuits" class="oy-products-tabs__tab">منتجات البسكويت</a>
-        <a href="{{ route('site.products_sweets') }}" class="oy-products-tabs__tab">منتجات الحلوى</a>
-      </nav>
+      <div class="oy-products-tabs__tabsWrap">
+        <nav class="oy-products-tabs__nav" aria-label="Product filters">
+          <a href="{{ url('en/products') }}" data-tab="all"
+             class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">Featured Products</a>
+
+          <a href="{{ url('en/products/coffee') }}" data-tab="coffee" class="oy-products-tabs__tab">Coffee</a>
+
+          <a href="{{ url('en/products/biscuit') }}" data-tab="biscuits" class="oy-products-tabs__tab">Biscuits & Wafers</a>
+
+          <a href="{{ url('en/products/sweets') }}" data-tab="sour" class="oy-products-tabs__tab">Sour Candy</a>
+
+          <a href="{{ url('en/products/marshmallow') }}" data-tab="sweets" class="oy-products-tabs__tab">Sweets</a>
+
+          <a href="{{ url('en/products/healthy') }}" data-tab="healthy" class="oy-products-tabs__tab">Healthy Products</a>
+
+          <a href="{{ url('en/products/juices') }}" data-tab="juices" class="oy-products-tabs__tab">Juices</a>
+
+          <a href="{{ url('en/products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">Cake</a>
+        </nav>
+
+        <button class="oy-products-tabs__scrollHint" type="button" aria-label="Scroll tabs">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
-      تضم أورينت يمن مجموعة من المنتجات التي تعمل على استيرادها وتسويقها ضمن فئات مختلفة، مع التركيز على تقديمها بشكل يعكس هويتها وجودتها، وبما يلبّي تطلعات الأسواق التي نعمل بها.
+      Orient Yemen offers a diverse range of products that it imports and markets across different categories, with a focus on presenting them in a way that reflects the company’s identity and quality, while meeting the expectations of the markets we serve.
     </p>
 
-    <!-- Products Grid (24 cards) -->
     <div class="oy-products-grid oy-reveal oy-delay-3" aria-label="Products Grid">
 
-      <!-- 1 -->
+      <!-- 1) Caffino Gold -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/1.png" alt="منتج 1" loading="lazy">
+          <img src="{{ asset('assets/images/products/5.jpg') }}" alt="Caffino Gold" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 1</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Caffino Gold</h3>
+        <p class="oy-product-card__desc">Instant coffee with a strong, balanced taste.</p>
       </article>
 
-      <!-- 2 -->
+      <!-- 2) Caffino Bold -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/2.png" alt="منتج 2" loading="lazy">
+          <img src="{{ asset('assets/images/products/6.jpg') }}" alt="Caffino Bold" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 2</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Caffino Bold</h3>
+        <p class="oy-product-card__desc">Instant coffee with a bold, concentrated flavor and light sweetness.</p>
       </article>
 
-      <!-- 3 -->
+      <!-- 3) Caffino Flavors -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/3.png" alt="منتج 3" loading="lazy">
+          <img src="{{ asset('assets/images/products/7.jpg') }}" alt="Caffino Flavors" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 3</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Caffino Flavors</h3>
+        <p class="oy-product-card__desc">Instant coffee in classic, hazelnut, and mocha flavors.</p>
       </article>
 
-      <!-- 4 -->
+      <!-- 4) Glucose Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/4.png" alt="منتج 4" loading="lazy">
+          <img src="{{ asset('assets/images/products/1.jpg') }}" alt="Glucose Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 4</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Glucose Biscuits</h3>
+        <p class="oy-product-card__desc">Light, crunchy classic biscuits.</p>
       </article>
 
-      <!-- 5 -->
+      <!-- 5) Parle Digestive Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/5.png" alt="منتج 5" loading="lazy">
+          <img src="{{ asset('assets/images/products/12.jpg') }}" alt="Parle Digestive Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 5</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Parle Digestive Biscuits</h3>
+        <p class="oy-product-card__desc">Barley digestive biscuits with a satisfying texture and distinctive taste.</p>
       </article>
 
-      <!-- 6 -->
+      <!-- 6) Parle Bourbon Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/6.png" alt="منتج 6" loading="lazy">
+          <img src="{{ asset('assets/images/products/15.jpg') }}" alt="Parle Bourbon Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 6</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Parle Bourbon Biscuits</h3>
+        <p class="oy-product-card__desc">Chocolate cream-filled biscuits with a rich taste.</p>
       </article>
 
-      <!-- 7 -->
+      <!-- 7) Nice Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/7.png" alt="منتج 7" loading="lazy">
+          <img src="{{ asset('assets/images/products/21.jpg') }}" alt="Nice Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 7</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Nice Biscuits</h3>
+        <p class="oy-product-card__desc">Simple, crunchy biscuits with a balanced flavor.</p>
       </article>
 
-      <!-- 8 -->
+      <!-- 8) Happy Happy Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/8.png" alt="منتج 8" loading="lazy">
+          <img src="{{ asset('assets/images/products/11.jpg') }}" alt="Happy Happy Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 8</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Happy Happy Biscuits</h3>
+        <p class="oy-product-card__desc">Chocolate biscuits with chocolate chips.</p>
       </article>
 
-      <!-- 9 -->
+      <!-- 9) Murano Cookies -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/9.png" alt="منتج 9" loading="lazy">
+          <img src="{{ asset('assets/images/products/9.jpg') }}" alt="Murano Cookies" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 9</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Murano Cookies</h3>
+        <p class="oy-product-card__desc">Premium cookies loaded with chocolate chips.</p>
       </article>
 
-      <!-- 10 -->
+      <!-- 10) Murano Delight -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/10.png" alt="منتج 10" loading="lazy">
+          <img src="{{ asset('assets/images/products/10.jpg') }}" alt="Murano Delight" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 10</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Murano Delight</h3>
+        <p class="oy-product-card__desc">Dark chocolate-filled biscuits with a rich flavor and a premium touch.</p>
       </article>
 
-      <!-- 11 -->
+      <!-- 11) Fab Biscuit Boxes -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/11.png" alt="منتج 11" loading="lazy">
+          <img src="{{ asset('assets/images/products/4.jpg') }}" alt="Fab Biscuit Boxes" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 11</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Fab Biscuit Boxes</h3>
+        <p class="oy-product-card__desc">Cream-filled biscuits in strawberry, vanilla, and chocolate flavors, packed in boxes ideal for display and retail.</p>
       </article>
 
-      <!-- 12 -->
+      <!-- 12) Fab Biscuits -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/12.png" alt="منتج 12" loading="lazy">
+          <img src="{{ asset('assets/images/products/17.jpg') }}" alt="Fab Biscuits" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 12</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Fab Biscuits</h3>
+        <p class="oy-product-card__desc">Cream-filled biscuits in strawberry, vanilla, and chocolate flavors, a practical choice for everyday snacking.</p>
       </article>
 
-      <!-- 13 -->
+      <!-- 13) Cho Cho Mazaz Chocolate -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/13.png" alt="منتج 13" loading="lazy">
+          <img src="{{ asset('assets/images/products/2.jpg') }}" alt="Cho Cho Mazaz Chocolate" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 13</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Cho Cho Mazaz Chocolate</h3>
+        <p class="oy-product-card__desc">Chocolate with a rich flavor and smooth texture.</p>
       </article>
 
-      <!-- 14 -->
+      <!-- 14) Cho Cho Cups -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/14.png" alt="منتج 14" loading="lazy">
+          <img src="{{ asset('assets/images/products/13.jpg') }}" alt="Cho Cho Cups" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 14</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Cho Cho Cups</h3>
+        <p class="oy-product-card__desc">Creamy dessert cups in vanilla, strawberry, and sprinkles flavors.</p>
       </article>
 
-      <!-- 15 -->
+      <!-- 15) Cho Cho Wafer Boxes -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/15.png" alt="منتج 15" loading="lazy">
+          <img src="{{ asset('assets/images/products/19.jpg') }}" alt="Cho Cho Wafer Boxes" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 15</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Cho Cho Wafer Boxes</h3>
+        <p class="oy-product-card__desc">Crispy wafers with light layers and a delicious chocolate filling.</p>
       </article>
 
-      <!-- 16 -->
+      <!-- 16) Melody Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/16.png" alt="منتج 16" loading="lazy">
+          <img src="{{ asset('assets/images/products/18.jpg') }}" alt="Melody Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 16</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Melody Candy</h3>
+        <p class="oy-product-card__desc">Chocolate candy with a smooth taste, perfect for a quick sweet treat.</p>
       </article>
 
-      <!-- 17 -->
+      <!-- 17) Sour Zang Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/17.png" alt="منتج 17" loading="lazy">
+          <img src="{{ asset('assets/images/products/3.jpg') }}" alt="Sour Zang Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 17</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Sour Zang Candy</h3>
+        <p class="oy-product-card__desc">Sour candy with a strong and refreshing flavor.</p>
       </article>
 
-      <!-- 18 -->
+      <!-- 18) Extreme Sour Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/18.png" alt="منتج 18" loading="lazy">
+          <img src="{{ asset('assets/images/products/8.jpg') }}" alt="Extreme Sour Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 18</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Extreme Sour Candy</h3>
+        <p class="oy-product-card__desc">Extra sourness with a bold flavor for an extreme candy experience.</p>
       </article>
 
-      <!-- 19 -->
+      <!-- 19) Cola Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/19.png" alt="منتج 19" loading="lazy">
+          <img src="{{ asset('assets/images/products/16.jpg') }}" alt="Cola Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 19</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Cola Candy</h3>
+        <p class="oy-product-card__desc">Cola-flavored candy with a sweet and refreshing taste.</p>
       </article>
 
-      <!-- 20 -->
+      <!-- 20) Mazola Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/20.png" alt="منتج 20" loading="lazy">
+          <img src="{{ asset('assets/images/products/14.jpg') }}" alt="Mazola Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 20</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Mazola Candy</h3>
+        <p class="oy-product-card__desc">Candy in a variety of fruity flavors.</p>
       </article>
 
-      <!-- 21 -->
+      <!-- 21) Bobins Candy -->
       <article class="oy-product-card">
         <div class="oy-product-card__media">
-          <img src="assets/images/products/21.png" alt="منتج 21" loading="lazy">
+          <img src="{{ asset('assets/images/products/22.jpg') }}" alt="Bobins Candy" loading="lazy">
         </div>
-        <h3 class="oy-product-card__title">منتج 21</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
-      </article>
-
-      <!-- 22 -->
-      <article class="oy-product-card">
-        <div class="oy-product-card__media">
-          <img src="assets/images/products/22.png" alt="منتج 22" loading="lazy">
-        </div>
-        <h3 class="oy-product-card__title">منتج 22</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
-      </article>
-
-      <!-- 23 -->
-      <article class="oy-product-card">
-        <div class="oy-product-card__media">
-          <img src="assets/images/products/23.png" alt="منتج 23" loading="lazy">
-        </div>
-        <h3 class="oy-product-card__title">منتج 23</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
-      </article>
-
-      <!-- 24 -->
-      <article class="oy-product-card">
-        <div class="oy-product-card__media">
-          <img src="assets/images/products/24.png" alt="منتج 24" loading="lazy">
-        </div>
-        <h3 class="oy-product-card__title">منتج 24</h3>
-        <p class="oy-product-card__desc">وصف مختصر للمنتج يوضح أهم المميزات بشكل بسيط.</p>
+        <h3 class="oy-product-card__title">Bobins Candy</h3>
+        <p class="oy-product-card__desc">Small colorful candy pieces in assorted fruit flavors.</p>
       </article>
 
     </div>
 
-    <!-- Pagination -->
     <div class="oy-products-pagination-wrap oy-reveal oy-delay-4" aria-label="Products Pagination">
       <nav class="oy-products-pagination" aria-label="Pagination">
         <a href="#p1" class="oy-products-pagination__item oy-products-pagination__item--active" aria-current="page">1</a>
@@ -255,7 +240,6 @@
         <a href="#p5" class="oy-products-pagination__item">5</a>
         <span class="oy-products-pagination__item oy-products-pagination__item--dots" aria-hidden="true">...</span>
 
-        <!-- last card: arrow (primary) -->
         <a href="#next" class="oy-products-pagination__item oy-products-pagination__item--next" aria-label="Next page">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </a>
