@@ -200,6 +200,12 @@
   user-select: none;
 }
 
+/* EN fix: keep pattern on the same side as Arabic */
+.oy-products-healthy[dir="ltr"] .oy-sweets-panelPattern{
+  inset-inline-end: auto;
+  inset-inline-start: -80px;
+}
+
 /* spacing between panels */
 .oy-sweets-panel--second,
 .oy-sweets-panel--third {
@@ -447,6 +453,12 @@
   pointer-events: auto;
   opacity: 0;
   transform: translateY(8px);
+}
+
+/* EN fix: keep expand arrow button on the same side as Arabic */
+.oy-products-healthy[dir="ltr"] .oy-sweets-expand__close {
+  inset-inline-start: auto;
+  inset-inline-end: 22px;
 }
 
 .oy-sweets-expand__inner {
@@ -716,6 +728,12 @@
   .oy-sweets-expand__inner { flex-direction: row; gap: 0px; align-items: center; justify-content: center; }
   .oy-sweets-expand__text { padding-inline-start: 0; flex: 1 1 50%; max-width: 55%; z-index: 5; }
   .oy-sweets-expand__close { bottom: 16px; inset-inline-start: 16px; }
+
+  /* EN fix: keep expand arrow button on Arabic side on mobile too */
+  .oy-products-healthy[dir="ltr"] .oy-sweets-expand__close {
+    inset-inline-start: auto;
+    inset-inline-end: 16px;
+  }
 
   .oy-sweets-expand__bigWrap{ transform: translateY(-10px); }
   .oy-sweets-expand__big { font-size: 115px; line-height: 1.1; top: 0; text-align: left; letter-spacing: -1px; }

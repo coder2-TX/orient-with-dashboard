@@ -1,22 +1,22 @@
 @extends('site-en.layouts.app')
 
-@section('title', 'Sour Candy | Orient Yemen')
+@section('title', 'Sweets | Orient Yemen')
 
 @push('styles')
   <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/sweets/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/marshmallow/section2.css') }}">
 @endpush
 
 @push('scripts')
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="{{ asset('assets/js/pages/products-sweets.js') }}" defer></script>
+  <script src="{{ asset('assets/js/pages/products-marshmallow.js') }}" defer></script>
 @endpush
 
 @section('content')
   {{-- Hero --}}
   @include('site-en.pages.products.partials.hero')
 
-  {{-- Sour candy section --}}
-  @include('site-en.pages.products.sweets.partials.section-2')
+  {{-- Marshmallow section --}}
+  @include('site-en.pages.products.marshmallow.partials.section-2')
 @endsection
