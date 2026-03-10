@@ -74,9 +74,6 @@
 
     document.body.appendChild(div);
 
-    // Chrome/Edge: initial scrollLeft is max
-    // Safari: initial scrollLeft is 0
-    // Firefox: cannot set scrollLeft to positive (stays 0)
     div.scrollLeft = 0;
     const initial = div.scrollLeft;
 
@@ -84,9 +81,9 @@
     const after = div.scrollLeft;
 
     if (after === 0) {
-      _rtlScrollType = "negative"; // Firefox
+      _rtlScrollType = "negative";
     } else {
-      _rtlScrollType = (initial === 0) ? "positive-ascending" : "positive-descending"; // Safari : Chrome/Edge
+      _rtlScrollType = (initial === 0) ? "positive-ascending" : "positive-descending";
     }
 
     document.body.removeChild(div);
@@ -103,9 +100,9 @@
     const type = detectRtlScrollType();
     const sl = nav.scrollLeft;
 
-    if (type === "negative") return { pos: max + sl, max };          // sl: 0 .. -max
-    if (type === "positive-ascending") return { pos: max - sl, max }; // sl: max .. 0
-    return { pos: sl, max };                                          // sl: 0 .. max (reverse)
+    if (type === "negative") return { pos: max + sl, max };
+    if (type === "positive-ascending") return { pos: max - sl, max };
+    return { pos: sl, max };
   }
 
   function scrollToPos(nav, pos) {
@@ -145,9 +142,6 @@
         return;
       }
 
-      // show hint only if there is hidden content at inline-end:
-      // RTL: inline-end is left, so show while pos > 0 (not at leftmost)
-      // LTR: inline-end is right, so show while pos < max (not at rightmost)
       const dir = getComputedStyle(nav).direction;
       const show = (dir === "rtl") ? (pos > 2) : (pos < max - 2);
 
@@ -170,11 +164,9 @@
     nav.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
     window.addEventListener("resize", () => update());
 
-    // initial
     setTimeout(update, 40);
   }
 
-  // Tabs active state (based on hash)
   function initProductsTabs() {
     const nav = document.querySelector(".oy-products-tabs__nav");
     if (!nav) return;
@@ -196,15 +188,193 @@
     setActive(getKey());
     window.addEventListener("hashchange", () => setActive(getKey()));
 
-    //  init scroll hint arrow
     initTabsScrollHint(nav);
   }
 
-	function bootPage() {
-	  if (window.initHeader) window.initHeader();
+  function initProductsPagination() {
+    const section = document.querySelector(".oy-products-tabs");
+    if (!section) return;
 
+    if (section.dataset.paginationReady === "1") return;
+    section.dataset.paginationReady = "1";
+
+    const grid = section.querySelector(".oy-products-grid");
+    const wrap = section.querySelector(".oy-products-pagination-wrap");
+    const nav = wrap ? wrap.querySelector(".oy-products-pagination") : null;
+
+    if (!grid || !wrap || !nav) return;
+
+    const cards = Array.from(grid.querySelectorAll(".oy-product-card"));
+    if (!cards.length) {
+      wrap.hidden = true;
+      return;
+    }
+
+    const ROWS_PER_PAGE = 3;
+    let currentPage = 1;
+    let resizeRaf = 0;
+
+    function getColumnsPerRow() {
+      const width = window.innerWidth || document.documentElement.clientWidth || 0;
+
+      if (width <= 500) return 1;
+      if (width <= 1024) return 2;
+      return 3;
+    }
+
+    function getPageSize() {
+      return Math.max(1, getColumnsPerRow() * ROWS_PER_PAGE);
+    }
+
+    function getPageCount(pageSize) {
+      return Math.max(1, Math.ceil(cards.length / pageSize));
+    }
+
+    function clampPage(page, pageCount) {
+      return Math.min(Math.max(page, 1), pageCount);
+    }
+
+    function getVisiblePageItems(pageCount, page) {
+      if (pageCount <= 5) {
+        return Array.from({ length: pageCount }, (_, i) => i + 1);
+      }
+
+      if (page <= 3) {
+        return [1, 2, 3, 4, "dots", pageCount];
+      }
+
+      if (page >= pageCount - 2) {
+        return [1, "dots", pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+      }
+
+      return [1, "dots", page - 1, page, page + 1, "dots", pageCount];
+    }
+
+    function scrollToGridTop() {
+      const top = grid.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth",
+      });
+    }
+
+    function renderCards(pageSize) {
+      const start = (currentPage - 1) * pageSize;
+      const end = start + pageSize;
+
+      cards.forEach((card, index) => {
+        const show = index >= start && index < end;
+        card.hidden = !show;
+      });
+    }
+
+    function createPageButton(pageNumber) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "oy-products-pagination__item";
+      btn.textContent = String(pageNumber);
+
+      if (pageNumber === currentPage) {
+        btn.classList.add("oy-products-pagination__item--active");
+        btn.setAttribute("aria-current", "page");
+      } else {
+        btn.setAttribute("aria-label", `الانتقال إلى الصفحة ${pageNumber}`);
+      }
+
+      btn.addEventListener("click", () => {
+        if (pageNumber === currentPage) return;
+        currentPage = pageNumber;
+        render(true);
+      });
+
+      return btn;
+    }
+
+    function createDots() {
+      const span = document.createElement("span");
+      span.className = "oy-products-pagination__item oy-products-pagination__item--dots";
+      span.setAttribute("aria-hidden", "true");
+      span.textContent = "...";
+      return span;
+    }
+
+    function createNextButton(pageCount) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "oy-products-pagination__item oy-products-pagination__item--next";
+      btn.setAttribute("aria-label", "الصفحة التالية");
+      btn.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+      if (currentPage >= pageCount) {
+        btn.disabled = true;
+      }
+
+      btn.addEventListener("click", () => {
+        if (currentPage >= pageCount) return;
+        currentPage += 1;
+        render(true);
+      });
+
+      return btn;
+    }
+
+    function renderPagination(pageCount) {
+      nav.innerHTML = "";
+
+      const items = getVisiblePageItems(pageCount, currentPage);
+
+      items.forEach((item) => {
+        if (item === "dots") {
+          nav.appendChild(createDots());
+          return;
+        }
+
+        nav.appendChild(createPageButton(item));
+      });
+
+      nav.appendChild(createNextButton(pageCount));
+    }
+
+    function render(shouldScroll) {
+      const pageSize = getPageSize();
+      const pageCount = getPageCount(pageSize);
+
+      currentPage = clampPage(currentPage, pageCount);
+
+      renderCards(pageSize);
+
+      if (pageCount <= 1) {
+        wrap.hidden = true;
+        nav.innerHTML = "";
+        return;
+      }
+
+      wrap.hidden = false;
+      renderPagination(pageCount);
+
+      if (shouldScroll) {
+        scrollToGridTop();
+      }
+    }
+
+    render(false);
+
+    window.addEventListener("resize", () => {
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+
+      resizeRaf = requestAnimationFrame(() => {
+        const pageSize = getPageSize();
+        const pageCount = getPageCount(pageSize);
+        currentPage = clampPage(currentPage, pageCount);
+        render(false);
+      });
+    });
+  }
+
+	function bootPage() {
 	  patchHeaderForProductsPage();
 	  initProductsTabs();
+	  initProductsPagination();
 	  initScrollReveal();
 	}
 

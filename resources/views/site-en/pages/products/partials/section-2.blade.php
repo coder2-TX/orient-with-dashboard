@@ -122,7 +122,7 @@
       </article>
 
       <!-- 10) Murano Delight -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/10.jpg') }}" alt="Murano Delight" loading="lazy">
         </div>
@@ -131,7 +131,7 @@
       </article>
 
       <!-- 11) Fab Biscuit Boxes -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/4.jpg') }}" alt="Fab Biscuit Boxes" loading="lazy">
         </div>
@@ -140,7 +140,7 @@
       </article>
 
       <!-- 12) Fab Biscuits -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/17.jpg') }}" alt="Fab Biscuits" loading="lazy">
         </div>
@@ -149,7 +149,7 @@
       </article>
 
       <!-- 13) Cho Cho Mazaz Chocolate -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/2.jpg') }}" alt="Cho Cho Mazaz Chocolate" loading="lazy">
         </div>
@@ -158,7 +158,7 @@
       </article>
 
       <!-- 14) Cho Cho Cups -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/13.jpg') }}" alt="Cho Cho Cups" loading="lazy">
         </div>
@@ -167,7 +167,7 @@
       </article>
 
       <!-- 15) Cho Cho Wafer Boxes -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/19.jpg') }}" alt="Cho Cho Wafer Boxes" loading="lazy">
         </div>
@@ -176,7 +176,7 @@
       </article>
 
       <!-- 16) Melody Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/18.jpg') }}" alt="Melody Candy" loading="lazy">
         </div>
@@ -185,7 +185,7 @@
       </article>
 
       <!-- 17) Sour Zang Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/3.jpg') }}" alt="Sour Zang Candy" loading="lazy">
         </div>
@@ -194,7 +194,7 @@
       </article>
 
       <!-- 18) Extreme Sour Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/8.jpg') }}" alt="Extreme Sour Candy" loading="lazy">
         </div>
@@ -203,7 +203,7 @@
       </article>
 
       <!-- 19) Cola Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/16.jpg') }}" alt="Cola Candy" loading="lazy">
         </div>
@@ -212,7 +212,7 @@
       </article>
 
       <!-- 20) Mazola Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/14.jpg') }}" alt="Mazola Candy" loading="lazy">
         </div>
@@ -221,7 +221,7 @@
       </article>
 
       <!-- 21) Bobins Candy -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="{{ asset('assets/images/products/22.jpg') }}" alt="Bobins Candy" loading="lazy">
         </div>
@@ -233,16 +233,13 @@
 
     <div class="oy-products-pagination-wrap oy-reveal oy-delay-4" aria-label="Products Pagination">
       <nav class="oy-products-pagination" aria-label="Pagination">
-        <a href="#p1" class="oy-products-pagination__item oy-products-pagination__item--active" aria-current="page">1</a>
-        <a href="#p2" class="oy-products-pagination__item">2</a>
-        <a href="#p3" class="oy-products-pagination__item">3</a>
-        <a href="#p4" class="oy-products-pagination__item">4</a>
-        <a href="#p5" class="oy-products-pagination__item">5</a>
-        <span class="oy-products-pagination__item oy-products-pagination__item--dots" aria-hidden="true">...</span>
+        <button type="button" class="oy-products-pagination__item oy-products-pagination__item--active" aria-current="page">1</button>
+        <button type="button" class="oy-products-pagination__item">2</button>
+        <button type="button" class="oy-products-pagination__item">3</button>
 
-        <a href="#next" class="oy-products-pagination__item oy-products-pagination__item--next" aria-label="Next page">
+        <button type="button" class="oy-products-pagination__item oy-products-pagination__item--next" aria-label="Next page">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-        </a>
+        </button>
       </nav>
     </div>
 

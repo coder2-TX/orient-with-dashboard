@@ -711,8 +711,6 @@
   }
 
 function bootPage() {
-  if (window.initHeader) window.initHeader();
-
   patchHeaderForProductsPage();
   initScrollReveal();
   initTabsScrollHintForPage();

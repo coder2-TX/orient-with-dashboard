@@ -11,3 +11,7 @@
   @include('site.pages.products.partials.hero')
   @include('site.pages.products.partials.section-2')
 @endsection
+
+@push('scripts')
+  <script src="{{ asset('assets/js/pages/products.js') }}" defer></script>
+@endpush

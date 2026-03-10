@@ -122,7 +122,7 @@
       </article>
 
       <!-- 10) مورانو ديلايت -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/10.jpg" alt="مورانو ديلايت" loading="lazy">
         </div>
@@ -131,7 +131,7 @@
       </article>
 
       <!-- 11) بسكويت فاب علب -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/4.jpg" alt="بسكويت فاب علب" loading="lazy">
         </div>
@@ -140,7 +140,7 @@
       </article>
 
       <!-- 12) بسكويت فاب -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/17.jpg" alt="بسكويت فاب" loading="lazy">
         </div>
@@ -149,7 +149,7 @@
       </article>
 
       <!-- 13) شوكولاتة شوشو مزاز -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/2.jpg" alt="شوكولاتة شوشو مزاز" loading="lazy">
         </div>
@@ -158,7 +158,7 @@
       </article>
 
       <!-- 14) شوشو اكواب -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/13.jpg" alt="شوشو اكواب" loading="lazy">
         </div>
@@ -167,7 +167,7 @@
       </article>
 
       <!-- 15) ويفر شوشو علب -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/19.jpg" alt="ويفر شوشو علب" loading="lazy">
         </div>
@@ -176,7 +176,7 @@
       </article>
 
       <!-- 16) حلوى ميلودي -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/18.jpg" alt="حلوى ميلودي" loading="lazy">
         </div>
@@ -185,7 +185,7 @@
       </article>
 
       <!-- 17) حلوى ساور زانك -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/3.jpg" alt="حلوى ساور زانك" loading="lazy">
         </div>
@@ -194,7 +194,7 @@
       </article>
 
       <!-- 18) حلوى حامض اكستريم -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/8.jpg" alt="حلوى حامض اكستريم" loading="lazy">
         </div>
@@ -203,7 +203,7 @@
       </article>
 
       <!-- 19) حلوى كولا -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/16.jpg" alt="حلوى كولا" loading="lazy">
         </div>
@@ -212,7 +212,7 @@
       </article>
 
       <!-- 20) حلوى مازولا -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/14.jpg" alt="حلوى مازولا" loading="lazy">
         </div>
@@ -221,7 +221,7 @@
       </article>
 
       <!-- 21) حلوى بوبنس -->
-      <article class="oy-product-card">
+      <article class="oy-product-card" hidden>
         <div class="oy-product-card__media">
           <img src="assets/images/products/22.jpg" alt="حلوى بوبنس" loading="lazy">
         </div>
@@ -233,16 +233,13 @@
 
     <div class="oy-products-pagination-wrap oy-reveal oy-delay-4" aria-label="Products Pagination">
       <nav class="oy-products-pagination" aria-label="Pagination">
-        <a href="#p1" class="oy-products-pagination__item oy-products-pagination__item--active" aria-current="page">1</a>
-        <a href="#p2" class="oy-products-pagination__item">2</a>
-        <a href="#p3" class="oy-products-pagination__item">3</a>
-        <a href="#p4" class="oy-products-pagination__item">4</a>
-        <a href="#p5" class="oy-products-pagination__item">5</a>
-        <span class="oy-products-pagination__item oy-products-pagination__item--dots" aria-hidden="true">...</span>
+        <button type="button" class="oy-products-pagination__item oy-products-pagination__item--active" aria-current="page">1</button>
+        <button type="button" class="oy-products-pagination__item">2</button>
+        <button type="button" class="oy-products-pagination__item">3</button>
 
-        <a href="#next" class="oy-products-pagination__item oy-products-pagination__item--next" aria-label="Next page">
+        <button type="button" class="oy-products-pagination__item oy-products-pagination__item--next" aria-label="الصفحة التالية">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-        </a>
+        </button>
       </nav>
     </div>
 

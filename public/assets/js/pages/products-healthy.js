@@ -704,15 +704,13 @@
     });
   }
 
-  function bootPage() {
-    if (window.initHeader) window.initHeader();
-
-    patchHeaderForProductsPage();
-    initScrollReveal();
-    initTabsScrollHintForPage();
-    initAutoHover();
-    initExpandGsap();
-  }
+function bootPage() {
+  patchHeaderForProductsPage();
+  initScrollReveal();
+  initTabsScrollHintForPage();
+  initAutoHover();
+  initExpandGsap();
+}
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", bootPage, { once: true });
