@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "Somar";
+  src: url("/assets/fonts/SomarSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Somar";
+  src: url("/assets/fonts/SomarSans-Regular.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Somar";
+  src: url("/assets/fonts/SomarSans-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: "Somar", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+html,
+body,
+.fi,
+.fi-body,
+.fi-sidebar,
+.fi-topbar,
+.fi-main,
+.fi-simple-layout,
+.fi-modal,
+.fi-dropdown,
+.fi-ta,
+.fi-fo,
+.fi-btn,
+.fi-input,
+.fi-select-input,
+.fi-tabs,
+.fi-breadcrumbs {
+  font-family: "Somar", system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+}
+
+.fi-logo img,
+.fi-sidebar-header img,
+.fi-simple-header img {
+  width: auto;
+  object-fit: contain;
+}
+
+.fi-logo img {
+  max-height: 3rem;
+}
+
+.fi-simple-header img {
+  max-height: 4.5rem;
+}
+
+.fi-sidebar-header img {
+  max-height: 3.25rem;
+}
+
+/* === ORIENT DASHBOARD UI START === */
+/* ===== Orient dashboard buttons ===== */
+.fi-btn.fi-btn-color-primary:not(.fi-btn-outlined):not(.fi-btn-text),
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-btn-text),
+.fi-btn.fi-btn-color-primary:not(.fi-btn-outlined):not(.fi-btn-text) .fi-btn-label,
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-btn-text) .fi-btn-label,
+.fi-btn.fi-btn-color-primary:not(.fi-btn-outlined):not(.fi-btn-text) svg,
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-btn-text) svg {
+  color: #ffffff !important;
+}
+
+/* ?????? ??????? - ??? ????? ?????? ?????? */
+:root {
+  --oy-dashboard-scrollbar-color: #F79230;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--oy-dashboard-scrollbar-color);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--oy-dashboard-scrollbar-color);
+}
+/* === ORIENT DASHBOARD UI END === */
+
+/* === ORIENT DASHBOARD AVATAR START === */
+/* ===== Filament user avatar color ===== */
+:root {
+    --oy-dashboard-avatar-color: #F79230;
+}
+
+html body .fi-avatar,
+html body .fi-user-avatar,
+html body .fi-topbar .fi-avatar,
+html body .fi-topbar .fi-user-avatar,
+html body .fi-topbar .fi-dropdown-trigger .fi-avatar,
+html body .fi-topbar .fi-dropdown-trigger .fi-user-avatar,
+html body .fi-topbar .fi-dropdown-trigger [class*="avatar"],
+html body .fi-topbar button [class*="avatar"],
+html body .fi-wi-account .fi-avatar,
+html body .fi-wi-account .fi-user-avatar,
+html body .fi-wi-account [class*="avatar"],
+html body .fi-wi-account [class*="rounded-full"],
+html body .fi-account-widget [class*="avatar"],
+html body .fi-account-widget [class*="rounded-full"] {
+    --tw-bg-opacity: 1 !important;
+    background: var(--oy-dashboard-avatar-color) !important;
+    background-color: var(--oy-dashboard-avatar-color) !important;
+    color: #ffffff !important;
+    border-color: var(--oy-dashboard-avatar-color) !important;
+}
+
+html body .fi-avatar *,
+html body .fi-user-avatar *,
+html body .fi-topbar .fi-avatar *,
+html body .fi-topbar .fi-user-avatar *,
+html body .fi-topbar .fi-dropdown-trigger [class*="avatar"] *,
+html body .fi-topbar button [class*="avatar"] *,
+html body .fi-wi-account .fi-avatar *,
+html body .fi-wi-account .fi-user-avatar *,
+html body .fi-wi-account [class*="avatar"] *,
+html body .fi-wi-account [class*="rounded-full"] *,
+html body .fi-account-widget [class*="avatar"] *,
+html body .fi-account-widget [class*="rounded-full"] * {
+    color: #ffffff !important;
+}
+
+html body .fi-avatar svg,
+html body .fi-user-avatar svg,
+html body .fi-topbar .fi-avatar svg,
+html body .fi-topbar .fi-user-avatar svg,
+html body .fi-wi-account .fi-avatar svg,
+html body .fi-wi-account .fi-user-avatar svg {
+    color: #ffffff !important;
+}
+/* === ORIENT DASHBOARD AVATAR END === */

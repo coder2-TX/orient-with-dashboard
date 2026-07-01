@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\HasAvatar;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -45,4 +46,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getFilamentAvatarUrl(): ?string
+    {
+        $name = trim((string) ($this->name ?: $this->email ?: 'O'));
+
+        preg_match('/[\p{L}\p{N}]/u', $name, $matches);
+
+        $letter = mb_strtoupper($matches[0] ?? 'O', 'UTF-8');
+
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">'
+            . '<rect width="128" height="128" rx="64" fill="#F79230"/>'
+            . '<text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="58" font-family="Arial, sans-serif" font-weight="700">'
+            . htmlspecialchars($letter, ENT_QUOTES, 'UTF-8')
+            . '</text>'
+            . '</svg>';
+
+        return 'data:image/svg+xml;base64,' . base64_encode($svg);
+    }
+
 }

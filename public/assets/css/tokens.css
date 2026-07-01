@@ -281,3 +281,28 @@ html, body {
 .oy-link:hover {
   color: var(--oy-color-link-hover);
 }
+
+/* === ORIENT LANDING SCROLLBAR START === */
+/* ?????? ??????? - ??? ????? ?????? ?????? */
+:root {
+  --oy-landing-scrollbar-color: #173159;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--oy-landing-scrollbar-color);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--oy-landing-scrollbar-color);
+}
+/* === ORIENT LANDING SCROLLBAR END === */
