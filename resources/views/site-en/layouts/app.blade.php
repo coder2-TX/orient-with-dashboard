@@ -18,15 +18,17 @@
   <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
-
   @stack('styles')
+
+
 
   <!-- Shared scripts -->
   <script src="{{ asset('assets/js/header.js') }}" defer></script>
   <script src="{{ asset('assets/js/facts.js') }}" defer></script>
+  @stack('scripts_head')
   <script src="{{ asset('assets/js/app.js') }}" defer></script>
 
-  @stack('scripts_head')
+  
 </head>
 
 <body>
@@ -41,4 +43,5 @@
   @stack('scripts')
 </body>
 </html>
+
 
