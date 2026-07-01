@@ -7,6 +7,9 @@
 
   <title>@yield('title', 'Orient Yemen')</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ asset('assets/images/header/Brand_Mark.png') }}">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/header/Brand_Mark.png') }}">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 
