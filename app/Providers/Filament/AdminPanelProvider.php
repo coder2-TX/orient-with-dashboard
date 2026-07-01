@@ -27,9 +27,10 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->sidebarCollapsibleOnDesktop()
             ->brandName('Orient Yemen')
             ->brandLogo(asset('assets/images/header/logo.svg'))
-            ->brandLogoHeight('3rem')
+            ->brandLogoHeight('4rem')
             ->favicon(asset('assets/images/header/Brand_Mark.png'))
             ->colors([
                 'primary' => [
