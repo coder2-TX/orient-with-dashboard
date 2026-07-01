@@ -9,7 +9,7 @@
 @endpush
 
 @push('scripts')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="{{ asset('assets/js/pages/products-biscuit.js') }}" defer></script>
 @endpush
 
