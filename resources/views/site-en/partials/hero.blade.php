@@ -13,14 +13,14 @@
   $tagline = $hero?->tagline['en'] ?? 'Partnerships that shape the future';
   $subtitle = 'Over ' . $years . ' years of experience';
 
-  $defaultSlides = [
-    asset('assets/images/main/hero/1.png'),
-    asset('assets/images/main/hero/2.png'),
-    asset('assets/images/main/hero/3.png'),
-    asset('assets/images/main/hero/4.png'),
-    asset('assets/images/main/hero/5.png'),
-    asset('assets/images/main/hero/6.png'),
-  ];
+  $defaultSlides = collect(range(1, 6))
+    ->map(function (int $number) {
+      $jpgPath = "assets/images/main/hero/{$number}.jpg";
+      $pngPath = "assets/images/main/hero/{$number}.png";
+
+      return asset(file_exists(public_path($jpgPath)) ? $jpgPath : $pngPath);
+    })
+    ->all();
 
   $dbSlides = is_array($hero?->slides) ? array_values(array_filter($hero->slides)) : [];
 

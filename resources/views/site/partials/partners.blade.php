@@ -16,16 +16,26 @@
   $logos = $row?->logos;
   $logos = is_array($logos) ? array_values(array_filter($logos)) : [];
 
+  $optimizedPartnerLogo = function (string $path): string {
+      $webpPath = preg_replace('/\.(png|jpe?g)$/i', '.webp', $path);
+
+      if ($webpPath !== $path && file_exists(public_path($webpPath))) {
+          return asset($webpPath);
+      }
+
+      return asset($path);
+  };
+
   $defaultLogos = [
       asset('assets/images/main/partners/logo-01.svg'),
       asset('assets/images/main/partners/logo-10.svg'),
-      asset('assets/images/main/partners/logo-02.png'),
-      asset('assets/images/main/partners/logo-03.png'),
-      asset('assets/images/main/partners/logo-04.png'),
-      asset('assets/images/main/partners/logo-05.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-02.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-03.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-04.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-05.png'),
       asset('assets/images/main/partners/logo-06.svg'),
-      asset('assets/images/main/partners/logo-07.png'),
-      asset('assets/images/main/partners/logo-09.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-07.png'),
+      $optimizedPartnerLogo('assets/images/main/partners/logo-09.png'),
   ];
 
   $logoUrls = count($logos)
@@ -48,7 +58,7 @@
       <div class="oy-partners__marquee">
         <div class="oy-partners__logos">
           @foreach ($logoUrls as $i => $url)
-            <img src="{{ $url }}" alt="شعار شريك {{ $i + 1 }}" loading="lazy">
+            <img src="{{ $url }}" alt="شعار شريك {{ $i + 1 }}" loading="lazy" decoding="async" width="220" height="120">
           @endforeach
         </div>
       </div>
