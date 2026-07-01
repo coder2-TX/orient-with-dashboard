@@ -13,14 +13,17 @@ use UnitEnum;
 
 class AboutValueResource extends Resource
 {
-    protected static ?string $model = AboutValue::class;
+
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-sparkles';
+    protected static string|\UnitEnum|null $navigationGroup = 'صفحة من نحن';
+    protected static ?string $navigationLabel = 'القيم';
+    protected static ?int $navigationSort = 20;
+protected static ?string $model = AboutValue::class;
 
     //  تحت "من نحن"
-    protected static string|UnitEnum|null $navigationGroup = 'من نحن';
 
-    protected static ?string $navigationLabel = 'AboutValue';
-    protected static ?string $modelLabel = 'قيمنا';
-    protected static ?string $pluralModelLabel = 'قيمنا';
+    protected static ?string $modelLabel = 'قيمة';
+    protected static ?string $pluralModelLabel = 'القيم';
 
     public static function form(Schema $schema): Schema
     {

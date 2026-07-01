@@ -12,13 +12,14 @@ use Filament\Tables\Table;
 
 class HomeServiceResource extends Resource
 {
-    protected static ?string $model = HomeService::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-wrench-screwdriver';
-    protected static \UnitEnum|string|null $navigationGroup = 'الرئيسية';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'خدمات الرئيسية';
+    protected static ?int $navigationSort = 30;
+protected static ?string $model = HomeService::class;
 
-    protected static ?string $navigationLabel = 'Home Services';
-    protected static ?string $modelLabel = 'خدمات الرئيسية';
+    protected static ?string $modelLabel = 'خدمة رئيسية';
     protected static ?string $pluralModelLabel = 'خدمات الرئيسية';
 
     protected static ?string $recordTitleAttribute = 'id';

@@ -12,13 +12,14 @@ use Filament\Tables\Table;
 
 class HomeFactResource extends Resource
 {
-    protected static ?string $model = HomeFact::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-chart-bar';
-    protected static \UnitEnum|string|null $navigationGroup = 'الرئيسية';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'أرقام الرئيسية';
+    protected static ?int $navigationSort = 40;
+protected static ?string $model = HomeFact::class;
 
-    protected static ?string $navigationLabel = 'Home Facts';
-    protected static ?string $modelLabel = 'أرقام الرئيسية';
+    protected static ?string $modelLabel = 'رقم رئيسي';
     protected static ?string $pluralModelLabel = 'أرقام الرئيسية';
 
     protected static ?string $recordTitleAttribute = 'id';

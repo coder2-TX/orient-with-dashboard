@@ -13,20 +13,22 @@ use UnitEnum;
 
 class AboutVisionMissionResource extends Resource
 {
-    protected static ?string $model = AboutVisionMission::class;
+
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-eye';
+    protected static string|\UnitEnum|null $navigationGroup = 'صفحة من نحن';
+    protected static ?string $navigationLabel = 'الرؤية والرسالة';
+    protected static ?int $navigationSort = 10;
+protected static ?string $model = AboutVisionMission::class;
 
     //  تحت "من نحن"
-    protected static string|UnitEnum|null $navigationGroup = 'من نحن';
 
-    protected static ?string $navigationLabel = 'AboutVisionMission';
-    protected static ?string $modelLabel = 'رؤية ورسالة';
-    protected static ?string $pluralModelLabel = 'رؤيتنا ورسالتنا';
+    protected static ?string $modelLabel = 'الرؤية والرسالة';
+    protected static ?string $pluralModelLabel = 'الرؤية والرسالة';
 
     public static function form(Schema $schema): Schema
 {
     return AboutVisionMissionForm::configure($schema);
 }
-
 
     public static function table(Table $table): Table
     {

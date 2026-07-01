@@ -13,12 +13,15 @@ use UnitEnum;
 
 class ContactSettingResource extends Resource
 {
-    protected static ?string $model = ContactSetting::class;
+
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-phone';
+    protected static string|\UnitEnum|null $navigationGroup = 'تواصل معنا';
+    protected static ?string $navigationLabel = 'إعدادات التواصل';
+    protected static ?int $navigationSort = 10;
+protected static ?string $model = ContactSetting::class;
 
     //  تحت "تواصل معنا"
-    protected static string|UnitEnum|null $navigationGroup = 'تواصل معنا';
 
-    protected static ?string $navigationLabel = 'ContactSetting';
     protected static ?string $modelLabel = 'إعدادات التواصل';
     protected static ?string $pluralModelLabel = 'إعدادات التواصل';
 

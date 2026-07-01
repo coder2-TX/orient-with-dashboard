@@ -16,15 +16,15 @@ use Filament\Tables\Table;
 
 class HomeWhyResource extends Resource
 {
-    protected static ?string $model = HomeWhy::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static \UnitEnum|string|null $navigationGroup = 'الرئيسية';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-question-mark-circle';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'لماذا نحن';
+    protected static ?int $navigationSort = 50;
+protected static ?string $model = HomeWhy::class;
 
-    protected static ?string $navigationLabel = 'Home why';
     protected static ?string $modelLabel = 'لماذا نحن';
     protected static ?string $pluralModelLabel = 'لماذا نحن';
-
 
     protected static ?string $recordTitleAttribute = 'id';
 

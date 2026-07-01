@@ -13,14 +13,17 @@ use UnitEnum;
 
 class HomeFooterResource extends Resource
 {
-    protected static ?string $model = HomeFooter::class;
+
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'الفوتر';
+    protected static ?int $navigationSort = 70;
+protected static ?string $model = HomeFooter::class;
 
     //  تحت "الرئيسية"
-    protected static string|UnitEnum|null $navigationGroup = 'الرئيسية';
 
-    protected static ?string $navigationLabel = 'Home Footer';
-    protected static ?string $modelLabel = 'Footer';
-    protected static ?string $pluralModelLabel = 'Footers';
+    protected static ?string $modelLabel = 'الفوتر';
+    protected static ?string $pluralModelLabel = 'الفوتر';
 
     public static function form(Schema $schema): Schema
 {
@@ -31,7 +34,6 @@ public static function schema(Schema $schema): Schema
 {
     return static::form($schema);
 }
-
 
     public static function table(Table $table): Table
     {

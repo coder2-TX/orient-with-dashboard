@@ -51,6 +51,13 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::HEAD_END,
                 fn (): string => '<link rel="stylesheet" href="' . asset('assets/css/filament-admin.css') . '?v=20260701-avatar-theme-v2">'
             )
+            ->navigationGroups([
+                'الصفحة الرئيسية',
+                'صفحة من نحن',
+                'صفحة منتجاتنا',
+                'صفحة شركائنا',
+                'تواصل معنا',
+            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

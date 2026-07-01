@@ -12,12 +12,13 @@ use Filament\Tables\Table;
 
 class HomeAboutResource extends Resource
 {
-    protected static ?string $model = HomeAbout::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-information-circle';
-    protected static \UnitEnum|string|null $navigationGroup = 'الرئيسية';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'عن الرئيسية';
+    protected static ?int $navigationSort = 20;
+protected static ?string $model = HomeAbout::class;
 
-    protected static ?string $navigationLabel = 'Home About';
     protected static ?string $modelLabel = 'عن الرئيسية';
     protected static ?string $pluralModelLabel = 'عن الرئيسية';
 

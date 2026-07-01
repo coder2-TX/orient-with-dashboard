@@ -12,12 +12,13 @@ use Filament\Tables\Table;
 
 class HomeHeroResource extends Resource
 {
-    protected static ?string $model = HomeHero::class;
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
-    protected static string|\UnitEnum|null $navigationGroup = 'الرئيسية';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-photo';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+    protected static ?string $navigationLabel = 'سلايدر الرئيسية';
+    protected static ?int $navigationSort = 10;
+protected static ?string $model = HomeHero::class;
 
-    protected static ?string $navigationLabel = 'Home Heroes';
     protected static ?string $modelLabel = 'سلايدر الرئيسية';
     protected static ?string $pluralModelLabel = 'سلايدر الرئيسية';
 

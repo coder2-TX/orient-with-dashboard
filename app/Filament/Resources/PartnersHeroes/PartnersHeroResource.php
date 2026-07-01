@@ -13,14 +13,17 @@ use UnitEnum;
 
 class PartnersHeroResource extends Resource
 {
-    protected static ?string $model = PartnersHero::class;
+
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
+    protected static string|\UnitEnum|null $navigationGroup = 'صفحة شركائنا';
+    protected static ?string $navigationLabel = 'هيرو الشركاء';
+    protected static ?int $navigationSort = 10;
+protected static ?string $model = PartnersHero::class;
 
     //  تحت تبويب "شركاؤنا"
-    protected static string|UnitEnum|null $navigationGroup = 'شركاؤنا';
 
-    protected static ?string $navigationLabel = 'PartnersHero';
-    protected static ?string $modelLabel = 'نص هيرو الشركاء';
-    protected static ?string $pluralModelLabel = 'نص هيرو الشركاء';
+    protected static ?string $modelLabel = 'هيرو الشركاء';
+    protected static ?string $pluralModelLabel = 'هيرو الشركاء';
 
     //  Filament v5 يستخدم form(Schema $schema) وليس schema()
     public static function form(Schema $schema): Schema
