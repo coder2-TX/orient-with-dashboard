@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -8,7 +8,7 @@
   <title>@yield('title', 'Orient Yemen')</title>
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 
   <!-- Global tokens first -->
   <link rel="stylesheet" href="{{ asset('assets/css/tokens.css') }}">
@@ -41,3 +41,4 @@
   @stack('scripts')
 </body>
 </html>
+
