@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\AboutMethodologies\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,17 +13,23 @@ class AboutMethodologiesTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('#'),
-                ToggleColumn::make('is_active')->label('مفعل'),
+                TextColumn::make('id')
+                    ->label('#')
+                    ->sortable(),
+
+                TextColumn::make('items')
+                    ->label('عدد الكروت')
+                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+
+                ToggleColumn::make('is_active')
+                    ->label('إظهار السكشن في الموقع')
+                    ->sortable(),
             ])
-            ->headerActions([]) //  لا نكرر زر الإضافة داخل الجدول
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->iconButton(),
+            ->defaultSort('id', 'asc')
+            ->recordActions([
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

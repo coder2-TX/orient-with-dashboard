@@ -9,23 +9,18 @@ use App\Models\AboutMethodology;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
-use UnitEnum;
 
 class AboutMethodologyResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-check';
     protected static string|\UnitEnum|null $navigationGroup = 'صفحة من نحن';
     protected static ?string $navigationLabel = 'منهجية العمل';
     protected static ?int $navigationSort = 30;
-protected static ?string $model = AboutMethodology::class;
-
-    //  تحت "من نحن"
+    protected static ?string $model = AboutMethodology::class;
 
     protected static ?string $modelLabel = 'منهجية العمل';
     protected static ?string $pluralModelLabel = 'منهجية العمل';
 
-    //  مهم: مشروعك يستخدم Schema
     public static function form(Schema $schema): Schema
     {
         return AboutMethodologyForm::configure($schema);
@@ -39,9 +34,9 @@ protected static ?string $model = AboutMethodology::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListAboutMethodologies::route('/'),
+            'index' => Pages\ListAboutMethodologies::route('/'),
             'create' => Pages\CreateAboutMethodology::route('/create'),
-            'edit'   => Pages\EditAboutMethodology::route('/{record}/edit'),
+            'edit' => Pages\EditAboutMethodology::route('/{record}/edit'),
         ];
     }
 }
