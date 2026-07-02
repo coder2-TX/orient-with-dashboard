@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\ContactSettings\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,15 +13,27 @@ class ContactSettingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('whatsapp_display')->label('WhatsApp (عرض)')->placeholder('-'),
-                ToggleColumn::make('is_active')->label('مفعل'),
+                TextColumn::make('email')
+                    ->label('البريد الإلكتروني')
+                    ->placeholder('-'),
+
+                TextColumn::make('phone_display')
+                    ->label('رقم الهاتف')
+                    ->placeholder('-'),
+
+                TextColumn::make('whatsapp_display')
+                    ->label('واتساب استقبال رسائل النموذج')
+                    ->placeholder('-'),
+
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
+                    ->sortable(),
             ])
-            ->headerActions([])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])->icon('heroicon-m-ellipsis-vertical')->iconButton(),
+            ->defaultSort('id', 'asc')
+            ->recordActions([
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }
