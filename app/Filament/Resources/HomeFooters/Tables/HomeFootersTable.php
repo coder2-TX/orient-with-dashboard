@@ -2,9 +2,6 @@
 
 namespace App\Filament\Resources\HomeFooters\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -16,18 +13,31 @@ class HomeFootersTable
     {
         return $table
             ->columns([
-                TextColumn::make('email')->label('Email'),
-                TextColumn::make('phone')->label('Phone'),
-                ToggleColumn::make('is_active')->label('مفعل'),
+                TextColumn::make('id')
+                    ->label('#')
+                    ->sortable(),
+
+                TextColumn::make('email')
+                    ->label('البريد الإلكتروني')
+                    ->searchable(),
+
+                TextColumn::make('phone')
+                    ->label('رقم الهاتف')
+                    ->searchable(),
+
+                TextColumn::make('locations')
+                    ->label('عدد المواقع')
+                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
+                    ->sortable(),
             ])
-            ->headerActions([])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->iconButton(),
+            ->defaultSort('id', 'asc')
+            ->recordActions([
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

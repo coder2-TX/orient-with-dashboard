@@ -5,31 +5,47 @@
       ->latest('id')
       ->first();
 
-    $email = $footer?->email ?? 'info@orientyemen.com';
+    $defaults = \App\Models\HomeFooter::defaultData();
 
-    // Clean email (remove whitespace/newlines)
+    $email = $footer?->email ?: $defaults['email'];
     $emailClean = preg_replace('/\s+/', '', trim((string) $email));
     if ($emailClean === '') {
-      $emailClean = 'info@orientyemen.com';
+      $emailClean = $defaults['email'];
     }
 
-    $phone = $footer?->phone ?? '+967 778080700';
+    $phone = trim((string) ($footer?->phone ?: $defaults['phone']));
+    $phoneClean = preg_replace('/\s+/', '', $phone);
 
-    $locationText = $footer?->location_text_en ?? 'Company Location';
-    $locationUrl  = $footer?->location_url ?? 'https://maps.app.goo.gl/TW3M3gi3dqN273LG6';
+    $locationText = $footer?->location_text_en ?: $defaults['location_text_en'];
+    $locationUrl = $footer?->location_url ?: $defaults['location_url'];
 
     $locations = $footer?->locations;
-    if (!is_array($locations)) {
-      $locations = [
-        ['name_ar' => 'اليمن', 'name_en' => 'Yemen'],
-        ['name_ar' => 'المملكة العربية السعودية', 'name_en' => 'Saudi Arabia'],
-        ['name_ar' => 'إندونيسيا', 'name_en' => 'Indonesia'],
-      ];
+    if (! is_array($locations) || count(array_filter($locations)) === 0) {
+      $locations = $defaults['locations'];
     }
 
-    $xUrl        = $footer?->x_url;
-    $facebookUrl = $footer?->facebook_url;
-    $whatsappUrl = $footer?->whatsapp_url;
+    $socialLinks = [
+      [
+        'url' => $footer?->facebook_url ?: $defaults['facebook_url'],
+        'label' => 'Facebook',
+        'icon' => 'fa-brands fa-facebook-f',
+      ],
+      [
+        'url' => $footer?->instagram_url ?: $defaults['instagram_url'],
+        'label' => 'Instagram',
+        'icon' => 'fa-brands fa-instagram',
+      ],
+      [
+        'url' => $footer?->x_url ?: $defaults['x_url'],
+        'label' => 'X',
+        'icon' => 'fa-brands fa-x-twitter',
+      ],
+      [
+        'url' => $footer?->whatsapp_url ?: $defaults['whatsapp_url'],
+        'label' => 'WhatsApp',
+        'icon' => 'fa-brands fa-whatsapp',
+      ],
+    ];
   @endphp
 
   <div class="oy-footer__inner">
@@ -53,10 +69,13 @@
 
             <div class="oy-footer__contact-item">
               <i class="fa-solid fa-phone oy-footer__contact-icon" aria-hidden="true"></i>
-              @php
-                $tel = preg_replace('/\s+/', '', $phone);
-              @endphp
-              <a class="oy-footer__contact-value" href="https://wa.me/967778080700" target="_blank" rel="noopener noreferrer" dir="ltr" style="direction:ltr; unicode-bidi:isolate; display:inline-block;">+967 734888880</a>
+
+              <a class="oy-footer__contact-value"
+                 href="tel:{{ $phoneClean }}"
+                 dir="ltr"
+                 style="direction:ltr; unicode-bidi:isolate; display:inline-block;">
+                {{ $phone }}
+              </a>
             </div>
 
             <div class="oy-footer__contact-item">
@@ -88,8 +107,8 @@
           <div class="oy-footer__heading oy-footer__heading--center">Our Locations</div>
           <ul class="oy-footer__list oy-footer__list--center">
             @foreach($locations as $loc)
-              @php $nameEn = $loc['name_en'] ?? null; @endphp
-              @if($nameEn)
+              @php $nameEn = trim((string) ($loc['name_en'] ?? '')); @endphp
+              @if($nameEn !== '')
                 <li>{{ $nameEn }}</li>
               @endif
             @endforeach
@@ -102,21 +121,17 @@
           <div class="oy-footer__heading oy-footer__heading--center">Follow us on social media</div>
 
           <div class="oy-footer__socials">
-
-            <a class="oy-footer__social-btn" href="https://www.facebook.com/share/1CNj9hfQ9o/" aria-label="Facebook"
-              target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-
-            <a class="oy-footer__social-btn" href="https://www.instagram.com/orientyemen?igsh=NHZqaTFsNDJmY2Jz" aria-label="Instagram"
-              target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a class="oy-footer__social-btn" href="https://wa.me/967778080700" aria-label="WhatsApp"
-              target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
+            @foreach($socialLinks as $social)
+              @if(! empty($social['url']))
+                <a class="oy-footer__social-btn"
+                   href="{{ $social['url'] }}"
+                   aria-label="{{ $social['label'] }}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  <i class="{{ $social['icon'] }}"></i>
+                </a>
+              @endif
+            @endforeach
           </div>
         </div>
       </div>
