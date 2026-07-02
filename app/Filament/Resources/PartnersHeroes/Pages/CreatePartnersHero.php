@@ -3,14 +3,17 @@
 namespace App\Filament\Resources\PartnersHeroes\Pages;
 
 use App\Filament\Resources\PartnersHeroes\PartnersHeroResource;
+use App\Models\PartnersHero;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreatePartnersHero extends CreateRecord
 {
     protected static string $resource = PartnersHeroResource::class;
 
-    protected function getRedirectUrl(): string
+    public function mount(): void
     {
-        return $this->getResource()::getUrl('index');
+        $record = PartnersHero::firstOrCreateDefault();
+
+        $this->redirect(static::$resource::getUrl('edit', ['record' => $record]));
     }
 }

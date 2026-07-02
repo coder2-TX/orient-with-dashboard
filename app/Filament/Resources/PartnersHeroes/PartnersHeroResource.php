@@ -9,23 +9,18 @@ use App\Models\PartnersHero;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
-use UnitEnum;
 
 class PartnersHeroResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
     protected static string|\UnitEnum|null $navigationGroup = 'صفحة شركائنا';
     protected static ?string $navigationLabel = 'هيرو الشركاء';
     protected static ?int $navigationSort = 10;
-protected static ?string $model = PartnersHero::class;
-
-    //  تحت تبويب "شركاؤنا"
+    protected static ?string $model = PartnersHero::class;
 
     protected static ?string $modelLabel = 'هيرو الشركاء';
     protected static ?string $pluralModelLabel = 'هيرو الشركاء';
 
-    //  Filament v5 يستخدم form(Schema $schema) وليس schema()
     public static function form(Schema $schema): Schema
     {
         return PartnersHeroForm::configure($schema);
@@ -39,9 +34,8 @@ protected static ?string $model = PartnersHero::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListPartnersHeroes::route('/'),
-            'create' => Pages\CreatePartnersHero::route('/create'),
-            'edit'   => Pages\EditPartnersHero::route('/{record}/edit'),
+            'index' => Pages\ListPartnersHeroes::route('/'),
+            'edit' => Pages\EditPartnersHero::route('/{record}/edit'),
         ];
     }
 }

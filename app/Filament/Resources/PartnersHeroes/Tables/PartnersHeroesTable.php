@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\PartnersHeroes\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,22 +13,26 @@ class PartnersHeroesTable
     {
         return $table
             ->columns([
+                TextColumn::make('title_text_ar')
+                    ->label('العنوان')
+                    ->placeholder('شركاؤنا')
+                    ->sortable(),
+
                 TextColumn::make('lead_text_ar')
                     ->label('النص (عربي)')
                     ->limit(80)
                     ->wrap(),
 
-                ToggleColumn::make('is_active')->label('مفعل'),
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
+                    ->sortable(),
             ])
-            //  حتى ما يطلع "إضافة" داخل التابل
+            ->defaultSort('id', 'asc')
             ->headerActions([])
             ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->iconButton(),
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }
