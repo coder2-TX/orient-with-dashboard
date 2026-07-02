@@ -12,8 +12,6 @@ class PartnersHero extends Model
     public const DEFAULT_LEAD_AR = "نؤمن في أورينت يمن أن الشراكات القوية هي أساس النجاح والاستمرارية.\nنفخر بتعاوننا مع مجموعة من الشركاء الذين يشاركوننا نفس القيم في الجودة، الموثوقية، والالتزام بخدمة السوق.";
     public const DEFAULT_LEAD_EN = "At Orient Yemen, we believe strong partnerships are the foundation of success and continuity.\nWe are proud to collaborate with partners who share our values of quality, reliability, and commitment to serving the market.";
 
-    protected static ?self $activeContentCache = null;
-
     protected $fillable = [
         'title_text_ar',
         'title_text_en',
@@ -26,7 +24,7 @@ class PartnersHero extends Model
         'is_active' => 'boolean',
     ];
 
-    public static function defaultData(): array
+    public static function defaults(): array
     {
         return [
             'title_text_ar' => self::DEFAULT_TITLE_AR,
@@ -39,62 +37,32 @@ class PartnersHero extends Model
 
     public static function firstOrCreateDefault(): self
     {
-        $record = self::query()->oldest('id')->first();
+        $record = self::query()->latest('id')->first();
 
-        if (! $record) {
-            return self::query()->create(self::defaultData());
+        if ($record) {
+            return $record;
         }
 
-        $updates = [];
-
-        foreach (self::defaultData() as $key => $value) {
-            if ($key === 'is_active') {
-                continue;
-            }
-
-            if (blank($record->{$key})) {
-                $updates[$key] = $value;
-            }
-        }
-
-        if ($updates !== []) {
-            $record->forceFill($updates)->save();
-            $record->refresh();
-        }
-
-        return $record;
+        return self::query()->create(self::defaults());
     }
 
-    public static function activeContent(): self
+    /**
+     * Return dashboard content only when explicitly enabled.
+     * Do not create or return the default dashboard record here, otherwise
+     * disabling "dashboard content" would still show saved dashboard values.
+     */
+    public static function activeContent(): ?self
     {
-        if (self::$activeContentCache instanceof self) {
-            return self::$activeContentCache;
-        }
-
-        return self::$activeContentCache = self::query()
+        return self::query()
             ->where('is_active', true)
             ->latest('id')
-            ->first()
-            ?? self::firstOrCreateDefault();
+            ->first();
     }
 
-    public function titleAr(): string
+    public static function displayValue(?self $record, string $field, string $fallback): string
     {
-        return filled($this->title_text_ar) ? (string) $this->title_text_ar : self::DEFAULT_TITLE_AR;
-    }
+        $value = trim((string) ($record?->{$field} ?? ''));
 
-    public function titleEn(): string
-    {
-        return filled($this->title_text_en) ? (string) $this->title_text_en : self::DEFAULT_TITLE_EN;
-    }
-
-    public function leadAr(): string
-    {
-        return filled($this->lead_text_ar) ? (string) $this->lead_text_ar : self::DEFAULT_LEAD_AR;
-    }
-
-    public function leadEn(): string
-    {
-        return filled($this->lead_text_en) ? (string) $this->lead_text_en : self::DEFAULT_LEAD_EN;
+        return $value !== '' ? $value : $fallback;
     }
 }
