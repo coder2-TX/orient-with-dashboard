@@ -14,9 +14,10 @@ class UserResource extends Resource
 {
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string|\UnitEnum|null $navigationGroup = 'إعدادات عامة';
     protected static ?string $navigationLabel = 'المستخدمين';
-    protected static ?int $navigationSort = 700;
-protected static ?string $model = User::class;
+    protected static ?int $navigationSort = 20;
+    protected static ?string $model = User::class;
 
     // Filament v4 expects: string|BackedEnum|null
 
