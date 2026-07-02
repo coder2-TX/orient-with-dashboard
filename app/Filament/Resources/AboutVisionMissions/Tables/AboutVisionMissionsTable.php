@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\AboutVisionMissions\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,20 +13,25 @@ class AboutVisionMissionsTable
     {
         return $table
             ->columns([
-                TextColumn::make('intro_text_ar')
-                    ->label('النص (عربي)')
-                    ->limit(60),
+                TextColumn::make('section_title_ar')
+                    ->label('عنوان السكشن')
+                    ->placeholder('رؤيتنا ورسالتنا')
+                    ->sortable(),
 
-                ToggleColumn::make('is_active')->label('مفعل'),
+                TextColumn::make('intro_text_ar')
+                    ->label('النص التعريفي')
+                    ->limit(70)
+                    ->wrap(),
+
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
+                    ->sortable(),
             ])
-            ->headerActions([])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->iconButton(),
+            ->defaultSort('id', 'asc')
+            ->recordActions([
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

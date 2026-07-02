@@ -3,17 +3,22 @@
 namespace App\Filament\Resources\AboutVisionMissions\Pages;
 
 use App\Filament\Resources\AboutVisionMissions\AboutVisionMissionResource;
-use Filament\Actions\CreateAction;
+use App\Models\AboutVisionMission;
 use Filament\Resources\Pages\ListRecords;
 
 class ListAboutVisionMissions extends ListRecords
 {
     protected static string $resource = AboutVisionMissionResource::class;
 
+    public function mount(): void
+    {
+        AboutVisionMission::firstOrCreateDefault();
+
+        parent::mount();
+    }
+
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        return [];
     }
 }
