@@ -7,14 +7,12 @@
 @endpush
 
 @php
-  $trust = \App\Models\PartnersTrust::query()
-      ->where('is_active', true)
-      ->orderBy('sort')
-      ->orderByDesc('id')
-      ->first();
+  use App\Models\PartnersTrust;
+  use Illuminate\Support\Facades\Storage;
 
-  $items = data_get($trust, 'items', []);
-  $items = is_array($items) ? array_values(array_filter($items)) : [];
+  $trust = PartnersTrust::activeContent();
+  $items = is_array($trust?->items) ? array_values(array_filter($trust->items)) : PartnersTrust::defaultItems();
+  $items = array_slice($items, 0, 5);
 @endphp
 
 <section class="oy-section oy-method oy-method--partners" id="why-partners" aria-label="Why Partners Choose Us">
@@ -32,56 +30,35 @@
         </p>
       </div>
 
-      @forelse($items as $idx => $item)
+      @foreach($items as $idx => $item)
         @php
           $delay = min(6, $idx + 2);
-          $icon  = data_get($item, 'icon');
+          $customIcon = data_get($item, 'custom_icon');
+          $legacyIcon = data_get($item, 'icon');
+
+          if (! $customIcon && is_string($legacyIcon) && $legacyIcon !== '' && ! str_starts_with($legacyIcon, 'fa-')) {
+              $customIcon = $legacyIcon;
+          }
+
+          $iconClass = data_get($item, 'icon_class')
+              ?: ((is_string($legacyIcon) && str_starts_with($legacyIcon, 'fa-')) ? $legacyIcon : data_get(PartnersTrust::defaultItems(), $idx . '.icon_class', 'fa-solid fa-circle'));
+
           $title = data_get($item, 'title_en');
-          $desc  = data_get($item, 'desc_en');
+          $desc = data_get($item, 'desc_en');
         @endphp
 
         <article class="oy-method-card oy-reveal oy-delay-{{ $delay }}">
           <div class="oy-method-card__icon" aria-hidden="true">
-            @if($icon)
-              <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($icon) }}" alt="" loading="lazy">
+            @if($customIcon)
+              <img src="{{ Storage::disk('public')->url($customIcon) }}" alt="" loading="lazy">
+            @else
+              <i class="{{ $iconClass }}"></i>
             @endif
           </div>
           <h3 class="oy-method-card__title">{{ $title }}</h3>
           <p class="oy-method-card__desc">{{ $desc }}</p>
         </article>
-      @empty
-        {{-- fallback --}}
-        <article class="oy-method-card oy-reveal oy-delay-2">
-          <div class="oy-method-card__icon" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
-          <h3 class="oy-method-card__title">Deep expertise</h3>
-          <p class="oy-method-card__desc">in the Yemeni market</p>
-        </article>
-
-        <article class="oy-method-card oy-reveal oy-delay-3">
-          <div class="oy-method-card__icon" aria-hidden="true"><i class="fa-solid fa-route"></i></div>
-          <h3 class="oy-method-card__title">Distribution network</h3>
-          <p class="oy-method-card__desc">covering multiple regions</p>
-        </article>
-
-        <article class="oy-method-card oy-reveal oy-delay-4">
-          <div class="oy-method-card__icon" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></div>
-          <h3 class="oy-method-card__title">High commitment</h3>
-          <p class="oy-method-card__desc">to quality and standards</p>
-        </article>
-
-        <article class="oy-method-card oy-reveal oy-delay-5">
-          <div class="oy-method-card__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
-          <h3 class="oy-method-card__title">Long-term partnerships</h3>
-          <p class="oy-method-card__desc">built to last</p>
-        </article>
-
-        <article class="oy-method-card oy-reveal oy-delay-6">
-          <div class="oy-method-card__icon" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
-          <h3 class="oy-method-card__title">Clarity & professionalism</h3>
-          <p class="oy-method-card__desc">in communication</p>
-        </article>
-      @endforelse
-
+      @endforeach
     </div>
 
   </div>
