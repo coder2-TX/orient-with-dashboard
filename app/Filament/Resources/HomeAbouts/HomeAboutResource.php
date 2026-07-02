@@ -12,14 +12,18 @@ use Filament\Tables\Table;
 
 class HomeAboutResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-information-circle';
+
     protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+
     protected static ?string $navigationLabel = 'عن الرئيسية';
+
     protected static ?int $navigationSort = 20;
-protected static ?string $model = HomeAbout::class;
+
+    protected static ?string $model = HomeAbout::class;
 
     protected static ?string $modelLabel = 'عن الرئيسية';
+
     protected static ?string $pluralModelLabel = 'عن الرئيسية';
 
     protected static ?string $recordTitleAttribute = 'id';
@@ -37,9 +41,9 @@ protected static ?string $model = HomeAbout::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListHomeAbouts::route('/'),
+            'index' => Pages\ListHomeAbouts::route('/'),
             'create' => Pages\CreateHomeAbout::route('/create'),
-            'edit'   => Pages\EditHomeAbout::route('/{record}/edit'),
+            'edit' => Pages\EditHomeAbout::route('/{record}/edit'),
         ];
     }
 }
