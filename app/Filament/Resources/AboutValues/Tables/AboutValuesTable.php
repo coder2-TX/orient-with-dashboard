@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\AboutValues\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,21 +13,30 @@ class AboutValuesTable
     {
         return $table
             ->columns([
+                TextColumn::make('title_text_ar')
+                    ->label('عنوان السكشن')
+                    ->placeholder('قيمنا')
+                    ->sortable(),
+
                 TextColumn::make('intro_text_ar')
                     ->label('النص (عربي)')
-                    ->limit(60),
+                    ->limit(60)
+                    ->wrap(),
+
+                TextColumn::make('items')
+                    ->label('عدد القيم')
+                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
 
                 ToggleColumn::make('is_active')
-                    ->label('مفعل'),
+                    ->label('اعتماد محتوى الداشبورد')
+                    ->sortable(),
             ])
-            ->headerActions([]) //  (ما نكرر زر الإضافة)
+            ->defaultSort('id', 'asc')
+            ->headerActions([])
             ->actions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ])
-                    ->icon('heroicon-m-ellipsis-vertical')
-                    ->iconButton(),
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

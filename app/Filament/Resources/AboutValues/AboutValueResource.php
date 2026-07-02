@@ -9,20 +9,22 @@ use App\Models\AboutValue;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
-use UnitEnum;
+use Illuminate\Database\Eloquent\Model;
 
 class AboutValueResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-sparkles';
+
     protected static string|\UnitEnum|null $navigationGroup = 'صفحة من نحن';
+
     protected static ?string $navigationLabel = 'القيم';
+
     protected static ?int $navigationSort = 20;
-protected static ?string $model = AboutValue::class;
 
-    //  تحت "من نحن"
+    protected static ?string $model = AboutValue::class;
 
-    protected static ?string $modelLabel = 'قيمة';
+    protected static ?string $modelLabel = 'القيم';
+
     protected static ?string $pluralModelLabel = 'القيم';
 
     public static function form(Schema $schema): Schema
@@ -35,12 +37,27 @@ protected static ?string $model = AboutValue::class;
         return AboutValuesTable::configure($table);
     }
 
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return false;
+    }
+
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListAboutValues::route('/'),
+            'index' => Pages\ListAboutValues::route('/'),
             'create' => Pages\CreateAboutValue::route('/create'),
-            'edit'   => Pages\EditAboutValue::route('/{record}/edit'),
+            'edit' => Pages\EditAboutValue::route('/{record}/edit'),
         ];
     }
 }

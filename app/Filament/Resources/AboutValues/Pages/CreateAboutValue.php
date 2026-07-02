@@ -3,14 +3,17 @@
 namespace App\Filament\Resources\AboutValues\Pages;
 
 use App\Filament\Resources\AboutValues\AboutValueResource;
+use App\Models\AboutValue;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateAboutValue extends CreateRecord
 {
     protected static string $resource = AboutValueResource::class;
 
-    protected function getRedirectUrl(): string
+    public function mount(): void
     {
-        return $this->getResource()::getUrl('index');
+        $record = AboutValue::firstOrCreateDefault();
+
+        $this->redirect(static::$resource::getUrl('edit', ['record' => $record]));
     }
 }
