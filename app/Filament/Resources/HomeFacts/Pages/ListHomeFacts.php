@@ -3,17 +3,22 @@
 namespace App\Filament\Resources\HomeFacts\Pages;
 
 use App\Filament\Resources\HomeFacts\HomeFactResource;
-use Filament\Actions\CreateAction;
+use App\Models\HomeFact;
 use Filament\Resources\Pages\ListRecords;
 
 class ListHomeFacts extends ListRecords
 {
     protected static string $resource = HomeFactResource::class;
 
+    public function mount(): void
+    {
+        HomeFact::firstOrCreateDefault();
+
+        parent::mount();
+    }
+
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make(),
-        ];
+        return [];
     }
 }

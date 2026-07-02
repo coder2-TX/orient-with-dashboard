@@ -8,38 +8,25 @@
         ->latest('id')
         ->first();
 
-    // القيم الافتراضية المطلوبة
-    $defaults = [
-        'team'       => '80',
-        'vehicles'   => '17',
-        'warehouses' => '8',
-        'pos'        => '8',
-    ];
+    $team = HomeFact::normalizeCounter(
+        $record?->team_count,
+        HomeFact::DEFAULT_COUNTS['team_count'],
+    );
 
-    $val = function (?string $raw, string $fallback) {
-        $raw = trim((string) ($raw ?: $fallback));
+    $vehicles = HomeFact::normalizeCounter(
+        $record?->vehicles_count,
+        HomeFact::DEFAULT_COUNTS['vehicles_count'],
+    );
 
-        // لو كانت القيمة تحتوي +
-        $hasPlus = str_contains($raw, '+');
+    $warehouses = HomeFact::normalizeCounter(
+        $record?->warehouses_count,
+        HomeFact::DEFAULT_COUNTS['warehouses_count'],
+    );
 
-        // استخراج الرقم فقط
-        $target = (int) preg_replace('/\D+/', '', $raw);
-        if ($target < 0) {
-            $target = 0;
-        }
-
-        return [
-            'prefix'  => $hasPlus ? '+' : '',
-            'target'  => $target,
-            'start'   => $hasPlus ? '+0' : '0',
-            'display' => ($hasPlus ? '+' : '') . $target,
-        ];
-    };
-
-    $team       = $val($record?->team_count,       $defaults['team']);
-    $vehicles   = $val($record?->vehicles_count,   $defaults['vehicles']);
-    $warehouses = $val($record?->warehouses_count, $defaults['warehouses']);
-    $pos        = $val($record?->pos_count,        $defaults['pos']);
+    $pos = HomeFact::normalizeCounter(
+        $record?->pos_count,
+        HomeFact::DEFAULT_COUNTS['pos_count'],
+    );
 @endphp
 
 <section class="oy-section oy-facts" id="facts">

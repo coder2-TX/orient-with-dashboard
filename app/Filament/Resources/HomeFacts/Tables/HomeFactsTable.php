@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\HomeFacts\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,26 +13,35 @@ class HomeFactsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('#')->sortable(),
+                TextColumn::make('id')
+                    ->label('#')
+                    ->sortable(),
 
-                TextColumn::make('team_count')->label('كادر')->sortable(),
-                TextColumn::make('vehicles_count')->label('مركبات')->sortable(),
-                TextColumn::make('warehouses_count')->label('مستودعات')->sortable(),
-                TextColumn::make('pos_count')->label('نقاط بيع')->sortable(),
+                TextColumn::make('team_count')
+                    ->label('كادر بشري متخصص')
+                    ->sortable(),
 
-                ToggleColumn::make('is_active')->label('مفعل')->sortable(),
+                TextColumn::make('vehicles_count')
+                    ->label('مركبات توزيع حديثة')
+                    ->sortable(),
 
-                TextColumn::make('created_at')
-                    ->label('تاريخ الإنشاء')
-                    ->dateTime('Y-m-d H:i')
+                TextColumn::make('warehouses_count')
+                    ->label('مستودعات مركزية')
+                    ->sortable(),
+
+                TextColumn::make('pos_count')
+                    ->label('نقاط بيع معتمدة')
+                    ->sortable(),
+
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
             ])
-            ->defaultSort('id', 'desc')
+            ->defaultSort('id', 'asc')
             ->recordActions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ]),
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

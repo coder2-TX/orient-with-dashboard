@@ -9,8 +9,8 @@ class CreateHomeFact extends CreateRecord
 {
     protected static string $resource = HomeFactResource::class;
 
-    protected function getRedirectUrl(): string
+    public function mount(): void
     {
-        return $this->getResource()::getUrl('index');
+        $this->redirect($this->getResource()::getUrl('index'));
     }
 }

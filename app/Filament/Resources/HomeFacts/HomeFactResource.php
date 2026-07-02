@@ -12,14 +12,18 @@ use Filament\Tables\Table;
 
 class HomeFactResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-chart-bar';
-    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
-    protected static ?string $navigationLabel = 'أرقام الرئيسية';
-    protected static ?int $navigationSort = 40;
-protected static ?string $model = HomeFact::class;
 
-    protected static ?string $modelLabel = 'رقم رئيسي';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+
+    protected static ?string $navigationLabel = 'أرقام الرئيسية';
+
+    protected static ?int $navigationSort = 40;
+
+    protected static ?string $model = HomeFact::class;
+
+    protected static ?string $modelLabel = 'أرقام الرئيسية';
+
     protected static ?string $pluralModelLabel = 'أرقام الرئيسية';
 
     protected static ?string $recordTitleAttribute = 'id';
@@ -37,9 +41,8 @@ protected static ?string $model = HomeFact::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListHomeFacts::route('/'),
-            'create' => Pages\CreateHomeFact::route('/create'),
-            'edit'   => Pages\EditHomeFact::route('/{record}/edit'),
+            'index' => Pages\ListHomeFacts::route('/'),
+            'edit' => Pages\EditHomeFact::route('/{record}/edit'),
         ];
     }
 }
