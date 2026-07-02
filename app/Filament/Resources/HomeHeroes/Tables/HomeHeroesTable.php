@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\HomeHeroes\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -19,9 +17,6 @@ class HomeHeroesTable
                     ->label('#')
                     ->sortable(),
 
-                TextColumn::make('title.ar')
-                    ->label('العنوان (عربي)'),
-
                 TextColumn::make('experience_years')
                     ->label('سنوات الخبرة')
                     ->sortable(),
@@ -31,15 +26,14 @@ class HomeHeroesTable
                     ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
 
                 ToggleColumn::make('is_active')
-                    ->label('مفعل')
+                    ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
             ])
-            ->defaultSort('id', 'desc')
+            ->defaultSort('id', 'asc')
             ->recordActions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ]),
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

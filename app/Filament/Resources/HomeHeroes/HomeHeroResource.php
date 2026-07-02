@@ -12,12 +12,11 @@ use Filament\Tables\Table;
 
 class HomeHeroResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-photo';
     protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
     protected static ?string $navigationLabel = 'سلايدر الرئيسية';
     protected static ?int $navigationSort = 10;
-protected static ?string $model = HomeHero::class;
+    protected static ?string $model = HomeHero::class;
 
     protected static ?string $modelLabel = 'سلايدر الرئيسية';
     protected static ?string $pluralModelLabel = 'سلايدر الرئيسية';
@@ -37,9 +36,9 @@ protected static ?string $model = HomeHero::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListHomeHeroes::route('/'),
+            'index' => Pages\ListHomeHeroes::route('/'),
             'create' => Pages\CreateHomeHero::route('/create'),
-            'edit'   => Pages\EditHomeHero::route('/{record}/edit'),
+            'edit' => Pages\EditHomeHero::route('/{record}/edit'),
         ];
     }
 }

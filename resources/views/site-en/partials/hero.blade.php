@@ -7,25 +7,18 @@
     ->latest('id')
     ->first();
 
-  $years = (int) ($hero?->experience_years ?? 15);
+  $years = (int) ($hero?->experience_years ?: 15);
 
-  $title = $hero?->title['en'] ?? 'ORIENT YEMEN';
-  $tagline = $hero?->tagline['en'] ?? 'Partnerships that shape the future';
+  $title = data_get($hero, 'title.en') ?: 'ORIENT YEMEN';
+  $tagline = data_get($hero, 'third_line.en') ?: 'Partnerships that shape the future';
   $subtitle = 'Over ' . $years . ' years of experience';
 
-  $defaultSlides = collect(range(1, 6))
-    ->map(function (int $number) {
-      $jpgPath = "assets/images/main/hero/{$number}.jpg";
-      $pngPath = "assets/images/main/hero/{$number}.png";
-
-      return asset(file_exists(public_path($jpgPath)) ? $jpgPath : $pngPath);
-    })
-    ->all();
+  $defaultSlides = HomeHero::publicDefaultSlideUrls();
 
   $dbSlides = is_array($hero?->slides) ? array_values(array_filter($hero->slides)) : [];
 
   $slides = count($dbSlides) > 0
-    ? array_map(fn ($path) => Storage::url($path), $dbSlides)
+    ? array_map(fn ($path) => Storage::disk('public')->url($path), $dbSlides)
     : $defaultSlides;
 @endphp
 

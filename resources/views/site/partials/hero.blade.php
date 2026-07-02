@@ -7,28 +7,18 @@
     ->latest('id')
     ->first();
 
-  $years = (int) ($hero?->experience_years ?? 15);
+  $years = (int) ($hero?->experience_years ?: 15);
 
-  $title = $hero?->title['ar'] ?? 'اوريـنـت يـمـن';
-  $tagline = $hero?->tagline['ar'] ?? 'وشـراكـات تـبـنـي الـمـسـتـقـبـل';
+  $title = data_get($hero, 'title.ar') ?: 'اوريـنـت يـمـن';
+  $tagline = data_get($hero, 'third_line.ar') ?: 'وشـراكـات تـبـنـي الـمـسـتـقـبـل';
   $subtitle = 'خـبـرة تـمـتـد لأكـثـر مــن ' . $years . ' عـامـاً';
 
-  //  الافتراضي (6 صور) في حالة DB فاضية
-  $defaultSlides = collect(range(1, 6))
-    ->map(function (int $number) {
-      $jpgPath = "assets/images/main/hero/{$number}.jpg";
-      $pngPath = "assets/images/main/hero/{$number}.png";
+  $defaultSlides = HomeHero::publicDefaultSlideUrls();
 
-      return asset(file_exists(public_path($jpgPath)) ? $jpgPath : $pngPath);
-    })
-    ->all();
-
-  //  صور قاعدة البيانات (أي عدد)
   $dbSlides = is_array($hero?->slides) ? array_values(array_filter($hero->slides)) : [];
 
-  //  إذا DB فيها صور استخدمها كلها، وإلا استخدم الافتراضي
   $slides = count($dbSlides) > 0
-    ? array_map(fn ($path) => Storage::url($path), $dbSlides)
+    ? array_map(fn ($path) => Storage::disk('public')->url($path), $dbSlides)
     : $defaultSlides;
 @endphp
 

@@ -9,6 +9,12 @@ class EditHomeHero extends EditRecord
 {
     protected static string $resource = HomeHeroResource::class;
 
+    protected function beforeFill(): void
+    {
+        $this->record->fillMissingDefaultText();
+        $this->record->fillDefaultSlidesIfEmpty();
+    }
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
