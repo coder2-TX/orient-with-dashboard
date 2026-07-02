@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\HomeServices\Tables;
 
-use Filament\Actions\ActionGroup;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -15,31 +13,33 @@ class HomeServicesTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('#')->sortable(),
+                TextColumn::make('id')
+                    ->label('#')
+                    ->sortable(),
 
                 TextColumn::make('intro.ar')
-                    ->label('النص (عربي)')
-                    ->limit(50),
+                    ->label('نص المقدمة')
+                    ->limit(70)
+                    ->wrap(),
 
                 TextColumn::make('items')
                     ->label('عدد الخدمات')
                     ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
 
                 ToggleColumn::make('is_active')
-                    ->label('مفعل')
+                    ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
 
-                TextColumn::make('created_at')
-                    ->label('تاريخ الإنشاء')
+                TextColumn::make('updated_at')
+                    ->label('آخر تحديث')
                     ->dateTime('Y-m-d H:i')
                     ->sortable(),
             ])
-            ->defaultSort('id', 'desc')
+            ->defaultSort('id', 'asc')
             ->recordActions([
-                ActionGroup::make([
-                    EditAction::make()->label('تعديل'),
-                    DeleteAction::make()->label('حذف'),
-                ]),
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
             ]);
     }
 }

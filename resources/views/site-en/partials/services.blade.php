@@ -3,32 +3,44 @@
 
 @php
   use App\Models\HomeService;
+  use Illuminate\Support\Facades\Storage;
 
-  $record = HomeService::query()
-      ->where('is_active', true)
-      ->latest('id')
-      ->first();
+  $record = HomeService::managedRecord();
+  $useDashboardContent = (bool) ($record?->is_active);
 
-  $defaultIntro = "We provide an integrated set of services covering every stage of a product’s journey:";
+  $defaultIntro = HomeService::defaultIntro()['en'];
+  $defaultItems = HomeService::defaultItems();
 
-  $defaultItems = [
-    ['icon' => '/assets/images/main/service%20icon/Import.svg',        'title' => 'World-class importing'],
-    ['icon' => '/assets/images/main/service%20icon/Strategy.svg',      'title' => 'Smart trade marketing'],
-    ['icon' => '/assets/images/main/service%20icon/Distribution.svg',  'title' => 'Distribution & presence support'],
-    ['icon' => '/assets/images/main/service%20icon/Branding.svg',      'title' => 'Brand identity development'],
-  ];
+  $intro = $useDashboardContent ? ($record?->intro['en'] ?? null) : null;
 
-  $intro = $record?->intro['en'] ?? null;
+  $items = $useDashboardContent && is_array($record?->items)
+      ? array_values(array_filter($record->items))
+      : [];
 
-  $items = is_array($record?->items) ? array_values(array_filter($record->items)) : [];
   $itemsToRender = count($items) ? $items : $defaultItems;
 
   $toUrl = function ($path) {
-      if (!is_string($path) || $path === '') return '';
-      if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://') || str_starts_with($path, '/')) {
+      if (! is_string($path) || $path === '') {
+          return '';
+      }
+
+      if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
           return $path;
       }
-      return "/storage/{$path}";
+
+      if (str_starts_with($path, '/assets/')) {
+          return asset(ltrim($path, '/'));
+      }
+
+      if (str_starts_with($path, 'assets/')) {
+          return asset($path);
+      }
+
+      if (str_starts_with($path, '/storage/')) {
+          return $path;
+      }
+
+      return Storage::disk('public')->url($path);
   };
 @endphp
 
@@ -48,8 +60,8 @@
         @php
           $delay = min($i + 1, 4);
           $title = is_array($item['title'] ?? null) ? ($item['title']['en'] ?? '') : ($item['title'] ?? '');
-          $icon  = $item['icon'] ?? '';
-          $src   = str_contains($icon, '/assets/images/') ? $icon : $toUrl($icon);
+          $icon = $item['icon'] ?? '';
+          $src = $toUrl($icon);
         @endphp
 
         <article class="oy-service oy-reveal oy-delay-{{ $delay }}">
