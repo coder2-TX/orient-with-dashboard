@@ -10,15 +10,9 @@
       ->limit(4)
       ->get();
 
-  $defaults = [
-      'خبرة عريقة مسيرة ممتدة وراسخة منذ عام 2007.',
-      'حضور إقليمي تغطية واسعة في عدة دول لضمان وصول أسرع.',
-      'مرونة وتوسّع آليات عمل قابلة للتكيف مع متغيرات السوق.',
-      'شراكات مستدامة علاقات تجارية طويلة الأمد مبنية على الثقة.',
-  ];
-
   if ($items->isEmpty()) {
-      $items = collect($defaults)->map(fn ($t) => (object) ['text_ar' => $t]);
+      $items = collect(HomeWhy::defaultItems())
+          ->map(fn (array $item) => (object) ['text_ar' => $item['text_ar']]);
   }
 @endphp
 

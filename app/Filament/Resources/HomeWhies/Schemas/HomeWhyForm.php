@@ -11,27 +11,37 @@ class HomeWhyForm
 {
     public static function configure(Schema $schema): Schema
     {
-        return $schema->schema([
-            TextInput::make('sort_order')
-                ->label('الترتيب')
-                ->numeric()
-                ->minValue(1)
-                ->default(1)
-                ->required(),
+        return $schema
+            ->columns(1)
+            ->schema([
+                TextInput::make('sort_order')
+                    ->label('ترتيب الكرت')
+                    ->numeric()
+                    ->minValue(1)
+                    ->maxValue(4)
+                    ->required()
+                    ->helperText('يتم عرض أول 4 كروت حسب الترتيب.')
+                    ->columnSpanFull(),
 
-            Textarea::make('text_ar')
-                ->label('نص الكرت (عربي)')
-                ->rows(3)
-                ->required(),
+                Textarea::make('text_ar')
+                    ->label('نص الكرت (عربي)')
+                    ->rows(4)
+                    ->required()
+                    ->maxLength(500)
+                    ->columnSpanFull(),
 
-            Textarea::make('text_en')
-                ->label('Card text (English)')
-                ->rows(3)
-                ->required(),
+                Textarea::make('text_en')
+                    ->label('نص الكرت (إنجليزي)')
+                    ->rows(4)
+                    ->required()
+                    ->maxLength(500)
+                    ->columnSpanFull(),
 
-            Toggle::make('is_active')
-                ->label('مفعل (يظهر في الموقع)')
-                ->default(true),
-        ]);
+                Toggle::make('is_active')
+                    ->label('إظهار هذا الكرت في الموقع')
+                    ->helperText('عند إيقاف الكرت لن يظهر ضمن سكشن لماذا نحن في اللاندنج.')
+                    ->default(true)
+                    ->columnSpanFull(),
+            ]);
     }
 }

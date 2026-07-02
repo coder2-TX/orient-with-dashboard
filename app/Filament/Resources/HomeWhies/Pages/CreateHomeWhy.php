@@ -8,10 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateHomeWhy extends CreateRecord
 {
     protected static string $resource = HomeWhyResource::class;
-    
-    protected function getRedirectUrl(): string
-{
-    return $this->getResource()::getUrl('index');
-}
 
+    public function mount(): void
+    {
+        $this->redirect($this->getResource()::getUrl('index'));
+    }
 }

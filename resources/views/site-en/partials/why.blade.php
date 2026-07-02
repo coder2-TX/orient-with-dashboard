@@ -10,15 +10,9 @@
       ->limit(4)
       ->get();
 
-  $defaults = [
-      'Proven experience — a strong and established journey since 2007.',
-      'Regional presence — wide coverage across multiple countries for faster reach.',
-      'Flexibility & scalability — operational models that adapt to market changes.',
-      'Sustainable partnerships — long-term business relationships built on trust.',
-  ];
-
   if ($items->isEmpty()) {
-      $items = collect($defaults)->map(fn ($t) => (object) ['text_en' => $t]);
+      $items = collect(HomeWhy::defaultItems())
+          ->map(fn (array $item) => (object) ['text_en' => $item['text_en']]);
   }
 @endphp
 
