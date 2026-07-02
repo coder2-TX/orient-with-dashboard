@@ -2,12 +2,7 @@
 
 namespace App\Filament\Resources\HomePartners\Tables;
 
-use Filament\Tables\Actions\CreateAction;
-use Filament\Actions;
-use Filament\Actions\ActionGroup;
 use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
-
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
@@ -19,31 +14,27 @@ class HomePartnersTable
         return $table
             ->defaultSort('sort', 'asc')
             ->columns([
-                TextColumn::make('id')->label('#')->sortable(),
+                TextColumn::make('id')
+                    ->label('#')
+                    ->sortable(),
 
                 TextColumn::make('subtitle_ar')
-                    ->label('النص (عربي)')
-                    ->limit(60)
+                    ->label('النص المختصر')
+                    ->limit(70)
                     ->wrap(),
 
-                ToggleColumn::make('is_active')
-                    ->label('مفعل')
-                    ->sortable(),
+                TextColumn::make('logos')
+                    ->label('عدد الشعارات')
+                    ->formatStateUsing(fn ($state): int => is_array($state) ? count(array_filter($state)) : 0),
 
-                TextColumn::make('sort')
-                    ->label('ترتيب')
+                ToggleColumn::make('is_active')
+                    ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
             ])
-            ->headerActions([])
-
-           ->actions([
-    ActionGroup::make([
-        EditAction::make()->label('تعديل'),
-        DeleteAction::make()->label('حذف'),
-    ])
-        ->icon('heroicon-m-ellipsis-vertical')
-        ->iconButton(),
-]);
-
+            ->recordActions([
+                EditAction::make()
+                    ->label('تعديل')
+                    ->icon('heroicon-o-pencil-square'),
+            ]);
     }
 }

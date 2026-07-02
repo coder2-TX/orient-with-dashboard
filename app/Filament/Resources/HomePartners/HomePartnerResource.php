@@ -12,14 +12,18 @@ use Filament\Tables\Table;
 
 class HomePartnerResource extends Resource
 {
-
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
-    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
-    protected static ?string $navigationLabel = 'شركاء الرئيسية';
-    protected static ?int $navigationSort = 60;
-protected static ?string $model = HomePartner::class;
 
-    protected static ?string $modelLabel = 'شريك رئيسي';
+    protected static string|\UnitEnum|null $navigationGroup = 'الصفحة الرئيسية';
+
+    protected static ?string $navigationLabel = 'شركاء الرئيسية';
+
+    protected static ?int $navigationSort = 60;
+
+    protected static ?string $model = HomePartner::class;
+
+    protected static ?string $modelLabel = 'شركاء الرئيسية';
+
     protected static ?string $pluralModelLabel = 'شركاء الرئيسية';
 
     protected static ?string $recordTitleAttribute = 'id';
@@ -37,9 +41,9 @@ protected static ?string $model = HomePartner::class;
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListHomePartners::route('/'),
+            'index' => Pages\ListHomePartners::route('/'),
             'create' => Pages\CreateHomePartner::route('/create'),
-            'edit'   => Pages\EditHomePartner::route('/{record}/edit'),
+            'edit' => Pages\EditHomePartner::route('/{record}/edit'),
         ];
     }
 }

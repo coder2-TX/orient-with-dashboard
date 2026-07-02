@@ -3,7 +3,6 @@
 
 @php
   use App\Models\HomePartner;
-  use Illuminate\Support\Facades\Storage;
 
   $row = HomePartner::query()
       ->where('is_active', true)
@@ -11,36 +10,8 @@
       ->latest('id')
       ->first();
 
-  $subtitle = $row?->subtitle_en ?: 'We take pride in our partnerships with global suppliers and companies, and we believe integration is the foundation of sustainable success.';
-
-  $logos = $row?->logos;
-  $logos = is_array($logos) ? array_values(array_filter($logos)) : [];
-
-  $optimizedPartnerLogo = function (string $path): string {
-      $webpPath = preg_replace('/\.(png|jpe?g)$/i', '.webp', $path);
-
-      if ($webpPath !== $path && file_exists(public_path($webpPath))) {
-          return asset($webpPath);
-      }
-
-      return asset($path);
-  };
-
-  $defaultLogos = [
-      asset('assets/images/main/partners/logo-01.svg'),
-      asset('assets/images/main/partners/logo-10.svg'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-02.png'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-03.png'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-04.png'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-05.png'),
-      asset('assets/images/main/partners/logo-06.svg'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-07.png'),
-      $optimizedPartnerLogo('assets/images/main/partners/logo-09.png'),
-  ];
-
-  $logoUrls = count($logos)
-      ? array_map(fn ($p) => Storage::disk('public')->url($p), $logos)
-      : $defaultLogos;
+  $subtitle = $row?->subtitle_en ?: HomePartner::DEFAULT_SUBTITLE_EN;
+  $logoUrls = $row ? $row->landingLogoUrls() : HomePartner::defaultLogoAssetUrls();
 @endphp
 
 <section class="oy-section oy-partners" id="partners">
