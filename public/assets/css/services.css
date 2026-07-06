@@ -17,7 +17,6 @@
   --oy-services-pattern-size: 20%;
 
   position: absolute;
-  right: -20px;
   top: -40px;
   bottom: 0;
   width: var(--oy-services-pattern-w);
@@ -27,9 +26,22 @@
 
   background-image: url("../images/patterns/from-logo-orange-about-.svg");
   background-repeat: no-repeat;
-  background-position: right top;
   background-size: auto var(--oy-services-pattern-size);
   opacity: 1;
+}
+
+html[dir="rtl"] .oy-services__pattern {
+  right: -20px;
+  left: auto;
+  background-position: right top;
+  transform: none;
+}
+
+html[dir="ltr"] .oy-services__pattern {
+  left: -20px;
+  right: auto;
+  background-position: right top;
+  transform: scaleX(-1);
 }
 
 .oy-services .oy-section__title {
@@ -141,7 +153,6 @@
   visibility: visible;
 }
 
-/* Stagger delays */
 .oy-delay-1 { transition-delay: 0.06s; }
 .oy-delay-2 { transition-delay: 0.12s; }
 .oy-delay-3 { transition-delay: 0.18s; }

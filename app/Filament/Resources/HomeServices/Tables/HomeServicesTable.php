@@ -29,11 +29,6 @@ class HomeServicesTable
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
-
-                TextColumn::make('updated_at')
-                    ->label('آخر تحديث')
-                    ->dateTime('Y-m-d H:i')
-                    ->sortable(),
             ])
             ->defaultSort('id', 'asc')
             ->recordActions([
