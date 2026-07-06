@@ -1,47 +1,68 @@
 <footer class="oy-footer" id="footer" role="contentinfo">
   @php
-    $footer = \App\Models\HomeFooter::query()
-      ->where('is_active', true)
-      ->latest('id')
-      ->first();
-
+    $footer = \App\Models\HomeFooter::activeContent();
     $defaults = \App\Models\HomeFooter::defaultData();
 
-    $email = $footer?->email ?: $defaults['email'];
-    $emailClean = preg_replace('/\s+/', '', trim((string) $email));
+    $email = trim((string) ($footer?->email ?? ''));
+    if ($email === '') {
+      $email = $defaults['email'];
+    }
+
+    $emailClean = preg_replace('/\s+/', '', $email);
     if ($emailClean === '') {
       $emailClean = $defaults['email'];
     }
 
-    $phone = trim((string) ($footer?->phone ?: $defaults['phone']));
+    $phone = trim((string) ($footer?->phone ?? ''));
+    if ($phone === '') {
+      $phone = $defaults['phone'];
+    }
+
     $phoneClean = preg_replace('/\s+/', '', $phone);
 
-    $locationText = $footer?->location_text_en ?: $defaults['location_text_en'];
-    $locationUrl = $footer?->location_url ?: $defaults['location_url'];
+    $locationText = trim((string) ($footer?->location_text_en ?? ''));
+    if ($locationText === '') {
+      $locationText = $defaults['location_text_en'];
+    }
 
-    $locations = $footer?->locations;
-    if (! is_array($locations) || count(array_filter($locations)) === 0) {
+    $locationUrl = trim((string) ($footer?->location_url ?? ''));
+    if ($locationUrl === '') {
+      $locationUrl = $defaults['location_url'];
+    }
+
+    $locations = is_array($footer?->locations) ? $footer->locations : [];
+
+    $locations = array_values(array_filter($locations, function ($loc) {
+      return is_array($loc) && trim((string) ($loc['name_en'] ?? '')) !== '';
+    }));
+
+    if (count($locations) === 0) {
       $locations = $defaults['locations'];
     }
 
+    $facebookUrl = trim((string) ($footer?->facebook_url ?? '')) ?: $defaults['facebook_url'];
+    $instagramUrl = trim((string) ($footer?->instagram_url ?? '')) ?: $defaults['instagram_url'];
+    $xUrl = trim((string) ($footer?->x_url ?? '')) ?: $defaults['x_url'];
+    $whatsappUrl = trim((string) ($footer?->whatsapp_url ?? '')) ?: $defaults['whatsapp_url'];
+
     $socialLinks = [
       [
-        'url' => $footer?->facebook_url ?: $defaults['facebook_url'],
+        'url' => $facebookUrl,
         'label' => 'Facebook',
         'icon' => 'fa-brands fa-facebook-f',
       ],
       [
-        'url' => $footer?->instagram_url ?: $defaults['instagram_url'],
+        'url' => $instagramUrl,
         'label' => 'Instagram',
         'icon' => 'fa-brands fa-instagram',
       ],
       [
-        'url' => $footer?->x_url ?: $defaults['x_url'],
+        'url' => $xUrl,
         'label' => 'X',
         'icon' => 'fa-brands fa-x-twitter',
       ],
       [
-        'url' => $footer?->whatsapp_url ?: $defaults['whatsapp_url'],
+        'url' => $whatsappUrl,
         'label' => 'WhatsApp',
         'icon' => 'fa-brands fa-whatsapp',
       ],

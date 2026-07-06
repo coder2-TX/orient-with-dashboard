@@ -60,8 +60,95 @@ class HomeFooter extends Model
         ];
     }
 
+    public static function activeContent(): ?self
+    {
+        return self::query()
+            ->where('is_active', true)
+            ->latest('id')
+            ->first();
+    }
+
     public static function firstOrCreateDefault(): self
     {
-        return self::query()->firstOrCreate([], self::defaultData());
+        $record = self::query()
+            ->where('is_active', true)
+            ->latest('id')
+            ->first();
+
+        if (! $record) {
+            $record = self::query()
+                ->latest('id')
+                ->first();
+        }
+
+        if (! $record) {
+            return self::query()->create(self::defaultData());
+        }
+
+        $defaults = self::defaultData();
+
+        foreach ([
+            'email',
+            'phone',
+            'location_text_ar',
+            'location_text_en',
+            'location_url',
+            'facebook_url',
+            'instagram_url',
+            'whatsapp_url',
+        ] as $field) {
+            if (self::isBlank($record->{$field}) && ! self::isBlank($defaults[$field] ?? null)) {
+                $record->{$field} = $defaults[$field];
+            }
+        }
+
+        if (! self::hasUsableLocations($record->locations)) {
+            $record->locations = $defaults['locations'];
+        }
+
+        if ($record->is_active === null) {
+            $record->is_active = true;
+        }
+
+        if ($record->isDirty()) {
+            $record->save();
+        }
+
+        return $record;
+    }
+
+    protected static function isBlank(mixed $value): bool
+    {
+        if ($value === null) {
+            return true;
+        }
+
+        if (is_string($value)) {
+            return trim($value) === '';
+        }
+
+        return false;
+    }
+
+    protected static function hasUsableLocations(mixed $locations): bool
+    {
+        if (! is_array($locations)) {
+            return false;
+        }
+
+        foreach ($locations as $location) {
+            if (! is_array($location)) {
+                continue;
+            }
+
+            $nameAr = trim((string) ($location['name_ar'] ?? ''));
+            $nameEn = trim((string) ($location['name_en'] ?? ''));
+
+            if ($nameAr !== '' || $nameEn !== '') {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
