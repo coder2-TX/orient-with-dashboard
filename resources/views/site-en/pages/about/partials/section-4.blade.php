@@ -7,6 +7,15 @@
 
   $values = AboutValue::activeContent();
   $items = is_array($values->items) ? array_slice(array_values(array_filter($values->items)), 0, 6) : [];
+
+  $defaultIconClasses = [
+    'fa-solid fa-handshake',
+    'fa-solid fa-award',
+    'fa-solid fa-user-tie',
+    'fa-solid fa-users',
+    'fa-solid fa-lightbulb',
+    'fa-solid fa-shield-heart',
+  ];
 @endphp
 
 <section class="oy-section oy-values" id="values" aria-label="Values">
@@ -28,21 +37,29 @@
             @foreach($items as $i => $item)
               @php
                 $delay = min(3 + $i, 8);
-                $icon = $item['icon'] ?? null;
+
+                $customIcon = $item['custom_icon'] ?? null;
+                $iconClass = trim((string) ($item['icon_class'] ?? ''));
+
+                if ($iconClass === '') {
+                  $iconClass = $defaultIconClasses[$i] ?? 'fa-solid fa-circle-check';
+                }
+
                 $title = $item['title_en'] ?? '';
                 $desc = $item['desc_en'] ?? '';
               @endphp
 
               <article class="oy-values__item oy-reveal oy-delay-{{ $delay }}">
                 <div class="oy-values__icon" aria-hidden="true">
-                  @if($icon)
+                  @if(!empty($customIcon))
                     <img
-                      src="{{ Storage::disk('public')->url($icon) }}"
+                      src="{{ Storage::disk('public')->url($customIcon) }}"
                       alt="{{ $title ?: 'Icon' }}"
                       loading="lazy"
+                      style="width:36px;height:36px;object-fit:contain;"
                     >
                   @else
-                    <i class="fa-solid fa-circle"></i>
+                    <i class="{{ $iconClass }}"></i>
                   @endif
                 </div>
 
