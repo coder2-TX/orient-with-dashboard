@@ -1,5 +1,4 @@
 // assets/js/pages/products-juices.js
-// ORIENT YEMEN - Juices products page loader (header + hero + juices section + footer)
 
 (function () {
 
@@ -58,7 +57,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {
@@ -416,7 +414,6 @@
       const panelRect = panel.getBoundingClientRect();
       const cardRect  = card.getBoundingClientRect();
 
-      //  التعديل هنا: تحديد البداية من الأعلى بالضبط بناءً على اللوحة الحالية لضمان ارتفاع الكارد فقط
       const rowTopRel = Math.max(0, cardRect.top - panelRect.top);
 
       const rowRect = {
@@ -446,7 +443,6 @@
       overlay.style.clipPath = startInset;
       overlay.style.webkitClipPath = startInset;
       
-      //  إجبار الـ Overlay على أخذ ارتفاع الكارد بالضبط
       overlay.style.top = Math.round(rowTopRel) + "px";
       overlay.style.bottom = "auto";
       overlay.style.height = Math.round(cardRect.height) + "px";
@@ -458,7 +454,6 @@
       expand.style.opacity = "1";
       expand.style.visibility = "hidden";
       
-      //  نفس الشيء للحاوية
       expand.style.top = Math.round(rowTopRel) + "px";
       expand.style.bottom = "auto";
       expand.style.height = Math.round(cardRect.height) + "px";

@@ -1,5 +1,4 @@
 // assets/js/pages/products-healthy.js
-// ORIENT YEMEN - Healthy products page loader (same behavior pattern as sweets)
 
 (function () {
 	

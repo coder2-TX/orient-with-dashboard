@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-coffee" id="products-coffee" aria-label="Coffee Products" dir="ltr">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         Coffee
       </h2>
 
-      <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
           <a href="{{ url('en/products') }}" data-tab="all" class="oy-products-tabs__tab">Featured Products</a>
@@ -30,7 +28,6 @@
           <a href="{{ url('en/products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">Cake</a>
         </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="Scroll tabs">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
@@ -38,14 +35,10 @@
 
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       This category features a modern selection of coffee products with varied flavors, elegant presentation, and clear quality that suits different tastes.
     </p>
 
-    <!-- =========================
-         PANEL 1 (4 cards) + Pattern under end of card 4
-    ========================== -->
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Coffee Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Coffee Cards Panel">
@@ -120,7 +113,6 @@
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="{{ asset('assets/images/patterns/sweets.svg') }}"
@@ -130,9 +122,6 @@
       >
     </div>
 
-    <!-- =========================
-         PANEL 2 (1 card + 3 GHOST CARDS as real .oy-sweets-item)
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Coffee Cards Panel 2">
 
       <!-- 5) CLASSIC -->
@@ -152,13 +141,10 @@
         </div>
       </article>
 
-      <!-- Ghost Card 1 -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
-      <!-- Ghost Card 2 -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
-      <!-- Ghost Card 3 -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
     </div>

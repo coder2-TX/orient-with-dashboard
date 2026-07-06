@@ -11,17 +11,12 @@ class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;
 
-    /**
-     *  نستخدمها لمعرفة هل يجب تسجيل الخروج بعد الحفظ
-     * (فقط إذا تم تغيير كلمة المرور لنفس المستخدم الحالي)
-     */
     protected bool $logoutAfterSave = false;
 
     protected function getHeaderActions(): array
     {
         return [
             Actions\ViewAction::make(),
-            //  لا يوجد DeleteAction
         ];
     }
 
@@ -44,12 +39,10 @@ class EditUser extends EditRecord
             return;
         }
 
-        //  تسجيل خروج + إنهاء الجلسة بأمان
         Filament::auth()->logout();
         session()->invalidate();
         session()->regenerateToken();
 
-        //  إعادة توجيه لصفحة تسجيل الدخول الخاصة بالـ Panel الحالي
         $this->redirect(Filament::getCurrentPanel()->getLoginUrl());
     }
 }

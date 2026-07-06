@@ -8,7 +8,6 @@ window.initPartners = function initPartners() {
   const track = section.querySelector(".oy-partners__logos");
   if (!marquee || !track) return;
 
-  // prevent double init
   if (track.dataset.oyMarqueeInit === "1") return;
   track.dataset.oyMarqueeInit = "1";
 

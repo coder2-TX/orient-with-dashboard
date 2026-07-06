@@ -74,6 +74,5 @@
     </div>
   </div>
 
-  <!-- Right-top pattern (allowed to bleed upward outside the section) -->
   <div class="oy-services__pattern" aria-hidden="true"></div>
 </section>

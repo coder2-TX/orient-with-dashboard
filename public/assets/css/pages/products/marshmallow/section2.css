@@ -5,7 +5,6 @@
   background: var(--oy-color-white);
 }
 
-/* Reuse the same subtitle styling from products section */
 .oy-products-marshmallow .oy-products-tabs__subtitle {
   color: var(--oy-color-primary);
   max-width: 100%;
@@ -14,9 +13,6 @@
   text-overflow: clip;
 }
 
-/* ===========================================================
-   Tabs wrapper (scroll hint arrow + fade) - scoped to marshmallow
-=========================================================== */
 
 .oy-products-marshmallow .oy-products-tabs__tabsWrap {
   position: relative;
@@ -24,7 +20,6 @@
   flex: 1 1 420px;
 }
 
-/* fade layer at inline-end (right in LTR, left in RTL) */
 .oy-products-marshmallow .oy-products-tabs__tabsWrap::after {
   content: "";
   position: absolute;
@@ -37,12 +32,10 @@
   background: linear-gradient(to left, var(--oy-color-white), rgba(255, 255, 255, 0));
 }
 
-/* RTL: fade to right (because inline-end is left) */
 :dir(rtl) .oy-products-marshmallow .oy-products-tabs__tabsWrap::after {
   background: linear-gradient(to right, var(--oy-color-white), rgba(255, 255, 255, 0));
 }
 
-/* scroll hint button */
 .oy-products-marshmallow .oy-products-tabs__scrollHint {
   position: absolute;
   inset-inline-end: 6px;
@@ -73,19 +66,16 @@
   line-height: 1;
 }
 
-/* LTR: flip icon to point right */
 :dir(ltr) .oy-products-marshmallow .oy-products-tabs__scrollHint i {
   transform: rotate(180deg);
 }
 
-/* Show hint only when JS toggles class */
 .oy-products-marshmallow .oy-products-tabs__tabsWrap--showHint::after,
 .oy-products-marshmallow .oy-products-tabs__tabsWrap--showHint .oy-products-tabs__scrollHint {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Tabs nav (ensure horizontal scroll + hide scrollbar) */
 .oy-products-marshmallow .oy-products-tabs__nav {
   display: flex;
   align-items: center;
@@ -102,7 +92,6 @@
   display: none;
 }
 
-/* Tabs items */
 .oy-products-marshmallow .oy-products-tabs__tab {
   display: inline-flex;
   align-items: center;
@@ -130,7 +119,6 @@
   border-color: var(--oy-color-navy);
 }
 
-/* small tweaks */
 @media (max-width: 768px) {
   .oy-products-marshmallow .oy-products-tabs__tab {
     font-size: 14px;
@@ -146,9 +134,6 @@
   }
 }
 
-/* ==============================
-   Big Panel
-============================== */
 
 .oy-sweets-panel {
   width: 1246px;
@@ -200,19 +185,16 @@
   user-select: none;
 }
 
-/* EN fix: keep pattern on the same side as Arabic */
 .oy-products-marshmallow[dir="ltr"] .oy-sweets-panelPattern{
   inset-inline-end: auto;
   inset-inline-start: -80px;
 }
 
-/* spacing between panels */
 .oy-sweets-panel--second,
 .oy-sweets-panel--third {
   margin-top: 120px;
 }
 
-/* When expanded: lock interactions & lock scroll inside panel */
 .oy-sweets-panel.is-expanded {
   overflow: hidden;
 }
@@ -220,7 +202,6 @@
   pointer-events: none;
 }
 
-/* Each inner card */
 .oy-sweets-item {
   --oy-card-side-pad: 36px;
   --oy-card-top-pad: 119px;
@@ -242,7 +223,6 @@
   position: relative;
 }
 
-/* Ghost cards support */
 .oy-sweets-item--ghost{
   background: var(--oy-color-white);
   pointer-events: none;
@@ -262,14 +242,9 @@
   color: #000 !important;
 }
 
-/* Keep same seam spacing between any slot */
 .oy-sweets-panel > .oy-sweets-item + .oy-sweets-item {
   margin-inline-start: -0.666px;
 }
-
-/* ==============================
-   Hover behavior
-============================== */
 
 .oy-sweets-media {
   height: 0;
@@ -307,7 +282,6 @@
   padding-bottom: var(--oy-card-content-pad-bottom);
 }
 
-/* Freeze state on click BEFORE measuring */
 .oy-sweets-item.is-opening {
   transition: none !important;
   background: var(--num-color);
@@ -323,7 +297,6 @@
   padding-bottom: var(--oy-card-content-pad-bottom);
 }
 
-/* Number */
 .oy-sweets-num {
   font-size: 24px;
   font-weight: 700;
@@ -331,7 +304,6 @@
   color: var(--num-color, #000);
 }
 
-/* Title */
 .oy-sweets-title {
   margin: 42px 0 0;
   font-size: 18px;
@@ -345,7 +317,6 @@
   overflow: hidden;
 }
 
-/* Desc */
 .oy-sweets-desc {
   margin: 6px 0 0;
   font-size: 16px;
@@ -359,7 +330,6 @@
   overflow: hidden;
 }
 
-/* Button */
 .oy-sweets-btn {
   margin-top: 29px;
   width: 125px;
@@ -378,7 +348,6 @@
   transition: filter .15s ease, transform .15s ease, border-color .18s ease, color .18s ease;
 }
 
-/* Hover readability */
 .oy-sweets-item:hover .oy-sweets-num,
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item:hover .oy-sweets-desc,
@@ -388,14 +357,12 @@
   color: #ffffff;
 }
 
-/* Tighten spacing */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title { margin-top: 2px; }
 
 .oy-sweets-item:hover .oy-sweets-desc,
 .oy-sweets-item.is-autoHover .oy-sweets-desc { margin-top: 2px; }
 
-/* remove reserved min-height only on hover/opening */
 .oy-sweets-item:hover .oy-sweets-title,
 .oy-sweets-item.is-autoHover .oy-sweets-title,
 .oy-sweets-item.is-opening .oy-sweets-title { min-height: 0; }
@@ -404,7 +371,6 @@
 .oy-sweets-item.is-autoHover .oy-sweets-desc,
 .oy-sweets-item.is-opening .oy-sweets-desc { min-height: 0; }
 
-/* Fix button only during hover/auto/opening */
 .oy-sweets-item:hover .oy-sweets-btn,
 .oy-sweets-item.is-autoHover .oy-sweets-btn,
 .oy-sweets-item.is-opening .oy-sweets-btn {
@@ -421,10 +387,6 @@
   transform: translateY(-1px);
 }
 
-/* ===========================================================
-   In-Panel GSAP Expand (NOT fullscreen)
-=========================================================== */
-
 .oy-sweets-panel__overlay {
   position: absolute;
   inset: 0;
@@ -435,7 +397,6 @@
   pointer-events: none;
 }
 
-/* Main wrapper */
 .oy-sweets-expand {
   position: absolute;
   inset: 0;
@@ -461,7 +422,6 @@
   transform: translateY(8px);
 }
 
-/* EN fix: keep expand arrow button on the same side as Arabic */
 .oy-products-marshmallow[dir="ltr"] .oy-sweets-expand__close {
   inset-inline-start: auto;
   inset-inline-end: 22px;
@@ -550,7 +510,6 @@
   opacity: 0;
 }
 
-/* Details image */
 .oy-sweets-expand__imgDetails{
   position: absolute;
   z-index: 2;
@@ -590,9 +549,6 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* ===========================================================
-   TABLET: 4 cards across
-=========================================================== */
 @media (max-width: 1246px) {
   .oy-products-marshmallow .oy-section__inner { padding-inline: 0; }
   .oy-products-marshmallow .oy-products-tabs__head,
@@ -673,9 +629,6 @@
   .oy-sweets-expand__desc { font-size: 15px; }
 }
 
-/* ===========================================================
-   MOBILE / SMALL TABLET: 2 cards per row
-=========================================================== */
 @media (max-width: 839px) {
   .oy-products-marshmallow .oy-products-tabs__head,
   .oy-products-marshmallow .oy-products-tabs__subtitle { padding-inline: 14px; }
@@ -729,7 +682,6 @@
   .oy-sweets-expand__text { padding-inline-start: 0; flex: 1 1 50%; max-width: 55%; z-index: 5; }
   .oy-sweets-expand__close { bottom: 16px; inset-inline-start: 16px; }
 
-  /* EN fix: keep expand arrow button on Arabic side on mobile too */
   .oy-products-marshmallow[dir="ltr"] .oy-sweets-expand__close {
     inset-inline-start: auto;
     inset-inline-end: 16px;
@@ -762,9 +714,6 @@
   .oy-sweets-expand__desc { font-size: 14px; }
 }
 
-/* ===========================================================
-   VERY SMALL PHONES
-=========================================================== */
 @media (max-width: 540px) {
   .oy-sweets-item {
     --oy-card-side-pad: 12px;

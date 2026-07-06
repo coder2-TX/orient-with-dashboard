@@ -31,8 +31,8 @@ class UserForm
                 ->helperText('اتركه فارغًا إذا لا تريد تغيير كلمة المرور')
                 ->rule(Password::default())
                 ->confirmed()
-                ->afterStateHydrated(fn (TextInput $component) => $component->state(null)) // لا نعرض الهاش
-                ->dehydrated(fn ($state) => filled($state)) // يحفظ فقط عند إدخال قيمة
+                ->afterStateHydrated(fn (TextInput $component) => $component->state(null)) 
+                ->dehydrated(fn ($state) => filled($state)) 
                 ->required(fn (string $operation) => $operation === 'create'),
 
             TextInput::make('password_confirmation')

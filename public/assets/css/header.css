@@ -6,7 +6,6 @@
   border-bottom: 1px solid var(--oy-header-border);
   width: 100%;
 
-  /*  Guaranteed: fixed header */
   position: fixed;
   top: 0;
   left: 0;
@@ -17,7 +16,6 @@
   --oy-btn-pad-x: var(--oy-header-btn-pad-x);
 }
 
-/*  Prevent content from going under fixed header */
 body {
   padding-top: var(--oy-header-h, 88px);
 }
@@ -169,16 +167,11 @@ body.oy-menu-open {
 .oy-header__menuIcon::before { top: 0; }
 .oy-header__menuIcon::after  { bottom: 0; }
 
-/* ===========================
-    SCROLLED STATE (Navy + White + bottom shadow)
-   - Apply only to INNER so drawer stays normal
-   =========================== */
 
 .oy-header.is-scrolled {
   background: var(--oy-color-navy);
   border-bottom-color: rgba(255, 255, 255, 0.08);
 
-  /* shadow downward only */
   box-shadow: 0 10px 11px rgba(23, 49, 89, 0.14);
 }
 
@@ -192,7 +185,6 @@ body.oy-menu-open {
   opacity: .92;
 }
 
-/* active pill on navy */
 .oy-header.is-scrolled .oy-header__inner .oy-header__link--active {
   background: rgba(255, 255, 255, 0.14);
 }
@@ -201,7 +193,6 @@ body.oy-menu-open {
   outline-color: rgba(255, 255, 255, 0.45);
 }
 
-/* menu icon turns white */
 .oy-header.is-scrolled .oy-header__inner .oy-header__menuIcon {
   background: linear-gradient(var(--oy-color-white) 0 0) center/100% 2px no-repeat;
 }
@@ -211,18 +202,15 @@ body.oy-menu-open {
   background: var(--oy-color-white);
 }
 
-/* hover bg for menu button on navy */
 .oy-header.is-scrolled .oy-header__inner .oy-header__menuBtn:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* ===== Drawer ===== */
 
 .oy-header__drawer {
   position: fixed;
   inset: 0;
 
-  /*  Must be above the fixed header */
   z-index: 2000;
 
   overflow: hidden;

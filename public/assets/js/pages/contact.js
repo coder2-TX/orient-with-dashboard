@@ -5,11 +5,9 @@
   const safeFetch = (url) =>
     fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
 
-  //  Support AR/EN by reading base dirs from window (with safe defaults)
   const partialsBase = String(window.OY_PARTIALS_DIR || "partials").replace(/\/+$/, "");
   const contactPartialsBase = String(window.OY_CONTACT_PARTIALS_DIR || "pages/contact/partials").replace(/\/+$/, "");
 
-  //  Detect EN (works even if window vars not set)
   const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
   const path = (window.location.pathname || "").toLowerCase();
   const isEn =
@@ -35,11 +33,9 @@
     const aboutHref   = isEn ? "pages_en/about/index.html" : "pages/about/index.html";
     const contactHref = isEn ? "pages_en/contact/index.html" : "pages/contact/index.html";
 
-    // Logo -> home
     const logo = header.querySelector(".oy-header__logo");
     if (logo) logo.setAttribute("href", homeHref);
 
-    // Nav: convert hash links to home anchors + keep About link correct (AR/EN)
     const navLinks = header.querySelectorAll(".oy-header__nav .oy-header__link");
     navLinks.forEach(a => {
       const href = a.getAttribute("href") || "";
@@ -47,21 +43,16 @@
 
       if (href.startsWith("#")) a.setAttribute("href", homeHref + href);
 
-      // Keep About link going to About page (optional consistency)
       const text = (a.textContent || "").trim();
       const isAboutAr = text === "من نحن";
       const isAboutEn = text.toLowerCase() === "about";
       if (isAboutAr || isAboutEn) a.setAttribute("href", aboutHref);
     });
 
-    // CTA -> contact page (this page)
     const cta = header.querySelector(".oy-header__cta");
     if (cta) cta.setAttribute("href", contactHref);
   }
 
-  // ============================
-  // Scroll Reveal (same style)
-  // ============================
   function initScrollReveal() {
     const elements = Array.from(document.querySelectorAll(".oy-reveal"));
     if (!elements.length) return;
@@ -133,7 +124,6 @@
 
       const lines = [];
 
-      //  Labels switch by language
       if (isEn) {
         if (fullName) lines.push(`Name: ${fullName}`);
         if (email)    lines.push(`Email: ${email}`);
@@ -165,7 +155,6 @@
     if (window.initHeader) window.initHeader();
     patchHeaderForContactPage();
 
-    // مهم: بعد ما تنحقن الـ partials
     initScrollReveal();
     initWhatsAppContactForm();
   });

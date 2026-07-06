@@ -5,11 +5,9 @@
   const safeFetch = (url) =>
     fetch(url).then(r => (r.ok ? r.text() : "")).catch(() => "");
 
-  //  Support AR/EN by reading base dirs from window (with safe defaults)
   const partialsBase = String(window.OY_PARTIALS_DIR || "partials").replace(/\/+$/, "");
   const partnersPartialsBase = String(window.OY_PARTNERS_PARTIALS_DIR || "pages/partners/partials").replace(/\/+$/, "");
 
-  //  Detect EN (works even if window vars not set)
   const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
   const path = (window.location.pathname || "").toLowerCase();
   const isEn =
@@ -34,19 +32,15 @@
     const homeHref = isEn ? "index_en.html" : "index.html";
     const partnersHref = isEn ? "pages_en/partners/index.html" : "pages/partners/index.html";
 
-    // Logo -> home
     const logo = header.querySelector(".oy-header__logo");
     if (logo) logo.setAttribute("href", homeHref);
 
-    // Desktop + Mobile links
     const navLinks = header.querySelectorAll(
       ".oy-header__nav .oy-header__link, .oy-header__drawerNav .oy-header__link"
     );
 
-    // Clear active
     navLinks.forEach(a => a.classList.remove("oy-header__link--active"));
 
-    // Set active by href (safer than text) + support both /pages/ and /pages_en/
     navLinks.forEach(a => {
       const href = a.getAttribute("href") || "";
 
@@ -61,13 +55,11 @@
         a.setAttribute("href", partnersHref);
       }
 
-      // If href is a hash (e.g. "#contact"), redirect it to correct home page
       if (href.startsWith("#")) {
         a.setAttribute("href", homeHref + href);
       }
     });
 
-    // CTA -> home contact if it was a hash link
     const cta = header.querySelector(".oy-header__cta");
     if (cta) {
       const href = cta.getAttribute("href") || "";
@@ -75,7 +67,6 @@
     }
   }
 
-  // Scroll reveal (same logic as About page)
   function initScrollReveal() {
     const elements = Array.from(document.querySelectorAll(".oy-reveal"));
     if (!elements.length) return;
@@ -116,16 +107,12 @@
       if (el) el.innerHTML = html || "";
     });
 
-    // Init header behavior after injection
     if (window.initHeader) window.initHeader();
 
-    // Force active link for Partners page
     patchHeaderForPartnersPage();
 
-    // Init reveal
     initScrollReveal();
 
-    // Init partners marquee (safe even if it already auto-inits)
     window.initPartners?.();
   });
 })();

@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-cake" id="products-cake" aria-label="Cake Products" dir="ltr">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         Cake
       </h2>
 
-      <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
           <a href="{{ url('en/products') }}" data-tab="all" class="oy-products-tabs__tab">Featured Products</a>
@@ -31,21 +29,17 @@
              class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">Cake</a>
         </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="Scroll tabs">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       This category includes a selection of sponge cakes with delicious fillings such as vanilla and chocolate, presented with elegant style and high quality to suit different tastes.
     </p>
 
-    <!-- =========================
-         PANEL 1 (2 cards + 2 GHOST CARDS) + Pattern under end of card 4
-    ========================== -->
+
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Cake Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Cake Cards Panel">
@@ -84,15 +78,12 @@
           </div>
         </article>
 
-        <!-- Ghost Card 1 -->
         <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
-        <!-- Ghost Card 2 -->
         <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="{{ asset('assets/images/patterns/sweets.svg') }}"

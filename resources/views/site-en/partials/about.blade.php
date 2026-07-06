@@ -23,6 +23,5 @@
     </div>
   </div>
 
-  <!-- Full-height side pattern (bleeds outside section padding intentionally) -->
   <div class="oy-about__pattern" aria-hidden="true"></div>
 </section>

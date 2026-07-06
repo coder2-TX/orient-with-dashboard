@@ -1,5 +1,4 @@
 // assets/js/pages/products-sweets.js
-// ORIENT YEMEN - Sour sweets products page loader (same behavior pattern as coffee)
 
 (function () {
 

@@ -165,9 +165,7 @@ html[dir="ltr"] .oy-hero__content {
   opacity: 1;
 }
 
-/* ===========================================================
-   Scroll Reveal (same style as other pages)
-=========================================================== */
+
 .oy-reveal {
   opacity: 0;
   transform: translateY(30px);

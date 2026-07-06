@@ -1,5 +1,4 @@
 // assets/js/pages/products-marshmallow.js
-// ORIENT YEMEN - Marshmallow products page loader (same behavior pattern as sweets)
 
 (function () {
 

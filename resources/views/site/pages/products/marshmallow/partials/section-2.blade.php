@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-marshmallow" id="products-marshmallow" aria-label="Marshmallow Products">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         الحلوى
       </h2>
 
-      <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
           <a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
@@ -29,21 +27,16 @@
           <a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
         </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="تمرير التبويبات">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       تضم هذه الفئة تشكيلة حلوى متنوعة بألوان ونكهات لطيفة وتقديم عصري يناسب جميع الأذواق.
     </p>
 
-    <!-- =========================
-         PANEL 1 (4 cards) + Pattern under end of card 4
-    ========================== -->
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Marshmallow Cards Panel 1">
       <div class="oy-sweets-panel" aria-label="Marshmallow Cards Panel">
 
@@ -122,9 +115,6 @@
       >
     </div>
 
-    <!-- =========================
-         PANEL 2 (4 cards)
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Marshmallow Cards Panel 2">
 
       <!-- 5) Mallow Plus Jam Filled Mallow Grape -->
@@ -193,9 +183,6 @@
 
     </div>
 
-    <!-- =========================
-         PANEL 3 (4 cards)
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Marshmallow Cards Panel 3">
 
       <!-- 9) Zero% Sugar Strawberry & Vanilla Mallow -->
@@ -265,9 +252,7 @@
 
     </div>
 
-    <!-- =========================
-         PANEL 4 (4 cards)
-    ========================== -->
+
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Candy Cards Panel 4">
 
       <!-- 13) Heart Beat - Blackcurrant -->
@@ -336,9 +321,6 @@
 
     </div>
 
-    <!-- =========================
-         PANEL 5 (3 cards + 1 ghost)
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Candy Cards Panel 5">
 
       <!-- 17) Melody -->
@@ -389,7 +371,6 @@
         </div>
       </article>
 
-      <!-- Ghost Card -->
       <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
     </div>

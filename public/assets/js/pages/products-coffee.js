@@ -1,5 +1,4 @@
 // assets/js/pages/products-coffee.js
-// ORIENT YEMEN - Coffee products page loader (header + hero + coffee section + footer)
 
 (function () {
 

@@ -1,5 +1,4 @@
 // assets/js/pages/products-biscuit.js
-// ORIENT YEMEN - Biscuit products page loader (same behavior pattern as sweets)
 
 (function () {
 

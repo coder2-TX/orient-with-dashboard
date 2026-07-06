@@ -74,16 +74,13 @@ html[dir="ltr"] .oy-about__pattern {
   transform: translateX(var(--oy-about-pattern-shift-x)) scale(var(--oy-about-pattern-scale));
 }
 
-/*  Hide pattern on tablets + phones */
 @media (max-width: 1024px) {
   .oy-about__pattern {
     display: none;
   }
 }
 
-/* ===========================================================
-   Scroll Reveal (same style as other pages)
-=========================================================== */
+
 .oy-reveal {
   opacity: 0;
   transform: translateY(30px);

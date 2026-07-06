@@ -1,5 +1,4 @@
 // assets/js/pages/products-cake.js
-// ORIENT YEMEN - Cakes products page loader (same behavior pattern as sweets)
 
 (function () {
 

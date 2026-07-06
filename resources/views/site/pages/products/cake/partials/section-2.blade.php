@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-cake" id="products-cake" aria-label="Cakes Products">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         الكيك
       </h2>
 
-    <!-- Tabs wrap (adds scroll hint arrow) -->
     <div class="oy-products-tabs__tabsWrap">
       <nav class="oy-products-tabs__nav" aria-label="Product filters">
 			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
@@ -31,21 +29,16 @@
 			  class="oy-products-tabs__tab oy-products-tabs__tab--active" aria-current="page">الكيك</a>
       </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="تمرير التبويبات">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       تضم هذه الفئة تشكيلة كيك إسفنجي بحشوات لذيذة (فانيليا وشوكولاتة) بطابع أنيق وجودة عالية تناسب كل الأذواق.
     </p>
 
-    <!-- =========================
-         PANEL 1 (2 cards + 2 GHOST CARDS) + Pattern under end of card 4
-    ========================== -->
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Cakes Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Cakes Cards Panel">
@@ -84,15 +77,12 @@
           </div>
         </article>
 
-        <!--  Ghost Card 1 -->
         <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
-        <!--  Ghost Card 2 -->
         <article class="oy-sweets-item oy-sweets-item--ghost" aria-hidden="true"></article>
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="assets/images/patterns/sweets.svg"

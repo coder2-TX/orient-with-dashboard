@@ -1,15 +1,9 @@
 // assets/js/facts.js
-// ORIENT YEMEN - Facts counters (count up on scroll)
 
 (function () {
-  // =========================
-  // سرعة العد
-  // =========================
-  // زيدي الرقم = الحركة أبطأ
-  // نقصي الرقم = الحركة أسرع
+
   const COUNT_DURATION = 3200;
 
-  // أقل مدة مسموحة
   const MIN_DURATION = 800;
 
   function animateCount(el, target, prefix, duration) {
@@ -29,7 +23,6 @@
     function tick(now) {
       const t = Math.min(1, (now - startTime) / dur);
 
-      // حركة خطية أهدأ من easeOut
       const eased = t;
 
       const value = Math.round(start + (target - start) * eased);

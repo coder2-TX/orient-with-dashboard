@@ -1,5 +1,4 @@
 // assets/js/pages/products.js
-// ORIENT YEMEN - Products page loader (header + hero + section2 + footer)
 
 (function () {
 
@@ -21,7 +20,6 @@
 	  });
 	}
 
-  // Scroll reveal (same logic as About/Partners)
   function initScrollReveal() {
     const elements = Array.from(document.querySelectorAll(".oy-reveal"));
     if (!elements.length) return;
@@ -56,7 +54,6 @@
     setTimeout(check, 80);
   }
 
-  // -------- Tabs scroll hint (arrow) helpers --------
   let _rtlScrollType = null;
 
   function detectRtlScrollType() {

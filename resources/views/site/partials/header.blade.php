@@ -32,7 +32,6 @@
 
 <header class="oy-header">
   <div class="oy-header__inner">
-    <!-- Start: logo + nav -->
     <div class="oy-header__start">
       <a class="oy-header__logo" href="{{ route('site.home') }}" aria-label="Orient Yemen">
 		<img
@@ -51,21 +50,17 @@
       </nav>
     </div>
 
-    <!-- End: Language + CTA (desktop) + Menu (mobile) -->
     <div class="oy-header__end">
       <a class="oy-header__lang" href="{{ $langSwitchUrl }}" aria-label="Switch language to English">EN</a>
 
-      <!-- Mobile menu button (hidden on desktop) -->
       <button class="oy-header__menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
         <span class="oy-header__menuIcon" aria-hidden="true"></span>
       </button>
 
-      <!-- Desktop CTA (hidden on mobile) -->
       <a class="oy-btn oy-btn--primary oy-header__cta" href="{{ route('site.contact') }}">تواصل معنا</a>
     </div>
   </div>
 
-  <!-- Mobile drawer -->
   <div class="oy-header__drawer" aria-hidden="true">
     <div class="oy-header__drawerOverlay" data-oy-close></div>
 
@@ -83,7 +78,6 @@
         <a class="oy-header__link" href="{{ route('site.products') }}">منتجاتنا</a>
         <a class="oy-header__link" href="{{ route('site.partners') }}">شركائنا</a>
 
-        {{-- Language switch in drawer --}}
         <a class="oy-header__link" href="{{ $langSwitchUrl }}" aria-label="Switch language to English">EN</a>
       </nav>
 

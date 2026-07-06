@@ -1,5 +1,4 @@
 // assets/js/hero.js
-// ORIENT YEMEN - Hero slider logic (auto every 4s)
 
 window.initHeroSlider = function initHeroSlider() {
   const hero = document.querySelector(".oy-hero");
@@ -40,7 +39,6 @@ window.initHeroSlider = function initHeroSlider() {
     timer = null;
   };
 
-  // Controls
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
       stop();
@@ -68,7 +66,6 @@ window.initHeroSlider = function initHeroSlider() {
     });
   });
 
-  // Pause on hover (optional)
   hero.addEventListener("mouseenter", stop);
   hero.addEventListener("mouseleave", start);
 

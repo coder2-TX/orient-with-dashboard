@@ -1,6 +1,5 @@
 /* assets/css/footer.css */ 
 /* ORIENT YEMEN - Footer */
-/* TEST-FOOTER-2026-03-07 */
 .oy-footer {
   background: var(--oy-color-navy);
   color: var(--oy-color-white);
@@ -14,7 +13,7 @@
   max-width: var(--oy-container-max);
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 1fr auto 1fr auto auto; /* space | top | space | divider | bottom */
+  grid-template-rows: 1fr auto 1fr auto auto;
   row-gap: 18px;
   width: 100%;
   min-height: clamp(260px, 30vh, 420px);
@@ -112,9 +111,6 @@
   margin-inline: auto;
 }
 
-/* ==========================================
-   Social buttons: Card + hover like cards
-   ========================================== */
 .oy-footer__social-btn {
   width: 52px;
   height: 52px;
@@ -169,9 +165,7 @@
   gap: 14px;
 }
 
-/* ==========================================
-   Contact items: Card + hover like cards
-   ========================================== */
+
 .oy-footer__contact-item {
   display: flex;
   align-items: center;
@@ -260,7 +254,6 @@
   text-decoration: none;
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .oy-footer__contact-item,
   .oy-footer__social-btn {
@@ -272,9 +265,7 @@
   }
 }
 
-/* =========================================================
-   FIX: Laptops / Desktops ONLY (Min-width: 1025px)
-   ========================================================= */
+
 @media (min-width: 1025px) {
   .oy-footer {
     padding-inline: 0 !important;
@@ -299,7 +290,6 @@
     text-align: start !important;
   }
 
-  /* تم تعديل هذا القسم ليصبح center بدلاً من end */
   .oy-footer__top .oy-footer__right {
     justify-self: center !important; 
     text-align: center !important;
@@ -321,18 +311,13 @@
   }
 }
 
-/* =========================================================
-   RESPONSIVE: Small Laptops & iPads Landscape
-   ========================================================= */
 @media (max-width: 1280px) {
   .oy-footer__contact {
     max-width: 100%;
   }
 }
 
-/* =========================================================
-   RESPONSIVE: iPads / Tablets (Max-width: 1024px)
-   ========================================================= */
+
 @media (max-width: 1024px) {
   .oy-footer__top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -372,9 +357,6 @@
   }
 }
 
-/* =========================================================
-   RESPONSIVE: Mobile Phones (Max-width: 768px)
-   ========================================================= */
 @media (max-width: 768px) {
   .oy-footer {
     padding-top: 0;
@@ -428,7 +410,6 @@
     justify-content: center;
   }
 
-  /* Separators for mobile items */
   .oy-footer__top .oy-footer__quick,
   .oy-footer__top .oy-footer__locations,
   .oy-footer__top .oy-footer__right {

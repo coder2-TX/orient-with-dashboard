@@ -31,10 +31,8 @@ class UsersTable
             ])
             ->defaultSort('created_at', 'desc')
 
-            //  لا نريد "إضافة"
             ->headerActions([])
 
-            //  فقط عرض + تعديل
             ->actions([
                 ViewAction::make()
                     ->label('عرض'),
@@ -43,7 +41,6 @@ class UsersTable
                     ->label('تعديل'),
             ])
 
-            //  لا نريد bulk actions
             ->bulkActions([]);
     }
 }

@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-juices" id="products-juices" aria-label="Juices Products">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         العصائر
       </h2>
 
-    <!-- Tabs wrap (adds scroll hint arrow) -->
     <div class="oy-products-tabs__tabsWrap">
       <nav class="oy-products-tabs__nav" aria-label="Product filters">
 			<a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
@@ -32,7 +30,6 @@
 			<a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
       </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="تمرير التبويبات">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
@@ -40,14 +37,10 @@
 
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       تضم هذه الفئة تشكيلة عصائر منعشة بطابع فاكهي وألوان مشرقة، مناسبة لكل الأوقات وبمذاق خفيف وأنيق.
     </p>
 
-    <!-- =========================
-         PANEL 1 (4 cards) + Pattern under end of card 4
-    ========================== -->
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Juices Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Juices Cards Panel">
@@ -118,7 +111,6 @@
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="assets/images/patterns/sweets.svg"

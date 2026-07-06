@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-sweets" id="products-sweets" aria-label="Sweets Products">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         الحلوى الحامضة
       </h2>
 
-      <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
           <a href="{{ url('products') }}" data-tab="all" class="oy-products-tabs__tab">المنتجات المفضلة</a>
@@ -29,21 +27,17 @@
           <a href="{{ url('products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">الكيك</a>
         </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="تمرير التبويبات">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       تندرج ضمن هذه الفئة منتجات الحلوى التي تم تقديمها بأسلوب يعكس التنوع والابتكار، مع الحفاظ على هوية واضحة وحضور متوازن داخل الأسواق.
     </p>
 
-    <!-- =========================
-         PANEL 1
-    ========================== -->
+
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Sweets Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Sweets Cards Panel">
@@ -111,9 +105,6 @@
       >
     </div>
 
-    <!-- =========================
-         PANEL 2
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Sweets Cards Panel 2">
 
       <article class="oy-sweets-item" style="--num-color:#D62C7E;" data-big="Extre|me.Z" data-details-img="assets/images/products/sweets2/sweets_details/1.png">
@@ -170,9 +161,7 @@
 
     </div>
 
-    <!-- =========================
-         PANEL 3 (Hartbeat Mix + Poppins)
-    ========================== -->
+
     <div class="oy-sweets-panel oy-sweets-panel--third oy-reveal oy-delay-3" aria-label="Sour Sweets Cards Panel 3">
 
       <article class="oy-sweets-item"

@@ -6,7 +6,6 @@
   font-display: swap;
 }
 
-/* (اختياري) لو تبغى 500 بس بدون ما يزيد السمك كثير */
 @font-face {
   font-family: "Somar";
   src: url("../fonts/SomarSans-Regular.otf") format("opentype");

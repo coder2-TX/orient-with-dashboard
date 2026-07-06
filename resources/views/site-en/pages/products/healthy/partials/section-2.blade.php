@@ -4,14 +4,12 @@
 <section class="oy-section oy-products-healthy" id="products-healthy" aria-label="Healthy Products" dir="ltr">
   <div class="oy-section__inner">
 
-    <!-- Head: title + tabs -->
     <div class="oy-products-tabs__head oy-reveal oy-delay-1">
       <h2 class="oy-section__title oy-products-tabs__title">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
         Healthy Products
       </h2>
 
-      <!-- Tabs wrap (adds scroll hint arrow) -->
       <div class="oy-products-tabs__tabsWrap">
         <nav class="oy-products-tabs__nav" aria-label="Product filters">
           <a href="{{ url('en/products') }}" data-tab="all" class="oy-products-tabs__tab">Featured Products</a>
@@ -30,7 +28,6 @@
           <a href="{{ url('en/products/cake') }}" data-tab="cake" class="oy-products-tabs__tab">Cake</a>
         </nav>
 
-        <!-- Scroll hint arrow (shown only when overflow exists) -->
         <button class="oy-products-tabs__scrollHint" type="button" aria-label="Scroll tabs">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
@@ -38,14 +35,10 @@
 
     </div>
 
-    <!-- Subtitle -->
     <p class="oy-section__text oy-products-tabs__subtitle oy-reveal oy-delay-2">
       This category includes Diet Line products developed to offer a balanced taste and lighter choices, while maintaining clear quality and an elegant market presence.
     </p>
 
-    <!-- =========================
-         PANEL 1 (4 cards) + Pattern under end of card 4
-    ========================== -->
     <div class="oy-sweets-panelWrap oy-reveal oy-delay-3" aria-label="Healthy Cards Panel 1">
 
       <div class="oy-sweets-panel" aria-label="Healthy Cards Panel">
@@ -120,7 +113,6 @@
 
       </div>
 
-      <!-- Pattern under the end edge (card 4 side) -->
       <img
         class="oy-sweets-panelPattern"
         src="{{ asset('assets/images/patterns/sweets.svg') }}"
@@ -130,9 +122,6 @@
       >
     </div>
 
-    <!-- =========================
-         PANEL 2 (3 cards + 1 ghost slot)
-    ========================== -->
     <div class="oy-sweets-panel oy-sweets-panel--second oy-reveal oy-delay-3" aria-label="Healthy Cards Panel 2">
 
       <!-- 5) MORNING -->
@@ -186,7 +175,6 @@
         </div>
       </article>
 
-      <!-- Ghost slot -->
       <div class="oy-sweets-gap" aria-hidden="true"></div>
 
     </div>

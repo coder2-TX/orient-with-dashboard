@@ -1,5 +1,4 @@
 // assets/js/app.js
-// ORIENT YEMEN - Shared page boot (Laravel Blade version)
 
 (function () {
   function ensureScrollReveal() {

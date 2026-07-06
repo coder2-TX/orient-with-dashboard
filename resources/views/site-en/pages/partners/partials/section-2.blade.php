@@ -2,7 +2,6 @@
 {{-- ORIENT YEMEN - Partners Page / Partners Network + Slider (EN) --}}
 
 @push('scripts')
-  {{--  نفس سكربت الصفحة الرئيسية (clone + حساب shift/duration) --}}
   <script src="{{ asset('assets/js/partners.js') }}" defer></script>
 @endpush
 

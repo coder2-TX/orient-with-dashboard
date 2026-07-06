@@ -39,7 +39,6 @@
   overflow: hidden;
 }
 
-/*  FIX: لا تخلي RTL يغيّر اتجاه flex-start داخل الماركي (يخرب الحسابات/التكرار) */
 html[dir="rtl"] .oy-partners__marquee {
   direction: ltr;
 }
@@ -73,12 +72,10 @@ html[dir="rtl"] .oy-partners__marquee {
   to   { transform: translate3d(calc(-1 * var(--oy-partners-shift, 0px)), 0, 0); }
 }
 
-/*  English (LTR): reverse (زي ما كان عندك) */
 html[dir="ltr"] .oy-partners__logos {
   animation-direction: reverse;
 }
 
-/*  Arabic (RTL): عكس الإنجليزي (normal) */
 html[dir="rtl"] .oy-partners__logos {
   animation-direction: normal;
 }
@@ -122,9 +119,6 @@ html[dir="rtl"] .oy-partners__logos {
   }
 }
 
-/* ===========================================================
-   Scroll Reveal (same style as other pages)
-=========================================================== */
 .oy-reveal {
   opacity: 0;
   transform: translateY(30px);
