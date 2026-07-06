@@ -100,7 +100,7 @@ class AboutMethodologyForm
                 ]),
 
             Toggle::make('is_active')
-                ->label('إظهار سكشن منهجية العمل في الموقع')
+                ->label('اعتماد محتوى الداشبورد')
                 ->default(true)
                 ->columnSpanFull(),
         ]);

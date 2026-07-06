@@ -22,7 +22,7 @@ class AboutMethodologiesTable
                     ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
 
                 ToggleColumn::make('is_active')
-                    ->label('إظهار السكشن في الموقع')
+                    ->label('اعتماد محتوى الداشبورد')
                     ->sortable(),
             ])
             ->defaultSort('id', 'asc')
