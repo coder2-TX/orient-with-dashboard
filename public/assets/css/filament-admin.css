@@ -165,3 +165,11 @@ html body .fi-wi-account .fi-user-avatar svg {
   display: none !important;
 }
 /* === ORIENT HIDE TABLE PAGINATION END === */
+
+/* === ORIENT HIDE TABLE SEARCH START === */
+.fi-ta-search,
+.fi-ta-search-field,
+.fi-ta-header-toolbar .fi-ta-search {
+  display: none !important;
+}
+/* === ORIENT HIDE TABLE SEARCH END === */
