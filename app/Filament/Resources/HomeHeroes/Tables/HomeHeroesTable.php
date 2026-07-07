@@ -31,6 +31,7 @@ class HomeHeroesTable
                     ->sortable(),
             ])
             ->defaultSort('id', 'asc')
+            ->paginated(false)
             ->recordActions([
                 EditAction::make()
                     ->label('تعديل')

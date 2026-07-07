@@ -33,6 +33,7 @@ class AboutValuesTable
                     ->sortable(),
             ])
             ->defaultSort('id', 'asc')
+            ->paginated(false)
             ->headerActions([])
             ->actions([
                 EditAction::make()

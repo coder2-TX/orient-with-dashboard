@@ -23,6 +23,7 @@ class PartnersTrustsTable
                     ->sortable(),
             ])
             ->defaultSort('id', 'asc')
+            ->paginated(false)
             ->headerActions([])
             ->actions([
                 EditAction::make()

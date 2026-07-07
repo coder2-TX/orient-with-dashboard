@@ -30,6 +30,7 @@ class UsersTable
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
+->paginated(false)
 
             ->headerActions([])
 

@@ -27,6 +27,7 @@ class HomeAboutsTable
                     ->sortable(),
             ])
             ->defaultSort('id', 'asc')
+            ->paginated(false)
             ->recordActions([
                 EditAction::make()
                     ->label('تعديل')

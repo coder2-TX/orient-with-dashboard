@@ -157,3 +157,11 @@ html body .fi-wi-account .fi-user-avatar svg {
   opacity: 0.80 !important;
 }
 /* === ORIENT PRIMARY BUTTON HOVER END === */
+/* === ORIENT HIDE TABLE PAGINATION START === */
+.fi-ta-pagination,
+.fi-ta-pagination-overview,
+.fi-ta-records-per-page-select,
+.fi-ta .fi-pagination {
+  display: none !important;
+}
+/* === ORIENT HIDE TABLE PAGINATION END === */

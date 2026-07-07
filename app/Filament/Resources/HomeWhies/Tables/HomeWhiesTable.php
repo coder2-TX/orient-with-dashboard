@@ -32,6 +32,7 @@ class HomeWhiesTable
                     ->sortable(),
             ])
             ->defaultSort('sort_order')
+            ->paginated(false)
             ->recordActions([
                 EditAction::make()
                     ->label('تعديل')
