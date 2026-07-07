@@ -150,3 +150,10 @@ html body .fi-wi-account .fi-user-avatar svg {
     color: #ffffff !important;
 }
 /* === ORIENT DASHBOARD AVATAR END === */
+
+/* === ORIENT PRIMARY BUTTON HOVER START === */
+.fi-btn.fi-btn-color-primary:not(.fi-btn-outlined):not(.fi-btn-text):hover,
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-btn-text):hover {
+  opacity: 0.80 !important;
+}
+/* === ORIENT PRIMARY BUTTON HOVER END === */
