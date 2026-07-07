@@ -173,3 +173,33 @@ html body .fi-wi-account .fi-user-avatar svg {
   display: none !important;
 }
 /* === ORIENT HIDE TABLE SEARCH END === */
+
+/* === ORIENT CENTER ADMIN TABLE CONTENT START === */
+.fi-ta-table th,
+.fi-ta-table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.fi-ta-table th > *,
+.fi-ta-table td > *,
+.fi-ta-cell,
+.fi-ta-header-cell,
+.fi-ta-text,
+.fi-ta-text-item,
+.fi-ta-header-cell-label {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.fi-ta-table .fi-ta-actions,
+.fi-ta-table .fi-ta-actions-cell,
+.fi-ta-table .fi-ta-toggle {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.fi-ta-table .fi-toggle {
+  margin-inline: auto !important;
+}
+/* === ORIENT CENTER ADMIN TABLE CONTENT END === */
