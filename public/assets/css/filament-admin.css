@@ -169,7 +169,9 @@ html body .fi-wi-account .fi-user-avatar svg {
 /* === ORIENT HIDE TABLE SEARCH START === */
 .fi-ta-search,
 .fi-ta-search-field,
-.fi-ta-header-toolbar .fi-ta-search {
+.fi-ta-header-toolbar .fi-ta-search,
+.fi-ta-header-toolbar:has(.fi-ta-search),
+.fi-ta-toolbar:has(.fi-ta-search) {
   display: none !important;
 }
 /* === ORIENT HIDE TABLE SEARCH END === */

@@ -16,12 +16,10 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')
                     ->label('الاسم')
-                    ->searchable()
                     ->sortable(),
 
                 TextColumn::make('email')
                     ->label('البريد')
-                    ->searchable()
                     ->sortable(),
 
                 TextColumn::make('created_at')

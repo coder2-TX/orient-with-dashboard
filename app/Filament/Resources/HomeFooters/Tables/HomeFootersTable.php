@@ -18,12 +18,10 @@ class HomeFootersTable
                     ->sortable(),
 
                 TextColumn::make('email')
-                    ->label('البريد الإلكتروني')
-                    ->searchable(),
+                    ->label('البريد الإلكتروني'),
 
                 TextColumn::make('phone')
-                    ->label('رقم الهاتف')
-                    ->searchable(),
+                    ->label('رقم الهاتف'),
 
                 TextColumn::make('locations_count')
                     ->label('عدد المواقع')
