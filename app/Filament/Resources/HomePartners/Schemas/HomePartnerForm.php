@@ -28,6 +28,8 @@ class HomePartnerForm
 
                 FileUpload::make('logos')
                     ->label('شعارات الشركاء')
+                    ->hint('الحد الأقصى 1MB لكل صورة')
+                    ->hintColor('danger')
                     ->multiple()
                     ->reorderable()
                     ->appendFiles()

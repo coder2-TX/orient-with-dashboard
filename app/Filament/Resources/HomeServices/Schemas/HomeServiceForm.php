@@ -35,6 +35,8 @@ class HomeServiceForm
                     ->schema([
                         FileUpload::make('icon')
                             ->label('أيقونة الخدمة')
+                            ->hint('الحد الأقصى 1MB لكل صورة')
+                            ->hintColor('danger')
                             ->disk('public')
                             ->directory('home/services/icons')
                             ->visibility('public')

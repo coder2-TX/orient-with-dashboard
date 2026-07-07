@@ -48,6 +48,8 @@ class HomeHeroForm
 
                 FileUpload::make('slides')
                     ->label('صور السلايدر')
+                    ->hint('الحد الأقصى 1MB لكل صورة')
+                    ->hintColor('danger')
                     ->image()
                     ->multiple()
                     ->reorderable()
@@ -61,7 +63,7 @@ class HomeHeroForm
                     ->downloadable()
                     ->maxSize(1024)
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                    ->helperText('يمكن ترتيب الصور بالسحب والإفلات. الحد الأقصى 1MB لكل صورة. عند عدم رفع صور، ستظهر صور اللاندنج الافتراضية داخل الداشبورد والموقع.')
+                    ->helperText('يمكن ترتيب الصور بالسحب والإفلات. عند عدم رفع صور، ستظهر صور اللاندنج الافتراضية داخل الداشبورد والموقع.')
                     ->columnSpanFull(),
 
                 Toggle::make('is_active')

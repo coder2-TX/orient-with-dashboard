@@ -90,6 +90,8 @@ class AboutValueForm
 
                         FileUpload::make('custom_icon')
                             ->label('أيقونة بديلة اختيارية')
+                            ->hint('الحد الأقصى 1MB لكل صورة')
+                            ->hintColor('danger')
                             ->helperText('استخدمي هذا الحقل فقط إذا أردتِ استبدال أيقونة FontAwesome بصورة. اتركيه فارغًا للحفاظ على الأيقونة الأصلية.')
                             ->disk('public')
                             ->directory('about/values/icons/custom')

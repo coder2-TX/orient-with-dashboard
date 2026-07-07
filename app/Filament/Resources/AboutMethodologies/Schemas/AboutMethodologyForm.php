@@ -54,6 +54,8 @@ class AboutMethodologyForm
                         ->columnSpanFull(),
 
                     FileUpload::make('custom_icon')
+                        ->hint('الحد الأقصى 1MB لكل صورة')
+                        ->hintColor('danger')
                         ->label('أيقونة بديلة اختيارية')
                         ->helperText('استخدمي هذا الحقل فقط إذا أردتِ استبدال أيقونة FontAwesome بصورة. اتركيه فارغًا للحفاظ على الأيقونة الأصلية.')
                         ->disk('public')

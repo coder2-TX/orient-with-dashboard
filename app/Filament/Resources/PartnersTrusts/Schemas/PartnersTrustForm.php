@@ -52,6 +52,8 @@ class PartnersTrustForm
                         ->columnSpanFull(),
 
                     FileUpload::make('custom_icon')
+                        ->hint('الحد الأقصى 1MB لكل صورة')
+                        ->hintColor('danger')
                         ->label('أيقونة بديلة اختيارية')
                         ->disk('public')
                         ->directory('partners/trust/icons')
