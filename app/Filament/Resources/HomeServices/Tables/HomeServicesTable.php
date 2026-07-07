@@ -22,9 +22,10 @@ class HomeServicesTable
                     ->limit(70)
                     ->wrap(),
 
-                TextColumn::make('items')
+                TextColumn::make('items_count')
                     ->label('عدد الخدمات')
-                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+                    ->state(fn ($record): int => is_array($record->items) ? count($record->items) : 0)
+                    ->alignCenter(),
 
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')

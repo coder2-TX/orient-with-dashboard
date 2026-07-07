@@ -17,9 +17,10 @@ class AboutMethodologiesTable
                     ->label('#')
                     ->sortable(),
 
-                TextColumn::make('items')
-                    ->label('عدد الكروت')
-                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+                TextColumn::make('items_count')
+                    ->label('عدد المنهجيات')
+                    ->state(fn ($record): int => is_array($record->items) ? count($record->items) : 0)
+                    ->alignCenter(),
 
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')

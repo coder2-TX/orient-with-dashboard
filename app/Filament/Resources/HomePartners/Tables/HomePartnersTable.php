@@ -23,9 +23,10 @@ class HomePartnersTable
                     ->limit(70)
                     ->wrap(),
 
-                TextColumn::make('logos')
+                TextColumn::make('logos_count')
                     ->label('عدد الشعارات')
-                    ->formatStateUsing(fn ($state): int => is_array($state) ? count(array_filter($state)) : 0),
+                    ->state(fn ($record): int => is_array($record->logos) ? count(array_filter($record->logos)) : 0)
+                    ->alignCenter(),
 
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')

@@ -25,9 +25,10 @@ class HomeFootersTable
                     ->label('رقم الهاتف')
                     ->searchable(),
 
-                TextColumn::make('locations')
+                TextColumn::make('locations_count')
                     ->label('عدد المواقع')
-                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+                    ->state(fn ($record): int => is_array($record->locations) ? count($record->locations) : 0)
+                    ->alignCenter(),
 
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')

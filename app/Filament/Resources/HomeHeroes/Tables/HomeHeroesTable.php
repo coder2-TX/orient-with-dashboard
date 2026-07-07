@@ -21,9 +21,10 @@ class HomeHeroesTable
                     ->label('سنوات الخبرة')
                     ->sortable(),
 
-                TextColumn::make('slides')
+                TextColumn::make('slides_count')
                     ->label('عدد الصور')
-                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) : 0),
+                    ->state(fn ($record): int => is_array($record->slides) ? count($record->slides) : 0)
+                    ->alignCenter(),
 
                 ToggleColumn::make('is_active')
                     ->label('اعتماد محتوى الداشبورد')
