@@ -49,7 +49,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
-                fn (): string => '<link rel="stylesheet" href="' . asset('assets/css/filament-admin.css') . '?v=20260701-avatar-theme-v2">'
+                fn (): string =>
+                    '<link rel="stylesheet" href="' . asset('assets/css/filament-admin.css') . '?v=20260701-avatar-theme-v2">' .
+                    '<script src="' . asset('assets/js/filament-filepond-ar.js') . '?v=20260707-filepond-ar"></script>'
             )
             ->navigationGroups([
                 'الصفحة الرئيسية',

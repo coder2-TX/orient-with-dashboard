@@ -63,7 +63,7 @@ class HomeHeroForm
                     ->downloadable()
                     ->maxSize(1024)
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                    ->helperText('يمكن ترتيب الصور بالسحب والإفلات. عند عدم رفع صور، ستظهر صور اللاندنج الافتراضية داخل الداشبورد والموقع.')
+                    ->helperText('يمكن ترتيب الصور بالسحب. الحد الأقصى 1MB لكل صورة والصيغ المسموحة: SVG / PNG / JPG / WEBP.')
                     ->columnSpanFull(),
 
                 Toggle::make('is_active')
