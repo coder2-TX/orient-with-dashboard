@@ -63,7 +63,7 @@ class HomeHeroForm
                     ->downloadable()
                     ->maxSize(1024)
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-                    ->helperText('يمكن ترتيب الصور بالسحب. الحد الأقصى 1MB لكل صورة والصيغ المسموحة: SVG / PNG / JPG / WEBP.')
+                    ->helperText('يمكن ترتيب الصور بالسحب. المقاس الموصى به لكل صورة: 1600 × 750 بكسل. الحد الأقصى 1MB لكل صورة والصيغ المسموحة: SVG / PNG / JPG / WEBP. يفضّل وضع العناصر المهمة في منتصف الصورة لأن الأطراف قد تُقص تلقائيًا حسب حجم الشاشة.')
                     ->columnSpanFull(),
 
                 Toggle::make('is_active')
