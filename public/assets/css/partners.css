@@ -37,6 +37,13 @@
 .oy-partners__marquee {
   width: 100%;
   overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.oy-partners__marquee.is-dragging {
+  cursor: grabbing;
 }
 
 html[dir="rtl"] .oy-partners__marquee {
@@ -55,7 +62,11 @@ html[dir="rtl"] .oy-partners__marquee {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 
-  animation: oy-partners-marquee var(--oy-partners-duration, 40s) linear infinite;
+  animation: oy-partners-marquee var(--oy-partners-duration, 18s) linear infinite;
+}
+
+.oy-partners__logos.oy-partners__logos--js {
+  animation: none !important;
 }
 
 .oy-partners__logos img {
@@ -65,6 +76,8 @@ html[dir="rtl"] .oy-partners__marquee {
   object-fit: contain;
   display: block;
   flex: 0 0 auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 @keyframes oy-partners-marquee {
@@ -81,9 +94,10 @@ html[dir="rtl"] .oy-partners__logos {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oy-partners__logos {
-    animation: none;
-    transform: none;
+  .oy-partners__logos,
+  .oy-partners__logos.oy-partners__logos--js {
+    animation: none !important;
+    transform: none !important;
   }
 }
 

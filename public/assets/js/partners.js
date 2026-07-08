@@ -10,6 +10,9 @@ window.initPartners = function initPartners() {
 
   if (track.dataset.oyMarqueeInit === "1") return;
   track.dataset.oyMarqueeInit = "1";
+  track.classList.add("oy-partners__logos--js");
+
+  const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
   const originals = Array.from(track.children);
   const originalCount = originals.length;
@@ -22,6 +25,22 @@ window.initPartners = function initPartners() {
     c.setAttribute("aria-hidden", "true");
     track.appendChild(c);
   });
+
+  let cycleShift = 0;
+  let offset = 0;
+  let hasInitialPosition = false;
+  let rafId = null;
+  let lastTimestamp = null;
+
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragLastX = 0;
+  let dragMoved = false;
+
+  const baseSpeed = 72;
+
+  const isLtr = () => document.documentElement.getAttribute("dir") === "ltr";
+  const direction = () => (isLtr() ? 1 : -1);
 
   const getCycleShift = () => {
     const count = Number(track.dataset.oyOriginalCount || 0);
@@ -46,40 +65,176 @@ window.initPartners = function initPartners() {
     }
   };
 
-  const ensureNoBlank = (cycleShift) => {
+  const ensureNoBlank = () => {
     if (!cycleShift) return;
 
-    const targetWidth = marquee.clientWidth + cycleShift + marquee.clientWidth; // = 2*viewport + cycle
+    const targetWidth = marquee.clientWidth + cycleShift + marquee.clientWidth;
+
     while (track.scrollWidth < targetWidth) {
       appendOneMoreSet();
     }
   };
 
-  const apply = () => {
-    const cycleShift = getCycleShift();
-    if (!cycleShift || cycleShift < 10) return;
-
-    ensureNoBlank(cycleShift);
-
-    const pxPerSec = 22;
-    const duration = Math.max(18, cycleShift / pxPerSec);
-
-    track.style.setProperty("--oy-partners-shift", `${cycleShift.toFixed(2)}px`);
-    track.style.setProperty("--oy-partners-duration", `${duration.toFixed(2)}s`);
+  const resetInitialPosition = () => {
+    offset = isLtr() ? -cycleShift : 0;
+    hasInitialPosition = true;
   };
 
-  const rafApply = () => requestAnimationFrame(apply);
+  const normalizeOffset = () => {
+    if (!cycleShift) return;
 
-  rafApply();
-  window.addEventListener("load", rafApply);
-  window.addEventListener("resize", rafApply);
+    if (isLtr()) {
+      while (offset >= 0) {
+        offset -= cycleShift;
+      }
+
+      while (offset < -cycleShift) {
+        offset += cycleShift;
+      }
+
+      return;
+    }
+
+    while (offset <= -cycleShift) {
+      offset += cycleShift;
+    }
+
+    while (offset > 0) {
+      offset -= cycleShift;
+    }
+  };
+
+  const applyTransform = () => {
+    track.style.transform = `translate3d(${offset.toFixed(2)}px, 0, 0)`;
+  };
+
+  const calculate = () => {
+    const previousShift = cycleShift;
+
+    cycleShift = getCycleShift();
+    if (!cycleShift || cycleShift < 10) return;
+
+    ensureNoBlank();
+
+    track.style.setProperty("--oy-partners-shift", `${cycleShift.toFixed(2)}px`);
+    track.style.setProperty("--oy-partners-duration", `${Math.max(10, cycleShift / baseSpeed).toFixed(2)}s`);
+
+    if (!hasInitialPosition || Math.abs(previousShift - cycleShift) > 1) {
+      resetInitialPosition();
+    }
+
+    normalizeOffset();
+    applyTransform();
+  };
+
+  const tick = (timestamp) => {
+    if (!lastTimestamp) {
+      lastTimestamp = timestamp;
+    }
+
+    const deltaTime = Math.min((timestamp - lastTimestamp) / 1000, 0.05);
+    lastTimestamp = timestamp;
+
+    if (cycleShift && !isDragging && !prefersReducedMotion) {
+      offset += direction() * baseSpeed * deltaTime;
+      normalizeOffset();
+      applyTransform();
+    }
+
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    if (rafId !== null) return;
+
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const rafCalculate = () => {
+    requestAnimationFrame(() => {
+      calculate();
+      start();
+    });
+  };
+
+  const onPointerDown = (event) => {
+    if (!cycleShift) return;
+
+    isDragging = true;
+    dragMoved = false;
+    dragStartX = event.clientX;
+    dragLastX = event.clientX;
+    lastTimestamp = null;
+
+    marquee.classList.add("is-dragging");
+
+    if (typeof marquee.setPointerCapture === "function") {
+      marquee.setPointerCapture(event.pointerId);
+    }
+  };
+
+  const onPointerMove = (event) => {
+    if (!isDragging || !cycleShift) return;
+
+    const deltaX = event.clientX - dragLastX;
+    dragLastX = event.clientX;
+
+    if (Math.abs(event.clientX - dragStartX) > 3) {
+      dragMoved = true;
+    }
+
+    offset += deltaX;
+    normalizeOffset();
+    applyTransform();
+  };
+
+  const stopDragging = (event) => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    marquee.classList.remove("is-dragging");
+    lastTimestamp = null;
+
+    if (event?.pointerId && typeof marquee.releasePointerCapture === "function") {
+      try {
+        marquee.releasePointerCapture(event.pointerId);
+      } catch (_) {
+        // Ignore release errors when the pointer was already released by the browser.
+      }
+    }
+  };
+
+  const preventClickAfterDrag = (event) => {
+    if (!dragMoved) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    dragMoved = false;
+  };
+
+  rafCalculate();
+
+  window.addEventListener("load", rafCalculate);
+  window.addEventListener("resize", rafCalculate);
+
+  marquee.addEventListener("pointerdown", onPointerDown);
+  marquee.addEventListener("pointermove", onPointerMove);
+  marquee.addEventListener("pointerup", stopDragging);
+  marquee.addEventListener("pointercancel", stopDragging);
+  marquee.addEventListener("pointerleave", stopDragging);
+  marquee.addEventListener("click", preventClickAfterDrag, true);
 
   track.querySelectorAll("img").forEach((img) => {
-    img.addEventListener("load", rafApply, { once: true });
+    img.setAttribute("draggable", "false");
+
+    if (img.complete) return;
+
+    img.addEventListener("load", rafCalculate, { once: true });
   });
 
   if ("ResizeObserver" in window) {
-    const ro = new ResizeObserver(() => rafApply());
+    const ro = new ResizeObserver(() => rafCalculate());
+
     ro.observe(marquee);
     ro.observe(track);
   }
