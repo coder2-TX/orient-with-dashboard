@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('assets/images/header/Brand_Mark.png'))
             ->colors([
                 'primary' => [
-                    50 => '247, 146, 47',
+                    50 => '255, 247, 237',
                     100 => '247, 146, 47',
                     200 => '247, 146, 47',
                     300 => '247, 146, 47',
@@ -56,6 +56,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 'الصفحة الرئيسية',
                 'صفحة من نحن',
+                'صفحة المنتجات',
                 'صفحة منتجاتنا',
                 'صفحة شركائنا',
                 'تواصل معنا',

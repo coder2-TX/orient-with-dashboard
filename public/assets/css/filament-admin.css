@@ -205,3 +205,33 @@ html body .fi-wi-account .fi-user-avatar svg {
   margin-inline: auto !important;
 }
 /* === ORIENT CENTER ADMIN TABLE CONTENT END === */
+
+/* === ORIENT SHOW PRODUCTS TABLE SEARCH AND PAGINATION START === */
+.oy-product-page-products-table .fi-ta-search,
+.oy-product-page-products-table .fi-ta-search-field,
+.oy-product-page-products-table .fi-ta-header-toolbar .fi-ta-search,
+.oy-product-page-products-table .fi-ta-header-toolbar:has(.fi-ta-search),
+.oy-product-page-products-table .fi-ta-toolbar:has(.fi-ta-search) {
+  display: flex !important;
+}
+
+.oy-product-page-products-table .fi-ta-pagination,
+.oy-product-page-products-table .fi-ta-pagination-overview,
+.oy-product-page-products-table .fi-ta-records-per-page-select,
+.oy-product-page-products-table .fi-ta .fi-pagination,
+.oy-product-page-products-table .fi-pagination {
+  display: flex !important;
+}
+
+.oy-product-page-products-table .fi-ta-search-field {
+  width: min(420px, 100%) !important;
+}
+
+.oy-product-page-products-table .fi-ta-pagination {
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+/* === ORIENT SHOW PRODUCTS TABLE SEARCH AND PAGINATION END === */
+
