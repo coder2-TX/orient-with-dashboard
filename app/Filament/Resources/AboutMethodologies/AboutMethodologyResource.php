@@ -15,7 +15,7 @@ class AboutMethodologyResource extends Resource
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-check';
     protected static string|\UnitEnum|null $navigationGroup = 'صفحة من نحن';
     protected static ?string $navigationLabel = 'منهجية العمل';
-    protected static ?int $navigationSort = 30;
+    protected static ?int $navigationSort = 4;
     protected static ?string $model = AboutMethodology::class;
 
     protected static ?string $modelLabel = 'منهجية العمل';

@@ -19,7 +19,7 @@ class AboutValueResource extends Resource
 
     protected static ?string $navigationLabel = 'القيم';
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $model = AboutValue::class;
 

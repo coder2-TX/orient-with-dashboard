@@ -20,7 +20,7 @@ class AboutVisionMissionResource extends Resource
 
     protected static ?string $navigationLabel = 'الرؤية والرسالة';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $model = AboutVisionMission::class;
 
