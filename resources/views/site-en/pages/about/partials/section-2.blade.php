@@ -1,5 +1,12 @@
-<!-- pages_en/about/partials/section-2.html -->
+<!-- pages_en/about/partials/section-2.blade.php -->
 <!-- ORIENT YEMEN - About section (EN) -->
+
+@php
+  use App\Models\AboutOrientYemen;
+
+  $about = AboutOrientYemen::activeContent();
+  $branches = AboutOrientYemen::normalizeBranches($about?->branches);
+@endphp
 
 <section class="oy-section oy-about oy-about-page" id="about" aria-label="About Orient Yemen">
   <div class="oy-section__inner">
@@ -7,48 +14,51 @@
 
       <h2 class="oy-section__title oy-reveal oy-delay-1">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
-        <span>About Orient Yemen</span>
+        <span>{{ $about->title_en }}</span>
       </h2>
 
-      <p class="oy-section__text oy-about-page__lead oy-reveal oy-delay-2">
-        Orient Yemen is a company specialized in importing and marketing products.
-      </p>
+      @if(filled($about->lead_en))
+        <p class="oy-section__text oy-about-page__lead oy-reveal oy-delay-2">
+          {{ $about->lead_en }}
+        </p>
+      @endif
 
-      <p class="oy-section__text oy-reveal oy-delay-3">
-        Established in 2007, it focuses on building a structured and sustainable commercial presence for brands across multiple markets.
-      </p>
+      @if(filled($about->paragraph_1_en))
+        <p class="oy-section__text oy-reveal oy-delay-3">
+          {{ $about->paragraph_1_en }}
+        </p>
+      @endif
 
-      <p class="oy-section__text oy-reveal oy-delay-4">
-        Since its launch, the company has followed a clear approach based on understanding market dynamics, building long-term relationships with suppliers and partners,
-        and delivering practical solutions that connect products to target markets efficiently and reliably.
-      </p>
+      @if(filled($about->paragraph_2_en))
+        <p class="oy-section__text oy-reveal oy-delay-4">
+          {{ $about->paragraph_2_en }}
+        </p>
+      @endif
 
-      <div class="oy-about-page__branches oy-reveal oy-delay-5" aria-label="Company Branches">
-        <div class="oy-about-page__branches-row">
-          <span class="oy-about-page__branches-label">Through its branches</span>
+      @if(!empty($branches))
+        <div class="oy-about-page__branches oy-reveal oy-delay-5" aria-label="Company Branches">
+          <div class="oy-about-page__branches-row">
+            <span class="oy-about-page__branches-label">{{ $about->branches_label_en }}</span>
 
-          <span class="oy-about-page__branches-items">
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>Yemen</span>
+            <span class="oy-about-page__branches-items">
+              @foreach($branches as $branch)
+                @if(filled($branch['name_en'] ?? null))
+                  <span class="oy-about-page__branch">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span>{{ $branch['name_en'] }}</span>
+                  </span>
+                @endif
+              @endforeach
             </span>
-
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>Saudi Arabia</span>
-            </span>
-
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>Indonesia</span>
-            </span>
-          </span>
+          </div>
         </div>
-      </div>
+      @endif
 
-      <p class="oy-section__text oy-about-page__closing oy-reveal oy-delay-6">
-        This gives the company stronger capabilities to manage operations across diverse geographies, understand each market’s requirements, and adapt flexibly to supply and marketing chains.
-      </p>
+      @if(filled($about->closing_en))
+        <p class="oy-section__text oy-about-page__closing oy-reveal oy-delay-6">
+          {{ $about->closing_en }}
+        </p>
+      @endif
 
     </div>
   </div>

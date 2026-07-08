@@ -1,50 +1,64 @@
+<!-- pages/about/partials/section-2.blade.php -->
+<!-- ORIENT YEMEN - About section -->
+
+@php
+  use App\Models\AboutOrientYemen;
+
+  $about = AboutOrientYemen::activeContent();
+  $branches = AboutOrientYemen::normalizeBranches($about?->branches);
+@endphp
+
 <section class="oy-section oy-about oy-about-page" id="about" aria-label="About Orient Yemen">
   <div class="oy-section__inner">
     <div class="oy-about__content">
 
       <h2 class="oy-section__title oy-reveal oy-delay-1">
         <span class="oy-section__title-icon" aria-hidden="true"></span>
-        <span>عن أورينت يمن</span>
+        <span>{{ $about->title_ar }}</span>
       </h2>
 
-      <p class="oy-section__text oy-about-page__lead oy-reveal oy-delay-2">
-        تعد أورينت يمن شركة تجارية وتوزيع خاصة رائدة، تأسست عام 2007، ونجحت على مدار أكثر من 19 عاماً في بناء سمعة مرموقة كخبير في استيراد وتسويق وتوزيع المنتجات الغذائية والمشروبات.
-      </p>
+      @if(filled($about->lead_ar))
+        <p class="oy-section__text oy-about-page__lead oy-reveal oy-delay-2">
+          {{ $about->lead_ar }}
+        </p>
+      @endif
 
-      <p class="oy-section__text oy-reveal oy-delay-3">
-        ترتكز مهمتنا على ربط الموردين بالأسواق العالمية وبناء حضور منظم ومستقر للعلامات التجارية، حيث نمتلك شبكة توزيع واسعة وشاملة تغطي كافة أنحاء اليمن، لتصل خدماتنا بكفاءة عالية إلى السوبر ماركت وتجار الجملة والتجزئة في كل مكان.
-      </p>
+      @if(filled($about->paragraph_1_ar))
+        <p class="oy-section__text oy-reveal oy-delay-3">
+          {{ $about->paragraph_1_ar }}
+        </p>
+      @endif
 
-      <p class="oy-section__text oy-reveal oy-delay-4">
-        وبفضل حضورنا الإقليمي القوي، نتمكن من تقديم حلول تجارية وتسويقية مرنة وقابلة للتوسع.
-      </p>
+      @if(filled($about->paragraph_2_ar))
+        <p class="oy-section__text oy-reveal oy-delay-4">
+          {{ $about->paragraph_2_ar }}
+        </p>
+      @endif
 
-      <div class="oy-about-page__branches oy-reveal oy-delay-5" aria-label="Company Branches">
-        <div class="oy-about-page__branches-row">
-          <span class="oy-about-page__branches-label">عبر فروعنا الممتدة في</span>
+      @if(!empty($branches))
+        <div class="oy-about-page__branches oy-reveal oy-delay-5" aria-label="Company Branches">
+          <div class="oy-about-page__branches-row">
+            <span class="oy-about-page__branches-label">{{ $about->branches_label_ar }}</span>
 
-          <span class="oy-about-page__branches-items">
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>اليمن</span>
+            <span class="oy-about-page__branches-items">
+              @foreach($branches as $branch)
+                @if(filled($branch['name_ar'] ?? null))
+                  <span class="oy-about-page__branch">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span>{{ $branch['name_ar'] }}</span>
+                  </span>
+                @endif
+              @endforeach
             </span>
-
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>المملكة العربية السعودية</span>
-            </span>
-
-            <span class="oy-about-page__branch">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>إندونيسيا</span>
-            </span>
-          </span>
+          </div>
         </div>
-      </div>
+      @endif
 
-      <p class="oy-section__text oy-about-page__closing oy-reveal oy-delay-6">
-        نحن نؤمن بأن نجاح المنتجات لا يعتمد فقط على جودتها، بل على استراتيجية دخولها للسوق وبناء علاقات موثوقة وطويلة الأمد تضمن منفعة المستهلكين والموردين على حد سواء.
-      </p>
+      @if(filled($about->closing_ar))
+        <p class="oy-section__text oy-about-page__closing oy-reveal oy-delay-6">
+          {{ $about->closing_ar }}
+        </p>
+      @endif
 
     </div>
   </div>
