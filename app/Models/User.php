@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements HasAvatar
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -46,6 +48,15 @@ class User extends Authenticatable implements HasAvatar
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Allow only this admin user to access Filament dashboard.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return mb_strtolower((string) $this->email, 'UTF-8') === 'oriant26dash@gmail.com';
+    }
+
     public function getFilamentAvatarUrl(): ?string
     {
         $name = trim((string) ($this->name ?: $this->email ?: 'O'));
@@ -63,5 +74,4 @@ class User extends Authenticatable implements HasAvatar
 
         return 'data:image/svg+xml;base64,' . base64_encode($svg);
     }
-
 }
