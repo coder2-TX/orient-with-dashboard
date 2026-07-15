@@ -14,7 +14,7 @@ use UnitEnum;
 class PartnersTrustResource extends Resource
 {
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-hand-thumb-up';
-    protected static string|UnitEnum|null $navigationGroup = 'صفحة شركائنا';
+    protected static string|UnitEnum|null $navigationGroup = 'صفحة شركاؤنا';
     protected static ?string $navigationLabel = 'ثقة الشركاء';
     protected static ?int $navigationSort = 20;
     protected static ?string $model = PartnersTrust::class;

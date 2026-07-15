@@ -46,7 +46,7 @@
         <a class="oy-header__link oy-header__link--active" href="{{ route('site.home') }}#home">الرئيسية</a>
         <a class="oy-header__link" href="{{ route('site.about') }}">من نحن</a>
         <a class="oy-header__link" href="{{ route('site.products') }}">منتجاتنا</a>
-        <a class="oy-header__link" href="{{ route('site.partners') }}">شركائنا</a>
+        <a class="oy-header__link" href="{{ route('site.partners') }}">شركاؤنا</a>
       </nav>
     </div>
 
@@ -76,7 +76,7 @@
         <a class="oy-header__link oy-header__link--active" href="{{ route('site.home') }}#home">الرئيسية</a>
         <a class="oy-header__link" href="{{ route('site.about') }}">من نحن</a>
         <a class="oy-header__link" href="{{ route('site.products') }}">منتجاتنا</a>
-        <a class="oy-header__link" href="{{ route('site.partners') }}">شركائنا</a>
+        <a class="oy-header__link" href="{{ route('site.partners') }}">شركاؤنا</a>
 
         <a class="oy-header__link" href="{{ $langSwitchUrl }}" aria-label="Switch language to English">EN</a>
       </nav>

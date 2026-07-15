@@ -10,11 +10,11 @@
   <div class="oy-section__inner">
     <h2 class="oy-section__title oy-partners__title oy-reveal oy-delay-1">
       <span class="oy-section__title-icon" aria-hidden="true"></span>
-      شبكة شركائنا
+      شبكة شركاؤنا
     </h2>
 
     <p class="oy-section__text oy-partners__subtitle oy-reveal oy-delay-2">
-      تضم شبكة شركائنا نخبة من الشركات والموردين والموزعين الذين ساهموا معنا في بناء علامة موثوقة وحضور قوي داخل السوق،
+      تضم شبكة شركاؤنا نخبة من الشركات والموردين والموزعين الذين ساهموا معنا في بناء علامة موثوقة وحضور قوي داخل السوق،
       من خلال تعاون مهني قائم على الثقة والمصالح المشتركة.
     </p>
 

@@ -22,7 +22,7 @@
       <div class="oy-method__heading oy-reveal oy-delay-1" aria-label="Section Heading">
         <h2 class="oy-section__title oy-method__title oy-method__title--white-icon">
           <span class="oy-section__title-icon" aria-hidden="true"></span>
-          <span>ثقة شركائنا</span>
+          <span>ثقة شركاؤنا</span>
         </h2>
 
         <p class="oy-section__text oy-method__subtitle">

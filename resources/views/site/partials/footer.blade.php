@@ -119,7 +119,7 @@
             <li><a class="oy-footer__link" href="{{ route('site.home') }}">الرئيسية</a></li>
             <li><a class="oy-footer__link" href="{{ route('site.about') }}">من نحن</a></li>
             <li><a class="oy-footer__link" href="{{ route('site.products') }}">منتجاتنا</a></li>
-            <li><a class="oy-footer__link" href="{{ route('site.partners') }}">شركائنا</a></li>
+            <li><a class="oy-footer__link" href="{{ route('site.partners') }}">شركاؤنا</a></li>
             <li><a class="oy-footer__link" href="{{ route('site.contact') }}">تواصل معنا</a></li>
           </ul>
         </div>

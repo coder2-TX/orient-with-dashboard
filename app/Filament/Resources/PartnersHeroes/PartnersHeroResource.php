@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 class PartnersHeroResource extends Resource
 {
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
-    protected static string|\UnitEnum|null $navigationGroup = 'صفحة شركائنا';
+    protected static string|\UnitEnum|null $navigationGroup = 'صفحة شركاؤنا';
     protected static ?string $navigationLabel = 'هيرو الشركاء';
     protected static ?int $navigationSort = 10;
     protected static ?string $model = PartnersHero::class;
