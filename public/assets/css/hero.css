@@ -43,14 +43,16 @@
   padding-inline: var(--oy-container-pad);
 }
 
+/* العربي: محتوى الهيرو في الجهة اليمنى */
 html[dir="rtl"] .oy-hero__content {
   justify-content: flex-start;
   padding-right: var(--oy-page-pad-x);
   padding-left: var(--oy-container-pad);
 }
 
+/* الإنجليزي: محتوى الهيرو في الجهة اليسرى */
 html[dir="ltr"] .oy-hero__content {
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding-left: var(--oy-page-pad-x);
   padding-right: var(--oy-container-pad);
 }
@@ -113,6 +115,7 @@ html[dir="ltr"] .oy-hero__content {
     );
 
   background-repeat: no-repeat;
+
   background-size:
     100%
     var(--oy-hero-h3-accent-height);
@@ -120,8 +123,10 @@ html[dir="ltr"] .oy-hero__content {
   background-position:
     center
     72%;
+
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+
   overflow-wrap: anywhere;
   word-break: break-word;
 }

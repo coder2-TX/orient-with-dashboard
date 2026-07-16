@@ -12,6 +12,10 @@ class ListHomeWhies extends ListRecords
 
     public function mount(): void
     {
+        /*
+         * يتم التحقق باستخدام item_key الثابت، وليس sort_order.
+         * لذلك تغيير ترتيب البطاقات لن يؤدي إلى إنشاء بطاقات مكررة.
+         */
         HomeWhy::ensureDefaultItems();
 
         parent::mount();
