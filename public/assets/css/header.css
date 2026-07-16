@@ -393,3 +393,19 @@ html[dir="ltr"] .oy-header.is-menu-open .oy-header__drawerPanel {
     transition: none;
   }
 }
+
+/* OY ACTIVE ROUTE FALLBACK START */
+.oy-header .oy-header__link[aria-current="page"] {
+  display: inline-flex;
+  align-items: center;
+  background: var(--oy-color-link-hover);
+  padding: var(--oy-nav-pill-pad-y) var(--oy-nav-pill-pad-x);
+  border-radius: var(--oy-nav-pill-radius);
+}
+
+.oy-header.is-scrolled
+.oy-header__inner
+.oy-header__link[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.14);
+}
+/* OY ACTIVE ROUTE FALLBACK END */

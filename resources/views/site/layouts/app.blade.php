@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
 
   <!-- Shared section styles -->
-  <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}?v={{ filemtime(public_path('assets/css/header.css')) }}">
   <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}"> 
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
   @stack('styles')
@@ -26,7 +26,7 @@
 
 
   <!-- Shared scripts -->
-  <script src="{{ asset('assets/js/header.js') }}" defer></script>
+  <script src="{{ asset('assets/js/header.js') }}?v={{ filemtime(public_path('assets/js/header.js')) }}" defer></script>
   <script src="{{ asset('assets/js/facts.js') }}" defer></script>
   @stack('scripts_head')
   <script src="{{ asset('assets/js/app.js') }}" defer></script>
