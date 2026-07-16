@@ -13,9 +13,10 @@ class ListProductPageProducts extends ListRecords
 
     public function mount(): void
     {
-        parent::mount();
-
         ProductPageProduct::ensureDefaultRows();
+        ProductPageProduct::normalizeSortOrder();
+
+        parent::mount();
     }
 
     protected function getHeaderActions(): array

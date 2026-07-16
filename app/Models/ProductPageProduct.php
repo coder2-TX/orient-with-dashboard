@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ProductPageProduct extends Model
@@ -25,6 +26,15 @@ class ProductPageProduct extends Model
         'is_active' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        static::creating(function (self $product): void {
+            if (blank($product->sort_order) || $product->sort_order < 1) {
+                $product->sort_order = static::nextSortOrder();
+            }
+        });
+    }
+
     public function landingImageUrl(): string
     {
         if (filled($this->image)) {
@@ -36,6 +46,33 @@ class ProductPageProduct extends Model
         }
 
         return asset('assets/images/products/5.jpg');
+    }
+
+    public static function nextSortOrder(): int
+    {
+        return ((int) static::query()->max('sort_order')) + 1;
+    }
+
+    public static function normalizeSortOrder(): void
+    {
+        DB::transaction(function (): void {
+            static::query()
+                ->orderBy('sort_order')
+                ->orderBy('id')
+                ->get(['id', 'sort_order'])
+                ->values()
+                ->each(function (self $product, int $index): void {
+                    $sortOrder = $index + 1;
+
+                    if ($product->sort_order === $sortOrder) {
+                        return;
+                    }
+
+                    $product->updateQuietly([
+                        'sort_order' => $sortOrder,
+                    ]);
+                });
+        });
     }
 
     public static function activeItems(): Collection

@@ -16,7 +16,7 @@ class ProductPageProductResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'صفحة المنتجات';
 
-    protected static ?string $navigationLabel = 'منتجات الصفحة';
+    protected static ?string $navigationLabel = 'المنتجات المفضلة';
 
     protected static ?int $navigationSort = 20;
 
@@ -24,7 +24,7 @@ class ProductPageProductResource extends Resource
 
     protected static ?string $modelLabel = 'منتج';
 
-    protected static ?string $pluralModelLabel = 'منتجات الصفحة';
+    protected static ?string $pluralModelLabel = 'المنتجات المفضلة';
 
     protected static ?string $recordTitleAttribute = 'title_ar';
 

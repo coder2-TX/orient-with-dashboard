@@ -17,14 +17,6 @@ class ProductPageProductForm
         return $schema
             ->columns(1)
             ->schema([
-                TextInput::make('sort_order')
-                    ->label('ترتيب المنتج')
-                    ->numeric()
-                    ->minValue(1)
-                    ->required()
-                    ->helperText('يتم عرض المنتجات في الموقع حسب هذا الترتيب.')
-                    ->columnSpanFull(),
-
                 TextInput::make('title_ar')
                     ->label('اسم المنتج (عربي)')
                     ->required()
