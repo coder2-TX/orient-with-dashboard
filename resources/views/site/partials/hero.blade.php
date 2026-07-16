@@ -9,11 +9,19 @@
 
   $years = (int) ($hero?->experience_years ?: 15);
 
-  $title = data_get($hero, 'title.ar') ?: 'اوريـنـت يـمـن';
-  $tagline = data_get($hero, 'third_line.ar') ?: 'وشـراكـات تـبـنـي الـمـسـتـقـبـل';
-  $subtitle = 'خـبـرة تـمـتـد لأكـثـر مــن ' . $years . ' عـامـاً';
+  $title = data_get($hero, 'title.ar')
+    ?: 'اوريـنـت يـمـن';
 
-  $defaultSlides = HomeHero::publicDefaultSlideUrls();
+  $tagline = data_get($hero, 'third_line.ar')
+    ?: 'وشـراكـات تـبـنـي الـمـسـتـقـبـل';
+
+  $subtitle =
+    'خـبـرة تـمـتـد لأكـثـر مــن '
+    . $years
+    . ' عـامـاً';
+
+  $defaultSlides =
+    HomeHero::publicDefaultSlideUrls('ar');
 
   $dbSlides = is_array($hero?->slides)
     ? array_values(array_filter($hero->slides))
@@ -21,13 +29,19 @@
 
   $slides = count($dbSlides) > 0
     ? array_map(
-        fn ($path) => Storage::disk('public')->url($path),
+        fn ($path) =>
+          Storage::disk('public')->url($path),
         $dbSlides
       )
     : $defaultSlides;
 @endphp
 
-<section class="oy-hero" id="home" aria-label="Hero Slider">
+<section
+  class="oy-hero oy-hero--ar"
+  id="home"
+  dir="rtl"
+  aria-label="Hero Slider"
+>
   <div class="oy-hero__slides">
     @foreach($slides as $i => $url)
       <div
@@ -37,17 +51,23 @@
     @endforeach
   </div>
 
-  <div class="oy-hero__overlay" aria-hidden="true"></div>
+  <div
+    class="oy-hero__overlay"
+    aria-hidden="true"
+  ></div>
 
   <div class="oy-hero__content">
     <div class="oy-hero__content-inner">
-
       <h1 class="oy-hero-title oy-reveal oy-delay-1">
         {{ $title }}
       </h1>
 
       <div class="oy-hero__h2 oy-reveal oy-delay-2">
-        <span class="oy-hero__h2-icon" aria-hidden="true"></span>
+        <span
+          class="oy-hero__h2-icon"
+          aria-hidden="true"
+        ></span>
+
         <span>{{ $subtitle }}</span>
       </div>
 
@@ -92,7 +112,6 @@
           <i class="fa-solid fa-chevron-left"></i>
         </button>
       </div>
-
     </div>
   </div>
 </section>

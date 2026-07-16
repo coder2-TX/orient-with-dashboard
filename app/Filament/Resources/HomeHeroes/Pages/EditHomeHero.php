@@ -7,7 +7,8 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditHomeHero extends EditRecord
 {
-    protected static string $resource = HomeHeroResource::class;
+    protected static string $resource =
+        HomeHeroResource::class;
 
     protected function beforeFill(): void
     {

@@ -21,9 +21,22 @@ class HomeHeroesTable
                     ->label('سنوات الخبرة')
                     ->sortable(),
 
-                TextColumn::make('slides_count')
-                    ->label('عدد الصور')
-                    ->state(fn ($record): int => is_array($record->slides) ? count($record->slides) : 0)
+                TextColumn::make('slides_ar_count')
+                    ->label('صور العربي')
+                    ->state(
+                        fn ($record): int => is_array($record->slides)
+                            ? count(array_filter($record->slides))
+                            : 0
+                    )
+                    ->alignCenter(),
+
+                TextColumn::make('slides_en_count')
+                    ->label('صور الإنجليزي')
+                    ->state(
+                        fn ($record): int => is_array($record->slides_en)
+                            ? count(array_filter($record->slides_en))
+                            : 0
+                    )
                     ->alignCenter(),
 
                 ToggleColumn::make('is_active')
