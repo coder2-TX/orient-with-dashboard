@@ -3,11 +3,9 @@
 namespace App\Filament\Resources\ContactHeroes\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
-use Illuminate\Support\HtmlString;
 
 class ContactHeroForm
 {
@@ -58,27 +56,13 @@ class ContactHeroForm
                     ->maxLength(255)
                     ->columnSpanFull(),
 
-                Placeholder::make('default_hero_image_preview')
-                    ->label('الصورة الافتراضية')
-                    ->content(function (): HtmlString {
-                        $imageUrl = asset('assets/images/main/hero/1.png');
-
-                        return new HtmlString(
-                            '<div style="display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid #e5e7eb;border-radius:14px;background:#fafafa;">'
-                            . '<img src="' . e($imageUrl) . '" alt="Default Contact Hero Image" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:12px;border:1px solid #e5e7eb;">'
-                            . '<span style="font-size:13px;color:#6b7280;">هذه هي الصورة الافتراضية التي سيستخدمها الموقع إذا لم يتم رفع صورة مخصصة.</span>'
-                            . '</div>'
-                        );
-                    })
-                    ->columnSpanFull(),
-
                 FileUpload::make('hero_image')
-                    ->label('صورة هيرو تواصل معنا')
-                    ->hint('الحد الأقصى 1MB لكل صورة')
+                    ->label('صورة هيرو تواصل معنا - عربي')
+                    ->hint('الحد الأقصى 1MB')
                     ->hintColor('danger')
                     ->image()
                     ->disk('public')
-                    ->directory('contact/hero')
+                    ->directory('contact/hero/ar')
                     ->visibility('public')
                     ->panelLayout('grid')
                     ->imagePreviewHeight('160')
@@ -91,12 +75,42 @@ class ContactHeroForm
                         'image/png',
                         'image/webp',
                     ])
-                    ->helperText('المقاس الموصى به لصورة هيرو تواصل معنا: 1600 × 750 بكسل. إذا تُرك الحقل فارغًا سيستخدم الموقع صورة اللاندنج الافتراضية. الحد الأقصى 1MB والصيغ المسموحة: SVG / PNG / JPG / WEBP. يفضّل وضع العناصر المهمة في منتصف الصورة لأن الأطراف قد تُقص تلقائيًا حسب حجم الشاشة.')
+                    ->helperText(
+                        'هذه الصورة مخصصة للواجهة العربية. المقاس الموصى به: 1600 × 750 بكسل. يفضّل أن تكون العناصر المهمة في الجهة اليسرى مع ترك مساحة للنص في الجهة اليمنى. إذا تُركت فارغة سيستخدم الموقع الصورة العربية الافتراضية.'
+                    )
+                    ->columnSpanFull(),
+
+                FileUpload::make('hero_image_en')
+                    ->label('صورة هيرو تواصل معنا - إنجليزي')
+                    ->hint('الحد الأقصى 1MB')
+                    ->hintColor('danger')
+                    ->image()
+                    ->disk('public')
+                    ->directory('contact/hero/en')
+                    ->visibility('public')
+                    ->panelLayout('grid')
+                    ->imagePreviewHeight('160')
+                    ->openable()
+                    ->downloadable()
+                    ->maxSize(1024)
+                    ->acceptedFileTypes([
+                        'image/svg+xml',
+                        'image/jpeg',
+                        'image/png',
+                        'image/webp',
+                    ])
+                    ->helperText(
+                        'هذه الصورة مخصصة للواجهة الإنجليزية. المقاس الموصى به: 1600 × 750 بكسل. يفضّل أن تكون العناصر المهمة في الجهة اليمنى مع ترك مساحة للنص في الجهة اليسرى. إذا تُركت فارغة سيستخدم الموقع الصورة الإنجليزية الافتراضية.'
+                    )
                     ->columnSpanFull(),
 
                 Toggle::make('is_active')
-                    ->label('اعتماد محتوى الداشبورد بدل محتوى اللاندنج الافتراضي')
-                    ->helperText('عند تفعيل هذا الخيار سيستخدم الموقع هذه البيانات والصورة. عند تعطيله سيعود الموقع إلى محتوى اللاندنج الافتراضي.')
+                    ->label(
+                        'اعتماد محتوى الداشبورد بدل محتوى اللاندنج الافتراضي'
+                    )
+                    ->helperText(
+                        'عند تفعيل هذا الخيار سيستخدم الموقع النصوص والصورتين العربية والإنجليزية المرفوعة هنا. عند تعطيله سيعود إلى محتوى اللاندنج الافتراضي.'
+                    )
                     ->default(true)
                     ->inline(false)
                     ->columnSpanFull(),

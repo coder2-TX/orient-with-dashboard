@@ -1,16 +1,14 @@
-<!-- pages_en/contact/partials/hero.blade.php -->
-<!-- ORIENT YEMEN - Contact hero (EN) -->
+{{-- resources/views/site-en/pages/contact/partials/hero.blade.php --}}
 
 @php
   use App\Models\ContactHero;
 
   $contactHero = ContactHero::activeContent();
-
-  $heroImage = asset('assets/images/main/hero_en/1.jpg');
+  $heroImage = $contactHero->imageUrlFor('en');
 @endphp
 
 <section
-  class="oy-hero oy-hero--contact oy-hero--contact-en"
+  class="oy-hero oy-hero--en oy-hero--contact oy-hero--contact-en"
   id="contact-hero"
   dir="ltr"
   aria-label="Contact Hero"
@@ -33,19 +31,19 @@
         {{ $contactHero->title_en }}
       </h1>
 
-      <div class="oy-contact-hero__row oy-reveal oy-delay-2">
+      <div class="oy-hero__h2 oy-reveal oy-delay-2">
         <span
           class="oy-hero__h2-icon"
           aria-hidden="true"
         ></span>
 
-        <span class="oy-contact-hero__pre">
-          {{ $contactHero->pre_en }}
-        </span>
+        <span>{{ $contactHero->pre_en }}</span>
+      </div>
 
-        <div class="oy-hero__h3 oy-contact-hero__h3">
+      <div class="oy-hero__h3 oy-reveal oy-delay-3">
+        <span class="oy-hero__h3-text">
           {{ $contactHero->company_en }}
-        </div>
+        </span>
       </div>
     </div>
   </div>

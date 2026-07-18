@@ -1,23 +1,29 @@
-<!-- pages/contact/partials/hero.blade.php -->
-<!-- ORIENT YEMEN - Contact hero -->
+{{-- resources/views/site/pages/contact/partials/hero.blade.php --}}
 
 @php
   use App\Models\ContactHero;
-  use Illuminate\Support\Facades\Storage;
 
   $contactHero = ContactHero::activeContent();
-
-  $heroImage = filled($contactHero->hero_image)
-      ? Storage::disk('public')->url($contactHero->hero_image)
-      : asset('assets/images/main/hero/1.png');
+  $heroImage = $contactHero->imageUrlFor('ar');
 @endphp
 
-<section class="oy-hero oy-hero--contact" id="contact-hero" aria-label="Contact Hero">
+<section
+  class="oy-hero oy-hero--ar oy-hero--contact"
+  id="contact-hero"
+  dir="rtl"
+  aria-label="Contact Hero"
+>
   <div class="oy-hero__slides">
-    <div class="oy-hero__slide is-active" style="background-image:url('{{ $heroImage }}')"></div>
+    <div
+      class="oy-hero__slide is-active"
+      style="background-image: url('{{ $heroImage }}')"
+    ></div>
   </div>
 
-  <div class="oy-hero__overlay" aria-hidden="true"></div>
+  <div
+    class="oy-hero__overlay"
+    aria-hidden="true"
+  ></div>
 
   <div class="oy-hero__content">
     <div class="oy-hero__content-inner">
@@ -25,10 +31,19 @@
         {{ $contactHero->title_ar }}
       </h1>
 
-      <div class="oy-contact-hero__row oy-reveal oy-delay-2">
-        <span class="oy-hero__h2-icon" aria-hidden="true"></span>
-        <span class="oy-contact-hero__pre">{{ $contactHero->pre_ar }}</span>
-        <div class="oy-hero__h3 oy-contact-hero__h3">{{ $contactHero->company_ar }}</div>
+      <div class="oy-hero__h2 oy-reveal oy-delay-2">
+        <span
+          class="oy-hero__h2-icon"
+          aria-hidden="true"
+        ></span>
+
+        <span>{{ $contactHero->pre_ar }}</span>
+      </div>
+
+      <div class="oy-hero__h3 oy-reveal oy-delay-3">
+        <span class="oy-hero__h3-text">
+          {{ $contactHero->company_ar }}
+        </span>
       </div>
     </div>
   </div>

@@ -24,7 +24,13 @@ class ContactHeroesTable
                     ->limit(50),
 
                 ImageColumn::make('hero_image')
-                    ->label('الصورة')
+                    ->label('صورة العربي')
+                    ->disk('public')
+                    ->height(48)
+                    ->width(80),
+
+                ImageColumn::make('hero_image_en')
+                    ->label('صورة الإنجليزي')
                     ->disk('public')
                     ->height(48)
                     ->width(80),
