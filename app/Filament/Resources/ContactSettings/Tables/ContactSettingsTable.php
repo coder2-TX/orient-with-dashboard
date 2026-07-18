@@ -13,16 +13,16 @@ class ContactSettingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('email')
-                    ->label('البريد الإلكتروني')
+                TextColumn::make('title_ar')
+                    ->label('عنوان نافذة التواصل')
                     ->placeholder('-'),
 
-                TextColumn::make('phone_display')
-                    ->label('رقم الهاتف')
+                TextColumn::make('form_title_ar')
+                    ->label('عنوان النموذج')
                     ->placeholder('-'),
 
                 TextColumn::make('whatsapp_display')
-                    ->label('واتساب استقبال رسائل النموذج')
+                    ->label('رقم استلام الرسائل')
                     ->placeholder('-'),
 
                 ToggleColumn::make('is_active')

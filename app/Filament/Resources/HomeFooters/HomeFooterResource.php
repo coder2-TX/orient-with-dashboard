@@ -13,12 +13,17 @@ use Filament\Tables\Table;
 class HomeFooterResource extends Resource
 {
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static string|\UnitEnum|null $navigationGroup = 'إعدادات عامة';    protected static ?string $navigationLabel = 'الفوتر';
+
+    protected static string|\UnitEnum|null $navigationGroup = 'إعدادات عامة';
+
+    protected static ?string $navigationLabel = 'الفوتر';
+
     protected static ?int $navigationSort = 10;
 
     protected static ?string $model = HomeFooter::class;
 
     protected static ?string $modelLabel = 'الفوتر';
+
     protected static ?string $pluralModelLabel = 'الفوتر';
 
     protected static ?string $recordTitleAttribute = 'id';

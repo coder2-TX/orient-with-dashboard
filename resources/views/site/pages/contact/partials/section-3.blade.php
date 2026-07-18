@@ -12,7 +12,7 @@
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      title="{{ $settings->localized('map_title', 'ar') }}">
+      title="موقعنا على الخريطة">
     </iframe>
   </div>
 </section>

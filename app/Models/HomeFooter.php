@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class HomeFooter extends Model
 {
+    protected static ?self $activeDefaultCache = null;
+
     protected $fillable = [
         'email',
         'phone',
@@ -62,30 +65,42 @@ class HomeFooter extends Model
 
     public static function activeContent(): ?self
     {
-        return self::query()
+        return static::query()
             ->where('is_active', true)
             ->latest('id')
             ->first();
     }
 
+    public static function activeOrDefault(): self
+    {
+        if (static::$activeDefaultCache instanceof self) {
+            return static::$activeDefaultCache;
+        }
+
+        static::$activeDefaultCache = static::activeContent()
+            ?? new static(static::defaultData());
+
+        return static::$activeDefaultCache;
+    }
+
     public static function firstOrCreateDefault(): self
     {
-        $record = self::query()
+        $record = static::query()
             ->where('is_active', true)
             ->latest('id')
             ->first();
 
         if (! $record) {
-            $record = self::query()
+            $record = static::query()
                 ->latest('id')
                 ->first();
         }
 
         if (! $record) {
-            return self::query()->create(self::defaultData());
+            return static::query()->create(static::defaultData());
         }
 
-        $defaults = self::defaultData();
+        $defaults = static::defaultData();
 
         foreach ([
             'email',
@@ -97,12 +112,12 @@ class HomeFooter extends Model
             'instagram_url',
             'whatsapp_url',
         ] as $field) {
-            if (self::isBlank($record->{$field}) && ! self::isBlank($defaults[$field] ?? null)) {
+            if (static::isBlank($record->{$field}) && ! static::isBlank($defaults[$field] ?? null)) {
                 $record->{$field} = $defaults[$field];
             }
         }
 
-        if (! self::hasUsableLocations($record->locations)) {
+        if (! static::hasUsableLocations($record->locations)) {
             $record->locations = $defaults['locations'];
         }
 
@@ -117,17 +132,102 @@ class HomeFooter extends Model
         return $record;
     }
 
+    public function emailAddress(): string
+    {
+        $email = preg_replace('/\s+/', '', trim((string) ($this->email ?: static::defaultData()['email'])));
+
+        return $email !== '' ? $email : static::defaultData()['email'];
+    }
+
+    public function phoneDisplay(): string
+    {
+        return trim((string) ($this->phone ?: static::defaultData()['phone']));
+    }
+
+    public function phoneTel(): string
+    {
+        return static::cleanPhoneForTel($this->phoneDisplay());
+    }
+
+    public function whatsappUrl(): string
+    {
+        $value = trim((string) ($this->whatsapp_url ?: static::defaultData()['whatsapp_url']));
+
+        if ($value === '') {
+            return static::defaultData()['whatsapp_url'];
+        }
+
+        if (Str::startsWith($value, ['http://', 'https://'])) {
+            return $value;
+        }
+
+        $digits = preg_replace('/\D+/', '', $value);
+
+        return $digits !== ''
+            ? 'https://wa.me/' . $digits
+            : static::defaultData()['whatsapp_url'];
+    }
+
+    public function whatsappDigits(): string
+    {
+        $digits = preg_replace('/\D+/', '', $this->whatsappUrl());
+
+        return $digits !== '' ? $digits : '967778080700';
+    }
+
+    public function whatsappDisplay(): string
+    {
+        $digits = $this->whatsappDigits();
+
+        if (strlen($digits) === 12 && Str::startsWith($digits, '967')) {
+            return sprintf(
+                '+967 %s %s %s',
+                substr($digits, 3, 3),
+                substr($digits, 6, 3),
+                substr($digits, 9, 3),
+            );
+        }
+
+        return '+' . $digits;
+    }
+
+    public function locationsFor(string $locale): array
+    {
+        $locations = $this->locations;
+
+        if (! static::hasUsableLocations($locations)) {
+            $locations = static::defaultLocations();
+        }
+
+        return collect($locations)
+            ->map(fn (array $location): ?string => $location["name_{$locale}"] ?? null)
+            ->filter(fn (?string $name): bool => filled($name))
+            ->map(fn (string $name): string => trim($name))
+            ->values()
+            ->all();
+    }
+
+    public static function cleanPhoneForTel(string $phone): string
+    {
+        $phone = trim($phone);
+
+        if ($phone === '') {
+            return '';
+        }
+
+        $hasPlus = Str::startsWith($phone, '+');
+        $digits = preg_replace('/\D+/', '', $phone);
+
+        return ($hasPlus ? '+' : '') . $digits;
+    }
+
     protected static function isBlank(mixed $value): bool
     {
         if ($value === null) {
             return true;
         }
 
-        if (is_string($value)) {
-            return trim($value) === '';
-        }
-
-        return false;
+        return is_string($value) && trim($value) === '';
     }
 
     protected static function hasUsableLocations(mixed $locations): bool

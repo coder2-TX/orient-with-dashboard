@@ -1,16 +1,16 @@
 {{-- resources/views/site/pages/contact/partials/section-2.blade.php --}}
 
 @php
-  use App\Models\ContactSetting;
+  $settings = \App\Models\ContactSetting::activeOrDefault();
+  $footer = \App\Models\HomeFooter::activeOrDefault();
 
-  $settings = ContactSetting::activeOrDefault();
-
-  $email = $settings->emailAddress();
-  $phoneDisplay = $settings->phoneDisplay();
-  $phoneTel = $settings->phoneTel();
-  $waText = $settings->whatsappDisplay();
-  $waDigits = $settings->whatsappDigits();
-  $locationsAr = $settings->locationsFor('ar');
+  $email = $footer->emailAddress();
+  $phoneDisplay = $footer->phoneDisplay();
+  $phoneTel = $footer->phoneTel();
+  $footerWaText = $footer->whatsappDisplay();
+  $footerWaUrl = $footer->whatsappUrl();
+  $messageReceiverDigits = $settings->messageReceiverDigits();
+  $locationsAr = $footer->locationsFor('ar');
 @endphp
 
 <section class="oy-section oy-contact" id="contact" aria-label="Contact Section">
@@ -30,7 +30,7 @@
           <div class="oy-contact__item" role="listitem">
             <i class="fa-solid fa-envelope oy-contact__item-icon" aria-hidden="true"></i>
             <div class="oy-contact__item-body">
-              <div class="oy-contact__item-title">{{ $settings->localized('email_label', 'ar') }}</div>
+              <div class="oy-contact__item-title">البريد الإلكتروني</div>
               <a class="oy-contact__item-value" href="mailto:{{ $email }}">{{ $email }}</a>
             </div>
           </div>
@@ -38,7 +38,7 @@
           <div class="oy-contact__item" role="listitem">
             <i class="fa-solid fa-phone oy-contact__item-icon" aria-hidden="true"></i>
             <div class="oy-contact__item-body">
-              <div class="oy-contact__item-title">{{ $settings->localized('phone_label', 'ar') }}</div>
+              <div class="oy-contact__item-title">الهاتف</div>
               <a class="oy-contact__item-value" href="tel:{{ $phoneTel }}" dir="ltr">{{ $phoneDisplay }}</a>
             </div>
           </div>
@@ -46,14 +46,14 @@
           <div class="oy-contact__item" role="listitem">
             <i class="fa-brands fa-whatsapp oy-contact__item-icon" aria-hidden="true"></i>
             <div class="oy-contact__item-body">
-              <div class="oy-contact__item-title">{{ $settings->localized('whatsapp_label', 'ar') }}</div>
+              <div class="oy-contact__item-title">واتساب</div>
               <a class="oy-contact__item-value"
-                 href="https://wa.me/{{ $waDigits }}"
+                 href="{{ $footerWaUrl }}"
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="WhatsApp"
                  dir="ltr">
-                {{ $waText }}
+                {{ $footerWaText }}
               </a>
             </div>
           </div>
@@ -84,37 +84,35 @@
             {{ $settings->localized('form_description', 'ar') }}
           </p>
 
-          <form class="oy-form" action="#" method="post" data-wa-phone="{{ $waDigits }}">
+          <form class="oy-form" action="#" method="post" data-wa-phone="{{ $messageReceiverDigits }}">
             <div class="oy-form__grid">
               <div class="oy-form__field">
-                <label class="oy-form__label" for="full_name">{{ $settings->localized('form_full_name_label', 'ar') }}</label>
-                <input class="oy-form__input" id="full_name" name="full_name" type="text" placeholder="{{ $settings->localized('form_full_name_placeholder', 'ar') }}">
+                <label class="oy-form__label" for="full_name">الاسم الكامل</label>
+                <input class="oy-form__input" id="full_name" name="full_name" type="text" placeholder="الاسم الكامل">
               </div>
 
               <div class="oy-form__field">
-                <label class="oy-form__label" for="email">{{ $settings->localized('form_email_label', 'ar') }}</label>
-                <input class="oy-form__input" id="email" name="email" type="email" placeholder="{{ $settings->localized('form_email_placeholder', 'ar') }}">
+                <label class="oy-form__label" for="email">البريد الإلكتروني</label>
+                <input class="oy-form__input" id="email" name="email" type="email" placeholder="example@email.com">
               </div>
 
               <div class="oy-form__field">
-                <label class="oy-form__label" for="phone">{{ $settings->localized('form_phone_label', 'ar') }}</label>
-                <input class="oy-form__input" id="phone" name="phone" type="tel" placeholder="{{ $settings->localized('form_phone_placeholder', 'ar') }}">
+                <label class="oy-form__label" for="phone">رقم الهاتف</label>
+                <input class="oy-form__input" id="phone" name="phone" type="tel" placeholder="+967 ...">
               </div>
 
               <div class="oy-form__field">
-                <label class="oy-form__label" for="subject">{{ $settings->localized('form_subject_label', 'ar') }}</label>
-                <input class="oy-form__input" id="subject" name="subject" type="text" placeholder="{{ $settings->localized('form_subject_placeholder', 'ar') }}">
+                <label class="oy-form__label" for="subject">الموضوع</label>
+                <input class="oy-form__input" id="subject" name="subject" type="text" placeholder="عنوان مختصر للرسالة">
               </div>
 
               <div class="oy-form__field oy-form__field--full">
-                <label class="oy-form__label" for="message">{{ $settings->localized('form_message_label', 'ar') }}</label>
-                <textarea class="oy-form__textarea" id="message" name="message" rows="5" placeholder="{{ $settings->localized('form_message_placeholder', 'ar') }}"></textarea>
+                <label class="oy-form__label" for="message">نص الرسالة</label>
+                <textarea class="oy-form__textarea" id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
               </div>
             </div>
 
-            <button class="oy-form__submit" type="submit">
-              {{ $settings->localized('form_submit_label', 'ar') }}
-            </button>
+            <button class="oy-form__submit" type="submit">إرسال الرسالة</button>
           </form>
         </div>
       </div>
