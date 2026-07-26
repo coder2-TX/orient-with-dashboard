@@ -163,9 +163,9 @@
     <div class="oy-footer__bottom">
       <div>All rights reserved to orient yemen for import</div>
       <div>
-        Powered by
-        <a class="oy-footer__bottom-link" href="https://destination-media.pro/" target="_blank" rel="noopener noreferrer">
-          <strong>Destination Media</strong>
+        تصميم وتطوير:
+        <a class="oy-footer__bottom-link" href="" target="_blank" rel="noopener noreferrer">
+          <strong>TX - SaaS</strong>
         </a>
       </div>
     </div>
