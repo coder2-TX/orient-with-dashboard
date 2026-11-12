@@ -161,11 +161,11 @@
     <div class="oy-footer__divider" aria-hidden="true"></div>
 
     <div class="oy-footer__bottom">
-      <div>All rights reserved to orient yemen for import</div>
+      <div>جميع الحقوق محفوظة لشركة أورينت يمن للاستيراد</div>
       <div>
         تصميم وتطوير:
         <a class="oy-footer__bottom-link" href="https://txsaas.online/" target="_blank" rel="noopener noreferrer">
-          <strong>TX - SaaS</strong>
+          TX - SaaS
         </a>
       </div>
     </div>

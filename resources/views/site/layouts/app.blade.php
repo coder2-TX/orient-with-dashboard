@@ -20,7 +20,7 @@
   <!-- Shared section styles -->
   <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}?v={{ filemtime(public_path('assets/css/header.css')) }}">
   <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}"> 
-  <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}?v={{ filemtime(public_path('assets/css/footer.css')) }}">
   @stack('styles')
 
 

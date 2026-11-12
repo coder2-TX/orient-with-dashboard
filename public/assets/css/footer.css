@@ -12,19 +12,19 @@
   margin-inline: auto;
   padding-inline: 0;
   display: grid;
-  grid-template-rows: 1fr auto 1fr auto auto;
-  row-gap: 18px;
-  min-height: clamp(260px, 30vh, 420px);
+  grid-template-rows: auto auto auto;
+  row-gap: 0;
+  min-height: auto;
   box-sizing: border-box;
 }
 
 .oy-footer__top {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 190px) minmax(0, 190px) minmax(0, 392px);
-  gap: 48px;
+  gap: 28px;
   align-items: start;
-  grid-row: 2;
-  margin: 0;
+  grid-row: 1;
+  margin: 30px 0 24px;
 }
 
 .oy-footer__top > * {
@@ -38,15 +38,15 @@
 .oy-footer__col {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   min-width: 0;
 }
 
 .oy-footer__heading {
   color: var(--oy-color-white);
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 25px;
 }
 
 .oy-footer__heading--center {
@@ -59,7 +59,7 @@
 
 .oy-footer__heading + .oy-footer__list,
 .oy-footer__heading + .oy-footer__socials {
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 .oy-footer__list {
@@ -68,11 +68,11 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: #F1F1F3;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 22px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
 }
 
 .oy-footer__list--center {
@@ -102,7 +102,7 @@
 
 .oy-footer__socials {
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -111,8 +111,8 @@
 }
 
 .oy-footer__social-btn {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -134,14 +134,14 @@
 }
 
 .oy-footer__social-btn i {
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1;
 }
 
 .oy-footer__right {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   align-items: flex-start;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .oy-footer__logo {
-  height: 62px;
+  height: 52px;
   width: auto;
   display: block;
 }
@@ -161,7 +161,7 @@
   max-width: 392px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 9px;
 }
 
 .oy-footer__contact-item {
@@ -188,9 +188,9 @@
 .oy-footer__contact-sep,
 .oy-footer__contact-value {
   color: var(--oy-color-white);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 27px;
+  line-height: 23px;
 }
 
 .oy-footer__contact-item:hover .oy-footer__contact-label,
@@ -212,23 +212,23 @@
 }
 
 .oy-footer__divider {
-  height: 1px;
+  display: none;
   width: 100%;
   background: rgba(241, 241, 243, 0.35);
   opacity: 1;
-  grid-row: 4;
+  grid-row: 2;
   margin: 0;
 }
 
 .oy-footer__bottom {
   color: var(--oy-color-white);
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 27px;
+  line-height: 20px;
   background: var(--oy-color-primary);
-  margin-top: -18px;
-  padding-top: calc(10px + 18px);
-  padding-bottom: 16px;
+  margin-top: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -242,7 +242,7 @@
   justify-content: space-between;
   gap: 12px;
   text-align: start;
-  grid-row: 5;
+  grid-row: 3;
 }
 
 .oy-footer__bottom-link {
@@ -321,7 +321,7 @@
 @media (max-width: 1024px) {
   .oy-footer__top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px 28px;
+    gap: 24px 24px;
     grid-template-areas:
       "contact contact"
       "quick locations"
@@ -382,13 +382,13 @@
   }
 
   .oy-footer__inner {
-    row-gap: 14px;
+    row-gap: 0;
     min-height: auto;
   }
 
   .oy-footer__top {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 18px;
     justify-items: center;
     text-align: center;
     grid-template-areas:
@@ -447,9 +447,9 @@
   }
 
   .oy-footer__bottom {
-    margin-top: -14px;
-    padding-top: calc(10px + 14px);
-    padding-bottom: 14px;
+    margin-top: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
     flex-direction: column;
     justify-content: center;
     text-align: center;
