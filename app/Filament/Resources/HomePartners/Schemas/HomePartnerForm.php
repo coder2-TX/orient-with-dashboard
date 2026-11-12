@@ -35,6 +35,7 @@ class HomePartnerForm
                     ->appendFiles()
                     ->disk('public')
                     ->directory('home/partners')
+                    ->saveUploadedFileUsing(fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => \App\Support\OptimizedImageUpload::store($file, 'home/partners', 800))
                     ->visibility('public')
                     ->panelLayout('grid')
                     ->imagePreviewHeight('90')

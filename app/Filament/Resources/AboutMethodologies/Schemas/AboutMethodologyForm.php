@@ -60,6 +60,7 @@ class AboutMethodologyForm
                         ->helperText('استخدمي هذا الحقل فقط إذا أردتِ استبدال أيقونة FontAwesome بصورة. اتركيه فارغًا للحفاظ على الأيقونة الأصلية.')
                         ->disk('public')
                         ->directory('about/method/icons/custom')
+                    ->saveUploadedFileUsing(fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => \App\Support\OptimizedImageUpload::store($file, 'about/method/icons/custom', 800))
                         ->visibility('public')
                         ->acceptedFileTypes([
                             'image/svg+xml',

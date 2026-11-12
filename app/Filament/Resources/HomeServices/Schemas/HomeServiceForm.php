@@ -39,6 +39,7 @@ class HomeServiceForm
                             ->hintColor('danger')
                             ->disk('public')
                             ->directory('home/services/icons')
+                    ->saveUploadedFileUsing(fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => \App\Support\OptimizedImageUpload::store($file, 'home/services/icons', 800))
                             ->visibility('public')
                             ->acceptedFileTypes(['image/svg+xml', 'image/png', 'image/jpeg', 'image/webp'])
                             ->image()

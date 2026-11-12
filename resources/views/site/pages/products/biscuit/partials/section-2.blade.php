@@ -45,9 +45,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#FBDB69;"
           data-big="PARLE"
-          data-details-img="assets/images/products/Biscuits/Biscuits_details/PARLE1.png">
+          data-details-img="assets/images/products/Biscuits/Biscuits_details/PARLE1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Biscuits/PARLE.png" alt="" loading="lazy">
+            <img src="assets/images/products/Biscuits/PARLE.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -62,9 +62,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#0D4AB2;"
           data-big="NICE"
-          data-details-img="assets/images/products/Biscuits/Biscuits_details/NICE1.png">
+          data-details-img="assets/images/products/Biscuits/Biscuits_details/NICE1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Biscuits/NICE.png" alt="" loading="lazy">
+            <img src="assets/images/products/Biscuits/NICE.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -79,9 +79,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#7D125B;"
           data-big="MURA|NO"
-          data-details-img="assets/images/products/Biscuits/Biscuits_details/MINIS%20MURANO1.png">
+          data-details-img="assets/images/products/Biscuits/Biscuits_details/MINIS%20MURANO1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Biscuits/MINIS%20MURANO.png" alt="" loading="lazy">
+            <img src="assets/images/products/Biscuits/MINIS%20MURANO.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -96,9 +96,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#478929;"
           data-big="LITE"
-          data-details-img="assets/images/products/Biscuits/Biscuits_details/LITE%20CRACKERS1.png">
+          data-details-img="assets/images/products/Biscuits/Biscuits_details/LITE%20CRACKERS1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Biscuits/LITE%20CRACKERS.png" alt="" loading="lazy">
+            <img src="assets/images/products/Biscuits/LITE%20CRACKERS.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -126,9 +126,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#620C83;"
         data-big="HIDE|&amp; SEEK"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/HIDE%20%26SEEK1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/HIDE%20%26SEEK1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/HIDE%20%26SEEK.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/HIDE%20%26SEEK.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -143,9 +143,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#784895;"
         data-big="CHOCO|LATE"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -160,9 +160,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#55B3D0;"
         data-big="VANI|LLA"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20VANIELA1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20VANIELA1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -177,9 +177,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#E199AA;"
         data-big="STRAW|BEERY"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20STRAWBEERY1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20STRAWBEERY1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -198,9 +198,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#FFE766;"
         data-big="DIGES|TIVE"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/DIGESTIVE1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/DIGESTIVE1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/DIGESTIVE.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/DIGESTIVE.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -215,9 +215,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#625298;"
         data-big="DIGES|TIVE"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/CHOCOLATE%20DIGESTIVE1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/CHOCOLATE%20DIGESTIVE1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -232,9 +232,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#4C2577;"
         data-big="BOUR|BON"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/BOURBON1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/BOURBON1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/BOURBON.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/BOURBON.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -249,9 +249,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#9D734E;"
         data-big="HAPPY|HAPPY"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/1.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/1.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/1.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -270,9 +270,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#53341E;"
         data-big="MURA|NO"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/2.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/2.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/2.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/2.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -287,9 +287,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#80B701;"
         data-big="CHO|CHO"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/3.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/3.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/3.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/3.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -304,9 +304,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#105987;"
         data-big="CHO|CHO"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/4.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/4.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/4.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/4.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -321,9 +321,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#BB1F31;"
         data-big="CHO|CHO"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/5.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/5.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/5.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/5.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -342,9 +342,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#BF8540;"
         data-big="WAFER"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/6.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/6.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/6.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/6.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -359,9 +359,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#A34232;"
         data-big="MURA|NO"
-        data-details-img="assets/images/products/Biscuits/Biscuits_details/7.png">
+        data-details-img="assets/images/products/Biscuits/Biscuits_details/7.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/Biscuits/7.png" alt="" loading="lazy">
+          <img src="assets/images/products/Biscuits/7.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">

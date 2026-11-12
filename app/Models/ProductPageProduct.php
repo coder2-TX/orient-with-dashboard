@@ -42,10 +42,27 @@ class ProductPageProduct extends Model
         }
 
         if (filled($this->default_image)) {
-            return asset($this->default_image);
+            return asset($this->preferredStaticProductImage($this->default_image));
         }
 
-        return asset('assets/images/products/5.jpg');
+        return asset($this->preferredStaticProductImage('assets/images/products/5.jpg'));
+    }
+
+
+    /** Prefer a pre-generated WebP sibling for static images without changing database paths. */
+    protected function preferredStaticProductImage(string $path): string
+    {
+        if (! str_starts_with($path, 'assets/images/products/')) {
+            return $path;
+        }
+
+        $candidate = preg_replace('/\.(?:png|jpe?g)$/i', '.webp', $path);
+
+        if ($candidate && $candidate !== $path && is_file(public_path($candidate))) {
+            return $candidate;
+        }
+
+        return $path;
     }
 
     public static function nextSortOrder(): int

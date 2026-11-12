@@ -41,12 +41,12 @@
           @empty
             {{-- Optional fallback if no active logos --}}
             <img src="{{ asset('assets/images/main/partners/logo-01.svg') }}" alt="Partner Logo 01" loading="lazy">
-            <img src="{{ asset('assets/images/main/partners/logo-02.png') }}" alt="Partner Logo 02" loading="lazy">
-            <img src="{{ asset('assets/images/main/partners/logo-03.png') }}" alt="Partner Logo 03" loading="lazy">
-            <img src="{{ asset('assets/images/main/partners/logo-04.png') }}" alt="Partner Logo 04" loading="lazy">
-            <img src="{{ asset('assets/images/main/partners/logo-05.png') }}" alt="Partner Logo 05" loading="lazy">
+            <img src="{{ asset('assets/images/main/partners/logo-02.webp') }}" alt="Partner Logo 02" loading="lazy">
+            <img src="{{ asset('assets/images/main/partners/logo-03.webp') }}" alt="Partner Logo 03" loading="lazy">
+            <img src="{{ asset('assets/images/main/partners/logo-04.webp') }}" alt="Partner Logo 04" loading="lazy">
+            <img src="{{ asset('assets/images/main/partners/logo-05.webp') }}" alt="Partner Logo 05" loading="lazy">
             <img src="{{ asset('assets/images/main/partners/logo-06.svg') }}" alt="Partner Logo 06" loading="lazy">
-            <img src="{{ asset('assets/images/main/partners/logo-07.png') }}" alt="Partner Logo 07" loading="lazy">
+            <img src="{{ asset('assets/images/main/partners/logo-07.webp') }}" alt="Partner Logo 07" loading="lazy">
           @endforelse
         </div>
 

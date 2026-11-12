@@ -47,9 +47,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#42913D;"
           data-big="Soreto"
-          data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20Vanillin1.png">
+          data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20Vanillin1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.png" alt="" loading="lazy">
+            <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -64,9 +64,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#CC4903;"
           data-big="Soreto"
-          data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20chocolate1.png">
+          data-details-img="assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20chocolate1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.png" alt="" loading="lazy">
+            <img src="assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">

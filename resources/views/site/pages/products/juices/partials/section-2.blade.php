@@ -50,7 +50,7 @@
           style="--num-color:#F8C225;"
           data-big="Mango">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Juices/1.png" alt="" loading="lazy">
+            <img src="assets/images/products/Juices/1.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -66,7 +66,7 @@
           style="--num-color:#F79B20;"
           data-big="Orange">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Juices/2.png" alt="" loading="lazy">
+            <img src="assets/images/products/Juices/2.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -82,7 +82,7 @@
           style="--num-color:#F4AC2D;"
           data-big="Peach">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Juices/3.png" alt="" loading="lazy">
+            <img src="assets/images/products/Juices/3.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -98,7 +98,7 @@
           style="--num-color:#F6DA41;"
           data-big="Pine|apple">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/Juices/4.png" alt="" loading="lazy">
+            <img src="assets/images/products/Juices/4.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">

@@ -57,6 +57,7 @@ class PartnersTrustForm
                         ->label('أيقونة بديلة اختيارية')
                         ->disk('public')
                         ->directory('partners/trust/icons')
+                    ->saveUploadedFileUsing(fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => \App\Support\OptimizedImageUpload::store($file, 'partners/trust/icons', 800))
                         ->visibility('public')
                         ->acceptedFileTypes([
                             'image/svg+xml',

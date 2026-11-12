@@ -52,7 +52,12 @@ class ProductPageProductForm
                             );
                         }
 
-                        $imageUrl = asset($record->default_image);
+                        $defaultPath = $record->default_image;
+                        $webpPath = preg_replace('/\.(?:png|jpe?g)$/i', '.webp', $defaultPath);
+                        if ($webpPath && is_file(public_path($webpPath))) {
+                            $defaultPath = $webpPath;
+                        }
+                        $imageUrl = asset($defaultPath);
 
                         return new HtmlString(
                             '<div style="display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid #e5e7eb;border-radius:14px;background:#fafafa;">'
@@ -70,6 +75,7 @@ class ProductPageProductForm
                     ->image()
                     ->disk('public')
                     ->directory('products/page')
+                    ->saveUploadedFileUsing(fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => \App\Support\OptimizedImageUpload::store($file, 'products/page', 1200))
                     ->visibility('public')
                     ->panelLayout('grid')
                     ->imagePreviewHeight('160')

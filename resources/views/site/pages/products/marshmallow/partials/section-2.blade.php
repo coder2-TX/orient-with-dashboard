@@ -44,9 +44,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#D54987;"
           data-big="Mallow"
-          data-details-img="assets/images/products/marshmallow/marshmallow_details/Marshmallow3-1.png">
+          data-details-img="assets/images/products/marshmallow/marshmallow_details/Marshmallow3-1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/marshmallow/Marshmallow3.png" alt="" loading="lazy">
+            <img src="assets/images/products/marshmallow/Marshmallow3.webp" alt="" loading="lazy">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">01</div>
@@ -60,9 +60,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#2CABE0;"
           data-big="Mallow"
-          data-details-img="assets/images/products/marshmallow/marshmallow_details/marshmallow1.png">
+          data-details-img="assets/images/products/marshmallow/marshmallow_details/marshmallow1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/marshmallow/marshmallow.png" alt="" loading="lazy">
+            <img src="assets/images/products/marshmallow/marshmallow.webp" alt="" loading="lazy">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">02</div>
@@ -76,9 +76,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#03A9E1;"
           data-big="Mallow"
-          data-details-img="assets/images/products/marshmallow/marshmallow_details/mallow%20Plus3-1.png">
+          data-details-img="assets/images/products/marshmallow/marshmallow_details/mallow%20Plus3-1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/marshmallow/mallow%20Plus3.png" alt="" loading="lazy">
+            <img src="assets/images/products/marshmallow/mallow%20Plus3.webp" alt="" loading="lazy">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">03</div>
@@ -92,9 +92,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#E1598F;"
           data-big="Mallow"
-          data-details-img="assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus2.png">
+          data-details-img="assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus2.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/marshmallow/Mallow%20Plus1.png" alt="" loading="lazy">
+            <img src="assets/images/products/marshmallow/Mallow%20Plus1.webp" alt="" loading="lazy">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">04</div>
@@ -121,9 +121,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#ABAAEE;"
         data-big="Mallow"
-        data-details-img="assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus%20Jam%20Filled%20Mallow1.png">
+        data-details-img="assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus%20Jam%20Filled%20Mallow1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.png" alt="" loading="lazy">
+          <img src="assets/images/products/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">05</div>
@@ -137,9 +137,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#D1A5BB;"
         data-big="Mallow"
-        data-details-img="assets/images/products/marshmallow/marshmallow_details/Flat%20Bag%20Strawberry1.png">
+        data-details-img="assets/images/products/marshmallow/marshmallow_details/Flat%20Bag%20Strawberry1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/marshmallow/Flat%20Bag%20Strawberry.png" alt="" loading="lazy">
+          <img src="assets/images/products/marshmallow/Flat%20Bag%20Strawberry.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">06</div>
@@ -153,9 +153,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#5B266F;"
         data-big="Straw|berry"
-        data-details-img="assets/images/products/marshmallow/marshmallow_details/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow1.png">
+        data-details-img="assets/images/products/marshmallow/marshmallow_details/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.png" alt="" loading="lazy">
+          <img src="assets/images/products/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">07</div>
@@ -169,9 +169,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#AC0369;"
         data-big="Twist"
-        data-details-img="assets/images/products/marshmallow/marshmallow_details/63g%20Twisted%20Small1.png">
+        data-details-img="assets/images/products/marshmallow/marshmallow_details/63g%20Twisted%20Small1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/marshmallow/63g%20Twisted%20Small.png" alt="" loading="lazy">
+          <img src="assets/images/products/marshmallow/63g%20Twisted%20Small.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">08</div>
@@ -189,9 +189,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#4C2A63;"
         data-big="Straw|berry"
-        data-details-img="assets/images/products/marshmallow/marshmallow_details/ZER%200%25SUGAR1.png">
+        data-details-img="assets/images/products/marshmallow/marshmallow_details/ZER%200%25SUGAR1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/marshmallow/ZER%200%25SUGAR.png" alt="" loading="lazy">
+          <img src="assets/images/products/marshmallow/ZER%200%25SUGAR.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -206,9 +206,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#B6100C;"
         data-big="Maltre|asures"
-        data-details-img="assets/images/products/sweets3/sweets_details/GC 7-1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/GC 7-1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/GC 7.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/GC 7.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">10</div>
@@ -222,9 +222,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#E16C7F;"
         data-big="Love &|Passion"
-        data-details-img="assets/images/products/sweets3/sweets_details/Hartbeat Lychee.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/Hartbeat Lychee.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/Hartbeat Lychee1.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/Hartbeat Lychee1.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">11</div>
@@ -238,9 +238,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#D81D21;"
         data-big="Rio|Pop"
-        data-details-img="assets/images/products/sweets3/sweets_details/lollipop1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/lollipop1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/lollipop.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/lollipop.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">12</div>
@@ -259,9 +259,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#985295;"
         data-big="Heart|Beat"
-        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat black currant1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat black currant1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/hartbeat black currant.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/hartbeat black currant.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">13</div>
@@ -275,9 +275,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#EAE643;"
         data-big="Maz|elo"
-        data-details-img="assets/images/products/sweets3/sweets_details/mazelo1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/mazelo1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/mazelo.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/mazelo.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">14</div>
@@ -291,9 +291,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#C3CF29;"
         data-big="Heart|Beat"
-        data-details-img="assets/images/products/sweets3/sweets_details/HARTBEAT JUMBO MANGO1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/HARTBEAT JUMBO MANGO1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/HARTBEAT JUMBO MANGO.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/HARTBEAT JUMBO MANGO.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">15</div>
@@ -307,9 +307,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#CE3C7F;"
         data-big="Beely|Pop"
-        data-details-img="assets/images/products/sweets3/sweets_details/lollipop With two different flavor1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/lollipop With two different flavor1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/lollipop With two different flavor.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/lollipop With two different flavor.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">16</div>
@@ -327,9 +327,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#624C2F;"
         data-big="Mel|ody"
-        data-details-img="assets/images/products/sweets3/sweets_details/melody1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/melody1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/melody.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/melody.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">17</div>
@@ -343,9 +343,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#CA433E;"
         data-big="Heart|Beat"
-        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat jumbo Tutti Fruiti1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/hartbeat jumbo Tutti Fruiti1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">18</div>
@@ -359,9 +359,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#4D2D1E;"
         data-big="H&|H"
-        data-details-img="assets/images/products/sweets3/sweets_details/Peanuts coated by luxury chocolate1.png">
+        data-details-img="assets/images/products/sweets3/sweets_details/Peanuts coated by luxury chocolate1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/sweets3/Peanuts coated by luxury chocolate.png" alt="" loading="lazy">
+          <img src="assets/images/products/sweets3/Peanuts coated by luxury chocolate.webp" alt="" loading="lazy">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">19</div>

@@ -47,9 +47,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#539C27;"
           data-big="Cereal|Treats"
-          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES1.png') }}">
+          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.png') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.webp') }}" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -64,9 +64,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#96AC90;"
           data-big="Cereal|Treats"
-          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT1.png') }}">
+          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT.png') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT.webp') }}" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -81,9 +81,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#4C125C;"
           data-big="Choc|Chip"
-          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS1.png') }}">
+          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.png') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.webp') }}" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -98,9 +98,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#191857;"
           data-big="Choco|late"
-          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOCOLATE%20DIGESTIVE1.png') }}">
+          data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOCOLATE%20DIGESTIVE1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CHOCOLATE%20DIGESTIVE.png') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CHOCOLATE%20DIGESTIVE.webp') }}" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -128,9 +128,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#7780BA;"
         data-big="Morn|ing"
-        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/Devon%20Morning%20Coffee%20Light1.png') }}">
+        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/Devon%20Morning%20Coffee%20Light1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/Devon%20Morning%20Coffee%20Light.png') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/Devon%20Morning%20Coffee%20Light.webp') }}" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -145,9 +145,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#C22714;"
         data-big="Diges|tive"
-        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/DIGESTIVE%20BISCUITS1.png') }}">
+        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/DIGESTIVE%20BISCUITS1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/DIGESTIVE%20BISCUITS.png') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/DIGESTIVE%20BISCUITS.webp') }}" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
@@ -162,9 +162,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#3C823B;"
         data-big="Tea|Biscuits"
-        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/TEA%20BISCUITS1.png') }}">
+        data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/TEA%20BISCUITS1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/TEA%20BISCUITS.png') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/TEA%20BISCUITS.webp') }}" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">

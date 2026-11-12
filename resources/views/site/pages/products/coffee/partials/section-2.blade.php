@@ -47,9 +47,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#184E32;"
           data-big="Hazel|nut"
-          data-details-img="assets/images/products/coffee/coffee_details/HAZELNUT1.png">
+          data-details-img="assets/images/products/coffee/coffee_details/HAZELNUT1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/coffee/HAZELNUT.png" alt="" loading="lazy">
+            <img src="assets/images/products/coffee/HAZELNUT.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -64,9 +64,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#8E3330;"
           data-big="Mocca"
-          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20MOCHA1.png">
+          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20MOCHA1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/coffee/Coffee%20MOCHA.png" alt="" loading="lazy">
+            <img src="assets/images/products/coffee/Coffee%20MOCHA.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -81,9 +81,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#DDBE97;"
           data-big="Gold"
-          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20gold1.png">
+          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20gold1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/coffee/Coffee%20gold.png" alt="" loading="lazy">
+            <img src="assets/images/products/coffee/Coffee%20gold.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -98,9 +98,9 @@
         <article class="oy-sweets-item"
           style="--num-color:#25201D;"
           data-big="Bold"
-          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20bold1.png">
+          data-details-img="assets/images/products/coffee/coffee_details/Coffee%20bold1.webp">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="assets/images/products/coffee/Coffee%20bold.png" alt="" loading="lazy">
+            <img src="assets/images/products/coffee/Coffee%20bold.webp" alt="" loading="lazy">
           </div>
 
           <div class="oy-sweets-content">
@@ -128,9 +128,9 @@
       <article class="oy-sweets-item"
         style="--num-color:#634037;"
         data-big="Classic"
-        data-details-img="assets/images/products/coffee/coffee_details/CLASSIC%20COFFEE1.png">
+        data-details-img="assets/images/products/coffee/coffee_details/CLASSIC%20COFFEE1.webp">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="assets/images/products/coffee/CLASSIC%20COFFEE.png" alt="" loading="lazy">
+          <img src="assets/images/products/coffee/CLASSIC%20COFFEE.webp" alt="" loading="lazy">
         </div>
 
         <div class="oy-sweets-content">
