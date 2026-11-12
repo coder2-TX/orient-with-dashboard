@@ -164,7 +164,7 @@
       <div>© Orient Yemen for Import. All rights reserved.</div>
       <div>
         Designed and Developed by:
-        <a class="oy-footer__bottom-link" href="https://destination-media.pro/" target="_blank" rel="noopener noreferrer">
+        <a class="oy-footer__bottom-link" href="https://txsaas.online/" target="_blank" rel="noopener noreferrer">
           <strong>TX - SaaS</strong>
         </a>
       </div>
