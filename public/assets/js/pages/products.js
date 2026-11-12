@@ -231,20 +231,47 @@
       return Math.min(Math.max(page, 1), pageCount);
     }
 
-    function getVisiblePageItems(pageCount, page) {
-      if (pageCount <= 5) {
+    // ORIENT pagination: fit available width v3
+    function getAvailableSlots() {
+      const style = window.getComputedStyle(nav);
+      const padding = parseFloat(style.paddingLeft || 0) + parseFloat(style.paddingRight || 0);
+      const gap = parseFloat(style.columnGap || style.gap || 0) || 0;
+      const probe = document.createElement("button");
+      probe.type = "button";
+      probe.className = "oy-products-pagination__item";
+      probe.textContent = "8";
+      probe.style.visibility = "hidden";
+      nav.appendChild(probe);
+      const buttonWidth = probe.getBoundingClientRect().width || 54;
+      probe.remove();
+      const available = Math.max(0, nav.clientWidth - padding);
+      return Math.max(1, Math.floor((available + gap + 0.01) / (buttonWidth + gap)));
+    }
+
+    function getVisiblePageItems(pageCount, page, availableCount) {
+      // Keep the current page visible, with first/last pages and ellipses when they fit.
+      if (pageCount <= availableCount) {
         return Array.from({ length: pageCount }, (_, i) => i + 1);
       }
-
-      if (page <= 3) {
-        return [1, 2, 3, 4, "dots", pageCount];
+      for (let count = Math.min(pageCount, availableCount); count >= 1; count--) {
+        const start = Math.max(1, Math.min(page - Math.floor((count - 1) / 2), pageCount - count + 1));
+        const end = start + count - 1;
+        const result = [];
+        if (start > 1) {
+          result.push(1);
+          if (start > 2) result.push("dots");
+        }
+        for (let n = start; n <= end; n++) result.push(n);
+        if (end < pageCount) {
+          if (end < pageCount - 1) result.push("dots");
+          result.push(pageCount);
+        }
+        if (result.length <= availableCount) return result;
       }
-
-      if (page >= pageCount - 2) {
-        return [1, "dots", pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
-      }
-
-      return [1, "dots", page - 1, page, page + 1, "dots", pageCount];
+      // If endpoint markers would crowd the row, use nearby pages instead.
+      const count = Math.max(1, availableCount);
+      const start = Math.max(1, Math.min(page - Math.floor((count - 1) / 2), pageCount - count + 1));
+      return Array.from({ length: count }, (_, i) => start + i);
     }
 
     function scrollToGridTop() {
@@ -318,7 +345,24 @@
     function renderPagination(pageCount) {
       nav.innerHTML = "";
 
-      const items = getVisiblePageItems(pageCount, currentPage);
+      const isCompact = window.matchMedia("(max-width: 600px)").matches;
+      if (isCompact && currentPage > 1) {
+        const prev = document.createElement("button");
+        prev.type = "button";
+        prev.className = "oy-products-pagination__item oy-products-pagination__item--prev";
+        prev.setAttribute("aria-label", document.documentElement.dir === "rtl" ? "Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø³Ø§Ø¨Ù‚Ø©" : "Previous page");
+        prev.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+        prev.addEventListener("click", () => {
+          currentPage -= 1;
+          render(true);
+        });
+        nav.appendChild(prev);
+      }
+
+      // Reserve one slot for Next, and another for Previous when it is displayed.
+      const slots = getAvailableSlots();
+      const reserved = 1 + (isCompact && currentPage > 1 ? 1 : 0);
+      const items = getVisiblePageItems(pageCount, currentPage, Math.max(1, slots - reserved));
 
       items.forEach((item) => {
         if (item === "dots") {
