@@ -165,7 +165,7 @@
       <div>
         Designed and Developed by:
         <a class="oy-footer__bottom-link" href="https://txsaas.online/" target="_blank" rel="noopener noreferrer">
-          <strong>TX - SaaS</strong>
+          TX - SaaS
         </a>
       </div>
     </div>
