@@ -1,133 +1,169 @@
-// assets/js/hero.js
-
+// Orient Yemen — reliable dynamic hero image loading (Arabic + English).
 (function () {
-  const HERO_INTERVAL_MS = 4000;
+  "use strict";
+
+  const INTERVAL_MS = 4000;
+  const PARALLEL_PRELOADS = 3;
 
   function createHeroSlider(hero) {
     const slides = Array.from(hero.querySelectorAll(".oy-hero__slide"));
     const dots = Array.from(hero.querySelectorAll(".oy-hero__dot"));
     const prevBtn = hero.querySelector(".oy-hero__arrow--prev");
     const nextBtn = hero.querySelector(".oy-hero__arrow--next");
+    if (!slides.length) return null;
 
-    if (slides.length === 0) return null;
+    let index = slides.findIndex((slide) => slide.classList.contains("is-active"));
+    if (index < 0) index = 0;
 
-    const state = {
-      index: slides.findIndex((slide) => slide.classList.contains("is-active")),
-      timer: null,
-    };
+    // The first slide is already in the HTML as a CSS background with a high-priority preload.
+    // Additional slides are supplied by the DB or the default list; no fixed slide count.
+    const entries = slides.map((slide, i) => ({
+      url: i === 0 ? null : slide.getAttribute("data-hero-src"),
+      state: i === 0 ? "ready" : (slide.getAttribute("data-hero-src") ? "queued" : "failed"),
+      promise: null,
+    }));
 
-    if (state.index < 0) {
-      state.index = 0;
+    let timer = null;
+    let serial = 0;
+    let queueIndex = 1;
+    let loadingCount = 0;
+    let stopped = false;
+
+    function loadOne(i) {
+      const entry = entries[i];
+      if (!entry || entry.state === "failed") return Promise.resolve(false);
+      if (entry.state === "ready") return Promise.resolve(true);
+      if (entry.promise) return entry.promise;
+
+      entry.state = "loading";
+      entry.promise = new Promise((resolve) => {
+        const img = new Image();
+        // The browser can reuse its cache when we set the background after decoding.
+        img.decoding = "async";
+        const finish = (success) => {
+          if (success) {
+            slideBackground(i, entry.url);
+            entry.state = "ready";
+          } else {
+            entry.state = "failed";
+            console.warn("Orient hero image could not load:", entry.url);
+          }
+          resolve(success);
+        };
+        img.onload = () => {
+          if (typeof img.decode === "function") {
+            img.decode().then(() => finish(true), () => finish(true));
+          } else {
+            finish(true);
+          }
+        };
+        img.onerror = () => finish(false);
+        img.src = entry.url;
+      });
+      return entry.promise;
     }
 
-    // Defer hidden slides until they are needed. Keep original fade and 4s timing.
-    const ensureLoaded = (slide) => {
-      if (!slide) return;
-      const url = slide.getAttribute("data-hero-src");
-      if (!url) return;
+    function slideBackground(i, url) {
+      const slide = slides[i];
+      // JSON.stringify safely quotes URLs with spaces or parentheses for CSS url(...).
       slide.style.backgroundImage = "url(" + JSON.stringify(url) + ")";
       slide.removeAttribute("data-hero-src");
-    };
-    const setActive = (nextIndex) => {
-      const safeIndex = (nextIndex + slides.length) % slides.length;
+    }
 
-      ensureLoaded(slides[safeIndex]);
-      slides.forEach((slide) => slide.classList.remove("is-active"));
-      slides[safeIndex].classList.add("is-active");
-
-      dots.forEach((dot) => dot.classList.remove("is-active"));
-      if (dots[safeIndex]) {
-        dots[safeIndex].classList.add("is-active");
+    // Start loading all extra slides immediately but do not flood the connection.
+    // Prioritize the next slides first and continue in the background.
+    function pumpPreloads() {
+      while (loadingCount < PARALLEL_PRELOADS && queueIndex < slides.length) {
+        const i = queueIndex++;
+        if (entries[i].state !== "queued") continue;
+        loadingCount++;
+        loadOne(i).finally(() => {
+          loadingCount--;
+          pumpPreloads();
+        });
       }
+    }
 
-      state.index = safeIndex;
-    };
+    function show(i) {
+      // Existing fade and CSS stay unchanged.
+      slides.forEach((slide, j) => slide.classList.toggle("is-active", j === i));
+      dots.forEach((dot, j) => dot.classList.toggle("is-active", j === i));
+      index = i;
+    }
 
-    const stop = () => {
-      if (state.timer) {
-        window.clearInterval(state.timer);
-        state.timer = null;
+    function clearTimer() {
+      if (timer !== null) {
+        window.clearTimeout(timer);
+        timer = null;
       }
-    };
+    }
 
-    const start = () => {
-      stop();
-
+    async function move(step, target) {
+      const ticket = ++serial;
+      clearTimer();
       if (slides.length <= 1) return;
 
-      // Load only the next slide after initial content has had time to render.
-      window.setTimeout(() => {
-        if (state.timer) ensureLoaded(slides[(state.index + 1) % slides.length]);
-      }, 2000);
-      state.timer = window.setInterval(() => {
-        setActive(state.index + 1);
-      }, HERO_INTERVAL_MS);
-    };
+      // Skip broken URLs; for slow images retain the current visible slide.
+      for (let attempt = 0; attempt < slides.length; attempt++) {
+        const next = target === null
+          ? (index + step * (attempt + 1) + slides.length * (attempt + 1)) % slides.length
+          : (target + step * attempt + slides.length * (attempt + 1)) % slides.length;
 
-    const restart = () => {
-      stop();
-      start();
-    };
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        setActive(state.index - 1);
-        restart();
-      });
+        if (next === index && attempt === 0) break;
+        const success = await loadOne(next);
+        if (ticket !== serial || stopped) return;
+        if (success) {
+          show(next);
+          schedule();
+          return;
+        }
+      }
+      if (ticket === serial && !stopped) schedule();
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        setActive(state.index + 1);
-        restart();
-      });
+    function schedule() {
+      clearTimer();
+      if (stopped || slides.length <= 1) return;
+      timer = window.setTimeout(() => move(1, null), INTERVAL_MS);
     }
 
+    function start() {
+      if (!stopped && timer !== null) return; // ignore duplicate DOMContentLoaded/load boot
+      stopped = false;
+      pumpPreloads();
+      schedule();
+    }
+
+    function stop() {
+      stopped = true;
+      serial++;
+      clearTimer();
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => move(-1, null));
+    if (nextBtn) nextBtn.addEventListener("click", () => move(1, null));
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
-        const nextIndex = Number(dot.getAttribute("data-index"));
-
-        if (Number.isFinite(nextIndex)) {
-          setActive(nextIndex);
-          restart();
+        const target = Number(dot.getAttribute("data-index"));
+        if (Number.isInteger(target) && target >= 0 && target < slides.length) {
+          if (target !== index) move(1, target);
         }
       });
     });
 
-    setActive(state.index);
     start();
-
-    return {
-      start,
-      stop,
-      setActive,
-    };
+    return { start, stop, setActive: (i) => move(1, i) };
   }
 
   window.initHeroSlider = function initHeroSlider() {
-    const heroes = Array.from(document.querySelectorAll(".oy-hero"));
-
-    heroes.forEach((hero) => {
-      if (hero.__oyHeroSlider) {
-        hero.__oyHeroSlider.start();
-        return;
-      }
-
-      hero.__oyHeroSlider = createHeroSlider(hero);
+    document.querySelectorAll(".oy-hero").forEach((hero) => {
+      if (!hero.__oyHeroSlider) hero.__oyHeroSlider = createHeroSlider(hero);
     });
   };
 
-  function bootHeroSlider() {
-    if (window.initHeroSlider) {
-      window.initHeroSlider();
-    }
-  }
-
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", bootHeroSlider, { once: true });
+    document.addEventListener("DOMContentLoaded", window.initHeroSlider, { once: true });
   } else {
-    bootHeroSlider();
+    window.initHeroSlider();
   }
-
-  window.addEventListener("load", bootHeroSlider, { once: true });
 })();

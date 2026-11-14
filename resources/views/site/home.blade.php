@@ -5,7 +5,7 @@
 @section('oy_home_css', '1')
 
 @push('scripts_head')
-  <script src="{{ asset('assets/js/hero.js') }}" defer></script>
+  <script src="{{ asset('assets/js/hero.js') }}?v=hero-ready-20261114" defer></script>
   <script src="{{ asset('assets/js/partners.js') }}" defer></script>
 @endpush
 
