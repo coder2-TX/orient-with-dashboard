@@ -3,9 +3,7 @@
 @section('title', 'الحلوى الحامضة | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/sweets/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-a4f23ab5aa1831ae.css') }}?v=a4f23ab5aa1831ae">
 @endpush
 
 @push('scripts')

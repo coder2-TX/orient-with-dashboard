@@ -3,9 +3,7 @@
 @section('title', 'شركائنا | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/partners.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/partners/section3-overrides.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-fb207686f4cb3b1d.css') }}?v=fb207686f4cb3b1d">
 @endpush
 
 @push('scripts_head')

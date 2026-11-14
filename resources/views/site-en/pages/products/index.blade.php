@@ -3,8 +3,7 @@
 @section('title', 'Products | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-59ebd9d72288a1a2.css') }}?v=59ebd9d72288a1a2">
 @endpush
 
 @push('scripts_head')

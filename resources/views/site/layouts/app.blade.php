@@ -14,7 +14,10 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 
-  <!-- Global tokens first -->
+  @hasSection('oy_home_css')
+  <link rel="stylesheet" href="{{ asset('assets/css/home-combined.css') }}?v={{ filemtime(public_path('assets/css/home-combined.css')) }}">
+@else
+<!-- Global tokens first -->
   <link rel="stylesheet" href="{{ asset('assets/css/tokens.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
 
@@ -23,6 +26,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}"> 
   <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}?v={{ filemtime(public_path('assets/css/footer.css')) }}">
   @stack('styles')
+@endif
 
 
 

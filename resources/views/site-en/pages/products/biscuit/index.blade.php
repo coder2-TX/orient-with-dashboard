@@ -3,9 +3,7 @@
 @section('title', 'Biscuits & Wafers | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/biscuit/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-3c985a15273b18aa.css') }}?v=3c985a15273b18aa">
 @endpush
 
 @push('scripts')

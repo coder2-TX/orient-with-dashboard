@@ -3,9 +3,7 @@
 @section('title', 'Healthy Products | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/healthy/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-9edba67389ed8332.css') }}?v=9edba67389ed8332">
 @endpush
 
 @push('scripts')

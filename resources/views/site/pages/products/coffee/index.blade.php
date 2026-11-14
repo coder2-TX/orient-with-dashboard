@@ -3,9 +3,7 @@
 @section('title', 'القهوة | Orient Yemen')
 
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/hero.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/section2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/pages/products/coffee/section2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-fce3a6c113ad0744.css') }}?v=fce3a6c113ad0744">
 @endpush
 
 @push('scripts')
