@@ -1,0 +1,25 @@
+/* Local A/B experiment only: enabled by ?cls_test=1. Never deploy as default unverified. */
+.oy-sweets-panel .oy-sweets-item:not(.oy-sweets-item--ghost){
+  padding-top:var(--oy-card-top-pad)!important;
+  transition:background-color .18s ease!important;
+}
+.oy-sweets-panel .oy-sweets-item:not(.oy-sweets-item--ghost)>.oy-sweets-media{
+  position:absolute;
+  top:var(--oy-card-media-shift);
+  inset-inline:var(--oy-card-side-pad);
+  height:0;
+  margin-top:0!important;
+}
+.oy-sweets-panel .oy-sweets-item:not(.oy-sweets-item--ghost)>.oy-sweets-content{
+  margin-top:0!important;
+  padding-bottom:0!important;
+  transform:translateY(0);
+  transition:transform .18s ease;
+}
+.oy-sweets-panel .oy-sweets-item:not(.oy-sweets-item--ghost):is(:hover,.is-autoHover,.is-opening)>.oy-sweets-media{
+  height:var(--oy-card-media-h);
+}
+.oy-sweets-panel .oy-sweets-item:not(.oy-sweets-item--ghost):is(:hover,.is-autoHover,.is-opening)>.oy-sweets-content{
+  transform:translateY(calc(var(--oy-card-media-h) + var(--oy-card-media-shift) + var(--oy-card-content-shift) - var(--oy-card-top-pad)));
+}
+.oy-sweets-panel .oy-sweets-item.is-opening>.oy-sweets-content{transition:none;}

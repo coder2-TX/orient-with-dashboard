@@ -4,6 +4,9 @@
 
 @push('styles')
   <link rel="stylesheet" href="{{ asset('assets/css/page-bundles/page-b7801157f8110a52.css') }}?v=b7801157f8110a52">
+  @if(request()->query('cls_test') === '1')
+    <link rel="stylesheet" href="{{ asset('assets/css/perf/product-cls-experiment.css') }}?v=1">
+  @endif
 @endpush
 
 @push('scripts')

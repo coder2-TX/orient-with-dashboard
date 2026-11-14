@@ -74,7 +74,7 @@
       <div class="oy-footer__left">
         <div class="oy-footer__col" id="contact">
           <div class="oy-footer__brand">
-            <img class="oy-footer__logo" src="{{ asset('assets/images/header/logo_white.svg') }}" alt="Orient Yemen">
+            <img class="oy-footer__logo" src="{{ asset('assets/images/header/logo_white.svg') }}" alt="Orient Yemen" width="376" height="185">
           </div>
 
           <div class="oy-footer__contact">
