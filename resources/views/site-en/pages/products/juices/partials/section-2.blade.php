@@ -51,7 +51,7 @@
           style="--num-color:#F8C225;"
           data-big="Mango">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Juices/1.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Juices/1.webp') }}" alt="" loading="lazy" width="258" height="351">
           </div>
 
           <div class="oy-sweets-content">
@@ -67,7 +67,7 @@
           style="--num-color:#F79B20;"
           data-big="Orange">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Juices/2.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Juices/2.webp') }}" alt="" loading="lazy" width="234" height="351">
           </div>
 
           <div class="oy-sweets-content">
@@ -83,7 +83,7 @@
           style="--num-color:#F4AC2D;"
           data-big="Peach">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Juices/3.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Juices/3.webp') }}" alt="" loading="lazy" width="232" height="351">
           </div>
 
           <div class="oy-sweets-content">
@@ -99,7 +99,7 @@
           style="--num-color:#F6DA41;"
           data-big="Pine|apple">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Juices/4.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Juices/4.webp') }}" alt="" loading="lazy" width="213" height="351">
           </div>
 
           <div class="oy-sweets-content">

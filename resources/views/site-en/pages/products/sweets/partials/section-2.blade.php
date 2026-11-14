@@ -43,7 +43,7 @@
 
         <article class="oy-sweets-item" style="--num-color:#98008A;" data-big="SOUR|ZANK" data-details-img="{{ asset('assets/images/products/sweets/sweets_details/SOURPUNK Strawberry.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/sweets/1.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/sweets/1.webp') }}" alt="" loading="lazy" width="199" height="364">
           </div>
 
           <div class="oy-sweets-content">
@@ -56,7 +56,7 @@
 
         <article class="oy-sweets-item" style="--num-color:#1B1114;" data-big="SOUR|ZANK" data-details-img="{{ asset('assets/images/products/sweets/sweets_details/SOURPUNK Cola.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/sweets/2.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/sweets/2.webp') }}" alt="" loading="lazy" width="209" height="364">
           </div>
 
           <div class="oy-sweets-content">
@@ -69,7 +69,7 @@
 
         <article class="oy-sweets-item" style="--num-color:#8FC301;" data-big="SOUR|ZANK" data-details-img="{{ asset('assets/images/products/sweets/sweets_details/SOURPUNK apples.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/sweets/3.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/sweets/3.webp') }}" alt="" loading="lazy" width="199" height="364">
           </div>
 
           <div class="oy-sweets-content">
@@ -82,7 +82,7 @@
 
         <article class="oy-sweets-item" style="--num-color:#CA000E;" data-big="SOUR|ZANK" data-details-img="{{ asset('assets/images/products/sweets/sweets_details/SOURPUNK Berries.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/sweets/4.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/sweets/4.webp') }}" alt="" loading="lazy" width="199" height="364">
           </div>
 
           <div class="oy-sweets-content">
@@ -108,7 +108,7 @@
 
       <article class="oy-sweets-item" style="--num-color:#D62C7E;" data-big="Extre|me.Z" data-details-img="{{ asset('assets/images/products/sweets2/sweets_details/1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets2/1.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets2/1.webp') }}" alt="" loading="lazy" width="223" height="282">
         </div>
 
         <div class="oy-sweets-content">
@@ -121,7 +121,7 @@
 
       <article class="oy-sweets-item" style="--num-color:#872419;" data-big="Extre|me.Z" data-details-img="{{ asset('assets/images/products/sweets2/sweets_details/1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets2/2.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets2/2.webp') }}" alt="" loading="lazy" width="240" height="282">
         </div>
 
         <div class="oy-sweets-content">
@@ -134,7 +134,7 @@
 
       <article class="oy-sweets-item" style="--num-color:#88BF40;" data-big="Extre|me.Z" data-details-img="{{ asset('assets/images/products/sweets2/sweets_details/1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets2/3.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets2/3.webp') }}" alt="" loading="lazy" width="232" height="305">
         </div>
 
         <div class="oy-sweets-content">
@@ -147,7 +147,7 @@
 
       <article class="oy-sweets-item" style="--num-color:#EF2186;" data-big="ZazZy" data-details-img="{{ asset('assets/images/products/sweets2/sweets_details/1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets2/4.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets2/4.webp') }}" alt="" loading="lazy" width="223" height="308">
         </div>
 
         <div class="oy-sweets-content">
@@ -167,7 +167,7 @@
         data-big="Rol.a|.Cola"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/1-1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/1.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/1.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/1.webp') }} 380w, {{ asset('assets/images/products/sweets3/1.webp') }} 529w" sizes="(max-width: 768px) 165px, 230px" width="529" height="166">
         </div>
 
         <div class="oy-sweets-content">
@@ -183,7 +183,7 @@
         data-big="Popp|ins"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/Poppins1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/Poppins.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/Poppins.webp') }}" alt="" loading="lazy" width="370" height="121">
         </div>
 
         <div class="oy-sweets-content">

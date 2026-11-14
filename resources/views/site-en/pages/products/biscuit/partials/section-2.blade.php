@@ -47,7 +47,7 @@
           data-big="PARLE"
           data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/PARLE1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Biscuits/PARLE.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Biscuits/PARLE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/PARLE.webp') }} 380w, {{ asset('assets/images/products/Biscuits/PARLE.webp') }} 647w" sizes="(max-width: 768px) 165px, 230px" width="647" height="527">
           </div>
 
           <div class="oy-sweets-content">
@@ -64,7 +64,7 @@
           data-big="NICE"
           data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/NICE1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Biscuits/NICE.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Biscuits/NICE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/NICE.webp') }} 380w, {{ asset('assets/images/products/Biscuits/NICE.webp') }} 484w" sizes="(max-width: 768px) 165px, 230px" width="484" height="340">
           </div>
 
           <div class="oy-sweets-content">
@@ -81,7 +81,7 @@
           data-big="MURA|NO"
           data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/MINIS%20MURANO1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Biscuits/MINIS%20MURANO.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Biscuits/MINIS%20MURANO.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/MINIS%20MURANO.webp') }} 380w, {{ asset('assets/images/products/Biscuits/MINIS%20MURANO.webp') }} 444w" sizes="(max-width: 768px) 165px, 230px" width="444" height="584">
           </div>
 
           <div class="oy-sweets-content">
@@ -98,7 +98,7 @@
           data-big="LITE"
           data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/LITE%20CRACKERS1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Biscuits/LITE%20CRACKERS.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Biscuits/LITE%20CRACKERS.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/LITE%20CRACKERS.webp') }} 380w, {{ asset('assets/images/products/Biscuits/LITE%20CRACKERS.webp') }} 575w" sizes="(max-width: 768px) 165px, 230px" width="575" height="853">
           </div>
 
           <div class="oy-sweets-content">
@@ -128,7 +128,7 @@
         data-big="HIDE|&amp; SEEK"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/HIDE%20%26SEEK1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/HIDE%20%26SEEK.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/HIDE%20%26SEEK.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/HIDE%20%26SEEK.webp') }} 380w, {{ asset('assets/images/products/Biscuits/HIDE%20%26SEEK.webp') }} 653w" sizes="(max-width: 768px) 165px, 230px" width="653" height="1494">
         </div>
 
         <div class="oy-sweets-content">
@@ -145,7 +145,7 @@
         data-big="CHOCO|LATE"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.webp') }} 380w, {{ asset('assets/images/products/Biscuits/FAB%26%20HIED%20%26%20SEEK%20CHOCOLATE.webp') }} 504w" sizes="(max-width: 768px) 165px, 230px" width="504" height="1048">
         </div>
 
         <div class="oy-sweets-content">
@@ -162,7 +162,7 @@
         data-big="VANI|LLA"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20VANIELA1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.webp') }} 380w, {{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20VANIELA.webp') }} 610w" sizes="(max-width: 768px) 165px, 230px" width="610" height="1100">
         </div>
 
         <div class="oy-sweets-content">
@@ -179,7 +179,7 @@
         data-big="STRAW|BEERY"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/FAB%20%26%20HIED%20SEEK%20STRAWBEERY1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.webp') }} 380w, {{ asset('assets/images/products/Biscuits/FAB%20%26%20HIED%20SEEK%20STRAWBEERY.webp') }} 771w" sizes="(max-width: 768px) 165px, 230px" width="771" height="1563">
         </div>
 
         <div class="oy-sweets-content">
@@ -200,7 +200,7 @@
         data-big="DIGES|TIVE"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/DIGESTIVE1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/DIGESTIVE.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/DIGESTIVE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/DIGESTIVE.webp') }} 380w, {{ asset('assets/images/products/Biscuits/DIGESTIVE.webp') }} 652w" sizes="(max-width: 768px) 165px, 230px" width="652" height="1004">
         </div>
 
         <div class="oy-sweets-content">
@@ -217,7 +217,7 @@
         data-big="DIGES|TIVE"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/CHOCOLATE%20DIGESTIVE1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/CHOCOLATE%20DIGESTIVE.webp') }} 380w, {{ asset('assets/images/products/Biscuits/CHOCOLATE%20DIGESTIVE.webp') }} 747w" sizes="(max-width: 768px) 165px, 230px" width="747" height="1158">
         </div>
 
         <div class="oy-sweets-content">
@@ -234,7 +234,7 @@
         data-big="BOUR|BON"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/BOURBON1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/BOURBON.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/BOURBON.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Biscuits/BOURBON.webp') }} 380w, {{ asset('assets/images/products/Biscuits/BOURBON.webp') }} 541w" sizes="(max-width: 768px) 165px, 230px" width="541" height="864">
         </div>
 
         <div class="oy-sweets-content">
@@ -251,7 +251,7 @@
         data-big="HAPPY|HAPPY"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/1.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/1.webp') }}" alt="" loading="lazy" width="282" height="477">
         </div>
 
         <div class="oy-sweets-content">
@@ -272,7 +272,7 @@
         data-big="MURA|NO"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/2.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/2.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/2.webp') }}" alt="" loading="lazy" width="307" height="510">
         </div>
 
         <div class="oy-sweets-content">
@@ -289,7 +289,7 @@
         data-big="CHO|CHO"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/3.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/3.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/3.webp') }}" alt="" loading="lazy" width="278" height="437">
         </div>
 
         <div class="oy-sweets-content">
@@ -306,7 +306,7 @@
         data-big="CHO|CHO"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/4.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/4.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/4.webp') }}" alt="" loading="lazy" width="278" height="451">
         </div>
 
         <div class="oy-sweets-content">
@@ -323,7 +323,7 @@
         data-big="CHO|CHO"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/5.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/5.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/5.webp') }}" alt="" loading="lazy" width="264" height="404">
         </div>
 
         <div class="oy-sweets-content">
@@ -344,7 +344,7 @@
         data-big="WAFER"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/6.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/6.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/6.webp') }}" alt="" loading="lazy" width="280" height="288">
         </div>
 
         <div class="oy-sweets-content">
@@ -361,7 +361,7 @@
         data-big="MURA|NO"
         data-details-img="{{ asset('assets/images/products/Biscuits/Biscuits_details/7.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Biscuits/7.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Biscuits/7.webp') }}" alt="" loading="lazy" width="297" height="564">
         </div>
 
         <div class="oy-sweets-content">

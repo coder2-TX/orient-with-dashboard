@@ -49,7 +49,7 @@
           data-big="Hazel|nut"
           data-details-img="{{ asset('assets/images/products/coffee/coffee_details/HAZELNUT1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/coffee/HAZELNUT.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/coffee/HAZELNUT.webp') }}" alt="" loading="lazy" width="388" height="547">
           </div>
 
           <div class="oy-sweets-content">
@@ -66,7 +66,7 @@
           data-big="Mocca"
           data-details-img="{{ asset('assets/images/products/coffee/coffee_details/Coffee%20MOCHA1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/coffee/Coffee%20MOCHA.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/coffee/Coffee%20MOCHA.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/coffee/Coffee%20MOCHA.webp') }} 380w, {{ asset('assets/images/products/coffee/Coffee%20MOCHA.webp') }} 398w" sizes="(max-width: 768px) 165px, 230px" width="398" height="547">
           </div>
 
           <div class="oy-sweets-content">
@@ -83,7 +83,7 @@
           data-big="Gold"
           data-details-img="{{ asset('assets/images/products/coffee/coffee_details/Coffee%20gold1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/coffee/Coffee%20gold.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/coffee/Coffee%20gold.webp') }}" alt="" loading="lazy" width="341" height="441">
           </div>
 
           <div class="oy-sweets-content">
@@ -100,7 +100,7 @@
           data-big="Bold"
           data-details-img="{{ asset('assets/images/products/coffee/coffee_details/Coffee%20bold1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/coffee/Coffee%20bold.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/coffee/Coffee%20bold.webp') }}" alt="" loading="lazy" width="390" height="507">
           </div>
 
           <div class="oy-sweets-content">
@@ -130,7 +130,7 @@
         data-big="Classic"
         data-details-img="{{ asset('assets/images/products/coffee/coffee_details/CLASSIC%20COFFEE1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/coffee/CLASSIC%20COFFEE.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/coffee/CLASSIC%20COFFEE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/coffee/CLASSIC%20COFFEE.webp') }} 380w, {{ asset('assets/images/products/coffee/CLASSIC%20COFFEE.webp') }} 417w" sizes="(max-width: 768px) 165px, 230px" width="417" height="547">
         </div>
 
         <div class="oy-sweets-content">

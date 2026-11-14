@@ -49,7 +49,7 @@
           data-big="Cereal|Treats"
           data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.webp') }} 380w, {{ asset('assets/images/products/Diet_line/CEREAL%20TREAT%20WTH%20CRAN%20BRRIES.webp') }} 390w" sizes="(max-width: 768px) 165px, 230px" width="390" height="466">
           </div>
 
           <div class="oy-sweets-content">
@@ -66,7 +66,7 @@
           data-big="Cereal|Treats"
           data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CEREAL%20TREAT1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CEREAL%20TREAT.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/CEREAL%20TREAT.webp') }} 380w, {{ asset('assets/images/products/Diet_line/CEREAL%20TREAT.webp') }} 474w" sizes="(max-width: 768px) 165px, 230px" width="474" height="516">
           </div>
 
           <div class="oy-sweets-content">
@@ -83,7 +83,7 @@
           data-big="Choc|Chip"
           data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.webp') }} 380w, {{ asset('assets/images/products/Diet_line/CHOC%20CHIP%20%26HAZELNUT%20COOKIESS.webp') }} 465w" sizes="(max-width: 768px) 165px, 230px" width="465" height="547">
           </div>
 
           <div class="oy-sweets-content">
@@ -100,7 +100,7 @@
           data-big="Choco|late"
           data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/CHOCOLATE%20DIGESTIVE1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Diet_line/CHOCOLATE%20DIGESTIVE.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Diet_line/CHOCOLATE%20DIGESTIVE.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/CHOCOLATE%20DIGESTIVE.webp') }} 380w, {{ asset('assets/images/products/Diet_line/CHOCOLATE%20DIGESTIVE.webp') }} 954w" sizes="(max-width: 768px) 165px, 230px" width="954" height="467">
           </div>
 
           <div class="oy-sweets-content">
@@ -130,7 +130,7 @@
         data-big="Morn|ing"
         data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/Devon%20Morning%20Coffee%20Light1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/Devon%20Morning%20Coffee%20Light.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/Devon%20Morning%20Coffee%20Light.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/Devon%20Morning%20Coffee%20Light.webp') }} 380w, {{ asset('assets/images/products/Diet_line/Devon%20Morning%20Coffee%20Light.webp') }} 1091w" sizes="(max-width: 768px) 165px, 230px" width="1091" height="355">
         </div>
 
         <div class="oy-sweets-content">
@@ -147,7 +147,7 @@
         data-big="Diges|tive"
         data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/DIGESTIVE%20BISCUITS1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/DIGESTIVE%20BISCUITS.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/DIGESTIVE%20BISCUITS.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/DIGESTIVE%20BISCUITS.webp') }} 380w, {{ asset('assets/images/products/Diet_line/DIGESTIVE%20BISCUITS.webp') }} 842w" sizes="(max-width: 768px) 165px, 230px" width="842" height="347">
         </div>
 
         <div class="oy-sweets-content">
@@ -164,7 +164,7 @@
         data-big="Tea|Biscuits"
         data-details-img="{{ asset('assets/images/products/Diet_line/Diet_line_details/TEA%20BISCUITS1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/Diet_line/TEA%20BISCUITS.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/Diet_line/TEA%20BISCUITS.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Diet_line/TEA%20BISCUITS.webp') }} 380w, {{ asset('assets/images/products/Diet_line/TEA%20BISCUITS.webp') }} 921w" sizes="(max-width: 768px) 165px, 230px" width="921" height="299">
         </div>
 
         <div class="oy-sweets-content">

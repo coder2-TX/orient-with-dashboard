@@ -46,7 +46,7 @@
           data-big="Mallow"
           data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/Marshmallow3-1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/marshmallow/Marshmallow3.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/marshmallow/Marshmallow3.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/Marshmallow3.webp') }} 380w, {{ asset('assets/images/products/marshmallow/Marshmallow3.webp') }} 435w" sizes="(max-width: 768px) 165px, 230px" width="435" height="547">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">01</div>
@@ -62,7 +62,7 @@
           data-big="Mallow"
           data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/marshmallow1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/marshmallow/marshmallow.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/marshmallow/marshmallow.webp') }}" alt="" loading="lazy" width="414" height="547">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">02</div>
@@ -78,7 +78,7 @@
           data-big="Mallow"
           data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/mallow%20Plus3-1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/marshmallow/mallow%20Plus3.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/marshmallow/mallow%20Plus3.webp') }}" alt="" loading="lazy" width="372" height="547">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">03</div>
@@ -94,7 +94,7 @@
           data-big="Mallow"
           data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus2.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/marshmallow/Mallow%20Plus1.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/marshmallow/Mallow%20Plus1.webp') }}" alt="" loading="lazy" width="312" height="547">
           </div>
           <div class="oy-sweets-content">
             <div class="oy-sweets-num">04</div>
@@ -123,7 +123,7 @@
         data-big="Mallow"
         data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/Mallow%20Plus%20Jam%20Filled%20Mallow1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.webp') }} 380w, {{ asset('assets/images/products/marshmallow/Mallow%20Plus%20Jam%20Filled%20Mallow.webp') }} 416w" sizes="(max-width: 768px) 165px, 230px" width="416" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">05</div>
@@ -139,7 +139,7 @@
         data-big="Mallow"
         data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/Flat%20Bag%20Strawberry1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/marshmallow/Flat%20Bag%20Strawberry.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/marshmallow/Flat%20Bag%20Strawberry.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/Flat%20Bag%20Strawberry.webp') }} 380w, {{ asset('assets/images/products/marshmallow/Flat%20Bag%20Strawberry.webp') }} 668w" sizes="(max-width: 768px) 165px, 230px" width="668" height="1215">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">06</div>
@@ -155,7 +155,7 @@
         data-big="Straw|berry"
         data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.webp') }} 380w, {{ asset('assets/images/products/marshmallow/69g%20Flat%20Bag%20Sugar%20Free%20Marshmallow.webp') }} 548w" sizes="(max-width: 768px) 165px, 230px" width="548" height="1041">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">07</div>
@@ -171,7 +171,7 @@
         data-big="Twist"
         data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/63g%20Twisted%20Small1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/marshmallow/63g%20Twisted%20Small.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/marshmallow/63g%20Twisted%20Small.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/63g%20Twisted%20Small.webp') }} 380w, {{ asset('assets/images/products/marshmallow/63g%20Twisted%20Small.webp') }} 494w" sizes="(max-width: 768px) 165px, 230px" width="494" height="855">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">08</div>
@@ -191,7 +191,7 @@
         data-big="Straw|berry"
         data-details-img="{{ asset('assets/images/products/marshmallow/marshmallow_details/ZER%200%25SUGAR1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/marshmallow/ZER%200%25SUGAR.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/marshmallow/ZER%200%25SUGAR.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/marshmallow/ZER%200%25SUGAR.webp') }} 380w, {{ asset('assets/images/products/marshmallow/ZER%200%25SUGAR.webp') }} 462w" sizes="(max-width: 768px) 165px, 230px" width="462" height="547">
         </div>
 
         <div class="oy-sweets-content">
@@ -208,7 +208,7 @@
         data-big="Maltre|asures"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/GC 7-1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/GC 7.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/GC 7.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/GC%207.webp') }} 380w, {{ asset('assets/images/products/sweets3/GC 7.webp') }} 426w" sizes="(max-width: 768px) 165px, 230px" width="426" height="387">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">10</div>
@@ -224,7 +224,7 @@
         data-big="Love &|Passion"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/Hartbeat Lychee.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/Hartbeat Lychee1.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/Hartbeat Lychee1.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/Hartbeat%20Lychee1.webp') }} 380w, {{ asset('assets/images/products/sweets3/Hartbeat Lychee1.webp') }} 431w" sizes="(max-width: 768px) 165px, 230px" width="431" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">11</div>
@@ -240,7 +240,7 @@
         data-big="Rio|Pop"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/lollipop1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/lollipop.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/lollipop.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/lollipop.webp') }} 380w, {{ asset('assets/images/products/sweets3/lollipop.webp') }} 433w" sizes="(max-width: 768px) 165px, 230px" width="433" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">12</div>
@@ -260,7 +260,7 @@
         data-big="Heart|Beat"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/hartbeat black currant1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/hartbeat black currant.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/hartbeat black currant.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/hartbeat%20black%20currant.webp') }} 380w, {{ asset('assets/images/products/sweets3/hartbeat black currant.webp') }} 466w" sizes="(max-width: 768px) 165px, 230px" width="466" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">13</div>
@@ -276,7 +276,7 @@
         data-big="Maz|elo"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/mazelo1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/mazelo.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/mazelo.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/mazelo.webp') }} 380w, {{ asset('assets/images/products/sweets3/mazelo.webp') }} 391w" sizes="(max-width: 768px) 165px, 230px" width="391" height="500">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">14</div>
@@ -292,7 +292,7 @@
         data-big="Heart|Beat"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/HARTBEAT JUMBO MANGO1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/HARTBEAT JUMBO MANGO.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/HARTBEAT JUMBO MANGO.webp') }}" alt="" loading="lazy" width="375" height="416">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">15</div>
@@ -308,7 +308,7 @@
         data-big="Beely|Pop"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/lollipop With two different flavor1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/lollipop With two different flavor.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/lollipop With two different flavor.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/lollipop%20With%20two%20different%20flavor.webp') }} 380w, {{ asset('assets/images/products/sweets3/lollipop With two different flavor.webp') }} 465w" sizes="(max-width: 768px) 165px, 230px" width="465" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">16</div>
@@ -328,7 +328,7 @@
         data-big="Mel|ody"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/melody1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/melody.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/melody.webp') }}" alt="" loading="lazy" width="340" height="469">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">17</div>
@@ -344,7 +344,7 @@
         data-big="Heart|Beat"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/hartbeat jumbo Tutti Fruiti1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/hartbeat%20jumbo%20Tutti%20Fruiti.webp') }} 380w, {{ asset('assets/images/products/sweets3/hartbeat jumbo Tutti Fruiti.webp') }} 469w" sizes="(max-width: 768px) 165px, 230px" width="469" height="547">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">18</div>
@@ -360,7 +360,7 @@
         data-big="H&|H"
         data-details-img="{{ asset('assets/images/products/sweets3/sweets_details/Peanuts coated by luxury chocolate1.webp') }}">
         <div class="oy-sweets-media" aria-hidden="true">
-          <img src="{{ asset('assets/images/products/sweets3/Peanuts coated by luxury chocolate.webp') }}" alt="" loading="lazy">
+          <img src="{{ asset('assets/images/products/sweets3/Peanuts coated by luxury chocolate.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/sweets3/Peanuts%20coated%20by%20luxury%20chocolate.webp') }} 380w, {{ asset('assets/images/products/sweets3/Peanuts coated by luxury chocolate.webp') }} 521w" sizes="(max-width: 768px) 165px, 230px" width="521" height="312">
         </div>
         <div class="oy-sweets-content">
           <div class="oy-sweets-num">19</div>

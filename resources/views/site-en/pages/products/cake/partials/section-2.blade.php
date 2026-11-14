@@ -50,7 +50,7 @@
           data-big="Soreto"
           data-details-img="{{ asset('assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20Vanillin1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.webp') }} 380w, {{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20Vanillin.webp') }} 482w" sizes="(max-width: 768px) 165px, 230px" width="482" height="375">
           </div>
 
           <div class="oy-sweets-content">
@@ -67,7 +67,7 @@
           data-big="Soreto"
           data-details-img="{{ asset('assets/images/products/Cakes/Cakes_details/Sponge%20Cake%20filled%20with%20chocolate1.webp') }}">
           <div class="oy-sweets-media" aria-hidden="true">
-            <img src="{{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.webp') }}" alt="" loading="lazy">
+            <img src="{{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.webp') }}" alt="" loading="lazy" srcset="{{ asset('assets/images/products-previews/Cakes/Sponge%20Cake%20filled%20with%20chocolate.webp') }} 380w, {{ asset('assets/images/products/Cakes/Sponge%20Cake%20filled%20with%20chocolate.webp') }} 520w" sizes="(max-width: 768px) 165px, 230px" width="520" height="397">
           </div>
 
           <div class="oy-sweets-content">
