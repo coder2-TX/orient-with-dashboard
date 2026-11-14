@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="{{ asset('assets/images/header/Brand_Mark.png') }}">
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/header/Brand_Mark.png') }}">
   <!-- Icons -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/orient-fa/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/vendor/orient-fa/css/site-icons.css') }}">
 
   @hasSection('oy_home_css')
   <link rel="stylesheet" href="{{ asset('assets/css/home-combined.css') }}?v={{ filemtime(public_path('assets/css/home-combined.css')) }}">
