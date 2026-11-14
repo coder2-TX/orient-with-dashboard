@@ -165,7 +165,7 @@ class HomeHero extends Model
 
         foreach (range(1, 6) as $number) {
             foreach (
-                ['jpg', 'jpeg', 'png', 'webp'] as $extension
+                ['webp', 'jpg', 'jpeg', 'png'] as $extension
             ) {
                 $publicRelativePath =
                     "{$publicDirectory}/{$number}.{$extension}";
@@ -210,7 +210,7 @@ class HomeHero extends Model
 
         foreach (range(1, 6) as $number) {
             foreach (
-                ['jpg', 'jpeg', 'png', 'webp'] as $extension
+                ['webp', 'jpg', 'jpeg', 'png'] as $extension
             ) {
                 $publicRelativePath =
                     "{$publicDirectory}/{$number}.{$extension}";

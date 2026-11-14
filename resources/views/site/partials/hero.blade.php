@@ -36,6 +36,12 @@
     : $defaultSlides;
 @endphp
 
+@push('hero_preload')
+  @if(count($slides) > 0)
+    <link rel="preload" as="image" href="{{ $slides[0] }}" fetchpriority="high">
+  @endif
+@endpush
+
 <section
   class="oy-hero oy-hero--ar"
   id="home"
@@ -46,7 +52,7 @@
     @foreach($slides as $i => $url)
       <div
         class="oy-hero__slide {{ $i === 0 ? 'is-active' : '' }}"
-        style="background-image: url('{{ $url }}')"
+        @if($i === 0) style="background-image: url('{{ $url }}')" @else data-hero-src="{{ $url }}" @endif
       ></div>
     @endforeach
   </div>

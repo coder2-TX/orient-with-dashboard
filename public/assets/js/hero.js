@@ -20,9 +20,18 @@
       state.index = 0;
     }
 
+    // Defer hidden slides until they are needed. Keep original fade and 4s timing.
+    const ensureLoaded = (slide) => {
+      if (!slide) return;
+      const url = slide.getAttribute("data-hero-src");
+      if (!url) return;
+      slide.style.backgroundImage = "url(" + JSON.stringify(url) + ")";
+      slide.removeAttribute("data-hero-src");
+    };
     const setActive = (nextIndex) => {
       const safeIndex = (nextIndex + slides.length) % slides.length;
 
+      ensureLoaded(slides[safeIndex]);
       slides.forEach((slide) => slide.classList.remove("is-active"));
       slides[safeIndex].classList.add("is-active");
 
@@ -46,6 +55,10 @@
 
       if (slides.length <= 1) return;
 
+      // Load only the next slide after initial content has had time to render.
+      window.setTimeout(() => {
+        if (state.timer) ensureLoaded(slides[(state.index + 1) % slides.length]);
+      }, 2000);
       state.timer = window.setInterval(() => {
         setActive(state.index + 1);
       }, HERO_INTERVAL_MS);
