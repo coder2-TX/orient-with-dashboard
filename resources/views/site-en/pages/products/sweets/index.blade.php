@@ -7,7 +7,7 @@
 @endpush
 
 @push('scripts')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="{{ asset('assets/vendor/gsap/gsap.min.js') }}?v=3.12.5" defer></script>
   <script src="{{ asset('assets/js/pages/products-sweets.js') }}" defer></script>
 @endpush
 
